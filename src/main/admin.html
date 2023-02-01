@@ -12,12 +12,24 @@
    <form action="">
       <div class="left__side">
          <h1>Debug</h1><br>
-         <h2>Navigate</h2><br>
+         <h2>Quick links</h2><br>
          <a href="">Login page</a><br>
-         <a href="">Login page</a><br>
-         <a href="">Login page</a><br>
-         <a href="">Login page</a><br>
-         <a href="">Login page</a><br>
+         <a href="">Event requests</a><br>
+         <a href="">Form approvals</a><br>
+         <a href="">Events list</a><br>
+         <a href="">Accounts list</a><br><br>
+         <h2>Events</h2><br>
+         <input class="student__name" type="text" placeholder="Student name" required><br><br>
+         <input class="student__name" type="text" placeholder="Student name" required><br><br>
+         <input class="student__name" type="text" placeholder="Student name" required><br><br>
+         <input type="button" value="Apply filters" onclick=""><br><br>
+         <h2>Accounts</h2><br>
+         <input class="student__name" type="text" placeholder="Student name" required><br><br>
+         <input class="student__name" type="text" placeholder="Student name" required><br><br>
+         <input class="student__name" type="text" placeholder="Student name" required><br><br>
+         <input type="button" value="Apply filters" onclick=""><br><br>
+         <h2>Requests</h2><br>
+         <input type="button" value="View requests">
       </div>
       <div class="middle">
          <h1>Dashboard</h1><br>
@@ -40,6 +52,7 @@
                   </thead>
                   <tbody class="events__output"></tbody>
                </table><br>
+               <input type="button" value="Back to top">
             </div>
          </div>
          <div class="accounts__holder" style="display: none;">
@@ -61,6 +74,7 @@
                   </thead>
                   <tbody class="accounts__output"></tbody>
                </table><br>
+               <input type="button" value="Back to top">
             </div>
          </div>
          <input type="button" value="View events" onclick="toggleEvents()">
@@ -83,30 +97,36 @@
          <input type="button" value="Create Event" onclick="createNewEvent()"><br><br>
          <h2>New account</h2><br>
          <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input class="student__grade" type="text" placeholder="Student grade" required><br><br>
+         <!-- <input class="student__grade" type="text" placeholder="Student grade" required><br><br> -->
+         <select class="student__grade" name="" id="">
+            <option value="">None</option>
+            <option value="">9</option>
+            <option value="">10</option>
+            <option value="">11</option>
+            <option value="">12</option>
+         </select required><br><br>
          <input class="student__username" type="text" placeholder="Student username" required><br><br>
          <input type="button" value="Create Account" onclick="">
       </div>
    </form>
    <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
       * {
          font-family: 'JetBrains Mono', monospace;
-         /* font-family: 'Roboto', sans-serif; */
          user-select: none;
          padding: 0;
          margin: 0;
+         color: #aaa;
       }
 
       body {
-         background-color: #000;
+         background-color: #222;
       }
 
       a {
          text-decoration: none;
-         color: #0000ff;
+         color: #6969ff;
       }
 
       a:hover {
@@ -122,48 +142,59 @@
       }
 
       .left__side {
-         background-color: #aaa;
-         position: relative;
+         background-color: #1b1b1b;
+         position: fixed;
          padding: 2rem;
+         top: 0;
+         left: 0;
+         width: 12rem;
+         height: 100vh;
       }
 
       .middle {
-         background-color: #ccc;
-         position: relative;
+         background-color: #222;
+         position: absolute;
+         top: 0;
+         left: 50%;
+         transform: translateX(-50%);
          padding: 2rem;
+         width: calc(100% - 36rem);
       }
 
       .right__side {
-         background-color: #aaa;
-         position: relative;
+         background-color: #1b1b1b;
+         position: fixed;
          padding: 2rem;
+         top: 0;
+         right: 0;
+         width: 12rem;
+         height: 100vh;
       }
 
       h1 {
          font-size: 2rem;
-         color: #000;
       }
 
       h2 {
          font-size: 1.5rem;
-         color: #000;
       }
 
       label, span {
          font-size: 1rem;
-         color: #000;
+      }
+
+      ::placeholder {
+         color: #777;
       }
 
       .events__holder,
       .accounts__holder {
-         /* padding: 2rem; */
-         position: fixed;
+         position: absolute;
          width: 100%;
-         height: 100%;
          top: 0;
          left: 0;
          z-index: 999;
-         background-color: #ccc;
+         background-color: #222;
       }
 
       .table__holder {
@@ -173,21 +204,21 @@
 
       table {
          border-collapse: collapse;
-         color: #000;
+         color: #fff;
          text-align: center;
          width: 100%;
       }
 
       thead {
-         background-color: #aaa;
+         background-color: #3b3b3b;
       }
 
       tbody {
-         background-color: #bbb;
+         background-color: #333;
       }
 
       tr:nth-child(even) {
-         background-color: #aaa;
+         background-color: #3b3b3b;
       }
 
       th,
@@ -205,25 +236,38 @@
          border-radius: .25rem;
          padding: .25rem;
          border: none;
+         width: calc(100% - .5rem);
+         background-color: #333;
+         color: #777;
+      }
+
+      select {
+         border-radius: .25rem;
+         padding: .25rem;
+         border: none;
          width: 100%;
+         background-color: #333;
+         color: #777;
       }
 
       .search {
          width: 10rem;
       }
 
+      input[type=date] {
+         color: #777;
+      }
+
       input[type=button] {
-         background-color: #ff6969;
-         border-radius: .25rem;
+         background-color: #9a9aff;
          transition: .15s;
-         padding: .25rem;
-         border: none;
          width: auto;
+         color: #000;
       }
 
       input[type=button]:hover {
-         background-color: #ff6969;
-         color: #fff;
+         cursor: pointer;
+         padding: .5rem;
       }
    </style>
    <script src="../preload/admin_preload.js"></script>
