@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <form action="">
+      <h1>Login</h1>
+      <input class="username" type="text" required placeholder="Username"><br>
+      <input class="password" type="text" required placeholder="Password"><br>
+      <input type="button" value="Submit" onclick="validateUsernameAndPassword()">
+   </form>
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+      * {
+         font-family: 'JetBrains Mono', monospace;
+         user-select: none;
+         padding: 0;
+         margin: 0;
+      }
+
+      body {
+         background-color: #ccc;
+      }
+
+      form {
+         transform: translate(-50%, -50%);
+         background-color: #aaa;
+         border-radius: 1rem;
+         text-align: center;
+         position: fixed;
+         padding: 1rem;
+         width: 20rem;
+         left: 50%;
+         top: 50%;
+      }
+
+      h1 {
+         margin-bottom: 1rem;
+         color: #000;
+      }
+
+      label {
+         color: #000;
+      }
+
+      input[type=text] {
+         border-radius: .25rem;
+         margin-bottom: 1rem;
+         padding: .25rem;
+         border: none;
+      }
+
+      input[type=button] {
+         background-color: #ff6969;
+         border-radius: .25rem;
+         transition: .15s;
+         padding: .25rem;
+         border: none;
+         width: 5rem;
+      }
+
+      input[type=button]:hover {
+         background-color: #ff6969;
+         color: #fff;
+      }
+   </style>
+   <script src="login_preload.js"></script>
+</body>
+
+</html>

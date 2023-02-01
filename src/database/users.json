@@ -1,0 +1,22 @@
+[
+   {
+      "key": 0,
+      "student_fname": "Praneeth",
+      "student_lname": "Rangarajan",
+      "student_grade": 12,
+      "username": "p",
+      "password": "p",
+      "points": 1000,
+      "admin": true
+   },
+   {
+      "key": 1,
+      "student_fname": "Rithwak",
+      "student_lname": "Somepalli",
+      "student_grade": 12,
+      "username": "Rithwak123",
+      "password": "passwordR",
+      "points": 1000,
+      "admin": false
+   }
+]
