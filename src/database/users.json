@@ -1,22 +1,31 @@
 [
-   {
-      "key": 0,
-      "student_fname": "Praneeth",
-      "student_lname": "Rangarajan",
-      "student_grade": 12,
-      "username": "p",
-      "password": "p",
-      "points": 1000,
-      "admin": true
-   },
-   {
-      "key": 1,
-      "student_fname": "Rithwak",
-      "student_lname": "Somepalli",
-      "student_grade": 12,
-      "username": "Rithwak123",
-      "password": "passwordR",
-      "points": 1000,
-      "admin": false
-   }
+  {
+    "key": 0,
+    "student_fname": "Praneeth",
+    "student_lname": "Rangarajan",
+    "student_grade": 12,
+    "username": "p",
+    "password": "p",
+    "points": 1000,
+    "admin": true
+  },
+  {
+    "key": 1,
+    "student_fname": "Rithwak",
+    "student_lname": "Somepalli",
+    "student_grade": 12,
+    "username": "Rithwak123",
+    "password": "passwordR",
+    "points": 1000,
+    "admin": false
+  },
+  {
+    "key": 468670,
+    "student_fname": "Sai",
+    "student_grade": "10",
+    "username": "sainallani",
+    "password": "$2a$10$J8KJFPUiURcoFA2RqgsMh.oKB9xm3O1juOKcD9DjdpFUjYtNtu77u",
+    "points": 0,
+    "admin": false
+  }
 ]

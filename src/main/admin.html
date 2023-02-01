@@ -87,6 +87,7 @@
       <div class="right__side">
          <h1>Create</h1><br>
          <h2>New event</h2><br>
+         <div hidden id="eventAlert" class="alert warning"></div>
          <input class="event__name" type="text" placeholder="Event name" required><br><br>
          <input class="event__description" type="text" placeholder="Event description" required><br><br>
          <input class="prize" type="number" placeholder="Prize" required min="0" max="1000"><br><br>
@@ -95,18 +96,21 @@
          <label for="end">End date</label>
          <input class="end__date" type="date" placeholder="End date" required id="end"><br><br>
          <input type="button" value="Create Event" onclick="createNewEvent()"><br><br>
-         <h2>New account</h2><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <!-- <input class="student__grade" type="text" placeholder="Student grade" required><br><br> -->
-         <select class="student__grade" name="" id="">
-            <option value="">None</option>
-            <option value="">9</option>
-            <option value="">10</option>
-            <option value="">11</option>
-            <option value="">12</option>
-         </select required><br><br>
-         <input class="student__username" type="text" placeholder="Student username" required><br><br>
-         <input type="button" value="Create Account" onclick="">
+         <h2>New Student Account</h2><br>
+         <div hidden id="accountAlert" class="alert warning"></div>
+         <input class="student__name student__fname" type="text" placeholder="Student First Name" required><br><br>
+            <input class="student__name student__lname" type="text" placeholder="Student Last Name" required><br><br>
+            <select class="student__grade">
+               <option value="" disabled selected>Select grade</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+               <option value="11">11</option>
+               <option value="12">12</option>
+            </select><br><br>
+            <input class="student__username" type="text" placeholder="Student username" required><br><br>
+            <input class="student__password" type="password" placeholder="password" required><br><br>
+            <input type="button" value="Create Account" onclick="createNewAccount()">
+
       </div>
    </form>
    <style>
@@ -179,7 +183,8 @@
          font-size: 1.5rem;
       }
 
-      label, span {
+      label,
+      span {
          font-size: 1rem;
       }
 
@@ -269,7 +274,32 @@
          cursor: pointer;
          padding: .5rem;
       }
+
+      .alert,
+      .warning {
+         position: fixed;
+         z-index: 999999999;
+         bottom: 1rem;
+         right: 1rem;
+         /* width: 10rem; */
+         width: 15rem;
+         /* height: 10rem; */
+         /* background-color: #f00; */
+         padding: 1rem;
+         border-radius: 1rem;
+      }
+
+      .alert {
+         background-color: #fff;
+      }
+
+      .warning {
+         /* top: 10rem; */
+         background-color: #ffa3a3;
+      }
    </style>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
    <script src="../preload/admin_preload.js"></script>
 </body>
 
