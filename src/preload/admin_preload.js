@@ -53,7 +53,22 @@ function updateEvents() {
       let output = "";
       // Loop through the events and build the output string
       for (event of events) {
-        output += `<tr> <td>${event.event_name}</td> <td>${event.event_description}</td> <td>${event.prize}</td> <td>${event.start_date}</td> <td>${event.end_date}</td> <td> <div class="button__bar"> <input type="button" onclick="editEvent()" value="Edit"> <input type="button" onclick="deleteEvent()" value="Delete"> </div> </td> </tr> }`;
+        output += `
+               <tr>
+                  <td>${event.event_name}</td>
+                  <td>${event.event_description}</td>
+                  <td>${event.prize}</td>
+                  <td>${event.start_date}</td>
+                  <td>${event.end_date}</td>
+                  <td>
+                     <div class="button__bar">
+                        <input type="button" onclick="editEvent()" value="Edit">
+                        <input type="button" onclick="deleteEvent()" value="Delete">
+                     </div>
+                  </td>
+               </tr>
+            `
+         }
         // Update the innerHTML of the events placeholder
         placeholder.innerHTML = output;
       }
@@ -123,7 +138,11 @@ function createNewEvent() {
 }
 
 // Function to edit an existing event
-function editEvent() {}
+function editEvent() {
+
+}
 
 // Function to delete an existing event
-function deleteEvent() {}
+function deleteEvent() {
+
+}
