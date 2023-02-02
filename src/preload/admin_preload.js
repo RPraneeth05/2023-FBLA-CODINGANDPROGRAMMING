@@ -72,12 +72,11 @@ function updateEvents() {
                   </td>
                </tr>
             `
-         }
-        // Update the innerHTML of the events placeholder
-        placeholder.innerHTML = output;
       }
-    });
-}
+      // Update the innerHTML of the events placeholder
+      placeholder.innerHTML = output;
+    })
+};
 
 // Call the updateEvents function to initialize the events data
 updateEvents();
@@ -139,6 +138,55 @@ function createNewEvent() {
 
   // Update the events on the page
   updateEvents();
+}
+function createNewAccount() {
+  const fname = document.querySelector('.student__fname').value;
+  const lname = document.querySelector('.student__lname').value;
+  const grade = document.querySelector('.student__grade').value;
+  const username = document.querySelector('.student__username').value;
+  const password = document.querySelector('.student__password').value;
+  const eventAlert = document.querySelector("#accountAlert");
+  
+  if (!fname || !lname || !grade || !username || !password) {
+    eventAlert.hidden = false;
+    $(eventAlert).fadeIn(500).delay(500).fadeOut(500);
+    eventAlert.innerHTML = "<span>Make sure all fields are present with information!</span>";
+    return;
+  }
+
+  if (password.length < 8) {
+    eventAlert.hidden = false;
+    $(eventAlert).fadeIn(500).delay(500).fadeOut(500);
+    eventAlert.innerHTML = "<span>Password should be at least 8 characters long!</span>";
+    return;
+  }
+  
+  const currentUsers = readFromJSON(path.join(__dirname, '../database/users.json'));
+  
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(password, salt, function (err, hash) {
+      const hashedPassword = hash;
+      const key = Math.floor(Math.random() * 1000000);
+
+      const newStudent = {
+        key: key,
+        student_fname: fname,
+        student_lname: lname,
+        student_grade: grade,
+        username: username,
+        password: hashedPassword,
+        points: 0,
+        admin: false
+      };
+      currentUsers.push(newStudent);
+      writeToJSON(path.join(__dirname, '../database/users.json'), currentUsers);
+      document.querySelector('.student__fname').value = "";
+      document.querySelector('.student__lname').value = "";
+      document.querySelector('.student__grade').value = "";
+      document.querySelector('.student__username').value = "";
+      document.querySelector('.student__password').value = "";
+    });
+  });
 }
 
 // Function to edit an existing event
