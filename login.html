@@ -12,7 +12,7 @@
    <form action="">
       <h1>Login</h1>
       <input class="username" type="text" required placeholder="Username"><br>
-      <input class="password" type="password" required placeholder="Password"><br>
+      <input class="password" type="text" required placeholder="Password"><br>
       <input type="button" value="Submit" onclick="validateUsernameAndPassword()">
    </form>
    <style>
@@ -26,12 +26,12 @@
       }
 
       body {
-         background-color: #ccc;
+         background-color: #1b1b1b;
       }
 
       form {
          transform: translate(-50%, -50%);
-         background-color: #aaa;
+         background-color: #222;
          border-radius: 1rem;
          text-align: center;
          position: fixed;
@@ -43,37 +43,40 @@
 
       h1 {
          margin-bottom: 1rem;
-         color: #000;
+         color: #fff;
       }
 
       label {
-         color: #000;
+         color: #fff;
+      }
+
+      ::placeholder {
+         color: #777;
       }
 
       input[type=text] {
+         background-color: #333;
          border-radius: .25rem;
          margin-bottom: 1rem;
          padding: .25rem;
          border: none;
+         color: #aaa;
       }
-      input[type=password] {
-         border-radius: .25rem;
-         margin-bottom: 1rem;
-         padding: .25rem;
-         border: none;
-      }
+
       input[type=button] {
-         background-color: #ff6969;
+         background-color: #9a9aff;
          border-radius: .25rem;
          transition: .15s;
          padding: .25rem;
          border: none;
-         width: 5rem;
+         /* width: auto; */
       }
 
       input[type=button]:hover {
-         background-color: #ff6969;
-         color: #fff;
+         cursor: pointer;
+         padding: .5rem;
+         /* background-color: #ff6969;
+         color: #fff; */
       }
    </style>
    <script src="login_preload.js"></script>
