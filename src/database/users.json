@@ -5,7 +5,7 @@
     "student_lname": "Rangarajan",
     "student_grade": 12,
     "username": "p",
-    "password": "p",
+    "password": "$2a$10$iGZFaHoKFxcoVqbpk/OO8uKMx2FtFQ/9Kh5g32/Fs7oL31JkjH7gG",
     "points": 1000,
     "admin": true
   },
@@ -25,6 +25,16 @@
     "student_grade": "10",
     "username": "sainallani",
     "password": "$2a$10$J8KJFPUiURcoFA2RqgsMh.oKB9xm3O1juOKcD9DjdpFUjYtNtu77u",
+    "points": 0,
+    "admin": false
+  },
+  {
+    "key": 351406,
+    "student_fname": "sai",
+    "student_lname": "nallani",
+    "student_grade": "9",
+    "username": "snallani",
+    "password": "$2a$10$Txw8/KhgpYLNGX/kw88c.OCK6oepupaAXj6muuH3Q4/o5FURqP68y",
     "points": 0,
     "admin": false
   }
