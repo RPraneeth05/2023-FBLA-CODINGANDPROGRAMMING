@@ -193,19 +193,21 @@
          <label for="end">End date</label>
          <input class="end__date" type="date" placeholder="End date" required id="end"><br><br>
          <input type="button" value="Create Event" onclick="createNewEvent()"><br><br>
-         <h2>New account</h2><br>
-         <input class="student__fname" type="text" placeholder="First name" required><br><br>
-         <input class="student__lname" type="text" placeholder="Last name" required><br><br>
-         <!-- <input class="student__grade" type="text" placeholder="Student grade" required><br><br> -->
-         <select class="student__grade">
-            <option value="0">Grade</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-         </select required><br><br>
-         <!-- <input class="student__username" type="text" placeholder="Student username" required><br><br> -->
-         <input type="button" value="Create Account" onclick="createNewAccount()">
+         <h2>New Student Account</h2><br>
+         <div class="stu_acc_creation">
+            <div hidden id="accountAlert" class="alert warning"></div>
+            <input class="student__name student__fname" type="text" placeholder="Student First Name" required><br><br>
+            <input class="student__name student__lname" type="text" placeholder="Student Last Name" required><br><br>
+            <select class="student__grade">
+               <option value="" disabled selected>Select grade</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+               <option value="11">11</option>
+               <option value="12">12</option>
+            </select><br><br>
+            <input class="student__username" type="text" placeholder="Student username" required><br><br>
+            <input class="student__password" type="password" placeholder="password" required><br><br>
+            <input type="button" value="Create Account" onclick="createNewAccount()">
 
 
 

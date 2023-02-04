@@ -215,50 +215,98 @@ function editEvent() {
 
 function deleteEvent() {
 }
-
 function createNewAccount() {
-   let currentAccounts = readFromJSON(path.join(__dirname, '../database/accounts.json'));
+   const fname = document.querySelector('.student__fname').value;
+   const lname = document.querySelector('.student__lname').value;
+   const grade = document.querySelector('.student__grade').value;
+   const username = document.querySelector('.student__username').value;
+   const password = document.querySelector('.student__password').value;
+   const alertBox = document.querySelector(".warning__box");
 
-   // let fullName = document.querySelector('.student__name').value;
+   if (!fname || !lname || !grade || !username || !password) {
 
-   // if ()
-
-   let fname = document.querySelector('.student__fname').value;
-   let lname = document.querySelector('.student__lname').value;
-
-
-   // let sanitized = fullName.toLowerCase();
-   // let fname = fullName.split(' ')[0];
-   // let lname = fullName.split(' ')[1];
-
-   let grade = document.querySelector('.student__grade').value;
-
-   if (fname === '' || lname === '' || grade === '0') {
       warningPopup('Warning', 'Empty fields present')
+
       return;
    }
 
-   // let username = document.querySelector('.student__username').value;
-   let username = `${fname.toLowerCase()[0]}${lname.toLowerCase()}`
-
-   let password = generateDefaultPassword();
-
-   let accountTemplate = {
-      "fname": fname,
-      "lname": lname,
-      "grade": grade,
-      "username": username,
-      "password": password,
-      "points": 0,
-      "admin": false
+   if (password.length < 8) {
+      warningPopup('Password', 'Password length has to be atleast 8 characters'); 
+      return;
    }
 
-   currentAccounts.push(accountTemplate);
-   writeToJSON(path.join(__dirname, '../database/accounts.json'), currentAccounts);
-   updateAccounts();
+   const currentUsers = readFromJSON(path.join(__dirname, '../database/users.json'));
 
+   bcrypt.genSalt(10, function (err, salt) {
+      bcrypt.hash(password, salt, function (err, hash) {
+         const hashedPassword = hash;
+         const key = Math.floor(Math.random() * 1000000);
+
+         const newStudent = {
+            key: key,
+            student_fname: fname,
+            student_lname: lname,
+            student_grade: grade,
+            username: username,
+            password: hashedPassword,
+            points: 0,
+            admin: false
+         };
+         currentUsers.push(newStudent);
+         writeToJSON(path.join(__dirname, '../database/users.json'), currentUsers);
+         document.querySelector('.student__fname').value = "";
+         document.querySelector('.student__lname').value = "";
+         document.querySelector('.student__grade').value = "";
+         document.querySelector('.student__username').value = "";
+         document.querySelector('.student__password').value = "";
+      });
+   });
+   updateAccounts();
    alertPopup('Alert', 'Student account created successfully');
 }
+// function createNewAccount() {
+//    let currentAccounts = readFromJSON(path.join(__dirname, '../database/accounts.json'));
+
+//    // let fullName = document.querySelector('.student__name').value;
+
+//    // if ()
+
+//    let fname = document.querySelector('.student__fname').value;
+//    let lname = document.querySelector('.student__lname').value;
+
+
+//    // let sanitized = fullName.toLowerCase();
+//    // let fname = fullName.split(' ')[0];
+//    // let lname = fullName.split(' ')[1];
+
+//    let grade = document.querySelector('.student__grade').value;
+
+//    if (fname === '' || lname === '' || grade === '0') {
+//       warningPopup('Warning', 'Empty fields present')
+//       return;
+//    }
+
+//    // let username = document.querySelector('.student__username').value;
+//    let username = `${fname.toLowerCase()[0]}${lname.toLowerCase()}`
+
+//    let password = generateDefaultPassword();
+
+//    let accountTemplate = {
+//       "fname": fname,
+//       "lname": lname,
+//       "grade": grade,
+//       "username": username,
+//       "password": password,
+//       "points": 0,
+//       "admin": false
+//    }
+
+//    currentAccounts.push(accountTemplate);
+//    writeToJSON(path.join(__dirname, '../database/accounts.json'), currentAccounts);
+//    updateAccounts();
+
+//    alertPopup('Alert', 'Student account created successfully');
+// }
 
 function filterEvents() {
    let input = document.querySelector('.event__search');
