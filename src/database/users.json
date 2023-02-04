@@ -37,5 +37,25 @@
     "password": "$2a$10$Txw8/KhgpYLNGX/kw88c.OCK6oepupaAXj6muuH3Q4/o5FURqP68y",
     "points": 0,
     "admin": false
+  },
+  {
+    "key": 850495,
+    "student_fname": "p",
+    "student_lname": "p",
+    "student_grade": "12",
+    "username": "sainallani",
+    "password": "$2a$10$dEcETdbASV..xdP4bEFk4uRpMllnkInr/XxY0IDnE8zfGtdlmJf3a",
+    "points": 0,
+    "admin": false
+  },
+  {
+    "key": 131915,
+    "student_fname": "TOm",
+    "student_lname": "Hatcher",
+    "student_grade": "12",
+    "username": "hatcherT",
+    "password": "$2a$10$NdG5jCcI6Rz4Q1.kgizuwO2sOyhrf9p0dtybsgqz.drHaTAXgcqae",
+    "points": 0,
+    "admin": false
   }
 ]

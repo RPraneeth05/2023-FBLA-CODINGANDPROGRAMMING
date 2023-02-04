@@ -94,7 +94,7 @@ function createNewEvent() {
   let prize = document.querySelector(".prize").value;
   let startDate = document.querySelector(".start__date").value;
   let endDate = document.querySelector(".end__date").value;
-
+  let alertBox = document.querySelector(".error__box");
   // Check if any of the fields are empty
   if (
     eventName === "" ||
@@ -104,11 +104,33 @@ function createNewEvent() {
     endDate === ""
   ) {
     // If any field is empty, show an alert and return
-    alert("Empty fields present");
+    alertBox.style.display = 'block';
+    alertBox.style['z-index'] = 2;
+    alertBox.childNodes[0].innerHTML = "Make sure all fields are filled!";
+    alertBox.childNodes[1].innerHTML = "Some fields aren't filled out with all the data required to add the event. Please enter all the data.";
+    alertBox.style.opacity = 100;
+    setTimeout(() => {
+      alertBox.style.opacity = 0;
+      alertBox.style.transition = "opacity .5s";
+
+    }, 1000);
+    setTimeout(() => {
+      alertBox.style['z-index'] = -2;
+    }, 2000);
     return;
   } else if (endDate < startDate) {
     // If the end date is earlier than the start date, show an alert and return
-    alert("Start date is later than end date");
+    alertBox.style.display = 'block';
+    alertBox.style['z-index'] = 2;
+    alertBox.childNodes[1].innerHTML = "The start date is after the end date!";
+    alertBox.style.opacity = 100;
+    setTimeout(() => {
+      alertBox.style.opacity = 0;
+      alertBox.style.transition = "opacity .5s";
+    }, 1000);
+    setTimeout(() => {
+      alertBox.style['z-index'] = -2;
+    }, 2000);
     return;
   }
 
@@ -145,24 +167,40 @@ function createNewAccount() {
   const grade = document.querySelector('.student__grade').value;
   const username = document.querySelector('.student__username').value;
   const password = document.querySelector('.student__password').value;
-  const eventAlert = document.querySelector("#accountAlert");
-  
+  const alertBox = document.querySelector(".warning__box");
+
   if (!fname || !lname || !grade || !username || !password) {
-    eventAlert.hidden = false;
-    $(eventAlert).fadeIn(500).delay(500).fadeOut(500);
-    eventAlert.innerHTML = "<span>Make sure all fields are present with information!</span>";
+    alertBox.style.display = 'block';
+    alertBox.style['z-index'] = 2;
+    alertBox.childNodes[1].innerHTML = "<span>Make sure all fields are present with information!</span>";
+    alertBox.style.opacity = 100;
+    setTimeout(() => {
+      alertBox.style.opacity = 0;
+      alertBox.style.transition = "opacity .5s";
+    }, 1000);
+    setTimeout(() => {
+      alertBox.style['z-index'] = -2;
+    }, 1500);
     return;
   }
 
   if (password.length < 8) {
-    eventAlert.hidden = false;
-    $(eventAlert).fadeIn(500).delay(500).fadeOut(500);
-    eventAlert.innerHTML = "<span>Password should be at least 8 characters long!</span>";
+    alertBox.style.display = 'block';
+    alertBox.style['z-index'] = 2;
+    alertBox.childNodes[1].innerHTML = "Password must be atleast 8 characters long.";
+    alertBox.style.opacity = 100;
+    setTimeout(() => {
+      alertBox.style.opacity = 0;
+      alertBox.style.transition = "opacity .5s";
+    }, 1000);
+    setTimeout(() => {
+      alertBox.style['z-index'] = -2;
+    }, 1500);
     return;
   }
-  
+
   const currentUsers = readFromJSON(path.join(__dirname, '../database/users.json'));
-  
+
   bcrypt.genSalt(10, function (err, salt) {
     bcrypt.hash(password, salt, function (err, hash) {
       const hashedPassword = hash;

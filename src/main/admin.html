@@ -1,311 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin Dashboard</title>
-</head>
-
-<body>
-   <form action="">
-      <div class="left__side">
-         <h1>Debug</h1><br>
-         <h2>Quick links</h2><br>
-         <a href="">Login page</a><br>
-         <a href="">Event requests</a><br>
-         <a href="">Form approvals</a><br>
-         <a href="">Events list</a><br>
-         <a href="">Accounts list</a><br><br>
-         <h2>Events</h2><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input type="button" value="Apply filters" onclick=""><br><br>
-         <h2>Accounts</h2><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input class="student__name" type="text" placeholder="Student name" required><br><br>
-         <input type="button" value="Apply filters" onclick=""><br><br>
-         <h2>Requests</h2><br>
-         <input type="button" value="View requests">
-      </div>
-      <div class="middle">
-         <h1>Dashboard</h1><br>
-         <div class="events__holder" style="display: none;">
-            <div class="table__holder">
-               <input type="button" value="Dashboard" onclick="toggleEvents()"><br><br>
-               <h2>Current events</h2><br>
-               <input class="search" type="text" placeholder="Search">
-               <input type="button" value="Search"><br><br>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Prize</th>
-                        <th>Start date</th>
-                        <th>End date</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="events__output"></tbody>
-               </table><br>
-               <input type="button" value="Back to top">
-            </div>
-         </div>
-         <div class="accounts__holder" style="display: none;">
-            <div class="table__holder">
-               <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
-               <h2>Current accounts</h2><br>
-               <input class="search" type="text" placeholder="Search">
-               <input type="button" value="Search"><br><br>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Fname</th>
-                        <th>Lname</th>
-                        <th>Grade</th>
-                        <th>Username</th>
-                        <th>Points</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="accounts__output"></tbody>
-               </table><br>
-               <input type="button" value="Back to top">
-            </div>
-         </div>
-         <input type="button" value="View events" onclick="toggleEvents()">
-         <input type="button" value="View accounts" onclick="toggleAccounts()"><br><br>
-         <h2>Number of events</h2>
-         <span class="events__number">Placeholder</span><br><br>
-         <h2>Number of accounts</h2>
-         <span class="accounts__number">Placeholder</span>
-      </div>
-      <div class="right__side">
-         <h1>Create</h1><br>
-         <h2>New event</h2><br>
-         <div hidden id="eventAlert" class="alert warning"></div>
-         <input class="event__name" type="text" placeholder="Event name" required><br><br>
-         <input class="event__description" type="text" placeholder="Event description" required><br><br>
-         <input class="prize" type="number" placeholder="Prize" required min="0" max="1000"><br><br>
-         <label for="start">Start date</label>
-         <input class="start__date" type="date" placeholder="Start date" required id="start"><br><br>
-         <label for="end">End date</label>
-         <input class="end__date" type="date" placeholder="End date" required id="end"><br><br>
-         <input type="button" value="Create Event" onclick="createNewEvent()"><br><br>
-         <h2>New Student Account</h2><br>
-         <div hidden id="accountAlert" class="alert warning"></div>
-         <input class="student__name student__fname" type="text" placeholder="Student First Name" required><br><br>
-            <input class="student__name student__lname" type="text" placeholder="Student Last Name" required><br><br>
-            <select class="student__grade">
-               <option value="" disabled selected>Select grade</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-               <option value="11">11</option>
-               <option value="12">12</option>
-            </select><br><br>
-            <input class="student__username" type="text" placeholder="Student username" required><br><br>
-            <input class="student__password" type="password" placeholder="password" required><br><br>
-            <input type="button" value="Create Account" onclick="createNewAccount()">
-
-      </div>
-   </form>
-   <style>
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-
-      * {
-         font-family: 'JetBrains Mono', monospace;
-         user-select: none;
-         padding: 0;
-         margin: 0;
-         color: #aaa;
-      }
-
-      body {
-         background-color: #222;
-      }
-
-      a {
-         text-decoration: none;
-         color: #6969ff;
-      }
-
-      a:hover {
-         text-decoration: underline;
-      }
-
-      form {
-         position: relative;
-         width: 100%;
-         display: grid;
-         grid-template-columns: 1fr 5fr 1fr;
-         height: 100vh;
-      }
-
-      .left__side {
-         background-color: #1b1b1b;
-         position: fixed;
-         padding: 2rem;
-         top: 0;
-         left: 0;
-         width: 12rem;
-         height: 100vh;
-      }
-
-      .middle {
-         background-color: #222;
-         position: absolute;
-         top: 0;
-         left: 50%;
-         transform: translateX(-50%);
-         padding: 2rem;
-         width: calc(100% - 36rem);
-      }
-
-      .right__side {
-         background-color: #1b1b1b;
-         position: fixed;
-         padding: 2rem;
-         top: 0;
-         right: 0;
-         width: 12rem;
-         height: 100vh;
-      }
-
-      h1 {
-         font-size: 2rem;
-      }
-
-      h2 {
-         font-size: 1.5rem;
-      }
-
-      label,
-      span {
-         font-size: 1rem;
-      }
-
-      ::placeholder {
-         color: #777;
-      }
-
-      .events__holder,
-      .accounts__holder {
-         position: absolute;
-         width: 100%;
-         top: 0;
-         left: 0;
-         z-index: 999;
-         background-color: #222;
-      }
-
-      .table__holder {
-         position: relative;
-         padding: 2rem;
-      }
-
-      table {
-         border-collapse: collapse;
-         color: #fff;
-         text-align: center;
-         width: 100%;
-      }
-
-      thead {
-         background-color: #3b3b3b;
-      }
-
-      tbody {
-         background-color: #333;
-      }
-
-      tr:nth-child(even) {
-         background-color: #3b3b3b;
-      }
-
-      th,
-      td {
-         padding: .5rem;
-         width: 16.66667%;
-      }
-
-      .button__bar {
-         display: flex;
-         gap: .5rem;
-      }
-
-      input {
-         border-radius: .25rem;
-         padding: .25rem;
-         border: none;
-         width: calc(100% - .5rem);
-         background-color: #333;
-         color: #777;
-      }
-
-      select {
-         border-radius: .25rem;
-         padding: .25rem;
-         border: none;
-         width: 100%;
-         background-color: #333;
-         color: #777;
-      }
-
-      .search {
-         width: 10rem;
-      }
-
-      input[type=date] {
-         color: #777;
-      }
-
-      input[type=button] {
-         background-color: #9a9aff;
-         transition: .15s;
-         width: auto;
-         color: #000;
-      }
-
-      input[type=button]:hover {
-         cursor: pointer;
-         padding: .5rem;
-      }
-
-      .alert,
-      .warning {
-         position: fixed;
-         z-index: 999999999;
-         bottom: 1rem;
-         right: 1rem;
-         /* width: 10rem; */
-         width: 15rem;
-         /* height: 10rem; */
-         /* background-color: #f00; */
-         padding: 1rem;
-         border-radius: 1rem;
-      }
-
-      .alert {
-         background-color: #fff;
-      }
-
-      .warning {
-         /* top: 10rem; */
-         background-color: #ffa3a3;
-      }
-   </style>
-   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-   <script src="../preload/admin_preload.js"></script>
-</body>
-
-</html>
- -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -318,20 +10,7 @@
 
 <body>
 
-   <div class="alert__box" style="display: block;">
-      <h2 class="alert__title">Alert title</h2>
-      <p class="alert__description">Alert description</p>
-   </div>
-
-   <div class="warning__box" style="display: block;">
-      <h2 class="warning__title">Warning title</h2>
-      <p class="warning__description">Warning description</p>
-   </div>
-
-   <div class="error__box" style="display: block;">
-      <h2 class="error__title">Error title</h2>
-      <p class="error__description">Error description</p>
-   </div>
+   
 
    <form action="">
       <div class="left__side">
@@ -448,24 +127,39 @@
          <label for="end">End date</label>
          <input class="end__date" type="date" placeholder="End date" required id="end"><br><br>
          <input type="button" value="Create Event" onclick="createNewEvent()"><br><br>
-         <h2>New account</h2><br>
-         <input class="student__fname" type="text" placeholder="First name" required><br><br>
-         <input class="student__lname" type="text" placeholder="Last name" required><br><br>
-         <!-- <input class="student__grade" type="text" placeholder="Student grade" required><br><br> -->
-         <select class="student__grade">
-            <option value="0">None</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-         </select required><br><br>
-         <!-- <input class="student__username" type="text" placeholder="Student username" required><br><br> -->
-         <input type="button" value="Create Account" onclick="createNewAccount()">
-
-
-
+         <h2>New Student Account</h2><br>
+         <div class="stu_acc_creation">
+            <div hidden id="accountAlert" class="alert warning"></div>
+            <input class="student__name student__fname" type="text" placeholder="Student First Name" required><br><br>
+            <input class="student__name student__lname" type="text" placeholder="Student Last Name" required><br><br>
+            <select class="student__grade">
+               <option value="" disabled selected>Select grade</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+               <option value="11">11</option>
+               <option value="12">12</option>
+            </select><br><br>
+            <input class="student__username" type="text" placeholder="Student username" required><br><br>
+            <input class="student__password" type="password" placeholder="password" required><br><br>
+            <input type="button" value="Create Account" onclick="createNewAccount()">
+         </div>
       </div>
    </form>
+   <div class="alert__box" style="display: None;">
+      <h2 class="alert__title">Alert title</h2>
+      <p class="alert__description">Alert description</p>
+   </div>
+
+   <div class="warning__box" style="display: None;">
+      <h2 class="warning__title">Warning title</h2>
+      <p class="warning__description">Warning description</p>
+   </div>
+
+   <div class="error__box" style="display: None;">
+      <h2 class="error__title">Error title</h2>
+      <p class="error__description">Error description</p>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
    <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
@@ -479,11 +173,10 @@
          color: #aaa;
          scrollbar-width: none;
       }
-
       *::-webkit-scrollbar {
          display: none;
       }
-
+      
       body {
          background-color: #222;
       }
@@ -645,7 +338,7 @@
          bottom: 2rem;
          right: 2rem;
          background-color: #aaa;
-         z-index: 2;
+         z-index: -2;
          width: 20rem;
          height: 10rem;
          padding: 1rem;
@@ -660,7 +353,7 @@
          bottom: 2rem;
          right: 2rem;
          background-color: #ffb85c;
-         z-index: 2;
+         z-index: -2;
          width: 20rem;
          height: 10rem;
          padding: 1rem;
@@ -675,7 +368,7 @@
          bottom: 2rem;
          right: 2rem;
          background-color: #ff6969;
-         z-index: 2;
+         z-index: -2;
          width: 20rem;
          height: 10rem;
          padding: 1rem;

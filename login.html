@@ -12,7 +12,7 @@
    <form action="">
       <h1>Login</h1>
       <input class="username" type="text" required placeholder="Username"><br>
-      <input class="password" type="text" required placeholder="Password"><br>
+      <input class="password" type="password" required placeholder="Password"><br>
       <input type="button" value="Submit" onclick="validateUsernameAndPassword()">
    </form>
    <style>
@@ -62,7 +62,14 @@
          border: none;
          color: #aaa;
       }
-
+      input[type=password] {
+         background-color: #333;
+         border-radius: .25rem;
+         margin-bottom: 1rem;
+         padding: .25rem;
+         border: none;
+         color: #aaa;
+      }
       input[type=button] {
          background-color: #9a9aff;
          border-radius: .25rem;
