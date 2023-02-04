@@ -1,5 +1,6 @@
 // Importing required modules
 const { app, BrowserWindow } = require("electron");
+const { writeFile } = require("fs");
 const path = require("path");
 
 // Checking if the app is in development mode
@@ -23,7 +24,9 @@ function createWindow() {
     win.openDevTools();
   }
   win.loadFile("login.html");
-}
+  writeFile(path.join(__dirname, './src/database/jwt.txt'), '',(err) => {
+  });
+} 
 
 // Creating the window when the app is ready
 app.whenReady().then(() => {

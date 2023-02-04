@@ -1,6 +1,7 @@
 // Importing required modules
 const path = require("path");
 const fs = require("fs");
+const jwt = require("jsonwebtoken")
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 // Function to read data from a JSON file
@@ -26,13 +27,29 @@ function validateUsernameAndPassword() {
   let usernameInput = document.querySelector(".username").value;
   let passwordInput = document.querySelector(".password").value;
   for (let user of users) {
-    let checkPassword = bcrypt.compare(passwordInput, user.password)
-    if (usernameInput === user.username && checkPassword) {
-      // If the user is an admin, redirect to the admin page
-      if (user.admin)
-        location.href = path.join(__dirname, "./src/main/admin.html");
-      // If the user is a student, redirecting to the student page
-      else location.href = path.join(__dirname, "./src/main/student.html");
+    if (usernameInput == user.username) {
+      let checkPassword = bcrypt.compare(passwordInput, user.password,
+        (err, success) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          if (!success) {
+            // wrong password
+            return;
+          }
+          const payload = {
+            "loggedIn": true,
+            "username": user.username,
+          };
+          const token = jwt.sign(payload, 'adminKey');
+          fs.writeFile(path.join(__dirname, "./src/database/jwt.txt"),
+          token, () => {});
+          if (user.admin)
+            location.href = path.join(__dirname, "./src/main/admin.html");
+          // If the user is a student, redirecting to the student page
+          else location.href = path.join(__dirname, "./src/main/student.html");
+        });
     }
   }
 }

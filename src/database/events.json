@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "event_name": "Football Game",
+    "event_description": "AHS vs BT",
+    "prize": "1000",
+    "start_date": "02/07/2023",
+    "end_date": "02/07/2023",
+    "participants": [
+      "sainallani"
+    ]
+  }
+]

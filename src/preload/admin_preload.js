@@ -144,7 +144,7 @@ function updateEvents() {
 updateEvents();
 
 function updateAccounts() {
-   fetch(path.join(__dirname, '../database/accounts.json')).then(function (res) {
+   fetch(path.join(__dirname, '../database/users.json')).then(function (res) {
       return res.json();
    }).then(function (accounts) {
       let placeholder = document.querySelector('.accounts__output');
@@ -155,9 +155,9 @@ function updateAccounts() {
                <tr>
                   <td>${account.fname}</td>
                   <td>${account.lname}</td>
-                  <td>${account.grade}</td>
+                  <td></td>
                   <td>${account.username}</td>
-                  <td>${account.points}</td>
+                  <td></td>
                   <!--<td>
                      <input type="button" onclick="editAccount()" value="Edit">
                      <input type="button" onclick="deleteAccount()" value="Delete">
@@ -168,9 +168,9 @@ function updateAccounts() {
          } else {
             output += `
                <tr>
-                  <td>${account.fname}</td>
-                  <td>${account.lname}</td>
-                  <td>${account.grade}</td>
+                  <td>${account.student_fname}</td>
+                  <td>${account.student_lname}</td>
+                  <td>${account.student_grade}</td>
                   <td>${account.username}</td>
                   <td>${account.points}</td>
                   <td>
@@ -221,6 +221,7 @@ function createNewEvent() {
    }
    currentEvents.push(eventTemplate);
    writeToJSON(path.join(__dirname, '../database/events.json'), currentEvents);
+   alertPopup("Event created!", `Event '${eventName}' created!`)
    updateEvents();
 }
 
@@ -250,11 +251,28 @@ function createNewAccount() {
    }
 
    const currentUsers = readFromJSON(path.join(__dirname, '../database/users.json'));
-
+   for (let usr of currentUsers) {
+      if (usr.username == username) {
+         errorPopup(
+            "User already exists!",
+            "Username has to be unique for all students.");
+         return;
+      }
+   }
+   let key = Math.floor(Math.random() * 1000000);
+   function uniqueKey() {
+      for (let usr of currentUsers) {
+         if (usr.key == key) {
+            key = Math.floor(Math.random() * 1000000);
+            uniqueKey()
+         }
+      }
+      return;
+   }
+   uniqueKey();
    bcrypt.genSalt(10, function (err, salt) {
       bcrypt.hash(password, salt, function (err, hash) {
          const hashedPassword = hash;
-         const key = Math.floor(Math.random() * 1000000);
 
          const newStudent = {
             key: key,
@@ -264,7 +282,8 @@ function createNewAccount() {
             username: username,
             password: hashedPassword,
             points: 0,
-            admin: false
+            admin: false,
+            events: []
          };
          currentUsers.push(newStudent);
          writeToJSON(path.join(__dirname, '../database/users.json'), currentUsers);
@@ -278,50 +297,6 @@ function createNewAccount() {
    updateAccounts();
    alertPopup('Alert', 'Student account created successfully');
 }
-// function createNewAccount() {
-//    let currentAccounts = readFromJSON(path.join(__dirname, '../database/accounts.json'));
-
-//    // let fullName = document.querySelector('.student__name').value;
-
-//    // if ()
-
-//    let fname = document.querySelector('.student__fname').value;
-//    let lname = document.querySelector('.student__lname').value;
-
-
-//    // let sanitized = fullName.toLowerCase();
-//    // let fname = fullName.split(' ')[0];
-//    // let lname = fullName.split(' ')[1];
-
-//    let grade = document.querySelector('.student__grade').value;
-
-//    if (fname === '' || lname === '' || grade === '0') {
-//       warningPopup('Warning', 'Empty fields present')
-//       return;
-//    }
-
-//    // let username = document.querySelector('.student__username').value;
-//    let username = `${fname.toLowerCase()[0]}${lname.toLowerCase()}`
-
-//    let password = generateDefaultPassword();
-
-//    let accountTemplate = {
-//       "fname": fname,
-//       "lname": lname,
-//       "grade": grade,
-//       "username": username,
-//       "password": password,
-//       "points": 0,
-//       "admin": false
-//    }
-
-//    currentAccounts.push(accountTemplate);
-//    writeToJSON(path.join(__dirname, '../database/accounts.json'), currentAccounts);
-//    updateAccounts();
-
-//    alertPopup('Alert', 'Student account created successfully');
-// }
-
 function filterEvents() {
    let input = document.querySelector('.event__search');
    let filter = input.value.toUpperCase();
