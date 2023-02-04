@@ -1,7 +1,11 @@
 const path = require('path');
 const fs = require('fs');
 const { table } = require('console');
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
 
+let hrefA = document.getElementById("logoutPage");
+hrefA.href = path.join(__dirname, "../../login.html");
 function readFromJSON(file) {
    return JSON.parse(fs.readFileSync(file));
 }
@@ -16,32 +20,42 @@ function writeToJSON(file, data) {
 
 function alertPopup(title = 'Alert', description = 'Sample alert text') {
    let alertModal = document.querySelector('.alert__box');
+   alertModal.style.display = "block";
    document.querySelector('.alert__title').innerHTML = title;
    document.querySelector('.alert__description').innerHTML = description;
    alertModal.classList.add('fade');
    setTimeout(function () {
       alertModal.classList.remove('fade');
-   }, 2000);
+   }, 700);
+   setTimeout(() => {
+      alertModal.style.display = "none";
+   }, 1500);
 }
 
 function warningPopup(title = 'Warning', description = 'Sample warning text') {
    let warningModal = document.querySelector('.warning__box');
+   warningModal.style.display = "block";
    document.querySelector('.warning__title').innerHTML = title;
    document.querySelector('.warning__description').innerHTML = description;
    warningModal.classList.add('fade');
    setTimeout(function () {
       warningModal.classList.remove('fade');
-   }, 2000);
+   }, 700);
+   setTimeout(() => {
+      warningModal.style.display = "none";
+   }, 1500);
 }
 
 function errorPopup(title = 'Error', description = 'Sample error text') {
    let errorModal = document.querySelector('.error__box');
+   errorModal.style.display = "block";
    document.querySelector('.error__title').innerHTML = title;
    document.querySelector('.error__description').innerHTML = description;
    errorModal.classList.add('fade');
    setTimeout(function () {
       errorModal.classList.remove('fade');
-   }, 2000);
+   }, 1300);
+      setTimeout(()=>{      errorModal.style.display = "none";}, 1000)
 }
 
 
@@ -231,7 +245,7 @@ function createNewAccount() {
    }
 
    if (password.length < 8) {
-      warningPopup('Password', 'Password length has to be atleast 8 characters'); 
+      warningPopup('Password', 'Password length has to be atleast 8 characters');
       return;
    }
 

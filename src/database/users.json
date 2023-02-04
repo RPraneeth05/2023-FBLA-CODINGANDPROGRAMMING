@@ -57,5 +57,15 @@
     "password": "$2a$10$NdG5jCcI6Rz4Q1.kgizuwO2sOyhrf9p0dtybsgqz.drHaTAXgcqae",
     "points": 0,
     "admin": false
+  },
+  {
+    "key": 706496,
+    "student_fname": "sai",
+    "student_lname": "nallani",
+    "student_grade": "10",
+    "username": "snallani",
+    "password": "$2a$10$xseh/50Omhf1uHU4AkGvb.7amN6WB6LIwwY53ZYKws1Yx.p09LmoC",
+    "points": 0,
+    "admin": false
   }
 ]

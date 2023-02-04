@@ -1,7 +1,8 @@
 // Importing required modules
 const path = require("path");
 const fs = require("fs");
-
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
 // Function to read data from a JSON file
 function readFromJSON(file) {
   return JSON.parse(fs.readFileSync(file));
