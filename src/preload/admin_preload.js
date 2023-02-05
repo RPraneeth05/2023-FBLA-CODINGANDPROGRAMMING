@@ -175,8 +175,8 @@ function updateAccounts() {
                   <td>${account.username}</td>
                   <td>${account.points}</td>
                   <td>
-                     <input type="button" onclick="editAccount()" value="Edit">
-                     <input type="button" onclick="deleteAccount()" value="Delete">
+                     <!--<input type="button" onclick="editAccount()" value="Edit">-->
+                     <input type="button" onclick="deleteAccount('${account.username}')" value="Delete">
                   </td>
                </tr>
             `
@@ -184,6 +184,20 @@ function updateAccounts() {
       }
       placeholder.innerHTML = output;
    });
+}
+
+function deleteAccount(un) {
+   let accs = readFromJSON(path.join(__dirname, '../database/users.json'));
+   // console.log(events);
+   for (let i = 0; i < accs.length; i++) {
+      // console.log(accs[i].event_name)
+      if (accs[i].username === un) {
+         accs.splice(i, 1)
+         break;
+      }
+   }
+   writeToJSON(path.join(__dirname, '../database/users.json'), accs);
+   updateAccounts();
 }
 
 updateAccounts();
@@ -232,9 +246,9 @@ function editEvent() {
 function deleteEvent(name) {
    // console.log(name)
    let events = readFromJSON(path.join(__dirname, '../database/events.json'));
-   console.log(events);
+   // console.log(events);
    for (let i = 0; i < events.length; i++) {
-      console.log(events[i].event_name)
+      // console.log(events[i].event_name)
       if (events[i].event_name === name) {
          // delete events[i];
          events.splice(i, 1)

@@ -68,17 +68,6 @@
     "events": []
   },
   {
-    "key": 207234,
-    "student_fname": "p",
-    "student_lname": "p",
-    "student_grade": "9",
-    "username": "pasdfasdf",
-    "password": "$2a$10$A3NHx5/xWl19.Zsp/m8z1OeX7dmX8wxOoYFP9u2ckFFRmhCRuj1W6",
-    "points": 0,
-    "admin": false,
-    "events": []
-  },
-  {
     "key": 329487,
     "student_fname": "out",
     "student_lname": "the",
@@ -118,32 +107,6 @@
     "student_grade": "9",
     "username": "ffff",
     "password": "$2a$10$7MxbFvtgSegQtYeFuu21AepYCil.fHgR2ZhrUB4.CUq4A9ph1kc12",
-    "points": 0,
-    "admin": false,
-    "events": []
-  },
-  {
-    "key": 930547,
-    "student_fname": "KB",
-    "student_lname": "Do you love me",
-    "student_grade": "10",
-    "username": "asd",
-    "password": "$2a$10$ffpN6Swztxd7TVPdRrzm.ebcimwf/iQJkvNt1ppCmaGdeBCL6D9sO",
-    "points": 3000,
-    "admin": false,
-    "events": [
-      "Football Game",
-      "Prom",
-      "Spirit Week"
-    ]
-  },
-  {
-    "key": 888542,
-    "student_fname": "John",
-    "student_lname": "Smith",
-    "student_grade": "11",
-    "username": "SmithJ1",
-    "password": "$2a$10$sisRcYUfqPJ1/Y.G9AkgHe3TPb.bZIejVW9LuV3gu59uQ5UXI2rSW",
     "points": 0,
     "admin": false,
     "events": []
