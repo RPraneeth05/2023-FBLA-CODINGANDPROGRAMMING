@@ -130,8 +130,8 @@ function updateEvents() {
                   <td>${event.end_date}</td>
                   <td>
                      <!--<div class="button__bar">-->
-                        <input type="button" onclick="editEvent()" value="Edit">
-                        <input type="button" onclick="deleteEvent()" value="Delete">
+                        <!--<input type="button" onclick="editEvent()" value="Edit">-->
+                        <input type="button" onclick="deleteEvent('${event.event_name}')" value="Delete">
                      <!--</div>-->
                   </td>
                </tr>
@@ -229,7 +229,23 @@ function createNewEvent() {
 function editEvent() {
 }
 
-function deleteEvent() {
+function deleteEvent(name) {
+   // console.log(name)
+   let events = readFromJSON(path.join(__dirname, '../database/events.json'));
+   console.log(events);
+   for (let i = 0; i < events.length; i++) {
+      console.log(events[i].event_name)
+      if (events[i].event_name === name) {
+         // delete events[i];
+         events.splice(i, 1)
+         break;
+      }
+   }
+   writeToJSON(path.join(__dirname, '../database/events.json'), events);
+   updateEvents();
+   // let i = r.parentNode.parentNode.rowIndex;
+   // document.querySelector('.events__output').deleteRow(i);
+   // updateAccounts();
 }
 function createNewAccount() {
    const fname = document.querySelector('.student__fname').value;
