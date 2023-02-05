@@ -66,10 +66,10 @@
             <input class="account__search" type="text" placeholder="Search Name"
                onkeyup="filterAccountsByName()"><br><br>
                <div onchange="filterAccountsByGrade">
-               <label><input type="checkbox" name="grade" value="9">Grade 9</label><br>
-               <label><input type="checkbox" name="grade" value="10">Grade 10</label><br>
-               <label><input type="checkbox" name="grade" value="11">Grade 11</label><br>
-               <label><input type="checkbox" name="grade" value="12">Grade 12</label>
+               <label for="g9">Grade 9 </label><input id="g9" type="checkbox" name="grade" value="9"><br>
+               <label for="g10">Grade 10 </label><input id="g10" type="checkbox" name="grade" value="10"><br>
+               <label for="g11">Grade 11 </label><input id="g11" type="checkbox" name="grade" value="11"><br>
+               <label for="g12">Grade 12 </label><input id="g12" type="checkbox" name="grade" value="12"><br><br>
                </div>
 
             <!-- <input type="button" value="Search"><br><br> -->
@@ -131,6 +131,10 @@
       /* li {
          list-style: none;
       } */
+
+      input[type=checkbox] {
+         width: auto;
+      }
 
       a {
          text-decoration: none;
@@ -306,6 +310,7 @@
       .table__holder {
          position: relative;
          padding: 2rem;
+         min-height: 100vh;
       }
 
       table {
@@ -438,7 +443,7 @@
          opacity: 1;
       }
 
-      #leaderboard {}
+      /* #leaderboard {} */
    </style>
    <script src="../preload/student_preload.js"></script>
 </body>

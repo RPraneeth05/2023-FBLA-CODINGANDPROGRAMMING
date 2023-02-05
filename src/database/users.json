@@ -110,5 +110,16 @@
     "points": 0,
     "admin": false,
     "events": []
+  },
+  {
+    "key": 970357,
+    "student_fname": "rithwak",
+    "student_lname": "some",
+    "student_grade": "12",
+    "username": "a",
+    "password": "$2a$10$.AZxM8905TtrWAagJP7T/.VFA52k0VW5AaE7NYJpbSsY.A/aFQfaq",
+    "points": 0,
+    "admin": false,
+    "events": []
   }
 ]
