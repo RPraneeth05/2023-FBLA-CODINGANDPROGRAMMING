@@ -44,9 +44,9 @@ function updateEvents() {
 			for (let event of events) {
 				console.log(USERDATA);
 				if (event.participants.includes(USERDATA.username)) {
-					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Not Here!">`;
+					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Unregister">`;
 				} else {
-					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Here!">`;
+					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Register">`;
 				}
 				output += `
 				<tr>
@@ -104,6 +104,8 @@ function updateAttendance(eventName, attend) {
 	}
 	writeToJSON(path.join(__dirname, "../database/users.json"), users);
 	updateEvents();
+	refDashboard();
+	updateAccounts();
 }
 function alertPopup(title = "Alert", description = "Sample alert text") {
 	let alertModal = document.querySelector(".alert__box");
@@ -146,8 +148,6 @@ function errorPopup(title = "Error", description = "Sample error text") {
 		errorModal.style.display = "none";
 	}, 1000);
 }
-let hrefA = document.getElementById("logoutPage");
-hrefA.href = path.join(__dirname, "../../login.html");
 function filterEvents() {
 	let input = document.querySelector(".event__search");
 	let filter = input.value.toUpperCase();
@@ -166,8 +166,112 @@ function filterEvents() {
 	}
 }
 
-let data = document.getElementById("user_data");
-data.innerHTML = `
-		<h2>Hi ${USERDATA.student_fname}. You have ${USERDATA.points}.</h2>
+function refDashboard() {
+	let hrefA = document.getElementById("logoutPage");
+	hrefA.onclick = () => {
+		location.href = path.join(__dirname, "../../login.html");
+	}
+	let data = document.getElementById("user_data");
+	data.innerHTML = `
+		<h2>Hi ${USERDATA.student_fname}. You have ${USERDATA.points} points.</h2>
 		${USERDATA.username}
 `;
+}
+refDashboard();
+let AccsTest;
+function updateAccounts() {
+	fetch(path.join(__dirname, '../database/users.json')).then(function (res) {
+		return res.json();
+	}).then(function (accounts) {
+		console.log(accounts);
+		accounts.sort((a, b) => {
+			return b.points - a.points;
+		});
+		console.log(accounts);
+		AccsTest = accounts;
+		let placeholder = document.querySelector('.accounts__output');
+		let output = '';
+		for (account of accounts) {
+			if (account.admin) {
+				continue;
+			} else {
+				output += `
+				<tr>
+				   <td>${account.student_fname}</td>
+				   <td>${account.student_lname}</td>
+				   <td>${account.student_grade}</td>
+				   <td>${account.username}</td>
+				   <td>${account.points}</td>
+				</tr>
+			 `
+			}
+		}
+		placeholder.innerHTML = output;
+
+		return accounts;
+	});
+
+}
+updateAccounts();
+document.getElementById("toggleLeaderboard").addEventListener(
+	'click', () => {
+		let lead = document.querySelector('.accounts__holder');
+		let currentDisplay = lead.style.display;
+		lead.style.display = currentDisplay == "none" ? "block" : "none";
+
+	}
+);
+function toggleAccounts() {
+	let accountsWindow = document.querySelector('.accounts__holder');
+	accountsWindow.style.display = accountsWindow.style.display == 'none' ? 'block' : 'none';
+}
+function filterAccountsByName() {
+	let input = document.querySelector('.account__search');
+	let filter = input.value.toUpperCase();
+	let table = document.querySelector('.accounts__output');
+	tr = table.getElementsByTagName('tr');
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName('td')[0];
+		if (td) {
+			let textValue = td.textContent || td.innerText;
+			if (textValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = '';
+			} else {
+				tr[i].style.display = 'none';
+			}
+		}
+	}
+}
+const checkboxes = document.querySelectorAll('input[name="grade"]');
+let selectedGrades = [];
+
+for (let checkbox of checkboxes) {
+	checkbox.addEventListener('change', function () {
+		if (checkbox.checked) {
+			selectedGrades.push(checkbox.value);
+		} else {
+			let index = selectedGrades.indexOf(checkbox.value);
+			if (index > -1) {
+				selectedGrades.splice(index, 1);
+			}
+		}
+		filterAccountsByGrade(selectedGrades)
+	});
+}
+
+function filterAccountsByGrade(boxes) {
+	if (boxes.length == 0) boxes = ["9", "10", "11", "12"];
+	let table = document.querySelector('.accounts__output');
+	tr = table.getElementsByTagName('tr');
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName('td')[2];
+		if (td) {
+			let textValue = td.textContent || td.innerText;
+			if (boxes.includes(textValue)) {
+				tr[i].style.display = '';
+			} else {
+				tr[i].style.display = 'none';
+			}
+		}
+	}
+}

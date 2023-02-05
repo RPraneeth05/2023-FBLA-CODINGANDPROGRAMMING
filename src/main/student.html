@@ -9,7 +9,7 @@
 </head>
 
 <body>
-   
+
    </div>
    <div class="alert__box" style="display: none;">
       <h2 class="alert__title">Alert title</h2>
@@ -30,8 +30,8 @@
       <div class='left__side' id="dashboard">
          <input type="button" id="logoutPage" href="" value="Logout"><br>
          <div id="user_data">
-   
          </div>
+         <input type="button" id="toggleLeaderboard" href="" value="Toggle Leaderboard">
       </div>
       <div class="middle">
          <h1>Dashboard</h1><br>
@@ -59,9 +59,40 @@
             </div>
          </div>
       </div>
+      <div class="accounts__holder" style="display: none;" id="accounts__top">
+         <div class="table__holder">
+            <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
+            <h2>Current accounts</h2><br>
+            <input class="account__search" type="text" placeholder="Search Name"
+               onkeyup="filterAccountsByName()"><br><br>
+               <div onchange="filterAccountsByGrade">
+               <label><input type="checkbox" name="grade" value="9">Grade 9</label><br>
+               <label><input type="checkbox" name="grade" value="10">Grade 10</label><br>
+               <label><input type="checkbox" name="grade" value="11">Grade 11</label><br>
+               <label><input type="checkbox" name="grade" value="12">Grade 12</label>
+               </div>
+
+            <!-- <input type="button" value="Search"><br><br> -->
+            <table>
+               <thead>
+                  <tr>
+                     <th>Fname</th>
+                     <th>Lname</th>
+                     <th>Grade</th>
+                     <th>Username</th>
+                     <th>Points</th>
+                  </tr>
+               </thead>
+               <tbody class="accounts__output"></tbody>
+            </table><br>
+            <a href="#accounts__top">
+               <input type="button" value="Back to top">
+            </a>
+         </div>
+      </div>
    </div>
 
-   
+
    </form>
    <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
@@ -155,6 +186,11 @@
       .nav__link {
          transition: .3s;
       } */
+      #toggleLeaderboard {
+         position: absolute;
+         top: 9rem;
+         left: 1rem;
+      }
 
       .stats__container {
          width: 100%;
@@ -401,6 +437,8 @@
       .fade {
          opacity: 1;
       }
+
+      #leaderboard {}
    </style>
    <script src="../preload/student_preload.js"></script>
 </body>
