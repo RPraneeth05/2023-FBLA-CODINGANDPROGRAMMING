@@ -130,8 +130,8 @@ function updateEvents() {
                   <td>${event.end_date}</td>
                   <td>
                      <!--<div class="button__bar">-->
-                        <input type="button" onclick="editEvent()" value="Edit">
-                        <input type="button" onclick="deleteEvent()" value="Delete">
+                        <!--<input type="button" onclick="editEvent()" value="Edit">-->
+                        <input type="button" onclick="deleteEvent('${event.event_name}')" value="Delete">
                      <!--</div>-->
                   </td>
                </tr>
@@ -175,8 +175,8 @@ function updateAccounts() {
                   <td>${account.username}</td>
                   <td>${account.points}</td>
                   <td>
-                     <input type="button" onclick="editAccount()" value="Edit">
-                     <input type="button" onclick="deleteAccount()" value="Delete">
+                     <!--<input type="button" onclick="editAccount()" value="Edit">-->
+                     <input type="button" onclick="deleteAccount('${account.username}')" value="Delete">
                   </td>
                </tr>
             `
@@ -184,6 +184,20 @@ function updateAccounts() {
       }
       placeholder.innerHTML = output;
    });
+}
+
+function deleteAccount(un) {
+   let accs = readFromJSON(path.join(__dirname, '../database/users.json'));
+   // console.log(events);
+   for (let i = 0; i < accs.length; i++) {
+      // console.log(accs[i].event_name)
+      if (accs[i].username === un) {
+         accs.splice(i, 1)
+         break;
+      }
+   }
+   writeToJSON(path.join(__dirname, '../database/users.json'), accs);
+   updateAccounts();
 }
 
 updateAccounts();
@@ -229,7 +243,23 @@ function createNewEvent() {
 function editEvent() {
 }
 
-function deleteEvent() {
+function deleteEvent(name) {
+   // console.log(name)
+   let events = readFromJSON(path.join(__dirname, '../database/events.json'));
+   // console.log(events);
+   for (let i = 0; i < events.length; i++) {
+      // console.log(events[i].event_name)
+      if (events[i].event_name === name) {
+         // delete events[i];
+         events.splice(i, 1)
+         break;
+      }
+   }
+   writeToJSON(path.join(__dirname, '../database/events.json'), events);
+   updateEvents();
+   // let i = r.parentNode.parentNode.rowIndex;
+   // document.querySelector('.events__output').deleteRow(i);
+   // updateAccounts();
 }
 function createNewAccount() {
    const fname = document.querySelector('.student__fname').value;
