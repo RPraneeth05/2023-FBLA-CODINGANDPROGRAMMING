@@ -106,7 +106,9 @@ function updateAttendance(eventName) {
 	));
 	for (let usr of users) {
 		if (usr.username == USERDATA.username) {
-			usr.points += event.prize;
+			console.log(usr);
+			console.log(usr.points);
+			usr.points = Number(usr.points) + Number(event.prize);
 			usr.events.push(eventName);
 		}
 	}

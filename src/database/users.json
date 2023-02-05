@@ -14,10 +14,112 @@
     "student_grade": "12",
     "username": "sainallani",
     "password": "$2a$10$1EM9CXhL1U0JChnCe06kku5vcYxaWxFZua6qnhJoofPildmD1Eh8e",
-    "points": "01000",
+    "points": 3000,
     "admin": false,
     "events": [
-      "Football Game"
+      "Football Game",
+      "Football Game",
+      "Prom",
+      "Spirit Week"
     ]
+  },
+  {
+    "key": 675311,
+    "student_fname": "Praveen",
+    "student_lname": "Rangarajan",
+    "student_grade": "9",
+    "username": "pravranga",
+    "password": "$2a$10$mXsRCB46Gywr6ATehIyJ8OBMIZ9nKELXIMBTHnnHcyJI0d9NgHAGy",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 448619,
+    "student_fname": "jake",
+    "student_lname": "sweeney",
+    "student_grade": "9",
+    "username": "22jake",
+    "password": "$2a$10$1qq3ClaciK8RjER0.toIOOe9H7SzIN.QOZlPvxWmj/NlWFOZDv..O",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 474131,
+    "student_fname": "tester",
+    "student_lname": "teston",
+    "student_grade": "9",
+    "username": "testingor",
+    "password": "$2a$10$rSpBCKYTk083SibliuKtUuM.mQRWY9FJBTsI1CO8rmIMM9MfD4e7a",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 9132,
+    "student_fname": "no",
+    "student_lname": "cap",
+    "student_grade": "9",
+    "username": "smish",
+    "password": "$2a$10$3H3KyVJRVNlHiyZ27L24U.ya5TyX08RfQ.u1Y5PVCLUYJ8GnrTT0W",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 207234,
+    "student_fname": "p",
+    "student_lname": "p",
+    "student_grade": "9",
+    "username": "pasdfasdf",
+    "password": "$2a$10$A3NHx5/xWl19.Zsp/m8z1OeX7dmX8wxOoYFP9u2ckFFRmhCRuj1W6",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 329487,
+    "student_fname": "out",
+    "student_lname": "the",
+    "student_grade": "10",
+    "username": "door",
+    "password": "$2a$10$1bhg4VySvZphkf8Jte0EUeGov3rH517VLUqTm1VS9luv.xCFESrDi",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 708444,
+    "student_fname": "j",
+    "student_lname": "j",
+    "student_grade": "9",
+    "username": "j",
+    "password": "$2a$10$k1U0UnsUT3HVITeJ6K9C7u5vNy4AaXwDEgTViZX8qum84HYjhtrUe",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 96564,
+    "student_fname": "k",
+    "student_lname": "k",
+    "student_grade": "9",
+    "username": "k",
+    "password": "$2a$10$iT0h1//LEEslx6h6JqpbnOB.ayoMy6EkKc74FEOIZCp0yhyKxlDYO",
+    "points": 0,
+    "admin": false,
+    "events": []
+  },
+  {
+    "key": 873802,
+    "student_fname": "falksdf",
+    "student_lname": "asldkfj",
+    "student_grade": "9",
+    "username": "ffff",
+    "password": "$2a$10$7MxbFvtgSegQtYeFuu21AepYCil.fHgR2ZhrUB4.CUq4A9ph1kc12",
+    "points": 0,
+    "admin": false,
+    "events": []
   }
 ]

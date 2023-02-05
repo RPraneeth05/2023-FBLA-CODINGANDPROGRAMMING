@@ -55,7 +55,7 @@ function errorPopup(title = 'Error', description = 'Sample error text') {
    setTimeout(function () {
       errorModal.classList.remove('fade');
    }, 1300);
-      setTimeout(()=>{      errorModal.style.display = "none";}, 1000)
+   setTimeout(() => { errorModal.style.display = "none"; }, 1000)
 }
 
 
@@ -147,6 +147,7 @@ function updateAccounts() {
    fetch(path.join(__dirname, '../database/users.json')).then(function (res) {
       return res.json();
    }).then(function (accounts) {
+      console.log(accounts);
       let placeholder = document.querySelector('.accounts__output');
       let output = '';
       for (account of accounts) {
@@ -292,9 +293,9 @@ function createNewAccount() {
          document.querySelector('.student__grade').value = "";
          document.querySelector('.student__username').value = "";
          document.querySelector('.student__password').value = "";
+         updateAccounts();
       });
    });
-   updateAccounts();
    alertPopup('Alert', 'Student account created successfully');
 }
 function filterEvents() {

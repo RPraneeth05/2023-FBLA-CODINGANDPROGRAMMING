@@ -8,5 +8,25 @@
     "participants": [
       "sainallani"
     ]
+  },
+  {
+    "event_name": "Prom",
+    "event_description": "Juniors and Senior Prom",
+    "prize": "1000",
+    "start_date": "02/17/2023",
+    "end_date": "02/18/2023",
+    "participants": [
+      "sainallani"
+    ]
+  },
+  {
+    "event_name": "Spirit Week",
+    "event_description": "School Spirit Week!",
+    "prize": "1000",
+    "start_date": "02/21/2023",
+    "end_date": "02/25/2023",
+    "participants": [
+      "sainallani"
+    ]
   }
 ]
