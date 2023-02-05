@@ -9,11 +9,7 @@
 </head>
 
 <body>
-   <div class='left' id="dashboard">
-      <input type="button" id="logoutPage" href="" value="Logout"><br>
-      <div id="user_data">
-
-      </div>
+   
    </div>
    <div class="alert__box" style="display: none;">
       <h2 class="alert__title">Alert title</h2>
@@ -30,80 +26,91 @@
       <p class="error__description">Error description</p>
    </div>
 
-   <div class="middle">
-      <h1>Dashboard</h1><br>
-      <div class="events__holder" id="events__top">
-         <div class="table__holder">
-            <h2>Current events</h2><br>
-            <input class="event__search" type="text" placeholder="Search" onkeyup="filterEvents()"><br><br>
-            <!-- <input type="button" value="Search"><br><br> -->
-            <table>
-               <thead>
-                  <tr>
-                     <th>Name</th>
-                     <th>Description</th>
-                     <th>Prize</th>
-                     <th>Start date</th>
-                     <th>End date</th>
-                     <th>Actions</th>
-                  </tr>
-               </thead>
-               <tbody class="events__output"></tbody>
-            </table><br>
-            <a href="#events__top">
-               <input type="button" value="Back to top">
-            </a>
+   <div class="container">
+      <div class='left__side' id="dashboard">
+         <input type="button" id="logoutPage" href="" value="Logout"><br>
+         <div id="user_data">
+   
          </div>
       </div>
-      </form>
-      <style>
-         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-         @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+      <div class="middle">
+         <h1>Dashboard</h1><br>
+         <div class="events__holder" id="events__top">
+            <div class="table__holder">
+               <h2>Current events</h2><br>
+               <input class="event__search" type="text" placeholder="Search" onkeyup="filterEvents()"><br><br>
+               <!-- <input type="button" value="Search"><br><br> -->
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Prize</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Actions</th>
+                     </tr>
+                  </thead>
+                  <tbody class="events__output"></tbody>
+               </table><br>
+               <a href="#events__top">
+                  <input type="button" value="Back to top">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
 
-         * {
-            /* font-family: 'JetBrains Mono', monospace; */
-            font-family: 'Fira Code', monospace;
-            user-select: none;
-            padding: 0;
-            margin: 0;
-            color: #aaa;
-            scrollbar-width: none;
-         }
+   
+   </form>
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-         #user_data {
-            position: absolute;
-            top: 3rem;
-            left: 1rem;
-         }
+      * {
+         /* font-family: 'JetBrains Mono', monospace; */
+         font-family: 'Fira Code', monospace;
+         user-select: none;
+         padding: 0;
+         margin: 0;
+         color: #aaa;
+         scrollbar-width: none;
+      }
 
-         #logoutPage {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-         }
+      #user_data {
+         position: absolute;
+         top: 3rem;
+         left: 1rem;
+      }
 
-         *::-webkit-scrollbar {
-            display: none;
-         }
+      #logoutPage {
+         position: absolute;
+         top: 1rem;
+         left: 1rem;
+      }
 
-         body {
-            background-color: #222;
-         }
+      *::-webkit-scrollbar {
+         display: none;
+      }
 
-         /* li {
+      body {
+         background-color: #222;
+      }
+
+      /* li {
          list-style: none;
       } */
 
-         a {
-            text-decoration: none;
-            color: #6969ff;
-         }
+      a {
+         text-decoration: none;
+         color: #6969ff;
+      }
 
-         a:hover {
-            text-decoration: underline;
-         }
+      a:hover {
+         text-decoration: underline;
+      }
 
-         /* header {
+      /* header {
          background-color: #000;
          backdrop-filter: blur(1.5rem);
          position: fixed;
@@ -115,7 +122,7 @@
          z-index: 99999999;
       } */
 
-         /* header::before {
+      /* header::before {
          background: linear-gradient(to right, #9867f0, #ed4e50);
          position: absolute;
          display: block;
@@ -126,7 +133,7 @@
          top: 0;
       } */
 
-         /* .nav__wrapper {
+      /* .nav__wrapper {
          align-items: center;
          display: flex;
       }
@@ -149,253 +156,253 @@
          transition: .3s;
       } */
 
-         .stats__container {
-            width: 100%;
-            display: grid;
-            /* grid-auto-columns: 100px; */
-            grid-template-columns: 1fr 1fr 1fr;
-            /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-            gap: 1rem;
-         }
+      .stats__container {
+         width: 100%;
+         display: grid;
+         /* grid-auto-columns: 100px; */
+         grid-template-columns: 1fr 1fr 1fr;
+         /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+         gap: 1rem;
+      }
 
-         .stats__box {
-            /* width: calc(100% - 2rem); */
-            height: auto;
-            background-color: #333;
-            border-radius: .5rem;
-            padding: 1rem;
-         }
+      .stats__box {
+         /* width: calc(100% - 2rem); */
+         height: auto;
+         background-color: #333;
+         border-radius: .5rem;
+         padding: 1rem;
+      }
 
-         .nav__link:hover {
-            background: linear-gradient(to bottom right, #9867f0, #ed4e50);
-            color: #000;
-            border-radius: .5rem;
-            padding: .5rem;
-         }
+      .nav__link:hover {
+         background: linear-gradient(to bottom right, #9867f0, #ed4e50);
+         color: #000;
+         border-radius: .5rem;
+         padding: .5rem;
+      }
 
-         form {
-            position: relative;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 5fr 1fr;
-            height: 100vh;
-         }
+      form {
+         position: relative;
+         width: 100%;
+         display: grid;
+         grid-template-columns: 1fr 5fr 1fr;
+         height: 100vh;
+      }
 
-         .left__side {
-            background-color: #1b1b1b;
-            position: fixed;
-            padding: 2rem;
-            top: 0;
-            left: 0;
-            width: 12rem;
-            height: 100vh;
-         }
+      .left__side {
+         background-color: #1b1b1b;
+         position: fixed;
+         padding: 2rem;
+         top: 0;
+         left: 0;
+         width: 12rem;
+         height: 100vh;
+      }
 
-         .middle {
-            background-color: #222;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 2rem;
-            width: calc(100% - 36rem);
-         }
+      .middle {
+         background-color: #222;
+         position: absolute;
+         top: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         padding: 2rem;
+         width: calc(100% - 36rem);
+      }
 
-         .right__side {
-            background-color: #1b1b1b;
-            position: fixed;
-            padding: 2rem;
-            top: 0;
-            right: 0;
-            width: 12rem;
-            height: 100vh;
-         }
+      .right__side {
+         background-color: #1b1b1b;
+         position: fixed;
+         padding: 2rem;
+         top: 0;
+         right: 0;
+         width: 12rem;
+         height: 100vh;
+      }
 
-         .wrapper {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-         }
+      .wrapper {
+         width: 100%;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 1rem;
+      }
 
-         .left,
-         .right {
-            background-color: #1b1b1b;
-            position: relative;
-            padding: 1rem;
+      .left,
+      .right {
+         background-color: #1b1b1b;
+         position: relative;
+         padding: 1rem;
 
-         }
+      }
 
-         h1 {
-            font-size: 2rem;
-         }
+      h1 {
+         font-size: 2rem;
+      }
 
-         h2 {
-            font-size: 1.5rem;
-         }
+      h2 {
+         font-size: 1.5rem;
+      }
 
-         label,
-         span,
-         p {
-            font-size: 1rem;
-         }
+      label,
+      span,
+      p {
+         font-size: 1rem;
+      }
 
-         ::placeholder {
-            color: #777;
-         }
+      ::placeholder {
+         color: #777;
+      }
 
-         .statistics {
-            width: 100%;
-            background-color: transparent;
-            height: auto;
-         }
+      .statistics {
+         width: 100%;
+         background-color: transparent;
+         height: auto;
+      }
 
-         .events__holder,
-         .accounts__holder {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            background-color: #222;
-         }
+      .events__holder,
+      .accounts__holder {
+         position: absolute;
+         width: 100%;
+         top: 0;
+         left: 0;
+         z-index: 1;
+         background-color: #222;
+      }
 
-         .table__holder {
-            position: relative;
-            padding: 2rem;
-         }
+      .table__holder {
+         position: relative;
+         padding: 2rem;
+      }
 
-         table {
-            border-collapse: collapse;
-            text-align: center;
-            width: 100%;
-         }
+      table {
+         border-collapse: collapse;
+         text-align: center;
+         width: 100%;
+      }
 
-         thead {
-            background-color: #3b3b3b;
-         }
+      thead {
+         background-color: #3b3b3b;
+      }
 
-         tbody {
-            background-color: #333;
-         }
+      tbody {
+         background-color: #333;
+      }
 
-         tr:nth-child(even) {
-            background-color: #3b3b3b;
-         }
+      tr:nth-child(even) {
+         background-color: #3b3b3b;
+      }
 
-         th,
-         td {
-            padding: .5rem;
-            width: 16.66667%;
-         }
+      th,
+      td {
+         padding: .5rem;
+         width: 16.66667%;
+      }
 
-         .button__bar {
-            display: flex;
-            gap: .5rem;
-         }
+      .button__bar {
+         display: flex;
+         gap: .5rem;
+      }
 
-         input {
-            border-radius: .25rem;
-            padding: .25rem;
-            border: none;
-            width: calc(100% - .5rem);
-            background-color: #333;
-            color: #aaa;
-         }
+      input {
+         border-radius: .25rem;
+         padding: .25rem;
+         border: none;
+         width: calc(100% - .5rem);
+         background-color: #333;
+         color: #aaa;
+      }
 
-         select {
-            border-radius: .25rem;
-            padding: .25rem;
-            border: none;
-            width: 100%;
-            background-color: #333;
-            color: #777;
-         }
+      select {
+         border-radius: .25rem;
+         padding: .25rem;
+         border: none;
+         width: 100%;
+         background-color: #333;
+         color: #777;
+      }
 
-         .event__search,
-         .account__search {
-            width: 10rem;
-         }
+      .event__search,
+      .account__search {
+         width: 10rem;
+      }
 
-         input[type=date] {
-            color: #777;
-         }
+      input[type=date] {
+         color: #777;
+      }
 
-         input[type=button] {
-            background-color: #9a9aff;
-            transition: .15s;
-            width: auto;
-            color: #000;
-         }
+      input[type=button] {
+         background-color: #9a9aff;
+         transition: .15s;
+         width: auto;
+         color: #000;
+      }
 
-         input[type=button]:hover {
-            cursor: pointer;
-            padding: .5rem;
-         }
+      input[type=button]:hover {
+         cursor: pointer;
+         padding: .5rem;
+      }
 
-         input[type=radio] {
-            width: auto;
-         }
+      input[type=radio] {
+         width: auto;
+      }
 
-         .alert__box {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #aaa;
-            z-index: 2;
-            width: 20rem;
-            height: 10rem;
-            padding: 1rem;
-            border-radius: .5rem;
+      .alert__box {
+         position: fixed;
+         bottom: 2rem;
+         right: 2rem;
+         background-color: #aaa;
+         z-index: 2;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
 
-            opacity: 0;
-            transition: opacity .5s;
-         }
+         opacity: 0;
+         transition: opacity .5s;
+      }
 
-         .warning__box {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #ffb85c;
-            z-index: 2;
-            width: 20rem;
-            height: 10rem;
-            padding: 1rem;
-            border-radius: .5rem;
+      .warning__box {
+         position: fixed;
+         bottom: 2rem;
+         right: 2rem;
+         background-color: #ffb85c;
+         z-index: 2;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
 
-            opacity: 0;
-            transition: opacity .5s;
-         }
+         opacity: 0;
+         transition: opacity .5s;
+      }
 
-         .error__box {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #ff6969;
-            z-index: 2;
-            width: 20rem;
-            height: 10rem;
-            padding: 1rem;
-            border-radius: .5rem;
+      .error__box {
+         position: fixed;
+         bottom: 2rem;
+         right: 2rem;
+         background-color: #ff6969;
+         z-index: 2;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
 
-            opacity: 0;
-            transition: opacity .5s;
-         }
+         opacity: 0;
+         transition: opacity .5s;
+      }
 
-         .alert__title,
-         .alert__description,
-         .warning__title,
-         .warning__description,
-         .error__title,
-         .error__description {
-            color: #333;
-         }
+      .alert__title,
+      .alert__description,
+      .warning__title,
+      .warning__description,
+      .error__title,
+      .error__description {
+         color: #333;
+      }
 
-         .fade {
-            opacity: 1;
-         }
-      </style>
-      <script src="../preload/student_preload.js"></script>
+      .fade {
+         opacity: 1;
+      }
+   </style>
+   <script src="../preload/student_preload.js"></script>
 </body>
 
 </html>
