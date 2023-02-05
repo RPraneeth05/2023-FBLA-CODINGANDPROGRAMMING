@@ -121,5 +121,31 @@
     "points": 0,
     "admin": false,
     "events": []
+  },
+  {
+    "key": 930547,
+    "student_fname": "KB",
+    "student_lname": "Do you love me",
+    "student_grade": "10",
+    "username": "asd",
+    "password": "$2a$10$ffpN6Swztxd7TVPdRrzm.ebcimwf/iQJkvNt1ppCmaGdeBCL6D9sO",
+    "points": 3000,
+    "admin": false,
+    "events": [
+      "Football Game",
+      "Prom",
+      "Spirit Week"
+    ]
+  },
+  {
+    "key": 888542,
+    "student_fname": "John",
+    "student_lname": "Smith",
+    "student_grade": "11",
+    "username": "SmithJ1",
+    "password": "$2a$10$sisRcYUfqPJ1/Y.G9AkgHe3TPb.bZIejVW9LuV3gu59uQ5UXI2rSW",
+    "points": 0,
+    "admin": false,
+    "events": []
   }
 ]
