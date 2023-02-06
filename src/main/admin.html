@@ -59,6 +59,25 @@
       <h2 class="r__points">Points</h2>
    </div>
 
+   <div class="winners__window">
+      <input type="button" value="Go back" onclick="hideWinners()"><br><br>
+
+      <span>Ninth grade winner: </span><span class="ninth__winner"></span><br>
+      <span>Prize won: </span><span class="ninth__prize"></span><br><br>
+
+      <span>Ninth grade winner: </span><span class="tenth__winner"></span><br>
+      <span>Prize won: </span><span class="tenth__prize"></span><br><br>
+
+      <span>Ninth grade winner: </span><span class="eleventh__winner"></span><br>
+      <span>Prize won: </span><span class="eleventh__prize"></span><br><br>
+
+      <span>Ninth grade winner: </span><span class="twelfth__winner"></span><br>
+      <span>Prize won: </span><span class="twelfth__prize"></span><br><br>
+
+      <span>Random winner: </span><span class="random__winner"></span><br>
+      <span>Prize won: </span><span class="random__prize"></span><br><br>
+   </div>
+
    <form action="">
       <div class="left__side">
          <h1>Debug</h1><br>
@@ -101,7 +120,10 @@
          <h2>Popups</h2><br>
          <input type="button" value="Alert" onclick="alertPopup()">
          <input type="button" value="Warning" onclick="warningPopup()">
-         <input type="button" value="Error" onclick="errorPopup()">
+         <input type="button" value="Error" onclick="errorPopup()"><br><br>
+
+         <h2>Testing</h2><br>
+         <input type="button" value="Prizes" onclick="pickWinners()">
          <!-- <input type="button" value="print users" onclick="readUsersF()"> -->
 
 
@@ -284,6 +306,20 @@
          text-decoration: underline;
       }
 
+      .ninth__winner,
+      .tenth__winner,
+      .eleventh__winner,
+      .twelfth__winner,
+      .random__winner,
+      .ninth__prize,
+      .tenth__prize,
+      .elevent__prize,
+      .twelfth__prize,
+      .random__prize {
+         font-weight: 1000;
+         color: #9a9aff;
+      }
+
       /* header {
          background-color: #000;
          backdrop-filter: blur(1.5rem);
@@ -329,6 +365,18 @@
       .nav__link {
          transition: .3s;
       } */
+
+      .winners__window {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 99999;
+         background-color: #1b1b1b;
+         padding: 2rem;
+         display: none;
+      }
 
       .stats__container {
          width: 100%;

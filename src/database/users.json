@@ -33,7 +33,12 @@
       "Spelling Bee",
       "Volleyball Game"
     ],
-    "emails": []
+    "emails": [
+      {
+        "subject": "testMail",
+        "message": "this is a test mail"
+      }
+    ]
   },
   {
     "key": 84146,
@@ -321,21 +326,22 @@
     "emails": []
   },
   {
-   "key": 600709,
-   "student_fname": "Sai",
-   "student_lname": "Nallani",
-   "student_grade": "10",
-   "username": "sainallani",
-   "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
-   "points": 3000,
-   "admin": false,
-   "events": [
+    "key": 600709,
+    "student_fname": "Sai",
+    "student_lname": "Nallani",
+    "student_grade": "10",
+    "username": "sainallani",
+    "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
+    "points": 3000,
+    "admin": false,
+    "events": [
       "Football Game",
       "prom",
-      "Nerd event", "hackathon"
-   ],
-   "emails": []
- },
+      "Nerd event",
+      "hackathon"
+    ],
+    "emails": []
+  },
   {
     "key": 11129,
     "student_fname": "Claude",
