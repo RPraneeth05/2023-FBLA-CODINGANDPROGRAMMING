@@ -217,6 +217,119 @@ function deleteAccount(un) {
    updateAccounts();
 }
 
+function pickWinners() {
+   let accs = readFromJSON(path.join(__dirname, '../database/users.json'));
+   let ninthUsers = [];
+   let tenthUsers = [];
+   let eleventhUsers = [];
+   let twelfthUsers = [];
+   for (acc of accs) {
+      if (acc.student_grade === '9') ninthUsers.push(acc);
+      else if (acc.student_grade === '10') tenthUsers.push(acc);
+      else if (acc.student_grade === '11') eleventhUsers.push(acc);
+      else if (acc.student_grade === '12') twelfthUsers.push(acc);
+   }
+   // console.log(ninthUsers);
+   // console.log(tenthUsers);
+   // console.log(eleventhUsers);
+   // console.log(twelfthUsers);
+   let max9 = 0;
+   let max10 = 0;
+   let max11 = 0;
+   let max12 = 0;
+   let winner9;
+   let winner10;
+   let winner11;
+   let winner12;
+   let random = accs[Math.floor(Math.random() * accs.length)];
+   for (nUser of ninthUsers) {
+      if (nUser.points > max9) {
+         winner9 = nUser;
+      }
+   }
+   for (tUser of tenthUsers) {
+      if (tUser.points > max10) {
+         winner10 = tUser;
+      }
+   }
+   for (eUser of eleventhUsers) {
+      if (eUser.points > max11) {
+         winner11 = eUser;
+      }
+   }
+   for (aUser of twelfthUsers) {
+      if (aUser.points > max12) {
+         winner12 = aUser;
+      }
+   }
+   // console.log(winner9)
+   // console.log(winner10)
+   // console.log(winner11)
+   // console.log(winner12)
+   let targetWindow = document.querySelector('.winners__window')
+   targetWindow.style.display = 'block'
+   document.querySelector('.ninth__winner').innerHTML = `${winner9.student_fname} ${winner9.student_lname}`
+   if (winner9.points >= 10000) {
+      document.querySelector('.ninth__prize').innerHTML = 'Spirit item'
+   } else if (winner9.points >= 7500) {
+      document.querySelector('.ninth__prize').innerHTML = 'Food reward'
+   } else if (winner9.points >= 5000) {
+      document.querySelector('.ninth__prize').innerHTML = 'School reward'
+   } else {
+      document.querySelector('.ninth__prize').innerHTML = 'Medal'
+   }
+
+   document.querySelector('.tenth__winner').innerHTML = `${winner10.student_fname} ${winner10.student_lname}`
+   if (winner10.points >= 10000) {
+      document.querySelector('.tenth__prize').innerHTML = 'Spirit item'
+   } else if (winner10.points >= 7500) {
+      document.querySelector('.tenth__prize').innerHTML = 'Food reward'
+   } else if (winner10.points >= 5000) {
+      document.querySelector('.tenth__prize').innerHTML = 'School reward'
+   } else {
+      document.querySelector('.tenth__prize').innerHTML = 'Medal'
+   }
+
+   document.querySelector('.eleventh__winner').innerHTML = `${winner11.student_fname} ${winner11.student_lname}`
+   if (winner11.points >= 10000) {
+      document.querySelector('.eleventh__prize').innerHTML = 'Spirit item'
+   } else if (winner11.points >= 7500) {
+      document.querySelector('.eleventh__prize').innerHTML = 'Food reward'
+   } else if (winner11.points >= 5000) {
+      document.querySelector('.eleventh__prize').innerHTML = 'School reward'
+   } else {
+      document.querySelector('.eleventh__prize').innerHTML = 'Medal'
+   }
+
+   document.querySelector('.twelfth__winner').innerHTML = `${winner12.student_fname} ${winner12.student_lname}`
+   if (winner12.points >= 10000) {
+      document.querySelector('.twelfth__prize').innerHTML = 'Spirit item'
+   } else if (winner12.points >= 7500) {
+      document.querySelector('.twelfth__prize').innerHTML = 'Food reward'
+   } else if (winner12.points >= 5000) {
+      document.querySelector('.twelfth__prize').innerHTML = 'School reward'
+   } else {
+      document.querySelector('.twelfth__prize').innerHTML = 'Medal'
+   }
+
+   document.querySelector('.random__winner').innerHTML = `${random.student_fname} ${random.student_lname}`
+   if (random.points >= 10000) {
+      document.querySelector('.random__prize').innerHTML = 'Spirit item'
+   } else if (random.points >= 7500) {
+      document.querySelector('.random__prize').innerHTML = 'Food reward'
+   } else if (random.points >= 5000) {
+      document.querySelector('.random__prize').innerHTML = 'School reward'
+   } else {
+      document.querySelector('.random__prize').innerHTML = 'Medal'
+   }
+
+}
+
+function hideWinners() {
+   let targetWindow = document.querySelector('.winners__window')
+   targetWindow.style.display = 'none'
+}
+
 function generateReport(un) {
    let users = readFromJSON(path.join(__dirname, '../database/users.json'));
    let targetUser;
@@ -444,3 +557,25 @@ function sendMsg() {
    }
    writeToJSON(path.join(__dirname, '../database/users.json'), studentAccounts);
 }
+
+// let q1Date = new Date(2023, 2, 6);
+
+var q1 = new Date("2/6/2023");
+var q2 = new Date("2/6/2023");
+var q3 = new Date("2/6/2023");
+var q4 = new Date("2/6/2023");
+
+window.setInterval(() => {
+   var todaysDate = new Date();
+   if (
+      q1.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0) ||
+      q2.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0) ||
+      q3.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0) ||
+      q4.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
+      ) {
+      // pickWinners()
+   }
+   // pickWinners();
+   // console.log(Date.now())
+   // console.log(new Date())
+}, 86400000)

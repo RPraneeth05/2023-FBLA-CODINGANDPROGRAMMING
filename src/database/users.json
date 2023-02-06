@@ -33,7 +33,12 @@
       "Spelling Bee",
       "Volleyball Game"
     ],
-    "emails": []
+    "emails": [
+      {
+        "subject": "testMail",
+        "message": "this is a test mail"
+      }
+    ]
   },
   {
     "key": 84146,
