@@ -74,8 +74,8 @@
       <span>Twelfth grade winner: </span><span class="twelfth__winner"></span><br>
       <span>Prize won: </span><span class="twelfth__prize"></span><br><br>
 
-      <span>Random winner: </span><span class="random__winner"></span><br>
-      <span>Prize won: </span><span class="random__prize"></span><br><br>
+      <span>Highest points winner: </span><span class="top__winner"></span><br>
+      <span>Prize won: </span><span class="top__prize"></span><br><br>
    </div>
 
    <form action="">
@@ -83,36 +83,6 @@
          <h1>Debug</h1><br>
          <h2>Quick links</h2><br>
          <a id="logoutPage" href="">Logout</a><br>
-         <!-- <a href="">Event requests</a><br>
-         <a href="">Form approvals</a><br>
-         <a href="">Events list</a><br>
-         <a href="">Accounts list</a><br> -->
-
-         <!-- <br> -->
-
-         <!-- <h2>Events</h2><br>
-         <input class="" type="text" placeholder="Identifiers" required><br><br>
-         <input type="radio" name="event__filter" id="filter1"><label for="filter1"> Name</label><br>
-         <input type="radio" name="event__filter" id="filter2"><label for="filter2"> Description</label><br>
-         <input type="radio" name="event__filter" id="filter2"><label for="filter2"> Prize</label><br>
-         <input type="radio" name="event__filter" id="filter2"><label for="filter2"> Start date</label><br>
-         <input type="radio" name="event__filter" id="filter2"><label for="filter2"> End date</label><br><br>
-         <input type="button" value="Apply filters" onclick=""><br><br>
-
-         <h2>Accounts</h2><br>
-         <input class="" type="text" placeholder="Identifiers" required><br><br>
-         <input type="radio" name="account__filters" id="filter3"><label for="filter3"> Fname</label><br>
-         <input type="radio" name="account__filters" id="filter3"><label for="filter3"> Lname</label><br>
-         <input type="radio" name="account__filters" id="filter3"><label for="filter3"> Grade</label><br>
-         <input type="radio" name="account__filters" id="filter3"><label for="filter3"> Username</label><br>
-         <input type="radio" name="account__filters" id="filter4"><label for="filter4"> Points</label><br><br>
-         <input type="button" value="Apply filters" onclick=""> -->
-
-         <!-- <br><br> -->
-
-         <!-- <h2>Requests</h2><br>
-         <input type="button" value="View requests"><br><br> -->
-         <!-- <input type="button" value="Nominate"> -->
 
 
 
@@ -124,7 +94,6 @@
 
          <h2>Testing</h2><br>
          <input type="button" value="Prizes" onclick="pickWinners()">
-         <!-- <input type="button" value="print users" onclick="readUsersF()"> -->
 
 
       </div>
@@ -185,15 +154,15 @@
          <div class="stats__container">
             <div class="stats__box stats__events">
                <h2>Number of events</h2>
-               <span>Placeholder</span>
+               <span style="color: #9a9aff; font-weight: 1000">7</span>
             </div>
             <div class="stats__box stats__accounts">
                <h2>Number of students</h2>
-               <span>Placeholder</span>
+               <span style="color: #9a9aff; font-weight: 1000">56</span>
             </div>
             <div class="stats__box stats__requests">
                <h2>Number of requests</h2>
-               <span>Placeholder</span>
+               <span style="color: #9a9aff; font-weight: 1000">102</span>
             </div>
          </div>
          
@@ -310,12 +279,12 @@
       .tenth__winner,
       .eleventh__winner,
       .twelfth__winner,
-      .random__winner,
+      .top__winner,
       .ninth__prize,
       .tenth__prize,
       .eleventh__prize,
       .twelfth__prize,
-      .random__prize {
+      .top__prize {
          font-weight: 1000;
          color: #9a9aff;
       }

@@ -233,35 +233,38 @@ function pickWinners() {
    // console.log(tenthUsers);
    // console.log(eleventhUsers);
    // console.log(twelfthUsers);
-   let max9 = 0;
-   let max10 = 0;
-   let max11 = 0;
-   let max12 = 0;
-   let winner9;
-   let winner10;
-   let winner11;
-   let winner12;
-   let random = accs[Math.floor(Math.random() * accs.length)];
-   for (nUser of ninthUsers) {
-      if (nUser.points > max9) {
-         winner9 = nUser;
+   // let max9 = 0;
+   // let max10 = 0;
+   // let max11 = 0;
+   // let max12 = 0;
+   let winner9 = ninthUsers[Math.floor(Math.random() * ninthUsers.length)];
+   let winner10 = tenthUsers[Math.floor(Math.random() * tenthUsers.length)];
+   let winner11 = eleventhUsers[Math.floor(Math.random() * eleventhUsers.length)];
+   let winner12 = twelfthUsers[Math.floor(Math.random() * twelfthUsers.length)];
+   // let random = 
+   // let random = accs[Math.floor(Math.random() * accs.length)];
+   let max = 0;
+   let top;
+   for (iterable of accs) {
+      if (iterable.points > max) {
+         top = iterable;
       }
    }
-   for (tUser of tenthUsers) {
-      if (tUser.points > max10) {
-         winner10 = tUser;
-      }
-   }
-   for (eUser of eleventhUsers) {
-      if (eUser.points > max11) {
-         winner11 = eUser;
-      }
-   }
-   for (aUser of twelfthUsers) {
-      if (aUser.points > max12) {
-         winner12 = aUser;
-      }
-   }
+   // for (tUser of tenthUsers) {
+   //    if (tUser.points > max10) {
+   //       winner10 = tUser;
+   //    }
+   // }
+   // for (eUser of eleventhUsers) {
+   //    if (eUser.points > max11) {
+   //       winner11 = eUser;
+   //    }
+   // }
+   // for (aUser of twelfthUsers) {
+   //    if (aUser.points > max12) {
+   //       winner12 = aUser;
+   //    }
+   // }
    // console.log(winner9)
    // console.log(winner10)
    // console.log(winner11)
@@ -312,15 +315,15 @@ function pickWinners() {
       document.querySelector('.twelfth__prize').innerHTML = 'Medal'
    }
 
-   document.querySelector('.random__winner').innerHTML = `${random.student_fname} ${random.student_lname}`
-   if (random.points >= 10000) {
-      document.querySelector('.random__prize').innerHTML = 'Spirit item'
-   } else if (random.points >= 7500) {
-      document.querySelector('.random__prize').innerHTML = 'Food reward'
-   } else if (random.points >= 5000) {
-      document.querySelector('.random__prize').innerHTML = 'School reward'
+   document.querySelector('.top__winner').innerHTML = `${iterable.student_fname} ${iterable.student_lname}`
+   if (iterable.points >= 10000) {
+      document.querySelector('.top__prize').innerHTML = 'Spirit item'
+   } else if (iterable.points >= 7500) {
+      document.querySelector('.top__prize').innerHTML = 'Food reward'
+   } else if (iterable.points >= 5000) {
+      document.querySelector('.top__prize').innerHTML = 'School reward'
    } else {
-      document.querySelector('.random__prize').innerHTML = 'Medal'
+      document.querySelector('.top__prize').innerHTML = 'Medal'
    }
 
 }
