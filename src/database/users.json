@@ -321,21 +321,22 @@
     "emails": []
   },
   {
-   "key": 600709,
-   "student_fname": "Sai",
-   "student_lname": "Nallani",
-   "student_grade": "10",
-   "username": "sainallani",
-   "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
-   "points": 3000,
-   "admin": false,
-   "events": [
+    "key": 600709,
+    "student_fname": "Sai",
+    "student_lname": "Nallani",
+    "student_grade": "10",
+    "username": "sainallani",
+    "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
+    "points": 3000,
+    "admin": false,
+    "events": [
       "Football Game",
       "prom",
-      "Nerd event", "hackathon"
-   ],
-   "emails": []
- },
+      "Nerd event",
+      "hackathon"
+    ],
+    "emails": []
+  },
   {
     "key": 11129,
     "student_fname": "Claude",
@@ -1266,5 +1267,19 @@
       "Debate Competition",
       "Tennis Tournament"
     ]
+  },
+  {
+    "key": 562815,
+    "student_fname": "Jim",
+    "student_lname": "Jim",
+    "student_grade": "10",
+    "username": "JimJim",
+    "password": "$2a$10$Uk1eU7ppeSrFv8kZ8wo53O9oxGuTo5ILwP7NbEnF7My4je7cljhVy",
+    "points": 1000,
+    "admin": false,
+    "events": [
+      "Basketball Game"
+    ],
+    "emails": []
   }
 ]

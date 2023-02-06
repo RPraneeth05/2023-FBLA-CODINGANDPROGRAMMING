@@ -218,11 +218,11 @@ function deleteAccount(un) {
 }
 
 function generateReport(un) {
-   let accs = readFromJSON(path.join(__dirname, '../database/users.json'));
+   let users = readFromJSON(path.join(__dirname, '../database/users.json'));
    let targetUser;
-   for (acc of accs) {
-      if (acc.username === un) {
-         targetUser = acc;
+   for (let usr of users) {
+      if (usr.username === un) {
+         targetUser = usr;
          break;
       }
    }
@@ -241,12 +241,12 @@ function generateReport(un) {
          <td>${accEvent}</td>
       </tr>
       `
-            
+
    }
    document.querySelector('.r__events').innerHTML = output;
 
 
-   document.querySelector('.r__points').innerHTML = targetUser.points
+   document.querySelector('.r__points').innerHTML = targetUser.points + " points";
    // console.log(events);
    // for (let i = 0; i < accs.length; i++) {
    //    if (accs[i].username === un) {
