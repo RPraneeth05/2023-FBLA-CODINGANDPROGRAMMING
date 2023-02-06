@@ -43,10 +43,19 @@
    </header> -->
 
    <div class="report__window">
-      <input type="button" value="Go back" onclick="hideWin()"><br><br>
+      <input type="button" value="Go back" onclick="hideWin()" id="the__top"><br><br>
       <!-- Hello -->
       <h2 class="r__name">Full name</h2><br>
-      <h2 class="r__events">Events</h2><br>
+      <!-- <h2 class="r__events">Events</h2><br> -->
+      <table class="rev">
+         <thead>
+            <tr>
+               <th>Event name</th>
+            </tr>
+         </thead>
+         <tbody class="r__events"></tbody>
+      </table><br>
+
       <h2 class="r__points">Points</h2>
    </div>
 
@@ -378,6 +387,8 @@
          height: 100vh;
       }
 
+      
+
       .left__side {
          background-color: #1b1b1b;
          position: absolute;
@@ -597,10 +608,14 @@
          height: 100%;
          z-index: 98933847575964;
          background-color: #1b1b1b;
-         position: absolute;
+         position: fixed;
          top: 0;
          left: 0;
          display: none;
+      }
+
+      .rev {
+         width: 30rem;
       }
    </style>
    <script src="../preload/admin_preload.js"></script>
