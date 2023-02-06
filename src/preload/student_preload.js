@@ -182,16 +182,16 @@ let AccsTest;
 function updateAccounts() {
 	fetch(path.join(__dirname, '../database/users.json')).then(function (res) {
 		return res.json();
-	}).then(function (accounts) {
-		console.log(accounts);
-		accounts.sort((a, b) => {
+	}).then(function (leaderboardUsers) {
+		console.log(leaderboardUsers);
+		leaderboardUsers.sort((a, b) => {
 			return b.points - a.points;
 		});
-		console.log(accounts);
-		AccsTest = accounts;
+		console.log(leaderboardUsers);
+		AccsTest = leaderboardUsers;
 		let placeholder = document.querySelector('.accounts__output');
 		let output = '';
-		for (account of accounts) {
+		for (account of leaderboardUsers) {
 			if (account.admin) {
 				continue;
 			} else {
@@ -208,7 +208,7 @@ function updateAccounts() {
 		}
 		placeholder.innerHTML = output;
 
-		return accounts;
+		return leaderboardUsers;
 	});
 
 }

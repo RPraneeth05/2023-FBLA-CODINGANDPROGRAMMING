@@ -1197,5 +1197,23 @@
       "Debate Competition",
       "Tennis Tournament"
     ]
+  },
+  {
+    "key": 322536,
+    "student_fname": "Jakob",
+    "student_lname": "Yusef",
+    "student_grade": "12",
+    "username": "YusefJ",
+    "password": "$2a$10$toaIizK.t2RLKCw.2F0NnOYkRTJWq1lQhdjo7ROg6JomRSeUZWU.a",
+    "points": 4800,
+    "admin": false,
+    "events": [
+      "Basketball Game",
+      "Soccer Match",
+      "Volleyball Game",
+      "Quiz Bowl",
+      "Music Competition",
+      "Science Fair"
+    ]
   }
 ]

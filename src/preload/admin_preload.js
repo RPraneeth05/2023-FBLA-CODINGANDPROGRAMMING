@@ -4,6 +4,8 @@ const { table } = require('console');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 
+let USERSJSONPATH = path.join(__dirname, "../database/users.json");
+let EVENTSJSONPATH = path.join(__dirname, "../database/events.json");
 let hrefA = document.getElementById("logoutPage");
 hrefA.href = path.join(__dirname, "../../login.html");
 function readFromJSON(file) {
@@ -113,7 +115,7 @@ function toggleAccounts() {
 }
 
 function updateEvents() {
-   fetch(path.join(__dirname, '../database/events.json'))
+   fetch(EVENTSJSONPATH)
       .then(function (response) {
          return response.json();
       })
@@ -144,7 +146,7 @@ function updateEvents() {
 updateEvents();
 
 function updateAccounts() {
-   fetch(path.join(__dirname, '../database/users.json')).then(function (res) {
+   fetch(USERSJSONPATH).then(function (res) {
       return res.json();
    }).then(function (accounts) {
       console.log(accounts);
@@ -187,7 +189,7 @@ function updateAccounts() {
 }
 
 function deleteAccount(un) {
-   let accs = readFromJSON(path.join(__dirname, '../database/users.json'));
+   let accs = readFromJSON(USERSJSONPATH);
    // console.log(events);
    for (let i = 0; i < accs.length; i++) {
       // console.log(accs[i].event_name)
@@ -196,14 +198,14 @@ function deleteAccount(un) {
          break;
       }
    }
-   writeToJSON(path.join(__dirname, '../database/users.json'), accs);
+   writeToJSON(USERSJSONPATH, accs);
    updateAccounts();
 }
 
 updateAccounts();
 
 function createNewEvent() {
-   let currentEvents = readFromJSON(path.join(__dirname, '../database/events.json'));
+   let currentEvents = readFromJSON(EVENTSJSONPATH);
    let eventName = document.querySelector('.event__name').value;
    let eventDescription = document.querySelector('.event__description').value;
    let prize = document.querySelector('.prize').value;
@@ -235,7 +237,7 @@ function createNewEvent() {
       "participants": []
    }
    currentEvents.push(eventTemplate);
-   writeToJSON(path.join(__dirname, '../database/events.json'), currentEvents);
+   writeToJSON(EVENTSJSONPATH, currentEvents);
    alertPopup("Event created!", `Event '${eventName}' created!`)
    updateEvents();
 }
@@ -245,7 +247,7 @@ function editEvent() {
 
 function deleteEvent(name) {
    // console.log(name)
-   let events = readFromJSON(path.join(__dirname, '../database/events.json'));
+   let events = readFromJSON(EVENTSJSONPATH);
    // console.log(events);
    for (let i = 0; i < events.length; i++) {
       // console.log(events[i].event_name)
@@ -255,7 +257,7 @@ function deleteEvent(name) {
          break;
       }
    }
-   writeToJSON(path.join(__dirname, '../database/events.json'), events);
+   writeToJSON(EVENTSJSONPATH, events);
    updateEvents();
    // let i = r.parentNode.parentNode.rowIndex;
    // document.querySelector('.events__output').deleteRow(i);
@@ -269,19 +271,21 @@ function createNewAccount() {
    const password = document.querySelector('.student__password').value;
    const alertBox = document.querySelector(".warning__box");
 
+   // In JS, an empty string is false. Therefore, not empty string is true.
+   // So, we can use a boolean expression like the following
+   // to make sure all the fields are full
+   // without making the code look messy
    if (!fname || !lname || !grade || !username || !password) {
-
       warningPopup('Warning', 'Empty fields present')
-
       return;
    }
-
+   // Checks if password length is less than 8 characters
    if (password.length < 8) {
       warningPopup('Password', 'Password length has to be atleast 8 characters');
       return;
    }
-
-   const currentUsers = readFromJSON(path.join(__dirname, '../database/users.json'));
+   // Checks if username already exists
+   const currentUsers = readFromJSON(USERSJSONPATH);
    for (let usr of currentUsers) {
       if (usr.username == username) {
          errorPopup(
@@ -317,7 +321,7 @@ function createNewAccount() {
             events: []
          };
          currentUsers.push(newStudent);
-         writeToJSON(path.join(__dirname, '../database/users.json'), currentUsers);
+         writeToJSON(USERSJSONPATH, currentUsers);
          document.querySelector('.student__fname').value = "";
          document.querySelector('.student__lname').value = "";
          document.querySelector('.student__grade').value = "";
