@@ -112,6 +112,14 @@ function toggleAccounts() {
    accountsWindow.style.display = accountsWindow.style.display == 'none' ? 'block' : 'none';
 }
 
+textarea = document.querySelector('.auto__resize');
+textarea.addEventListener('input', autoResize, false);
+
+function autoResize() {
+   this.style.height = 'auto';
+   this.style.height = this.scrollHeight + 'px';
+}
+
 function updateEvents() {
    fetch(path.join(__dirname, '../database/events.json'))
       .then(function (response) {
@@ -177,6 +185,7 @@ function updateAccounts() {
                   <td>
                      <!--<input type="button" onclick="editAccount()" value="Edit">-->
                      <input type="button" onclick="deleteAccount('${account.username}')" value="Delete">
+                     <input type="button" onclick="generateReport('${account.username}')" value="Generate report">
                   </td>
                </tr>
             `
@@ -184,6 +193,10 @@ function updateAccounts() {
       }
       placeholder.innerHTML = output;
    });
+}
+
+function hideWin() {
+   document.querySelector('.report__window').style.display = 'none'
 }
 
 function deleteAccount(un) {
@@ -198,6 +211,33 @@ function deleteAccount(un) {
    }
    writeToJSON(path.join(__dirname, '../database/users.json'), accs);
    updateAccounts();
+}
+
+function generateReport(un) {
+   let accs = readFromJSON(path.join(__dirname, '../database/users.json'));
+   let targetUser;
+   for (acc of accs) {
+      if (acc.username === un) {
+         targetUser = acc;
+         break;
+      }
+   }
+   let win = document.querySelector('.report__window')
+   win.style.display = 'block'
+   // console.log(win)
+   console.log(acc);
+   document.querySelector('.r__name').innerHTML = `${acc.student_fname} ${acc.student_lname}`
+   document.querySelector('.r__events').innerHTML = acc.events
+   document.querySelector('.r__points').innerHTML = acc.points
+   // console.log(events);
+   // for (let i = 0; i < accs.length; i++) {
+   //    if (accs[i].username === un) {
+   //       accs.splice(i, 1)
+   //       break;
+   //    }
+   // }
+   // writeToJSON(path.join(__dirname, '../database/users.json'), accs);
+   // updateAccounts();
 }
 
 updateAccounts();
@@ -314,7 +354,8 @@ function createNewAccount() {
             password: hashedPassword,
             points: 0,
             admin: false,
-            events: []
+            events: [],
+            emails: []
          };
          currentUsers.push(newStudent);
          writeToJSON(path.join(__dirname, '../database/users.json'), currentUsers);
@@ -362,4 +403,24 @@ function filterAccounts() {
          }
       }
    }
+}
+
+function sendMsg() {
+   let recipient = document.querySelector('.recipient').value;
+   let subjectText = document.querySelector('.subject').value;
+   let messageText = document.querySelector('.message').value;
+   let studentAccounts = readFromJSON(path.join(__dirname, '../database/users.json'));
+   for (studentAccount of studentAccounts) {
+      // console.log(studentAccount.emails)
+      if (studentAccount.username === recipient) {
+         // console.log(studentAccount)
+         studentAccount.emails.push({
+            subject: subjectText,
+            message: messageText
+         })
+         // console.log(typeof studentAccount.emails)
+         break;
+      }
+   }
+   writeToJSON(path.join(__dirname, '../database/users.json'), studentAccounts);
 }

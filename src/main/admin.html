@@ -42,6 +42,14 @@
       </nav>
    </header> -->
 
+   <div class="report__window">
+      <input type="button" value="Go back" onclick="hideWin()"><br><br>
+      <!-- Hello -->
+      <h2 class="r__name">Full name</h2><br>
+      <h2 class="r__events">Events</h2><br>
+      <h2 class="r__points">Points</h2>
+   </div>
+
    <form action="">
       <div class="left__side">
          <h1>Debug</h1><br>
@@ -162,12 +170,31 @@
 
          <div class="wrapper">
             <div class="left">
+               <!-- <h2>Contact</h2>
+               <span>Placeholder</span> -->
                <h2>Contact</h2>
-               <span>Placeholder</span>
+               <!-- <span>Placeholder</span> -->
+               <br>
+               <!-- <span>Recipient</span> -->
+               <input type="text" class="contact__field recipient" placeholder="Recipient">
+
+               <br><br>
+               <!-- <span>Subject</span> -->
+               <input type="text" class="contact__field subject" placeholder="Subject">
+
+               <br><br>
+               <!-- <span>Name</span>
+               <input type="text"> -->
+
+               <!-- <span>Message</span><br> -->
+               <textarea name="" id="" rows="1" class="auto__resize message" placeholder="Message"></textarea>
+               <br><br>
+
+               <input type="button" value="Send message" onclick="sendMsg()">
             </div>
             <div class="right">
-               <h2>Requests</h2>
-               <span>Placeholder</span>
+               <!-- <h2>Requests</h2>
+               <span>Placeholder</span> -->
             </div>
          </div>
 
@@ -301,6 +328,31 @@
          grid-template-columns: 1fr 1fr 1fr;
          /* grid-template-columns: 1fr 1fr 1fr 1fr; */
          gap: 1rem;
+      }
+
+      .contact__field {
+         border-bottom: 1px solid #777;
+         padding: 0;
+         border-radius: 0;
+         width: 100%;
+         background-color: transparent;
+         line-height: 1.5rem;
+         /* margin-bottom: .5rem; */
+      }
+      .auto__resize {
+         resize: none;
+         /* width: calc(100% - .5rem); */
+         width: 100%;
+         /* padding: 0 0 .25rem 0; */
+         /* line-height: 1.5rem; */
+         border: none;
+         color: #aaa;
+         border-bottom: 1px solid #777;
+         line-height: 1.5rem;
+         background-color: transparent;
+         /* margin-bottom: .5rem; */
+         /* border-radius: .25rem; */
+         /* display: block; */
       }
 
       .stats__box {
@@ -537,6 +589,18 @@
 
       .fade {
          opacity: 1;
+      }
+
+      .report__window {
+         padding: 2rem;
+         width: 100%;
+         height: 100%;
+         z-index: 98933847575964;
+         background-color: #1b1b1b;
+         position: absolute;
+         top: 0;
+         left: 0;
+         display: none;
       }
    </style>
    <script src="../preload/admin_preload.js"></script>

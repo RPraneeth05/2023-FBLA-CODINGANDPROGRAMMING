@@ -8,21 +8,21 @@
     "admin": true
   },
   {
-    "key": 83190,
-    "student_fname": "Sai",
-    "student_lname": "Nallani",
-    "student_grade": "12",
-    "username": "sainallani",
-    "password": "$2a$10$1EM9CXhL1U0JChnCe06kku5vcYxaWxFZua6qnhJoofPildmD1Eh8e",
-    "points": 3000,
-    "admin": false,
-    "events": [
+   "key": 600709,
+   "student_fname": "Sai",
+   "student_lname": "Nallani",
+   "student_grade": "10",
+   "username": "sainallani",
+   "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
+   "points": 3000,
+   "admin": false,
+   "events": [
       "Football Game",
-      "Football Game",
-      "Prom",
-      "Spirit Week"
-    ]
-  },
+      "prom",
+      "Nerd event", "hackathon"
+   ],
+   "emails": []
+ },
   {
     "key": 675311,
     "student_fname": "Praveen",
@@ -32,7 +32,8 @@
     "password": "$2a$10$mXsRCB46Gywr6ATehIyJ8OBMIZ9nKELXIMBTHnnHcyJI0d9NgHAGy",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 448619,
@@ -43,7 +44,8 @@
     "password": "$2a$10$1qq3ClaciK8RjER0.toIOOe9H7SzIN.QOZlPvxWmj/NlWFOZDv..O",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 474131,
@@ -54,7 +56,8 @@
     "password": "$2a$10$rSpBCKYTk083SibliuKtUuM.mQRWY9FJBTsI1CO8rmIMM9MfD4e7a",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 9132,
@@ -65,7 +68,8 @@
     "password": "$2a$10$3H3KyVJRVNlHiyZ27L24U.ya5TyX08RfQ.u1Y5PVCLUYJ8GnrTT0W",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 329487,
@@ -76,7 +80,8 @@
     "password": "$2a$10$1bhg4VySvZphkf8Jte0EUeGov3rH517VLUqTm1VS9luv.xCFESrDi",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 708444,
@@ -87,7 +92,8 @@
     "password": "$2a$10$k1U0UnsUT3HVITeJ6K9C7u5vNy4AaXwDEgTViZX8qum84HYjhtrUe",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 96564,
@@ -98,7 +104,8 @@
     "password": "$2a$10$iT0h1//LEEslx6h6JqpbnOB.ayoMy6EkKc74FEOIZCp0yhyKxlDYO",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 873802,
@@ -109,7 +116,8 @@
     "password": "$2a$10$7MxbFvtgSegQtYeFuu21AepYCil.fHgR2ZhrUB4.CUq4A9ph1kc12",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   },
   {
     "key": 970357,
@@ -120,6 +128,7 @@
     "password": "$2a$10$.AZxM8905TtrWAagJP7T/.VFA52k0VW5AaE7NYJpbSsY.A/aFQfaq",
     "points": 0,
     "admin": false,
-    "events": []
+    "events": [],
+    "emails": []
   }
 ]
