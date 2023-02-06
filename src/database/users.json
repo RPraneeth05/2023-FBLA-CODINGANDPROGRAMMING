@@ -32,7 +32,8 @@
       "Quiz Bowl",
       "Spelling Bee",
       "Volleyball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 84146,
@@ -61,7 +62,8 @@
       "Soccer Match",
       "Cook-Off Challenge",
       "Debate Competition"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 398334,
@@ -79,7 +81,8 @@
       "Golf Tournament",
       "Art Show",
       "Cross Country Meet"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11119,
@@ -99,7 +102,8 @@
       "Soccer Match",
       "Cook-Off Challenge",
       "Volleyball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11120,
@@ -117,7 +121,8 @@
       "Music Competition",
       "Swimming Championship",
       "Soccer Match"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11121,
@@ -142,7 +147,8 @@
       "Golf Tournament",
       "Theater Festival",
       "Science Fair"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11122,
@@ -167,7 +173,8 @@
       "Swimming Championship",
       "Cross Country Meet",
       "Golf Tournament"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11123,
@@ -185,7 +192,8 @@
       "Track and Field Meet",
       "Cook-Off Challenge",
       "Swimming Championship"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11124,
@@ -205,7 +213,8 @@
       "Art Show",
       "Swimming Championship",
       "Golf Tournament"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11125,
@@ -233,7 +242,8 @@
       "Cook-Off Challenge",
       "Theater Festival",
       "Swimming Championship"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11126,
@@ -251,7 +261,8 @@
       "Debate Competition",
       "Quiz Bowl",
       "Art Show"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11127,
@@ -276,7 +287,8 @@
       "Track and Field Meet",
       "Tennis Tournament",
       "Baseball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11128,
@@ -305,8 +317,25 @@
       "Tennis Tournament",
       "Baseball Game",
       "Quiz Bowl"
-    ]
+    ],
+    "emails": []
   },
+  {
+   "key": 600709,
+   "student_fname": "Sai",
+   "student_lname": "Nallani",
+   "student_grade": "10",
+   "username": "sainallani",
+   "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
+   "points": 3000,
+   "admin": false,
+   "events": [
+      "Football Game",
+      "prom",
+      "Nerd event", "hackathon"
+   ],
+   "emails": []
+ },
   {
     "key": 11129,
     "student_fname": "Claude",
@@ -327,7 +356,8 @@
       "Lacrosse Game",
       "Music Competition",
       "Baseball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11130,
@@ -344,7 +374,8 @@
       "Tennis Tournament",
       "Theater Festival",
       "Debate Competition"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11131,
@@ -368,7 +399,8 @@
       "Theater Festival",
       "Art Show",
       "Golf Tournament"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11132,
@@ -382,7 +414,8 @@
     "events": [
       "Music Competition",
       "Theater Festival"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11133,
@@ -404,7 +437,8 @@
       "Volleyball Game",
       "Quiz Bowl",
       "Tennis Tournament"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11134,
@@ -426,7 +460,8 @@
       "Cook-Off Challenge",
       "Theater Festival",
       "Swimming Championship"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11135,
@@ -456,7 +491,8 @@
       "Swimming Championship",
       "Lacrosse Game",
       "Science Fair"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11136,
@@ -484,7 +520,8 @@
       "Basketball Game",
       "Quiz Bowl",
       "Art Show"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11137,
@@ -511,7 +548,8 @@
       "Science Fair",
       "Tennis Tournament",
       "Golf Tournament"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11138,
@@ -535,7 +573,8 @@
       "Cook-Off Challenge",
       "Science Fair",
       "Cross Country Meet"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11139,
@@ -562,7 +601,8 @@
       "Debate Competition",
       "Tennis Tournament",
       "Quiz Bowl"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11140,
@@ -575,7 +615,8 @@
     "admin": false,
     "events": [
       "Music Competition"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11141,
@@ -599,7 +640,8 @@
       "Art Show",
       "Basketball Game",
       "Lacrosse Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11142,
@@ -629,7 +671,8 @@
       "Cook-Off Challenge",
       "Quiz Bowl",
       "Basketball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11143,
@@ -656,7 +699,8 @@
       "Spelling Bee",
       "Tennis Tournament",
       "Lacrosse Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11144,
@@ -681,7 +725,8 @@
       "Tennis Tournament",
       "Quiz Bowl",
       "Soccer Match"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11145,
@@ -705,7 +750,8 @@
       "Cross Country Meet",
       "Basketball Game",
       "Spelling Bee"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11146,
@@ -725,7 +771,8 @@
       "Tennis Tournament",
       "Spelling Bee",
       "Cross Country Meet"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11147,
@@ -739,7 +786,8 @@
     "events": [
       "Tennis Tournament",
       "Science Fair"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11148,
@@ -762,7 +810,8 @@
       "Swimming Championship",
       "Golf Tournament",
       "Volleyball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11149,
@@ -782,7 +831,8 @@
       "Volleyball Game",
       "Soccer Match",
       "Spelling Bee"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11150,
@@ -804,7 +854,8 @@
       "Track and Field Meet",
       "Quiz Bowl",
       "Art Show"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11151,
@@ -817,7 +868,8 @@
     "admin": false,
     "events": [
       "Volleyball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11152,
@@ -835,7 +887,8 @@
       "Cross Country Meet",
       "Science Fair",
       "Spelling Bee"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11153,
@@ -857,7 +910,8 @@
       "Theater Festival",
       "Art Show",
       "Cook-Off Challenge"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11154,
@@ -880,7 +934,8 @@
       "Music Competition",
       "Spelling Bee",
       "Cook-Off Challenge"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11155,
@@ -900,7 +955,8 @@
       "Quiz Bowl",
       "Music Competition",
       "Soccer Match"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11156,
@@ -913,7 +969,8 @@
     "admin": false,
     "events": [
       "Theater Festival"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11157,
@@ -938,7 +995,8 @@
       "Cross Country Meet",
       "Art Show",
       "Cook-Off Challenge"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11158,
@@ -963,7 +1021,8 @@
       "Cross Country Meet",
       "Quiz Bowl",
       "Basketball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11159,
@@ -976,7 +1035,8 @@
     "admin": false,
     "events": [
       "Soccer Match"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11160,
@@ -993,7 +1053,8 @@
       "Science Fair",
       "Volleyball Game",
       "Lacrosse Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11161,
@@ -1011,7 +1072,8 @@
       "Tennis Tournament",
       "Theater Festival",
       "Quiz Bowl"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11162,
@@ -1033,7 +1095,8 @@
       "Soccer Match",
       "Track and Field Meet",
       "Lacrosse Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11163,
@@ -1048,7 +1111,8 @@
       "Spelling Bee",
       "Baseball Game",
       "Basketball Game"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11164,
@@ -1075,7 +1139,8 @@
       "Golf Tournament",
       "Debate Competition",
       "Art Show"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11165,
@@ -1100,7 +1165,8 @@
       "Cook-Off Challenge",
       "Tennis Tournament",
       "Swimming Championship"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11166,
@@ -1121,7 +1187,8 @@
       "Basketball Game",
       "Art Show",
       "Swimming Championship"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11167,
@@ -1146,7 +1213,8 @@
       "Swimming Championship",
       "Tennis Tournament",
       "Track and Field Meet"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11168,
@@ -1166,7 +1234,8 @@
       "Music Competition",
       "Tennis Tournament",
       "Art Show"
-    ]
+    ],
+    "emails": []
   },
   {
     "key": 11169,
@@ -1196,24 +1265,6 @@
       "Science Fair",
       "Debate Competition",
       "Tennis Tournament"
-    ]
-  },
-  {
-    "key": 322536,
-    "student_fname": "Jakob",
-    "student_lname": "Yusef",
-    "student_grade": "12",
-    "username": "YusefJ",
-    "password": "$2a$10$toaIizK.t2RLKCw.2F0NnOYkRTJWq1lQhdjo7ROg6JomRSeUZWU.a",
-    "points": 4800,
-    "admin": false,
-    "events": [
-      "Basketball Game",
-      "Soccer Match",
-      "Volleyball Game",
-      "Quiz Bowl",
-      "Music Competition",
-      "Science Fair"
     ]
   }
 ]
