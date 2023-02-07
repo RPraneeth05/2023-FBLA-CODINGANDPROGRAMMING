@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRJbiI6dHJ1ZSwidXNlcm5hbWUiOiJwIiwiaWF0IjoxNjc1NzEwNTA5fQ.2WcnZlnXRocCxEGXsp-9F823sfbcMYF4vDPGBBDMTos
-=======
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRJbiI6dHJ1ZSwidXNlcm5hbWUiOiJwIiwiaWF0IjoxNjc1NzAwNTY4fQ.dtKL_dtDPAuumm0pLqlJ4i7xgcb4e-qDHICntb8drt8
->>>>>>> 286594bc392c93f4c74c96ed5b3f9ed83c1b9cfc
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRJbiI6dHJ1ZSwidXNlcm5hbWUiOiJwIiwiaWF0IjoxNjc1NzI2MDcyfQ.yLGpEoGQQuq33roIMGKTM43rvUwV9UdPrLReS3vYeas
