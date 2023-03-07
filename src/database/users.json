@@ -3,8 +3,8 @@
     "key": 0,
     "fname": "Praneeth",
     "lname": "Rangarajan",
-    "username": "p",
-    "password": "$2a$10$iGZFaHoKFxcoVqbpk/OO8uKMx2FtFQ/9Kh5g32/Fs7oL31JkjH7gG",
+    "username": "ADMIN",
+    "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
     "admin": true
   },
   {
@@ -326,23 +326,6 @@
     "emails": []
   },
   {
-    "key": 600709,
-    "student_fname": "Sai",
-    "student_lname": "Nallani",
-    "student_grade": "10",
-    "username": "sainallani",
-    "password": "$2a$10$vaBOOss7O67ghTIQyHaHzuAVu8nG6fv.TU.3EPMLABBDFaNKqmfMW",
-    "points": 3000,
-    "admin": false,
-    "events": [
-      "Football Game",
-      "prom",
-      "Nerd event",
-      "hackathon"
-    ],
-    "emails": []
-  },
-  {
     "key": 11129,
     "student_fname": "Claude",
     "student_lname": "Flores",
@@ -621,31 +604,6 @@
     "admin": false,
     "events": [
       "Music Competition"
-    ],
-    "emails": []
-  },
-  {
-    "key": 11141,
-    "student_fname": "Cara",
-    "student_lname": "Matheson",
-    "student_grade": "9",
-    "username": "CMatheson",
-    "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6500,
-    "admin": false,
-    "events": [
-      "Cook-Off Challenge",
-      "Music Competition",
-      "Tennis Tournament",
-      "Spelling Bee",
-      "Baseball Game",
-      "Science Fair",
-      "Swimming Championship",
-      "Theater Festival",
-      "Golf Tournament",
-      "Art Show",
-      "Basketball Game",
-      "Lacrosse Game"
     ],
     "emails": []
   },
@@ -1197,32 +1155,6 @@
     "emails": []
   },
   {
-    "key": 11167,
-    "student_fname": "Dianne",
-    "student_lname": "Sumpter",
-    "student_grade": "11",
-    "username": "DSumpter",
-    "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7100,
-    "admin": false,
-    "events": [
-      "Basketball Game",
-      "Science Fair",
-      "Baseball Game",
-      "Spelling Bee",
-      "Art Show",
-      "Volleyball Game",
-      "Cross Country Meet",
-      "Cook-Off Challenge",
-      "Lacrosse Game",
-      "Soccer Match",
-      "Swimming Championship",
-      "Tennis Tournament",
-      "Track and Field Meet"
-    ],
-    "emails": []
-  },
-  {
     "key": 11168,
     "student_fname": "Kristin",
     "student_lname": "Minihane",
@@ -1274,16 +1206,18 @@
     ]
   },
   {
-    "key": 562815,
-    "student_fname": "Jim",
-    "student_lname": "Jim",
-    "student_grade": "10",
-    "username": "JimJim",
-    "password": "$2a$10$Uk1eU7ppeSrFv8kZ8wo53O9oxGuTo5ILwP7NbEnF7My4je7cljhVy",
-    "points": 1000,
+    "key": 772081,
+    "student_fname": "Kavya",
+    "student_lname": "Jaipur",
+    "student_grade": "11",
+    "username": "JaipurK",
+    "password": "$2a$10$/qvZrp7XQ01oq.RE/VpcoeUILE.3yRuiLhZBAyAVQxejJJUyRj5.2",
+    "points": 6300,
     "admin": false,
     "events": [
-      "Basketball Game"
+      "Spirit Week",
+      "Pep Rally",
+      "Volleyball Game"
     ],
     "emails": []
   }

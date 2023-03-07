@@ -81,12 +81,12 @@
    <form action="">
       <div class="left__side">
          <!-- <h1>Debug</h1><br> -->
-         <!-- <h2>Quick links</h2><br>
-         <a id="logoutPage" href="">Logout</a><br>
+         <!-- <h2>Quick links</h2><br> -->
+         <a id="logoutPage" style="margin: .5rem" href="">Logout</a><br>
 
 
 
-         <br><br>
+         <!-- <br><br>
          <h2>Popups</h2><br>
          <input type="button" value="Alert" onclick="alertPopup()">
          <input type="button" value="Warning" onclick="warningPopup()">
@@ -151,7 +151,7 @@
          <input type="button" value="View accounts" onclick="toggleAccounts()">
 
          <br><br>
-         <div class="stats__container">
+         <!-- <div class="stats__container">
             <div class="stats__box stats__events">
                <h2>Number of events</h2>
                <span class="info__thing" style="font-weight: 1000">7</span>
@@ -164,7 +164,7 @@
                <h2>Number of requests</h2>
                <span class="info__thing" style="font-weight: 1000">102</span>
             </div>
-         </div>
+         </div> -->
 
          <br>
 
@@ -213,7 +213,8 @@
          <h1>Create</h1><br>
          <h2>New event</h2><br>
          <input class="event__name" type="text" placeholder="Event name" required><br><br>
-         <input class="event__description" type="text" placeholder="Event description" required><br><br>
+         <textarea class="event__description" required name="" id="" cols="20" rows="10"></textarea>
+         <!-- <input class="event__description" type="text" placeholder="Event description" required><br><br> -->
          <input class="prize" type="number" placeholder="Prize" required min="0" max="1000"><br><br>
          <label for="start">Start date</label>
          <input class="start__date" type="date" placeholder="Start date" required id="start"><br><br>
@@ -239,6 +240,9 @@
 
 
          </div>
+         <div id="qm">
+            <span id="m">?</span>
+         </div>
    </form>
    <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
@@ -262,6 +266,54 @@
          --text-gradient: linear-gradient(to bottom right, var(--text-primary-color) 0%, var(--text-secondary-color) 50%);
 
          --hover-effect: 0 0 3rem rgba(100, 100, 200, .7);
+      }
+
+
+      #qm {
+         position: absolute;
+         bottom: 80px;
+         right: 40px;
+         border-radius: 25px;
+         background-color: #6969ff;
+         width: 50px;
+         height: 50px;
+         transition: .2s;
+      }
+
+      #qm:hover {
+         padding: .5em;
+         transition: .2s;
+      }
+
+      #m {
+         position: relative;
+         top: 11px;
+         left: 18px;
+         font-size: x-large;
+      }
+
+
+      #qm {
+         position: absolute;
+         bottom: 80px;
+         right: 40px;
+         border-radius: 25px;
+         background-color: #6969ff;
+         width: 50px;
+         height: 50px;
+         transition: .2s;
+      }
+
+      #qm:hover {
+         padding: .5em;
+         transition: .2s;
+      }
+
+      #m {
+         position: relative;
+         top: 11px;
+         left: 18px;
+         font-size: x-large;
       }
 
       * {
@@ -394,6 +446,7 @@
          /* margin-bottom: .5rem; */
       }
 
+
       .auto__resize {
          resize: none;
          /* width: calc(100% - .5rem); */
@@ -433,6 +486,7 @@
          grid-template-columns: 1fr 5fr 1fr;
          height: 100vh;
       }
+
 
 
 
@@ -478,7 +532,7 @@
 
       .left,
       .right {
-         background: linear-gradient(to top left, #181b2e, #23263f);
+         background-image: linear-gradient(to top left, #080a1b, #0d0f25);
          position: relative;
          padding: 1rem;
          border-radius: .5rem;
@@ -574,6 +628,24 @@
          width: calc(100% - .5rem);
          background-color: #24283f;
          color: #fff;
+      }
+
+      textarea {
+         border-radius: .25rem;
+         padding: .25rem;
+         border: none;
+         width: calc(100% - .5rem);
+         background-color: #24283f;
+         color: #fff;
+      }
+
+      textarea {
+         border-radius: .25rem;
+         padding: .25rem;
+         border: none;
+         width: calc(100% - .5rem);
+         background-color: #333;
+         color: #aaa;
       }
 
       select {
