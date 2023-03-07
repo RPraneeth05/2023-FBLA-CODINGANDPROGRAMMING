@@ -43,7 +43,9 @@ function updateEvents() {
 			USERDATA = getUserDetails();
 			for (let event of events) {
 				console.log(USERDATA);
-				if (event.participants.includes(USERDATA.username)) {
+				if (Date.now() < Date.parse(event.start_date)) {
+					buttonHTML = "-";
+				} else if (event.participants.includes(USERDATA.username)) {
 					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Unregister">`;
 				} else {
 					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Register">`;
@@ -170,7 +172,7 @@ function refDashboard() {
 	let hrefA = document.getElementById("logoutPage");
 	hrefA.onclick = () => {
 		location.href = path.join(__dirname, "../../login.html");
-	}
+	};
 	let data = document.getElementById("user_data");
 	data.innerHTML = `
 		<h2>Hi ${USERDATA.student_fname}. You have ${USERDATA.points} points.</h2>
@@ -180,22 +182,24 @@ function refDashboard() {
 refDashboard();
 let AccsTest;
 function updateAccounts() {
-	fetch(path.join(__dirname, '../database/users.json')).then(function (res) {
-		return res.json();
-	}).then(function (leaderboardUsers) {
-		console.log(leaderboardUsers);
-		leaderboardUsers.sort((a, b) => {
-			return b.points - a.points;
-		});
-		console.log(leaderboardUsers);
-		AccsTest = leaderboardUsers;
-		let placeholder = document.querySelector('.accounts__output');
-		let output = '';
-		for (account of leaderboardUsers) {
-			if (account.admin) {
-				continue;
-			} else {
-				output += `
+	fetch(path.join(__dirname, "../database/users.json"))
+		.then(function (res) {
+			return res.json();
+		})
+		.then(function (leaderboardUsers) {
+			console.log(leaderboardUsers);
+			leaderboardUsers.sort((a, b) => {
+				return b.points - a.points;
+			});
+			console.log(leaderboardUsers);
+			AccsTest = leaderboardUsers;
+			let placeholder = document.querySelector(".accounts__output");
+			let output = "";
+			for (account of leaderboardUsers) {
+				if (account.admin) {
+					continue;
+				} else {
+					output += `
 				<tr>
 				   <td>${account.student_fname}</td>
 				   <td>${account.student_lname}</td>
@@ -203,41 +207,38 @@ function updateAccounts() {
 				   <td>${account.username}</td>
 				   <td>${account.points}</td>
 				</tr>
-			 `
+			 `;
+				}
 			}
-		}
-		placeholder.innerHTML = output;
+			placeholder.innerHTML = output;
 
-		return leaderboardUsers;
-	});
-
+			return leaderboardUsers;
+		});
 }
 updateAccounts();
-document.getElementById("toggleLeaderboard").addEventListener(
-	'click', () => {
-		let lead = document.querySelector('.accounts__holder');
-		let currentDisplay = lead.style.display;
-		lead.style.display = currentDisplay == "none" ? "block" : "none";
-
-	}
-);
+document.getElementById("toggleLeaderboard").addEventListener("click", () => {
+	let lead = document.querySelector(".accounts__holder");
+	let currentDisplay = lead.style.display;
+	lead.style.display = currentDisplay == "none" ? "block" : "none";
+});
 function toggleAccounts() {
-	let accountsWindow = document.querySelector('.accounts__holder');
-	accountsWindow.style.display = accountsWindow.style.display == 'none' ? 'block' : 'none';
+	let accountsWindow = document.querySelector(".accounts__holder");
+	accountsWindow.style.display =
+		accountsWindow.style.display == "none" ? "block" : "none";
 }
 function filterAccountsByName() {
-	let input = document.querySelector('.account__search');
+	let input = document.querySelector(".account__search");
 	let filter = input.value.toUpperCase();
-	let table = document.querySelector('.accounts__output');
-	tr = table.getElementsByTagName('tr');
+	let table = document.querySelector(".accounts__output");
+	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName('td')[0];
+		td = tr[i].getElementsByTagName("td")[0];
 		if (td) {
 			let textValue = td.textContent || td.innerText;
 			if (textValue.toUpperCase().indexOf(filter) > -1) {
-				tr[i].style.display = '';
+				tr[i].style.display = "";
 			} else {
-				tr[i].style.display = 'none';
+				tr[i].style.display = "none";
 			}
 		}
 	}
@@ -246,7 +247,7 @@ const checkboxes = document.querySelectorAll('input[name="grade"]');
 let selectedGrades = [];
 
 for (let checkbox of checkboxes) {
-	checkbox.addEventListener('change', function () {
+	checkbox.addEventListener("change", function () {
 		if (checkbox.checked) {
 			selectedGrades.push(checkbox.value);
 		} else {
@@ -255,27 +256,27 @@ for (let checkbox of checkboxes) {
 				selectedGrades.splice(index, 1);
 			}
 		}
-		filterAccountsByGrade(selectedGrades)
+		filterAccountsByGrade(selectedGrades);
 	});
 }
 
 function filterAccountsByGrade(boxes) {
 	if (boxes.length == 0) boxes = ["9", "10", "11", "12"];
-	let table = document.querySelector('.accounts__output');
-	tr = table.getElementsByTagName('tr');
+	let table = document.querySelector(".accounts__output");
+	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName('td')[2];
+		td = tr[i].getElementsByTagName("td")[2];
 		if (td) {
 			let textValue = td.textContent || td.innerText;
 			if (boxes.includes(textValue)) {
-				tr[i].style.display = '';
+				tr[i].style.display = "";
 			} else {
-				tr[i].style.display = 'none';
+				tr[i].style.display = "none";
 			}
 		}
 	}
 }
 
 // function showMail() {
-   
+
 // }
