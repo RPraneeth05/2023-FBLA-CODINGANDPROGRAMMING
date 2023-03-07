@@ -154,18 +154,18 @@
          <div class="stats__container">
             <div class="stats__box stats__events">
                <h2>Number of events</h2>
-               <span style="color: #9a9aff; font-weight: 1000">7</span>
+               <span class="info__thing" style="font-weight: 1000">7</span>
             </div>
             <div class="stats__box stats__accounts">
                <h2>Number of students</h2>
-               <span style="color: #9a9aff; font-weight: 1000">56</span>
+               <span class="info__thing" style="font-weight: 1000">56</span>
             </div>
             <div class="stats__box stats__requests">
                <h2>Number of requests</h2>
-               <span style="color: #9a9aff; font-weight: 1000">102</span>
+               <span class="info__thing" style="font-weight: 1000">102</span>
             </div>
          </div>
-         
+
          <br>
 
          <div class="wrapper">
@@ -238,11 +238,31 @@
 
 
 
-      </div>
+         </div>
    </form>
    <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+      :root {
+         --background-color: #000212;
+         --card-color: #181c2a;
+
+         --accent-color: #1be4ff;
+         --highlight-color: #406dff;
+
+         --text-primary-color: #87d5e9;
+         --text-secondary-color: #699de0;
+         --text-miscellaneous-color: #b4bcd0;
+
+         --gradient-primary: rgb(232, 78, 56);
+         --gradient-secondary: rgb(186, 44, 184);
+
+         --button-gradient: linear-gradient(to top left, var(--accent-color), var(--highlight-color));
+         --text-gradient: linear-gradient(to bottom right, var(--text-primary-color) 0%, var(--text-secondary-color) 50%);
+
+         --hover-effect: 0 0 3rem rgba(100, 100, 200, .7);
+      }
 
       * {
          /* font-family: 'JetBrains Mono', monospace; */
@@ -250,7 +270,7 @@
          user-select: none;
          padding: 0;
          margin: 0;
-         color: #aaa;
+         color: #adacee;
          scrollbar-width: none;
       }
 
@@ -259,7 +279,7 @@
       }
 
       body {
-         background-color: #222;
+         background-color: #000212;
       }
 
       /* li {
@@ -287,6 +307,13 @@
       .top__prize {
          font-weight: 1000;
          color: #9a9aff;
+      }
+
+      .info__thing {
+         background: var(--button-gradient);
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
       }
 
       /* header {
@@ -357,7 +384,8 @@
       }
 
       .contact__field {
-         border-bottom: 1px solid #777;
+         color: #fff;
+         border-bottom: 1px solid #adacee;
          padding: 0;
          border-radius: 0;
          width: 100%;
@@ -365,6 +393,7 @@
          line-height: 1.5rem;
          /* margin-bottom: .5rem; */
       }
+
       .auto__resize {
          resize: none;
          /* width: calc(100% - .5rem); */
@@ -372,8 +401,8 @@
          /* padding: 0 0 .25rem 0; */
          /* line-height: 1.5rem; */
          border: none;
-         color: #aaa;
-         border-bottom: 1px solid #777;
+         color: #fff;
+         border-bottom: 1px solid #adacee;
          line-height: 1.5rem;
          background-color: transparent;
          /* margin-bottom: .5rem; */
@@ -384,7 +413,8 @@
       .stats__box {
          /* width: calc(100% - 2rem); */
          height: auto;
-         background-color: #333;
+         /* background-color: #181b2e; */
+         background: linear-gradient(to top left, #181b2e, #23263f);
          border-radius: .5rem;
          padding: 1rem;
       }
@@ -404,20 +434,22 @@
          height: 100vh;
       }
 
-      
+
 
       .left__side {
-         background-color: #1b1b1b;
+         /* background-color: #080a1b; */
+         background-image: linear-gradient(to top left, #080a1b, #0d0f25);
          position: absolute;
          padding: 2rem;
          top: 0;
          left: 0;
          width: 12rem;
-         height: 100vh;
+         min-height: calc(100vh - 4rem);
+         
       }
 
       .middle {
-         background-color: #222;
+         background-color: #000212;
          position: absolute;
          top: 0;
          left: 50%;
@@ -427,13 +459,14 @@
       }
 
       .right__side {
-         background-color: #1b1b1b;
+         background-image: linear-gradient(to top left, #080a1b, #0d0f25);
+         /* background-color: #080a1b; */
          position: absolute;
          padding: 2rem;
          top: 0;
          right: 0;
          width: 12rem;
-         height: 100vh;
+         min-height: calc(100vh - 4rem);
       }
 
       .wrapper {
@@ -443,19 +476,31 @@
          gap: 1rem;
       }
 
-      .left, .right {
-         background-color: #1b1b1b;
+      .left,
+      .right {
+         background: linear-gradient(to top left, #181b2e, #23263f);
          position: relative;
          padding: 1rem;
+         border-radius: .5rem;
 
       }
 
       h1 {
          font-size: 2rem;
+         color: #adacee;
+         /* background: var(--text-gradient);
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent; */
       }
 
       h2 {
          font-size: 1.5rem;
+         color: #adacee;
+         /* background: var(--text-gradient);
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent; */
       }
 
       label,
@@ -465,7 +510,7 @@
       }
 
       ::placeholder {
-         color: #777;
+         color: #fff;
       }
 
       .statistics {
@@ -485,8 +530,12 @@
       }
 
       .table__holder {
+         /* background-color: rgba(0, 0, 0, 0);
+         backdrop-filter: blur(1rem); */
          position: relative;
          padding: 2rem;
+         background-color: #000212;
+         min-height: calc(100vh - 4rem);
       }
 
       table {
@@ -523,8 +572,8 @@
          padding: .25rem;
          border: none;
          width: calc(100% - .5rem);
-         background-color: #333;
-         color: #aaa;
+         background-color: #24283f;
+         color: #fff;
       }
 
       select {
@@ -532,8 +581,8 @@
          padding: .25rem;
          border: none;
          width: 100%;
-         background-color: #333;
-         color: #777;
+         background-color: #24283f;
+         color: #fff;
       }
 
       .event__search,
@@ -542,19 +591,23 @@
       }
 
       input[type=date] {
-         color: #777;
+         color: #fff;
       }
 
       input[type=button] {
-         background-color: #9a9aff;
+         /* background-color: #9a9aff; */
+         background: var(--button-gradient);
          transition: .15s;
          width: auto;
          color: #000;
+         padding: .25rem .5rem;
+         border-radius: 50rem;
       }
 
       input[type=button]:hover {
          cursor: pointer;
-         padding: .5rem;
+         padding: .5rem 1rem;
+         /* padding: .25rem; */
       }
 
       input[type=radio] {

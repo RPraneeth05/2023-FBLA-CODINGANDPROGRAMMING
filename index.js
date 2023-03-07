@@ -16,14 +16,14 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      preload: path.join(__dirname, "login_preload.js"),
+      preload: path.join(__dirname, "./src/preload/admin_preload.js"),
     },
   });
   // Opening dev tools if the app is in development mode
 //   if (isDeveloper) {
 //     win.openDevTools();
 //   }
-  win.loadFile("login.html");
+  win.loadFile(path.join(__dirname, './src/main/admin.html'));
   writeFile(path.join(__dirname, './src/database/jwt.txt'), '',(err) => {
   });
 } 
