@@ -588,7 +588,10 @@ function sendMsg() {
 		studentAccounts
 	);
 }
-
+let helpButton = document.getElementById("qm");
+helpButton.addEventListener("click", (e) => {
+	window.open("../main/chat.html");
+});
 // let q1Date = new Date(2023, 2, 6);
 
 var q1 = new Date("2/6/2023");
