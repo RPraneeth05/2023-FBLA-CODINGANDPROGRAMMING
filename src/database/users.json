@@ -1220,5 +1220,19 @@
       "Volleyball Game"
     ],
     "emails": []
+  },
+  {
+    "key": 152176,
+    "student_fname": "John",
+    "student_lname": "Doe",
+    "student_grade": "11",
+    "username": "jdoe",
+    "password": "$2a$10$IboHbRmfXS2jeDgNDR5P2OyUcKqOz3tyXTIn2thQKH5gM9r8EHYbi",
+    "points": 500,
+    "admin": false,
+    "events": [
+      "Golf Tournament"
+    ],
+    "emails": []
   }
 ]

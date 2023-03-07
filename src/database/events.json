@@ -200,7 +200,8 @@
       "JNickles",
       "MSammer",
       "KMinihane",
-      "AWard"
+      "AWard",
+      "jdoe"
     ]
   },
   {
@@ -448,5 +449,13 @@
     "participants": [
       "JaipurK"
     ]
+  },
+  {
+    "event_name": "Test Event",
+    "event_description": "Test Description",
+    "prize": "500",
+    "start_date": "03/08/2023",
+    "end_date": "03/10/2023",
+    "participants": []
   }
 ]
