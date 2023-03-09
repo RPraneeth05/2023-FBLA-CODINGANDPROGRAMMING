@@ -46,9 +46,9 @@ function updateEvents() {
 				if (Date.now() < Date.parse(event.start_date)) {
 					buttonHTML = "-";
 				} else if (event.participants.includes(USERDATA.username)) {
-					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Unregister">`;
+					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Didn't Attend">`;
 				} else {
-					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Register">`;
+					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Attended">`;
 				}
 				output += `
 				<tr>

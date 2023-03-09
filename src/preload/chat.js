@@ -27,15 +27,14 @@ function sendMessage() {
 			response = "The prizes are awarded by the program automatically every quarter. To view the prizes as well as what students got them press the Prizes button on the top of the page";
 		} else if (msg.includes("logout")) {
 			response = "To logout simply press the logout button at the top left corner";
-
-		} else if (msg.toLowerCase().includes("hi eve")) {
+		} else if (msg.includes("hi") || msg.includes("hello")) {
 			response = "Hi, How can I help you today?";
 		} else if (msg.includes("create event")) {
 			response = 'To create an event, enter the event information under the heading "Create Event". Next, press the create event button. An alert will pop up confirming the status of the event creation';
 		} else if (msg.includes("generate report")) {
 			response = "Reports can be generated for the different student accounts to view the event they have participated in as well as the points they have collected. To do this, press the View Accounts button and next, press the Generate report button for the required student.";
 		} else {
-			response = "I am Sorry, but I am not sure if I understand your message";
+			response = "I am sorry, but I am not sure if I understand your message.";
 		}
 		setTimeout(() => appendMessage('Eve', response), 300);
 	}
