@@ -221,7 +221,7 @@ function deleteAccount(un) {
 }
 
 function pickWinners() {
-	let accs = readFromJSON(path.join(__dirname, "../database/users.json"));
+	let accs = readFromJSON(USERSJSONPATH);
 	let ninthUsers = [];
 	let tenthUsers = [];
 	let eleventhUsers = [];
@@ -249,10 +249,10 @@ function pickWinners() {
 	// let random =
 	// let random = accs[Math.floor(Math.random() * accs.length)];
 	let max = 0;
-	let top;
-	for (iterable of accs) {
-		if (iterable.points > max) {
-			top = iterable;
+	for (let i of accs) {
+		if (i.points > max.points) {
+			max = i;
+			
 		}
 	}
 	// for (tUser of tenthUsers) {
@@ -274,72 +274,69 @@ function pickWinners() {
 	// console.log(winner10)
 	// console.log(winner11)
 	// console.log(winner12)
+	let a = "<strong>Yearlong Free Tickets to all games!</strong>";
+	let b = "<strong>$15 Chick-fil-A gift card</strong>";
+	let c = "<strong>1 Homework Pass</strong>";
+	let d = "<strong>Football team T-Shirt</strong>";
 	let targetWindow = document.querySelector(".winners__window");
 	targetWindow.style.display = "block";
 	document.querySelector(
 		".ninth__winner"
-	).innerHTML = `${winner9.student_fname} ${winner9.student_lname}`;
+	).innerHTML = `<strong>${winner9.student_fname} ${winner9.student_lname}</strong>`;
 	if (winner9.points >= 10000) {
-		document.querySelector(".ninth__prize").innerHTML = "Spirit item";
+		document.querySelector(".ninth__prize").innerHTML = a;
 	} else if (winner9.points >= 7500) {
-		document.querySelector(".ninth__prize").innerHTML = "Food reward";
+		document.querySelector(".ninth__prize").innerHTML = b;
 	} else if (winner9.points >= 5000) {
-		document.querySelector(".ninth__prize").innerHTML = "School reward";
+		document.querySelector(".ninth__prize").innerHTML = c;
 	} else {
-		document.querySelector(".ninth__prize").innerHTML = "Medal";
+		document.querySelector(".ninth__prize").innerHTML = d;
 	}
 
 	document.querySelector(
 		".tenth__winner"
-	).innerHTML = `${winner10.student_fname} ${winner10.student_lname}`;
+	).innerHTML = `<strong>${winner10.student_fname} ${winner10.student_lname}</strong>`;
 	if (winner10.points >= 10000) {
-		document.querySelector(".tenth__prize").innerHTML = "Spirit item";
+		document.querySelector(".tenth__prize").innerHTML = a;
 	} else if (winner10.points >= 7500) {
-		document.querySelector(".tenth__prize").innerHTML = "Food reward";
+		document.querySelector(".tenth__prize").innerHTML = b;
 	} else if (winner10.points >= 5000) {
-		document.querySelector(".tenth__prize").innerHTML = "School reward";
+		document.querySelector(".tenth__prize").innerHTML = c;
 	} else {
-		document.querySelector(".tenth__prize").innerHTML = "Medal";
+		document.querySelector(".tenth__prize").innerHTML = d;
 	}
 
 	document.querySelector(
 		".eleventh__winner"
-	).innerHTML = `${winner11.student_fname} ${winner11.student_lname}`;
+	).innerHTML = `<strong>${winner11.student_fname} ${winner11.student_lname}</strong>`;
 	if (winner11.points >= 10000) {
-		document.querySelector(".eleventh__prize").innerHTML = "Spirit item";
+		document.querySelector(".eleventh__prize").innerHTML = a;
 	} else if (winner11.points >= 7500) {
-		document.querySelector(".eleventh__prize").innerHTML = "Food reward";
+		document.querySelector(".eleventh__prize").innerHTML = b;
 	} else if (winner11.points >= 5000) {
-		document.querySelector(".eleventh__prize").innerHTML = "School reward";
+		document.querySelector(".eleventh__prize").innerHTML = c;
 	} else {
-		document.querySelector(".eleventh__prize").innerHTML = "Medal";
+		document.querySelector(".eleventh__prize").innerHTML = d;
 	}
 
 	document.querySelector(
 		".twelfth__winner"
-	).innerHTML = `${winner12.student_fname} ${winner12.student_lname}`;
+	).innerHTML = `<strong>${winner12.student_fname} ${winner12.student_lname}</strong>`;
 	if (winner12.points >= 10000) {
-		document.querySelector(".twelfth__prize").innerHTML = "Spirit item";
+		document.querySelector(".twelfth__prize").innerHTML = a;
 	} else if (winner12.points >= 7500) {
-		document.querySelector(".twelfth__prize").innerHTML = "Food reward";
+		document.querySelector(".twelfth__prize").innerHTML = b;
 	} else if (winner12.points >= 5000) {
-		document.querySelector(".twelfth__prize").innerHTML = "School reward";
+		document.querySelector(".twelfth__prize").innerHTML = c;
 	} else {
-		document.querySelector(".twelfth__prize").innerHTML = "Medal";
+		document.querySelector(".twelfth__prize").innerHTML = d;
 	}
 
 	document.querySelector(
 		".top__winner"
-	).innerHTML = `${iterable.student_fname} ${iterable.student_lname}`;
-	if (iterable.points >= 10000) {
-		document.querySelector(".top__prize").innerHTML = "Spirit item";
-	} else if (iterable.points >= 7500) {
-		document.querySelector(".top__prize").innerHTML = "Food reward";
-	} else if (iterable.points >= 5000) {
-		document.querySelector(".top__prize").innerHTML = "School reward";
-	} else {
-		document.querySelector(".top__prize").innerHTML = "Medal";
-	}
+	).innerHTML = `<strong>${max.student_fname} ${max.student_lname}</strong>`;
+	document.querySelector(".top__prize").innerHTML = "<strong>$100 Visa Gift Card</strong>";
+
 }
 
 function hideWinners() {
@@ -434,7 +431,7 @@ function createNewEvent() {
 	updateEvents();
 }
 
-function editEvent() {}
+function editEvent() { }
 
 function deleteEvent(name) {
 	// console.log(name)

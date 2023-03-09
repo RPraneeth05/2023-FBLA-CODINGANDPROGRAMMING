@@ -36,7 +36,8 @@
       "DSumpter",
       "AWard",
       "YusefJ",
-      "JimJim"
+      "JimJim",
+      "CFlores"
     ]
   },
   {
@@ -75,7 +76,8 @@
       "JNickles",
       "DSumpter",
       "AWard",
-      "YusefJ"
+      "YusefJ",
+      "CFlores"
     ]
   },
   {
@@ -119,7 +121,8 @@
       "YusefJ",
       "ZhongK",
       "JSmith12",
-      "JaipurK"
+      "JaipurK",
+      "CFlores"
     ]
   },
   {
@@ -139,7 +142,6 @@
       "ALarose",
       "RKrupka",
       "BMcfadden",
-      "CFlores",
       "LWolf",
       "VDaniel",
       "LRobbins",
@@ -161,7 +163,8 @@
       "JBender",
       "JNickles",
       "DSumpter",
-      "AWard"
+      "AWard",
+      "CFlores"
     ]
   },
   {
@@ -361,7 +364,8 @@
       "MSammer",
       "GHalls",
       "AWard",
-      "YusefJ"
+      "YusefJ",
+      "CFlores"
     ]
   },
   {
@@ -403,7 +407,8 @@
       "DSumpter",
       "KMinihane",
       "AWard",
-      "JH2022"
+      "JH2022",
+      "CFlores"
     ]
   },
   {
@@ -412,7 +417,9 @@
     "prize": "500",
     "start_date": "02/15/2023",
     "end_date": "02/15/2023",
-    "participants": []
+    "participants": [
+      "CFlores"
+    ]
   },
   {
     "event_name": "Career Fair",
@@ -420,7 +427,9 @@
     "prize": "500",
     "start_date": "02/21/2023",
     "end_date": "02/21/2023",
-    "participants": []
+    "participants": [
+      "CFlores"
+    ]
   },
   {
     "event_name": "Debate Tournament",
@@ -428,7 +437,9 @@
     "prize": "800",
     "start_date": "03/03/2023",
     "end_date": "03/04/2023",
-    "participants": []
+    "participants": [
+      "CFlores"
+    ]
   },
   {
     "event_name": "Pep Rally",
@@ -437,7 +448,8 @@
     "start_date": "02/01/2023",
     "end_date": "02/01/2023",
     "participants": [
-      "JaipurK"
+      "JaipurK",
+      "CFlores"
     ]
   },
   {
@@ -447,15 +459,8 @@
     "start_date": "01/23/2023",
     "end_date": "01/27/2023",
     "participants": [
-      "JaipurK"
+      "JaipurK",
+      "CFlores"
     ]
-  },
-  {
-    "event_name": "Test Event",
-    "event_description": "Test Description",
-    "prize": "500",
-    "start_date": "03/08/2023",
-    "end_date": "03/10/2023",
-    "participants": []
   }
 ]

@@ -11,36 +11,7 @@
 
 <body>
 
-   <div class="alert__box" style="display: none;">
-      <h2 class="alert__title">Alert title</h2>
-      <p class="alert__description">Alert description</p>
-   </div>
 
-   <div class="warning__box" style="display: none;">
-      <h2 class="warning__title">Warning title</h2>
-      <p class="warning__description">Warning description</p>
-   </div>
-
-   <div class="error__box" style="display: none;">
-      <h2 class="error__title">Error title</h2>
-      <p class="error__description">Error description</p>
-   </div>
-
-   <!-- <header class="header">
-      <nav class="nav__wrapper">
-         <a href="" class="nav__logo">Student Involvement App</a>
-         <div class="nav__menu">
-            <ul class="nav__list">
-               <li class="nav__item"> <a href="" class="nav__link">Home</a> </li>
-               <li class="nav__item"> <a href="" class="nav__link">Home</a> </li>
-               <li class="nav__item"> <a href="" class="nav__link">Home</a> </li>
-               <li class="nav__item"> <a href="" class="nav__link">Home</a> </li>
-               <li class="nav__item"> <a href="" class="nav__link">Home</a> </li>
-            </ul>
-            <i class="uil uil-bars nav__close icon__btn" onclick="openClose()"></i>
-         </div>
-      </nav>
-   </header> -->
 
    <div class="report__window">
       <input type="button" value="Go back" onclick="hideWin()" id="the__top"><br><br>
@@ -93,7 +64,6 @@
          <input type="button" value="Error" onclick="errorPopup()"><br><br> -->
 
          <!-- <h2>Testing</h2><br> -->
-         <input type="button" value="Prizes" onclick="pickWinners()">
 
 
       </div>
@@ -149,7 +119,7 @@
          </div>
          <input type="button" value="View events" onclick="toggleEvents()">
          <input type="button" value="View accounts" onclick="toggleAccounts()">
-
+         <input type="button" value="Prizes" onclick="pickWinners()">
          <br><br>
          <!-- <div class="stats__container">
             <div class="stats__box stats__events">
@@ -270,9 +240,9 @@
 
 
       #qm {
-         position: absolute;
-         bottom: 80px;
-         right: 40px;
+         position: fixed;
+         bottom: 30px;
+         right: 280px;
          border-radius: 25px;
          background-color: #6969ff;
          width: 50px;
@@ -282,31 +252,14 @@
 
       #qm:hover {
          padding: .5em;
+         border-radius: 55px;
          transition: .2s;
       }
 
-      #m {
-         position: relative;
-         top: 11px;
-         left: 18px;
-         font-size: x-large;
-      }
-
-
-      #qm {
-         position: absolute;
-         bottom: 80px;
-         right: 40px;
-         border-radius: 25px;
-         background-color: #6969ff;
-         width: 50px;
-         height: 50px;
-         transition: .2s;
-      }
-
-      #qm:hover {
-         padding: .5em;
-         transition: .2s;
+      strong {
+         font-weight: bold;
+         color:rgb(232, 78, 56);
+         
       }
 
       #m {
@@ -499,7 +452,7 @@
          left: 0;
          width: 12rem;
          min-height: calc(100vh - 4rem);
-         
+
       }
 
       .middle {
@@ -571,6 +524,25 @@
          width: 100%;
          background-color: transparent;
          height: auto;
+      }
+
+      #logoutPage {
+         display: inline-block;
+         padding: 8px 16px;
+         background-color: #ff4d4d;
+         color: white;
+         font-size: 16px;
+         font-weight: bold;
+         text-decoration: none;
+         border-radius: 9px;
+         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+         transition: all 0.2s ease-in-out;
+      }
+
+      #logoutPage:hover {
+         background-color: #ff3333;
+         box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
       }
 
       .events__holder,

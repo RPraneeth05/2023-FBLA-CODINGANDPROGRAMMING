@@ -332,7 +332,7 @@
     "student_grade": "9",
     "username": "CFlores",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5000,
+    "points": 16800,
     "admin": false,
     "events": [
       "Golf Tournament",
@@ -344,7 +344,17 @@
       "Theater Festival",
       "Lacrosse Game",
       "Music Competition",
-      "Baseball Game"
+      "Basketball Game",
+      "Soccer Match",
+      "Volleyball Game",
+      "Baseball Game",
+      "Quiz Bowl",
+      "Spelling Bee",
+      "Prom",
+      "Career Fair",
+      "Debate Tournament",
+      "Pep Rally",
+      "Spirit Week"
     ],
     "emails": []
   },

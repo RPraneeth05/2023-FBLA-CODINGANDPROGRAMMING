@@ -1,39 +1,51 @@
-// chat.js
-const chatForm = document.querySelector("#chat-form");
-const chatInput = document.querySelector("#chat-input");
-const chatLog = document.querySelector("#chat-log");
+const chatLog = document.querySelector('#chat-log');
+const chatInput = document.getElementById('chat-input');
+const sendBtn = document.getElementById('send-btn');
 
-chatForm.addEventListener("submit", (event) => {
-	event.preventDefault();
-	const message = chatInput.value;
-	displayMessage("You", message);
-	chatInput.value = "";
-	function respond(trigger, response) {
-		if (message.includes(trigger)) {
-			response();
+sendBtn.addEventListener('click', sendMessage);
+window.onload = () => {
+	response = 'I am Eve, your personal chatbot! Ask me any questions that you have!';
+	appendMessage('Eve', response);
+};
+function sendMessage() {
+	/** @type String */
+	const msg = chatInput.value.trim();
+	if (msg) {
+		appendMessage('User', msg);
+		chatInput.value = '';
+		// Call Eve API to get response
+		if (msg.includes("add event")) {
+
+		} else if (msg.includes("delete event")) {
+
+		} else if (msg.includes("add user")) {
+
+		} else if (msg.includes("delete user")) {
+
+		} else if (msg.includes("leaderboard")) {
+
+		} else if (msg.includes("prizes")) {
+
+		} else if (msg.includes("logout")) {
+
 		}
+		response = 'I am Eve, your personal chatbot!';
+		setTimeout(() => appendMessage('Eve', response), 300);
 	}
-	// Call your chatbot API or function here to generate response
-	respond("add event", () => {});
-
-	respond("delete event", () => {});
-
-	respond("add user", () => {});
-
-	respond("delete user", () => {});
-
-	respond("leaderboard", () => {});
-
-	respond("prizes", () => {});
-	// and call displayMessage again with the response as the second argument
-});
-
-function displayMessage(sender, message) {
-	const newMessage = document.createElement("div");
-	newMessage.innerHTML = `<strong>${sender}:</strong> ${message}`;
-	chatLog.appendChild(newMessage);
-	chatLog.scrollTop = chatLog.scrollHeight;
 }
 
-// Call any necessary setup code here, such as setting focus to the chat input
-chatInput.focus();
+function appendMessage(sender, message) {
+	const messageElem = document.createElement('div');
+	messageElem.classList.add('chat-message', sender.toLowerCase());
+	if (sender === 'Eve') {
+		messageElem.classList.add('eve');
+	} else {
+		messageElem.classList.add('user');
+	}
+	messageElem.innerHTML = `
+	  <div class="sender">${sender}</div>
+	  <div class="message">${message}</div>
+	`;
+	chatLog.appendChild(messageElem);
+	chatLog.scrollTop = chatLog.scrollHeight;
+}
