@@ -1244,5 +1244,17 @@
       "Golf Tournament"
     ],
     "emails": []
+  },
+  {
+    "key": 924647,
+    "student_fname": "Test",
+    "student_lname": "Account",
+    "student_grade": "12",
+    "username": "STUDENT",
+    "password": "$2a$10$9PmDNt/Bu/F3wNVRCQfi..3n7cNm0k5U0a4PcRhykXvwT542z8Dse",
+    "points": 0,
+    "admin": false,
+    "events": [],
+    "emails": []
   }
 ]

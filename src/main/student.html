@@ -32,6 +32,7 @@
          <div id="user_data">
          </div>
          <input type="button" id="toggleLeaderboard" href="" value="Toggle Leaderboard">
+         <input type="button" id="togglePE" class="pos" href="" value="View popular events">
       </div>
       <div class="middle">
          <h1>Dashboard</h1><br>
@@ -102,6 +103,32 @@
             </a>
          </div>
       </div>
+
+
+
+      <div class="popular" style="display: none;" id="accounts__top">
+         <div class="table__holder">
+            <input type="button" value="Dashboard" onclick="PET()"><br><br>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Description</th>
+                     <th>Prize</th>
+                     <th>Start date</th>
+                     <th>End date</th>
+                     <th>Actions</th>
+                  </tr>
+               </thead>
+               <tbody class="evs"></tbody>
+            </table><br>
+            <a href="#accounts__top">
+               <input type="button" value="Back to top">
+            </a>
+         </div>
+      </div>
+
+
    </div>
    <div id="help">
       <span id="qm">?</span>
@@ -219,6 +246,12 @@
          left: 1rem;
       }
 
+      .pos {
+         position: absolute;
+         top: 12rem;
+         left: 1rem;
+      }
+
       .stats__container {
          width: 100%;
          display: grid;
@@ -322,6 +355,15 @@
 
       .events__holder,
       .accounts__holder {
+         position: absolute;
+         width: 100%;
+         top: 0;
+         left: 0;
+         z-index: 1;
+         background-color: #222;
+      }
+
+      .popular {
          position: absolute;
          width: 100%;
          top: 0;
