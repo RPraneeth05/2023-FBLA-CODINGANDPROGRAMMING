@@ -12,6 +12,21 @@
 <body>
 
 
+   <div class="alert__box" style="display: none;">
+      <h2 class="alert__title">Alert title</h2>
+      <p class="alert__description">Alert description</p>
+   </div>
+
+   <div class="warning__box" style="display: none;">
+      <h2 class="warning__title">Warning title</h2>
+      <p class="warning__description">Warning description</p>
+   </div>
+
+   <div class="error__box" style="display: none;">
+      <h2 class="error__title">Error title</h2>
+      <p class="error__description">Error description</p>
+   </div>
+
 
    <div class="report__window">
       <input type="button" value="Go back" onclick="hideWin()" id="the__top"><br><br>
@@ -258,8 +273,8 @@
 
       strong {
          font-weight: bold;
-         color:rgb(232, 78, 56);
-         
+         color: rgb(232, 78, 56);
+
       }
 
       #m {
@@ -369,10 +384,11 @@
 
       .winners__window {
          position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
+         top: 188px;
+         left: 426px;
+         opacity: 90%;
+         width: 500px;
+         height: 50%;
          z-index: 99999;
          background-color: #1b1b1b;
          padding: 2rem;
@@ -526,6 +542,8 @@
          height: auto;
       }
 
+
+
       #logoutPage {
          display: inline-block;
          padding: 8px 16px;
@@ -662,7 +680,7 @@
          position: fixed;
          bottom: 2rem;
          right: 2rem;
-         background-color: #aaa;
+         background-color: rgb(75, 127, 75);
          z-index: 2;
          width: 20rem;
          height: 10rem;
@@ -714,6 +732,7 @@
 
       .fade {
          opacity: 1;
+         background-color: rgb(75, 127, 75);
       }
 
       .report__window {

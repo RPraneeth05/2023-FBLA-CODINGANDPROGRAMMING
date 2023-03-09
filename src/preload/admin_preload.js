@@ -53,7 +53,7 @@ function errorPopup(title = "Error", description = "Sample error text") {
 	errorModal.style.display = "block";
 	document.querySelector(".error__title").innerHTML = title;
 	document.querySelector(".error__description").innerHTML = description;
-	errorModal.classList.add("fade");
+	errorModal.classList.add("fade ");
 	setTimeout(function () {
 		errorModal.classList.remove("fade");
 	}, 1300);
@@ -248,13 +248,7 @@ function pickWinners() {
 		twelfthUsers[Math.floor(Math.random() * twelfthUsers.length)];
 	// let random =
 	// let random = accs[Math.floor(Math.random() * accs.length)];
-	let max = 0;
-	for (let i of accs) {
-		if (i.points > max.points) {
-			max = i;
-			
-		}
-	}
+	
 	// for (tUser of tenthUsers) {
 	//    if (tUser.points > max10) {
 	//       winner10 = tUser;
@@ -274,7 +268,7 @@ function pickWinners() {
 	// console.log(winner10)
 	// console.log(winner11)
 	// console.log(winner12)
-	let a = "<strong>Yearlong Free Tickets to all games!</strong>";
+	let a = "<strong>Yearlong free tickets to all games!</strong>";
 	let b = "<strong>$15 Chick-fil-A gift card</strong>";
 	let c = "<strong>1 Homework Pass</strong>";
 	let d = "<strong>Football team T-Shirt</strong>";
@@ -282,7 +276,7 @@ function pickWinners() {
 	targetWindow.style.display = "block";
 	document.querySelector(
 		".ninth__winner"
-	).innerHTML = `<strong>${winner9.student_fname} ${winner9.student_lname}</strong>`;
+	).innerHTML = `<strong>${winner9.student_fname} ${winner9.student_lname} (${winner9.points} points)</strong>`;
 	if (winner9.points >= 10000) {
 		document.querySelector(".ninth__prize").innerHTML = a;
 	} else if (winner9.points >= 7500) {
@@ -295,7 +289,7 @@ function pickWinners() {
 
 	document.querySelector(
 		".tenth__winner"
-	).innerHTML = `<strong>${winner10.student_fname} ${winner10.student_lname}</strong>`;
+	).innerHTML = `<strong>${winner10.student_fname} ${winner10.student_lname} (${winner10.points} points)</strong>`;
 	if (winner10.points >= 10000) {
 		document.querySelector(".tenth__prize").innerHTML = a;
 	} else if (winner10.points >= 7500) {
@@ -308,7 +302,7 @@ function pickWinners() {
 
 	document.querySelector(
 		".eleventh__winner"
-	).innerHTML = `<strong>${winner11.student_fname} ${winner11.student_lname}</strong>`;
+	).innerHTML = `<strong>${winner11.student_fname} ${winner11.student_lname} (${winner11.points} points)</strong>`;
 	if (winner11.points >= 10000) {
 		document.querySelector(".eleventh__prize").innerHTML = a;
 	} else if (winner11.points >= 7500) {
@@ -321,7 +315,7 @@ function pickWinners() {
 
 	document.querySelector(
 		".twelfth__winner"
-	).innerHTML = `<strong>${winner12.student_fname} ${winner12.student_lname}</strong>`;
+	).innerHTML = `<strong>${winner12.student_fname} ${winner12.student_lname} (${winner12.points} points)</strong>`;
 	if (winner12.points >= 10000) {
 		document.querySelector(".twelfth__prize").innerHTML = a;
 	} else if (winner12.points >= 7500) {
@@ -331,10 +325,16 @@ function pickWinners() {
 	} else {
 		document.querySelector(".twelfth__prize").innerHTML = d;
 	}
-
+	/** @type Array */
+	let arr = readFromJSON(USERSJSONPATH);
+	let max = arr[1];
+	for (let i of arr.slice(1)) {
+		if (i.points > max.points) max = i;
+	}
+	console.log(max);
 	document.querySelector(
 		".top__winner"
-	).innerHTML = `<strong>${max.student_fname} ${max.student_lname}</strong>`;
+	).innerHTML = `<strong>${max.student_fname} ${max.student_lname}  (${max.points} points)</strong>`;
 	document.querySelector(".top__prize").innerHTML = "<strong>$100 Visa Gift Card</strong>";
 
 }
