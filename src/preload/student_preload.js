@@ -32,25 +32,25 @@ function getUserDetails() {
 getUserDetails();
 // Function to populate the select options by fetching events.json file and using it to make html options control element with the different event names
 function updateEvents() {
-	fetch(path.join(__dirname, "../database/events.json"))
-		.then(function (response) {
-			return response.json();
-		})
-		.then(function (events) {
-			let placeholder = document.querySelector(".events__output");
-			let output = "";
-			let buttonHTML = "";
-			USERDATA = getUserDetails();
-			for (let event of events) {
-				console.log(USERDATA);
-				if (Date.now() < Date.parse(event.start_date)) {
-					buttonHTML = "-";
-				} else if (event.participants.includes(USERDATA.username)) {
-					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Didn't Attend">`;
-				} else {
-					buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Attended">`;
-				}
-				output += `
+   fetch(path.join(__dirname, "../database/events.json"))
+      .then(function (response) {
+         return response.json();
+      })
+      .then(function (events) {
+         let placeholder = document.querySelector(".events__output");
+         let output = "";
+         let buttonHTML = "";
+         USERDATA = getUserDetails();
+         for (let event of events) {
+            console.log(USERDATA);
+            if (Date.now() < Date.parse(event.start_date)) {
+               buttonHTML = "-";
+            } else if (event.participants.includes(USERDATA.username)) {
+               buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', false)" value="Didn't Attend">`;
+            } else {
+               buttonHTML = `<input type="button" onclick="updateAttendance('${event.event_name}', true)" value="Attended">`;
+            }
+            output += `
 				<tr>
 				   <td>${event.event_name}</td>
 				   <td>${event.event_description}</td>
@@ -72,6 +72,50 @@ function updateEvents() {
 // Calling the populateSelect function
 updateEvents();
 function updateAttendance(eventName, attend) {
+   if (attend) {
+      // Create the popup
+      let popup = document.createElement("div");
+      popup.style.position = "fixed";
+      popup.style.top = "0";
+      popup.style.left = "0";
+      popup.style.width = "100%";
+      popup.style.height = "100%";
+      popup.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+      popup.style.display = "flex";
+      popup.style.justifyContent = "center";
+      popup.style.alignItems = "center";
+
+      // Add the input field to the popup
+      let input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Enter code here";
+      popup.appendChild(input);
+
+      // Add the submit button to the popup
+      let submit = document.createElement("button");
+      submit.innerText = "Submit";
+      submit.addEventListener("click", function () {
+         let code = input.value;
+         if (code) {
+            popup.remove();
+            backendUpdateAttendance(eventName, attend, code)
+         }
+      });
+      popup.appendChild(submit);
+
+      // Add the popup to the document
+      document.body.appendChild(popup);
+
+   } else {
+      backendUpdateAttendance(eventName, attend);
+   }
+
+
+
+
+}
+
+function backendUpdateAttendance(eventName, attend, code = "") {
    let events = readFromJSON(path.join(__dirname, "../database/events.json"));
    let event;
    for (let e of events) {
@@ -79,6 +123,12 @@ function updateAttendance(eventName, attend) {
          event = e;
          if (attend) {
             e.participants.push(USERDATA.username);
+            if (e.code == code) {
+               alertPopup("Successfully registered for event!", "");
+            } else {
+               errorPopup("Wrong code.", "");
+               return;
+            }
          } else {
             e.participants = e.participants.filter(
                (i) => i != USERDATA.username
@@ -86,6 +136,7 @@ function updateAttendance(eventName, attend) {
          }
       }
    }
+
    writeToJSON(path.join(__dirname, "../database/events.json"), events);
    let users = readFromJSON(path.join(__dirname, "../database/users.json"));
    for (let usr of users) {

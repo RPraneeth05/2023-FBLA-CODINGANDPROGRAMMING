@@ -19,7 +19,7 @@ function sendMessage() {
 			response = 'To create an event, enter the event information under the heading "New Event". Next, press the create event button. An alert will pop up confirming the status of the event creation';
 		} else if (msg.includes("delete event")) {
 			response = "To delete event, go to the view events button and then press delete over the event, you want to delete";
-		} else if (msg.includes("add user")) {
+		} else if (msg.includes("new student account")) {
 			response = 'To add a user, enter the user information under the heading "New Student Account". Next, press Create Account button. An alert will pop up confirming the status of the user creation';
 		} else if (msg.includes("delete user") || msg.includes("delete account")) {
 			response = "To delete a user, press the View Accounts button. Next, press the delete button on the particular user. You can also use the search functionality to find the user";

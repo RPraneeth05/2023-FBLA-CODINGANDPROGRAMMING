@@ -5,7 +5,8 @@
    "main": "index.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "electron ."
+      "start": "electron .",
+      "compApp": "electron company_side_app/"
    },
    "keywords": [
       "json_test"
@@ -16,6 +17,8 @@
       "bcrypt": "^5.1.0",
       "bcryptjs": "^2.4.3",
       "electron": "^22.1.0",
+      "firebase": "^9.22.2",
+      "firebase-admin": "^11.9.0",
       "jsonwebtoken": "^9.0.0"
    }
 }

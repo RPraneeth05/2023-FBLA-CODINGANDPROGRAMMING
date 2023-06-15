@@ -3,63 +3,24 @@ const path = require("path");
 const fs = require("fs");
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcryptjs');
+
 const salt = bcrypt.genSaltSync(10);
 // Function to read data from a JSON file
 function readFromJSON(file) {
   return JSON.parse(fs.readFileSync(file));
 }
-
-
-
-function alertPopup(title = "Alert", description = "Sample alert text") {
-  let alertModal = document.querySelector(".alert__box");
-  alertModal.style.display = "block";
-  document.querySelector(".alert__title").innerHTML = title;
-  document.querySelector(".alert__description").innerHTML = description;
-  alertModal.classList.add("fade");
-  setTimeout(function () {
-    alertModal.classList.remove("fade");
-  }, 700);
-  setTimeout(() => {
-    alertModal.style.display = "none";
-  }, 1500);
-}
-
-function warningPopup(title = "Warning", description = "Sample warning text") {
-  let warningModal = document.querySelector(".warning__box");
-  warningModal.style.display = "block";
-  document.querySelector(".warning__title").innerHTML = title;
-  document.querySelector(".warning__description").innerHTML = description;
-  warningModal.classList.add("fade");
-  setTimeout(function () {
-    warningModal.classList.remove("fade");
-  }, 700);
-  setTimeout(() => {
-    warningModal.style.display = "none";
-  }, 1500);
-}
-
 function errorPopup(title = "Error", description = "Sample error text") {
   let errorModal = document.querySelector(".error__box");
   errorModal.style.display = "block";
   document.querySelector(".error__title").innerHTML = title;
   document.querySelector(".error__description").innerHTML = description;
-  errorModal.classList.add("fade ");
+  errorModal.classList.add("fade");
   setTimeout(function () {
     errorModal.classList.remove("fade");
   }, 1300);
   setTimeout(() => {
     errorModal.style.display = "none";
-  }, 1000);
-}
-
-
-function writeToJSON(file, data) {
-  fs.writeFileSync(file, JSON.stringify(data, null, 2), {
-    encoding: 'utf-8',
-    flag: 'w'
-  });
-  console.log(`Wrote ${data} to ${file}`);
+  }, 1600);
 }
 
 function validateUsernameAndPassword() {
@@ -70,9 +31,11 @@ function validateUsernameAndPassword() {
   let usernameInput = document.querySelector(".username").value;
   let passwordInput = document.querySelector(".password").value;
   if (!usernameInput || !passwordInput) {
-    errorPopup("Missing Information", "Make sure all fields are entered!")
+    errorPopup("Missing Information", "Make sure all fields are entered!");
+    return;
   }
   for (let user of users) {
+    let shouldEnd = false;
     if (usernameInput == user.username) {
       let checkPassword = bcrypt.compare(passwordInput, user.password,
         (err, success) => {
@@ -82,8 +45,7 @@ function validateUsernameAndPassword() {
           }
           if (!success) {
             // wrong password
-            errorPopup("Invalid username or password",
-              "The username or password is incorrect, or maybe the account doesn't exist. ")
+            errorPopup("Wrong Password", "The password entered is incorrect.");
             return;
           }
           const payload = {
@@ -98,6 +60,9 @@ function validateUsernameAndPassword() {
           // If the user is a student, redirecting to the student page
           else location.href = path.join(__dirname, "./src/main/student.html");
         });
+      break;
+    } else {
+      setTimeout(() => errorPopup("Account doesn't exist", "Maybe you typed in the wrong username?"), 300);
     }
   }
 }

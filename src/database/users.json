@@ -5,7 +5,11 @@
     "lname": "Rangarajan",
     "username": "ADMIN",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "admin": true
+    "admin": true,
+    "events": [
+      "Tennis tournament"
+    ],
+    "points": 300
   },
   {
     "key": 666751,
@@ -14,30 +18,13 @@
     "student_grade": "11",
     "username": "RonaldJ",
     "password": "$2a$10$l0OdHBDk5VniLoDjuZUuNe95/dEMBWigRwDPoDs8FPz/sHbWFoaVm",
-    "points": 9600,
+    "points": 2300,
     "admin": false,
     "events": [
-      "Music Competition",
-      "Tennis Tournament",
-      "Cook-Off Challenge",
-      "Basketball Game",
-      "Soccer Match",
-      "Track and Field Meet",
-      "Theater Festival",
       "Baseball Game",
-      "Art Show",
-      "Debate Competition",
-      "Golf Tournament",
-      "Lacrosse Game",
-      "Quiz Bowl",
-      "Spelling Bee",
-      "Volleyball Game"
-    ],
-    "emails": [
-      {
-        "subject": "testMail",
-        "message": "this is a test mail"
-      }
+      "Tennis tournament",
+      "HOSA SLC",
+      "Robotics Meet"
     ]
   },
   {
@@ -47,26 +34,13 @@
     "student_grade": "10",
     "username": "JSmith07",
     "password": "$2a$10$82.ShcqIsMuxtESoxrcomuJfygticblLtTxMcrPrnk9p65T7zrW9m",
-    "points": 10100,
+    "points": 3000,
     "admin": false,
     "events": [
-      "Track and Field Meet",
-      "Music Competition",
-      "Cross Country Meet",
-      "Lacrosse Game",
-      "Quiz Bowl",
-      "Science Fair",
-      "Spelling Bee",
-      "Volleyball Game",
-      "Swimming Championship",
-      "Baseball Game",
-      "Basketball Game",
-      "Golf Tournament",
-      "Theater Festival",
-      "Tennis Tournament",
-      "Soccer Match",
-      "Cook-Off Challenge",
-      "Debate Competition"
+      "HOSA SLC",
+      "Chess Tournament",
+      "Robotics Meet",
+      "Basketball Game"
     ],
     "emails": []
   },
@@ -77,15 +51,12 @@
     "student_grade": "11",
     "username": "RSingh07",
     "password": "$2a$10$mx8XICJRPtzuE6wU.5wXJuxlwHEj5bWqv0.jsN6bs1ydZ.dw.4Vha",
-    "points": 3500,
+    "points": 1700,
     "admin": false,
     "events": [
-      "Theater Festival",
-      "Baseball Game",
-      "Debate Competition",
-      "Golf Tournament",
-      "Art Show",
-      "Cross Country Meet"
+      "Art fair",
+      "Basketball Game",
+      "HOSA SLC"
     ],
     "emails": []
   },
@@ -96,17 +67,11 @@
     "student_grade": "10",
     "username": "NallaniS",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5400,
+    "points": 1500,
     "admin": false,
     "events": [
-      "Debate Competition",
-      "Quiz Bowl",
-      "Tennis Tournament",
-      "Art Show",
-      "Track and Field Meet",
-      "Soccer Match",
-      "Cook-Off Challenge",
-      "Volleyball Game"
+      "HOSA SLC",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -117,14 +82,10 @@
     "student_grade": "9",
     "username": "IDavis",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 3200,
+    "points": 700,
     "admin": false,
     "events": [
-      "Science Fair",
-      "Cross Country Meet",
-      "Golf Tournament",
-      "Music Competition",
-      "Swimming Championship",
+      "Art fair",
       "Soccer Match"
     ],
     "emails": []
@@ -136,22 +97,13 @@
     "student_grade": "12",
     "username": "PNipper",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7400,
+    "points": 1700,
     "admin": false,
     "events": [
-      "Spelling Bee",
-      "Baseball Game",
-      "Volleyball Game",
-      "Art Show",
-      "Lacrosse Game",
-      "Quiz Bowl",
-      "Music Competition",
-      "Swimming Championship",
-      "Soccer Match",
-      "Track and Field Meet",
-      "Golf Tournament",
-      "Theater Festival",
-      "Science Fair"
+      "State Swim Meet",
+      "Gardening marathon",
+      "Tennis tournament",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -162,22 +114,11 @@
     "student_grade": "9",
     "username": "LPruett",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7400,
+    "points": 1000,
     "admin": false,
     "events": [
-      "Art Show",
-      "Tennis Tournament",
-      "Lacrosse Game",
-      "Spelling Bee",
-      "Baseball Game",
-      "Track and Field Meet",
-      "Quiz Bowl",
-      "Soccer Match",
-      "Debate Competition",
-      "Science Fair",
-      "Swimming Championship",
-      "Cross Country Meet",
-      "Golf Tournament"
+      "Gardening marathon",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -188,15 +129,11 @@
     "student_grade": "10",
     "username": "APark",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 2400,
+    "points": 900,
     "admin": false,
     "events": [
-      "Debate Competition",
-      "Baseball Game",
-      "Lacrosse Game",
-      "Track and Field Meet",
-      "Cook-Off Challenge",
-      "Swimming Championship"
+      "State Swim Meet",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -207,17 +144,10 @@
     "student_grade": "9",
     "username": "CGanley",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 3500,
+    "points": 500,
     "admin": false,
     "events": [
-      "Lacrosse Game",
-      "Track and Field Meet",
-      "Volleyball Game",
-      "Science Fair",
-      "Baseball Game",
-      "Art Show",
-      "Swimming Championship",
-      "Golf Tournament"
+      "Gardening marathon"
     ],
     "emails": []
   },
@@ -228,25 +158,11 @@
     "student_grade": "12",
     "username": "ALarose",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 9700,
+    "points": 1100,
     "admin": false,
     "events": [
-      "Baseball Game",
-      "Volleyball Game",
-      "Quiz Bowl",
-      "Golf Tournament",
-      "Lacrosse Game",
-      "Soccer Match",
-      "Basketball Game",
-      "Spelling Bee",
-      "Tennis Tournament",
-      "Cross Country Meet",
-      "Track and Field Meet",
-      "Music Competition",
-      "Debate Competition",
-      "Cook-Off Challenge",
-      "Theater Festival",
-      "Swimming Championship"
+      "Tennis tournament",
+      "Chess Tournament"
     ],
     "emails": []
   },
@@ -257,15 +173,13 @@
     "student_grade": "12",
     "username": "GCaldwell",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 4500,
+    "points": 3000,
     "admin": false,
     "events": [
-      "Golf Tournament",
-      "Music Competition",
-      "Spelling Bee",
-      "Debate Competition",
-      "Quiz Bowl",
-      "Art Show"
+      "Chess Tournament",
+      "Gardening marathon",
+      "HOSA SLC",
+      "Robotics Meet"
     ],
     "emails": []
   },
@@ -276,22 +190,13 @@
     "student_grade": "9",
     "username": "RKrupka",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 8100,
+    "points": 1600,
     "admin": false,
     "events": [
-      "Lacrosse Game",
-      "Theater Festival",
-      "Quiz Bowl",
-      "Soccer Match",
-      "Art Show",
-      "Golf Tournament",
-      "Spelling Bee",
       "Basketball Game",
-      "Debate Competition",
-      "Swimming Championship",
-      "Track and Field Meet",
-      "Tennis Tournament",
-      "Baseball Game"
+      "Soccer Match",
+      "Art fair",
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -302,26 +207,11 @@
     "student_grade": "12",
     "username": "BMcfadden",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 10500,
+    "points": 1800,
     "admin": false,
     "events": [
-      "Music Competition",
-      "Theater Festival",
-      "Art Show",
-      "Swimming Championship",
-      "Science Fair",
-      "Cook-Off Challenge",
-      "Volleyball Game",
-      "Debate Competition",
-      "Soccer Match",
-      "Cross Country Meet",
-      "Golf Tournament",
-      "Basketball Game",
-      "Spelling Bee",
-      "Lacrosse Game",
-      "Tennis Tournament",
-      "Baseball Game",
-      "Quiz Bowl"
+      "Chess Tournament",
+      "HOSA SLC"
     ],
     "emails": []
   },
@@ -332,29 +222,13 @@
     "student_grade": "9",
     "username": "CFlores",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 16800,
+    "points": 2200,
     "admin": false,
     "events": [
-      "Golf Tournament",
-      "Debate Competition",
-      "Tennis Tournament",
-      "Cross Country Meet",
-      "Science Fair",
-      "Track and Field Meet",
-      "Theater Festival",
-      "Lacrosse Game",
-      "Music Competition",
-      "Basketball Game",
+      "Gardening marathon",
       "Soccer Match",
-      "Volleyball Game",
-      "Baseball Game",
-      "Quiz Bowl",
-      "Spelling Bee",
-      "Prom",
-      "Career Fair",
-      "Debate Tournament",
-      "Pep Rally",
-      "Spirit Week"
+      "Chess Tournament",
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -365,14 +239,11 @@
     "student_grade": "12",
     "username": "WStanback",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 3600,
+    "points": 1300,
     "admin": false,
     "events": [
-      "Golf Tournament",
-      "Quiz Bowl",
-      "Tennis Tournament",
-      "Theater Festival",
-      "Debate Competition"
+      "Gardening marathon",
+      "Chess Tournament"
     ],
     "emails": []
   },
@@ -383,21 +254,11 @@
     "student_grade": "12",
     "username": "LWolf",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6700,
+    "points": 900,
     "admin": false,
     "events": [
-      "Debate Competition",
-      "Tennis Tournament",
-      "Track and Field Meet",
-      "Cross Country Meet",
-      "Basketball Game",
-      "Swimming Championship",
-      "Music Competition",
-      "Baseball Game",
-      "Cook-Off Challenge",
-      "Theater Festival",
-      "Art Show",
-      "Golf Tournament"
+      "State Swim Meet",
+      "Gardening marathon"
     ],
     "emails": []
   },
@@ -411,8 +272,8 @@
     "points": 1200,
     "admin": false,
     "events": [
-      "Music Competition",
-      "Theater Festival"
+      "Art fair",
+      "HOSA SLC"
     ],
     "emails": []
   },
@@ -423,19 +284,10 @@
     "student_grade": "9",
     "username": "GKennedy",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6400,
+    "points": 500,
     "admin": false,
     "events": [
-      "Cook-Off Challenge",
-      "Swimming Championship",
-      "Lacrosse Game",
-      "Debate Competition",
-      "Art Show",
-      "Track and Field Meet",
-      "Theater Festival",
-      "Volleyball Game",
-      "Quiz Bowl",
-      "Tennis Tournament"
+      "Basketball Game"
     ],
     "emails": []
   },
@@ -446,19 +298,11 @@
     "student_grade": "12",
     "username": "VDaniel",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5600,
+    "points": 1100,
     "admin": false,
     "events": [
-      "Baseball Game",
-      "Volleyball Game",
-      "Science Fair",
-      "Art Show",
-      "Basketball Game",
-      "Quiz Bowl",
-      "Lacrosse Game",
-      "Cook-Off Challenge",
-      "Theater Festival",
-      "Swimming Championship"
+      "State Swim Meet",
+      "Robotics Meet"
     ],
     "emails": []
   },
@@ -469,27 +313,12 @@
     "student_grade": "9",
     "username": "LRobbins",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 10700,
+    "points": 1500,
     "admin": false,
     "events": [
-      "Baseball Game",
-      "Art Show",
-      "Golf Tournament",
-      "Track and Field Meet",
+      "Robotics Meet",
       "Basketball Game",
-      "Theater Festival",
-      "Volleyball Game",
-      "Cross Country Meet",
-      "Cook-Off Challenge",
-      "Music Competition",
-      "Soccer Match",
-      "Tennis Tournament",
-      "Quiz Bowl",
-      "Spelling Bee",
-      "Debate Competition",
-      "Swimming Championship",
-      "Lacrosse Game",
-      "Science Fair"
+      "Tennis tournament"
     ],
     "emails": []
   },
@@ -500,25 +329,12 @@
     "student_grade": "12",
     "username": "JHilgert",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 9700,
+    "points": 1600,
     "admin": false,
     "events": [
-      "Golf Tournament",
-      "Cross Country Meet",
-      "Science Fair",
-      "Track and Field Meet",
-      "Lacrosse Game",
-      "Baseball Game",
-      "Theater Festival",
-      "Spelling Bee",
-      "Cook-Off Challenge",
-      "Soccer Match",
-      "Debate Competition",
-      "Tennis Tournament",
-      "Volleyball Game",
-      "Basketball Game",
-      "Quiz Bowl",
-      "Art Show"
+      "Robotics Meet",
+      "Gardening marathon",
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -529,24 +345,10 @@
     "student_grade": "11",
     "username": "AWeston",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 8800,
+    "points": 800,
     "admin": false,
     "events": [
-      "Volleyball Game",
-      "Swimming Championship",
-      "Basketball Game",
-      "Theater Festival",
-      "Music Competition",
-      "Art Show",
-      "Debate Competition",
-      "Lacrosse Game",
-      "Spelling Bee",
-      "Cook-Off Challenge",
-      "Quiz Bowl",
-      "Track and Field Meet",
-      "Science Fair",
-      "Tennis Tournament",
-      "Golf Tournament"
+      "Chess Tournament"
     ],
     "emails": []
   },
@@ -557,21 +359,12 @@
     "student_grade": "10",
     "username": "VWrede",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6600,
+    "points": 1800,
     "admin": false,
     "events": [
-      "Quiz Bowl",
       "Soccer Match",
-      "Theater Festival",
-      "Lacrosse Game",
-      "Volleyball Game",
-      "Baseball Game",
-      "Track and Field Meet",
-      "Tennis Tournament",
-      "Music Competition",
-      "Cook-Off Challenge",
-      "Science Fair",
-      "Cross Country Meet"
+      "Chess Tournament",
+      "Basketball Game"
     ],
     "emails": []
   },
@@ -582,24 +375,13 @@
     "student_grade": "10",
     "username": "EOlson",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 9600,
+    "points": 2000,
     "admin": false,
     "events": [
-      "Track and Field Meet",
-      "Volleyball Game",
-      "Baseball Game",
-      "Golf Tournament",
-      "Basketball Game",
-      "Lacrosse Game",
-      "Cross Country Meet",
-      "Art Show",
-      "Music Competition",
-      "Science Fair",
-      "Spelling Bee",
-      "Soccer Match",
-      "Debate Competition",
-      "Tennis Tournament",
-      "Quiz Bowl"
+      "Art fair",
+      "HOSA SLC",
+      "Gardening marathon",
+      "Baseball Game"
     ],
     "emails": []
   },
@@ -610,10 +392,12 @@
     "student_grade": "12",
     "username": "WStricker",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 700,
+    "points": 1700,
     "admin": false,
     "events": [
-      "Music Competition"
+      "State Swim Meet",
+      "Tennis tournament",
+      "HOSA SLC"
     ],
     "emails": []
   },
@@ -624,27 +408,10 @@
     "student_grade": "10",
     "username": "SFischer",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 10700,
+    "points": 200,
     "admin": false,
     "events": [
-      "Track and Field Meet",
-      "Science Fair",
-      "Baseball Game",
-      "Art Show",
-      "Music Competition",
-      "Swimming Championship",
-      "Volleyball Game",
-      "Theater Festival",
-      "Lacrosse Game",
-      "Tennis Tournament",
-      "Golf Tournament",
-      "Soccer Match",
-      "Cross Country Meet",
-      "Debate Competition",
-      "Spelling Bee",
-      "Cook-Off Challenge",
-      "Quiz Bowl",
-      "Basketball Game"
+      "Art fair"
     ],
     "emails": []
   },
@@ -655,24 +422,10 @@
     "student_grade": "10",
     "username": "DMacchiarella",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 8700,
+    "points": 700,
     "admin": false,
     "events": [
-      "Golf Tournament",
-      "Debate Competition",
-      "Basketball Game",
-      "Baseball Game",
-      "Cross Country Meet",
-      "Art Show",
-      "Quiz Bowl",
-      "Volleyball Game",
-      "Cook-Off Challenge",
-      "Track and Field Meet",
-      "Theater Festival",
-      "Swimming Championship",
-      "Spelling Bee",
-      "Tennis Tournament",
-      "Lacrosse Game"
+      "Robotics Meet"
     ],
     "emails": []
   },
@@ -683,22 +436,13 @@
     "student_grade": "11",
     "username": "PSorenson",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7900,
+    "points": 2300,
     "admin": false,
     "events": [
+      "Robotics Meet",
       "Baseball Game",
-      "Art Show",
-      "Spelling Bee",
-      "Music Competition",
-      "Lacrosse Game",
-      "Golf Tournament",
-      "Theater Festival",
-      "Track and Field Meet",
-      "Science Fair",
-      "Debate Competition",
-      "Tennis Tournament",
-      "Quiz Bowl",
-      "Soccer Match"
+      "Chess Tournament",
+      "Gardening marathon"
     ],
     "emails": []
   },
@@ -709,21 +453,10 @@
     "student_grade": "10",
     "username": "SHendrickson",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7900,
+    "points": 1000,
     "admin": false,
     "events": [
-      "Music Competition",
-      "Quiz Bowl",
-      "Tennis Tournament",
-      "Science Fair",
-      "Soccer Match",
-      "Track and Field Meet",
-      "Debate Competition",
-      "Swimming Championship",
-      "Baseball Game",
-      "Cross Country Meet",
-      "Basketball Game",
-      "Spelling Bee"
+      "HOSA SLC"
     ],
     "emails": []
   },
@@ -734,17 +467,11 @@
     "student_grade": "10",
     "username": "CRadtke",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5400,
+    "points": 1300,
     "admin": false,
     "events": [
-      "Music Competition",
-      "Swimming Championship",
-      "Baseball Game",
-      "Soccer Match",
-      "Quiz Bowl",
-      "Tennis Tournament",
-      "Spelling Bee",
-      "Cross Country Meet"
+      "Chess Tournament",
+      "Gardening marathon"
     ],
     "emails": []
   },
@@ -755,11 +482,12 @@
     "student_grade": "10",
     "username": "KTaylor",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 1100,
+    "points": 1500,
     "admin": false,
     "events": [
-      "Tennis Tournament",
-      "Science Fair"
+      "Baseball Game",
+      "Robotics Meet",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -770,20 +498,11 @@
     "student_grade": "12",
     "username": "SBird",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6900,
+    "points": 900,
     "admin": false,
     "events": [
-      "Art Show",
-      "Lacrosse Game",
-      "Spelling Bee",
-      "Quiz Bowl",
-      "Soccer Match",
-      "Basketball Game",
-      "Theater Festival",
-      "Science Fair",
-      "Swimming Championship",
-      "Golf Tournament",
-      "Volleyball Game"
+      "State Swim Meet",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -794,17 +513,10 @@
     "student_grade": "11",
     "username": "SBoaz",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5900,
+    "points": 500,
     "admin": false,
     "events": [
-      "Debate Competition",
-      "Art Show",
-      "Music Competition",
-      "Basketball Game",
-      "Track and Field Meet",
-      "Volleyball Game",
-      "Soccer Match",
-      "Spelling Bee"
+      "Basketball Game"
     ],
     "emails": []
   },
@@ -815,19 +527,13 @@
     "student_grade": "10",
     "username": "RNaccarato",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6600,
+    "points": 2100,
     "admin": false,
     "events": [
+      "HOSA SLC",
+      "Art fair",
       "Soccer Match",
-      "Basketball Game",
-      "Cross Country Meet",
-      "Baseball Game",
-      "Science Fair",
-      "Spelling Bee",
-      "Tennis Tournament",
-      "Track and Field Meet",
-      "Quiz Bowl",
-      "Art Show"
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -838,10 +544,12 @@
     "student_grade": "10",
     "username": "WNicholson",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 800,
+    "points": 1400,
     "admin": false,
     "events": [
-      "Volleyball Game"
+      "Tennis tournament",
+      "Baseball Game",
+      "Chess Tournament"
     ],
     "emails": []
   },
@@ -852,15 +560,12 @@
     "student_grade": "10",
     "username": "CTennies",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 3500,
+    "points": 2100,
     "admin": false,
     "events": [
-      "Theater Festival",
-      "Volleyball Game",
-      "Baseball Game",
-      "Cross Country Meet",
-      "Science Fair",
-      "Spelling Bee"
+      "HOSA SLC",
+      "Robotics Meet",
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -871,19 +576,11 @@
     "student_grade": "11",
     "username": "VHill",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 6300,
+    "points": 1000,
     "admin": false,
     "events": [
-      "Spelling Bee",
-      "Basketball Game",
-      "Lacrosse Game",
-      "Tennis Tournament",
-      "Soccer Match",
-      "Volleyball Game",
-      "Baseball Game",
-      "Theater Festival",
-      "Art Show",
-      "Cook-Off Challenge"
+      "Gardening marathon",
+      "Soccer Match"
     ],
     "emails": []
   },
@@ -894,20 +591,12 @@
     "student_grade": "9",
     "username": "CVanalstyne",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7000,
+    "points": 1300,
     "admin": false,
     "events": [
-      "Track and Field Meet",
-      "Tennis Tournament",
-      "Golf Tournament",
-      "Volleyball Game",
-      "Theater Festival",
-      "Basketball Game",
-      "Baseball Game",
-      "Soccer Match",
-      "Music Competition",
-      "Spelling Bee",
-      "Cook-Off Challenge"
+      "Art fair",
+      "Robotics Meet",
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -918,17 +607,10 @@
     "student_grade": "11",
     "username": "MGibson",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5200,
+    "points": 300,
     "admin": false,
     "events": [
-      "Volleyball Game",
-      "Tennis Tournament",
-      "Cross Country Meet",
-      "Art Show",
-      "Lacrosse Game",
-      "Quiz Bowl",
-      "Music Competition",
-      "Soccer Match"
+      "Tennis tournament"
     ],
     "emails": []
   },
@@ -939,10 +621,11 @@
     "student_grade": "9",
     "username": "CJohnson",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 500,
+    "points": 1300,
     "admin": false,
     "events": [
-      "Theater Festival"
+      "Chess Tournament",
+      "Basketball Game"
     ],
     "emails": []
   },
@@ -953,22 +636,10 @@
     "student_grade": "12",
     "username": "RBlount",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7000,
+    "points": 300,
     "admin": false,
     "events": [
-      "Music Competition",
-      "Lacrosse Game",
-      "Soccer Match",
-      "Track and Field Meet",
-      "Baseball Game",
-      "Basketball Game",
-      "Quiz Bowl",
-      "Science Fair",
-      "Swimming Championship",
-      "Golf Tournament",
-      "Cross Country Meet",
-      "Art Show",
-      "Cook-Off Challenge"
+      "Baseball Game"
     ],
     "emails": []
   },
@@ -979,22 +650,13 @@
     "student_grade": "10",
     "username": "GDavis",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7600,
+    "points": 1500,
     "admin": false,
     "events": [
-      "Science Fair",
-      "Lacrosse Game",
-      "Debate Competition",
-      "Theater Festival",
-      "Cook-Off Challenge",
+      "Basketball Game",
+      "Gardening marathon",
       "Baseball Game",
-      "Spelling Bee",
-      "Music Competition",
-      "Swimming Championship",
-      "Art Show",
-      "Cross Country Meet",
-      "Quiz Bowl",
-      "Basketball Game"
+      "Art fair"
     ],
     "emails": []
   },
@@ -1005,10 +667,12 @@
     "student_grade": "10",
     "username": "ALowe",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 900,
+    "points": 1700,
     "admin": false,
     "events": [
-      "Soccer Match"
+      "Gardening marathon",
+      "Soccer Match",
+      "Robotics Meet"
     ],
     "emails": []
   },
@@ -1019,14 +683,12 @@
     "student_grade": "10",
     "username": "LSapp",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 3100,
+    "points": 1800,
     "admin": false,
     "events": [
-      "Basketball Game",
-      "Spelling Bee",
-      "Science Fair",
-      "Volleyball Game",
-      "Lacrosse Game"
+      "Tennis tournament",
+      "Soccer Match",
+      "HOSA SLC"
     ],
     "emails": []
   },
@@ -1037,15 +699,13 @@
     "student_grade": "10",
     "username": "MJensen",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 3800,
+    "points": 1700,
     "admin": false,
     "events": [
-      "Volleyball Game",
-      "Art Show",
-      "Track and Field Meet",
-      "Tennis Tournament",
-      "Theater Festival",
-      "Quiz Bowl"
+      "Robotics Meet",
+      "Art fair",
+      "Gardening marathon",
+      "Baseball Game"
     ],
     "emails": []
   },
@@ -1056,19 +716,10 @@
     "student_grade": "10",
     "username": "RThedford",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5200,
+    "points": 800,
     "admin": false,
     "events": [
-      "Swimming Championship",
-      "Theater Festival",
-      "Music Competition",
-      "Golf Tournament",
-      "Art Show",
-      "Cross Country Meet",
-      "Quiz Bowl",
-      "Soccer Match",
-      "Track and Field Meet",
-      "Lacrosse Game"
+      "Chess Tournament"
     ],
     "emails": []
   },
@@ -1079,12 +730,12 @@
     "student_grade": "10",
     "username": "JBender",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 2400,
+    "points": 2000,
     "admin": false,
     "events": [
-      "Spelling Bee",
-      "Baseball Game",
-      "Basketball Game"
+      "Basketball Game",
+      "Robotics Meet",
+      "Chess Tournament"
     ],
     "emails": []
   },
@@ -1095,24 +746,12 @@
     "student_grade": "12",
     "username": "JNickles",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 9800,
+    "points": 1900,
     "admin": false,
     "events": [
+      "HOSA SLC",
       "Soccer Match",
-      "Spelling Bee",
-      "Swimming Championship",
-      "Basketball Game",
-      "Cross Country Meet",
-      "Quiz Bowl",
-      "Tennis Tournament",
-      "Science Fair",
-      "Baseball Game",
-      "Music Competition",
-      "Volleyball Game",
-      "Track and Field Meet",
-      "Golf Tournament",
-      "Debate Competition",
-      "Art Show"
+      "State Swim Meet"
     ],
     "emails": []
   },
@@ -1123,22 +762,12 @@
     "student_grade": "11",
     "username": "MSammer",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 7500,
+    "points": 1800,
     "admin": false,
     "events": [
-      "Spelling Bee",
-      "Track and Field Meet",
-      "Volleyball Game",
-      "Art Show",
-      "Golf Tournament",
-      "Quiz Bowl",
-      "Science Fair",
-      "Cross Country Meet",
       "Basketball Game",
-      "Theater Festival",
-      "Cook-Off Challenge",
-      "Tennis Tournament",
-      "Swimming Championship"
+      "Chess Tournament",
+      "Gardening marathon"
     ],
     "emails": []
   },
@@ -1149,18 +778,12 @@
     "student_grade": "12",
     "username": "GHalls",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5400,
+    "points": 1200,
     "admin": false,
     "events": [
-      "Debate Competition",
-      "Track and Field Meet",
-      "Lacrosse Game",
-      "Theater Festival",
-      "Volleyball Game",
-      "Quiz Bowl",
-      "Basketball Game",
-      "Art Show",
-      "Swimming Championship"
+      "Tennis tournament",
+      "State Swim Meet",
+      "Basketball Game"
     ],
     "emails": []
   },
@@ -1171,90 +794,26 @@
     "student_grade": "9",
     "username": "KMinihane",
     "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 5400,
+    "points": 1100,
     "admin": false,
     "events": [
-      "Golf Tournament",
-      "Spelling Bee",
-      "Debate Competition",
-      "Science Fair",
-      "Volleyball Game",
-      "Music Competition",
-      "Tennis Tournament",
-      "Art Show"
-    ],
-    "emails": []
-  },
-  {
-    "key": 11169,
-    "student_fname": "Alina",
-    "student_lname": "Ward",
-    "student_grade": "10",
-    "username": "AWard",
-    "password": "$2a$10$MW1TIomvdnZKPNVFiXB2Ke1.Vw/tKwWMOWKX7Cz1TNO2MYKoXf0EC",
-    "points": 10700,
-    "admin": false,
-    "events": [
-      "Volleyball Game",
       "Baseball Game",
-      "Spelling Bee",
-      "Basketball Game",
-      "Golf Tournament",
-      "Lacrosse Game",
-      "Cook-Off Challenge",
-      "Soccer Match",
-      "Cross Country Meet",
-      "Music Competition",
-      "Art Show",
-      "Swimming Championship",
-      "Theater Festival",
-      "Quiz Bowl",
-      "Track and Field Meet",
-      "Science Fair",
-      "Debate Competition",
-      "Tennis Tournament"
-    ]
-  },
-  {
-    "key": 772081,
-    "student_fname": "Kavya",
-    "student_lname": "Jaipur",
-    "student_grade": "11",
-    "username": "JaipurK",
-    "password": "$2a$10$/qvZrp7XQ01oq.RE/VpcoeUILE.3yRuiLhZBAyAVQxejJJUyRj5.2",
-    "points": 6300,
-    "admin": false,
-    "events": [
-      "Spirit Week",
-      "Pep Rally",
-      "Volleyball Game"
+      "Chess Tournament"
     ],
     "emails": []
   },
   {
-    "key": 152176,
-    "student_fname": "John",
-    "student_lname": "Doe",
-    "student_grade": "11",
-    "username": "jdoe",
-    "password": "$2a$10$IboHbRmfXS2jeDgNDR5P2OyUcKqOz3tyXTIn2thQKH5gM9r8EHYbi",
-    "points": 500,
+    "key": 740244,
+    "student_fname": "Antonio",
+    "student_lname": "Binoy",
+    "student_grade": "9",
+    "username": "ABinoy",
+    "password": "$2a$10$uFfwJ96Px37hR/Aehxcvxu4bBim3.DMB4DRH61a0xTvEamONaJltC",
+    "points": 1000,
     "admin": false,
     "events": [
-      "Golf Tournament"
+      "FBLA SLC"
     ],
-    "emails": []
-  },
-  {
-    "key": 924647,
-    "student_fname": "Test",
-    "student_lname": "Account",
-    "student_grade": "12",
-    "username": "STUDENT",
-    "password": "$2a$10$9PmDNt/Bu/F3wNVRCQfi..3n7cNm0k5U0a4PcRhykXvwT542z8Dse",
-    "points": 0,
-    "admin": false,
-    "events": [],
     "emails": []
   }
 ]

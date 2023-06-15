@@ -4,8 +4,15 @@ const { table } = require("console");
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
-let USERSJSONPATH = path.join(__dirname, "../database/users.json");
-let EVENTSJSONPATH = path.join(__dirname, "../database/events.json");
+/**
+ * Constants for paths for users.json and events.json
+ * Prevents typos and errors as you can just refer to variable name
+ * rather than exact path
+ */
+const USERS_JSON_PATH = path.join(__dirname, "../database/users.json");
+const EVENTS_JSON_PATH = path.join(__dirname, "../database/events.json");
+
+
 let hrefA = document.getElementById("logoutPage");
 hrefA.href = path.join(__dirname, "../../login.html");
 function readFromJSON(file) {
@@ -62,33 +69,10 @@ function errorPopup(title = "Error", description = "Sample error text") {
 	}, 1000);
 }
 
-// AUTOMATICALLY RESIZE TEXTAREA
-
-// const tx = document.getElementsByTagName('textarea');
-
-// for (let i = 0; i < tx.length; i++) {
-//    tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
-//    tx[i].addEventListener('input', OnInput, false);
-// }
-
-// function OnInput() {
-//    this.style.height = 0;
-//    this.style.height = (this.scrollHeight) + 'px';
-// }
-
-function generateDefaultPassword(length = 8) {
-	return Math.random().toString(36).slice(-length);
-}
-
 // change color of select dropdown on change
 var selectThing = document.querySelector(".student__grade");
 selectThing.onchange = function () {
 	selectThing.style.color = selectThing.value === "0" ? "#777" : "#aaa";
-	// if (selectThing.value === '0') {
-	//    selectThing.style.color = '#777'
-	// } else {
-	//    selectThing.style.color = '#aaa'
-	// }
 };
 
 // change color of date picker on change
@@ -124,7 +108,7 @@ function autoResize() {
 }
 
 function updateEvents() {
-	fetch(EVENTSJSONPATH)
+	fetch(EVENTS_JSON_PATH)
 		.then(function (response) {
 			return response.json();
 		})
@@ -155,7 +139,7 @@ function updateEvents() {
 updateEvents();
 
 function updateAccounts() {
-	fetch(USERSJSONPATH)
+	fetch(USERS_JSON_PATH)
 		.then(function (res) {
 			return res.json();
 		})
@@ -207,21 +191,19 @@ function hideWin() {
 }
 
 function deleteAccount(un) {
-	let accs = readFromJSON(USERSJSONPATH);
-	// console.log(events);
+	let accs = readFromJSON(USERS_JSON_PATH);
 	for (let i = 0; i < accs.length; i++) {
-		// console.log(accs[i].event_name)
 		if (accs[i].username === un) {
 			accs.splice(i, 1);
 			break;
 		}
 	}
-	writeToJSON(USERSJSONPATH, accs);
+	writeToJSON(USERS_JSON_PATH, accs);
 	updateAccounts();
 }
 
 function pickWinners() {
-	let accs = readFromJSON(USERSJSONPATH);
+	let accs = readFromJSON(USERS_JSON_PATH);
 	let ninthUsers = [];
 	let tenthUsers = [];
 	let eleventhUsers = [];
@@ -232,42 +214,13 @@ function pickWinners() {
 		else if (acc.student_grade === "11") eleventhUsers.push(acc);
 		else if (acc.student_grade === "12") twelfthUsers.push(acc);
 	}
-	// console.log(ninthUsers);
-	// console.log(tenthUsers);
-	// console.log(eleventhUsers);
-	// console.log(twelfthUsers);
-	// let max9 = 0;
-	// let max10 = 0;
-	// let max11 = 0;
-	// let max12 = 0;
 	let winner9 = ninthUsers[Math.floor(Math.random() * ninthUsers.length)];
 	let winner10 = tenthUsers[Math.floor(Math.random() * tenthUsers.length)];
 	let winner11 =
 		eleventhUsers[Math.floor(Math.random() * eleventhUsers.length)];
 	let winner12 =
 		twelfthUsers[Math.floor(Math.random() * twelfthUsers.length)];
-	// let random =
-	// let random = accs[Math.floor(Math.random() * accs.length)];
-	
-	// for (tUser of tenthUsers) {
-	//    if (tUser.points > max10) {
-	//       winner10 = tUser;
-	//    }
-	// }
-	// for (eUser of eleventhUsers) {
-	//    if (eUser.points > max11) {
-	//       winner11 = eUser;
-	//    }
-	// }
-	// for (aUser of twelfthUsers) {
-	//    if (aUser.points > max12) {
-	//       winner12 = aUser;
-	//    }
-	// }
-	// console.log(winner9)
-	// console.log(winner10)
-	// console.log(winner11)
-	// console.log(winner12)
+
 	let a = "<strong>Yearlong free tickets to all games!</strong>";
 	let b = "<strong>$15 Chick-fil-A gift card</strong>";
 	let c = "<strong>1 Homework Pass</strong>";
@@ -326,7 +279,7 @@ function pickWinners() {
 		document.querySelector(".twelfth__prize").innerHTML = d;
 	}
 	/** @type Array */
-	let arr = readFromJSON(USERSJSONPATH);
+	let arr = readFromJSON(USERS_JSON_PATH);
 	let max = arr[1];
 	for (let i of arr.slice(1)) {
 		if (i.points > max.points) max = i;
@@ -389,18 +342,22 @@ function generateReport(un) {
 updateAccounts();
 
 function createNewEvent() {
-	let currentEvents = readFromJSON(EVENTSJSONPATH);
+	let currentEvents = readFromJSON(EVENTS_JSON_PATH);
 	let eventName = document.querySelector(".event__name").value;
 	let eventDescription = document.querySelector(".event__description").value;
 	let prize = document.querySelector(".prize").value;
+	let code = document.querySelector(".code").value;
 	let startDate = document.querySelector(".start__date").value;
 	let endDate = document.querySelector(".end__date").value;
+
+	// error validation
 	if (
 		eventName === "" ||
 		eventDescription === "" ||
 		prize === "" ||
 		startDate === "" ||
-		endDate === ""
+		endDate === "" ||
+		code === ""
 	) {
 		warningPopup("Warning", "Empty fields present");
 		return;
@@ -408,25 +365,32 @@ function createNewEvent() {
 		warningPopup("Warning", "Invalid timespan");
 		return;
 	}
+
+	// date formatting
 	startDate = startDate.split("-");
 	endDate = endDate.split("-");
 	startDate = `${startDate[1]}/${startDate[2]}/${startDate[0]}`;
 	endDate = `${endDate[1]}/${endDate[2]}/${endDate[0]}`;
+
 	let eventTemplate = {
 		event_name: eventName,
 		event_description: eventDescription,
 		prize: prize,
 		start_date: startDate,
 		end_date: endDate,
+		code: code,
 		participants: [],
 	};
+
 	document.querySelector(".event__name").value = "";
 	document.querySelector(".event__description").value = "";
 	document.querySelector(".prize").value = "";
 	document.querySelector(".start__date").value = "";
 	document.querySelector(".end__date").value = "";
+
 	currentEvents.push(eventTemplate);
-	writeToJSON(EVENTSJSONPATH, currentEvents);
+	writeToJSON(EVENTS_JSON_PATH, currentEvents);
+
 	alertPopup("Event created!", `Event '${eventName}' created!`);
 	updateEvents();
 }
@@ -435,7 +399,7 @@ function editEvent() { }
 
 function deleteEvent(name) {
 	// console.log(name)
-	let events = readFromJSON(EVENTSJSONPATH);
+	let events = readFromJSON(EVENTS_JSON_PATH);
 	// console.log(events);
 	for (let i = 0; i < events.length; i++) {
 		// console.log(events[i].event_name)
@@ -445,7 +409,7 @@ function deleteEvent(name) {
 			break;
 		}
 	}
-	writeToJSON(EVENTSJSONPATH, events);
+	writeToJSON(EVENTS_JSON_PATH, events);
 	updateEvents();
 	// let i = r.parentNode.parentNode.rowIndex;
 	// document.querySelector('.events__output').deleteRow(i);
@@ -476,7 +440,7 @@ function createNewAccount() {
 		return;
 	}
 	// Checks if username already exists
-	const currentUsers = readFromJSON(USERSJSONPATH);
+	const currentUsers = readFromJSON(USERS_JSON_PATH);
 	for (let usr of currentUsers) {
 		if (usr.username == username) {
 			errorPopup(
@@ -514,7 +478,7 @@ function createNewAccount() {
 				emails: [],
 			};
 			currentUsers.push(newStudent);
-			writeToJSON(USERSJSONPATH, currentUsers);
+			writeToJSON(USERS_JSON_PATH, currentUsers);
 			document.querySelector(".student__fname").value = "";
 			document.querySelector(".student__lname").value = "";
 			document.querySelector(".student__grade").value = "";
@@ -589,7 +553,6 @@ let helpButton = document.getElementById("qm");
 helpButton.addEventListener("click", (e) => {
 	window.open("../main/chat.html");
 });
-// let q1Date = new Date(2023, 2, 6);
 
 var q1 = new Date("2/6/2023");
 var q2 = new Date("2/6/2023");
