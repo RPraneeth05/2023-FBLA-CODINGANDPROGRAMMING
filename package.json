@@ -18,6 +18,7 @@
       "electron": "^22.1.0",
       "firebase": "^9.22.2",
       "firebase-admin": "^11.9.0",
-      "jsonwebtoken": "^9.0.0"
+      "jsonwebtoken": "^9.0.0",
+      "synonyms": "^1.0.1"
    }
 }
