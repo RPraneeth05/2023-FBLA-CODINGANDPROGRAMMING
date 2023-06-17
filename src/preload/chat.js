@@ -1,4 +1,4 @@
-var synonyms = require("synonyms");
+var synonyms = require("node_modules/synonyms");
 const chatLog = document.querySelector('#chat-log');
 const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
