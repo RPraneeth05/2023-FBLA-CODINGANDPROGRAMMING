@@ -6,6 +6,13 @@ const bcrypt = require('bcryptjs');
 
 const salt = bcrypt.genSaltSync(10);
 // Function to read data from a JSON file
+const stateSel = document.getElementById("state");
+
+stateSel.addEventListener("change", () => {
+  let state = stateSel.value;
+
+  document.getElementById("default").remove()
+});
 function readFromJSON(file) {
   return JSON.parse(fs.readFileSync(file));
 }
