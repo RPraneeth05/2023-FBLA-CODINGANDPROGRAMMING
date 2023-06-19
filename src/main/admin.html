@@ -62,6 +62,11 @@
    <form action="">
       <div class="left__side">
          <a id="logoutPage" style="margin: .5rem" href="">Logout</a><br>
+         <h3>Change Password</h3>
+         <input type='password' placeholder="Current Password" id="cP">
+         <input type='password' placeholder="New Password" id="nP">
+         <input type='password' placeholder="Confirm New Password" id="cnP">
+         <button onclick="changePwd()">Change Password</button>
       </div>
       <div class="middle">
          <h1>Dashboard</h1><br>
@@ -164,8 +169,7 @@
                <option value="11">11</option>
                <option value="12">12</option>
             </select><br><br>
-            <input class="student__username" type="text" placeholder="Student username" required><br><br>
-            <input class="student__password" type="password" placeholder="password" required><br><br>
+            <input class="student__username" type="text" placeholder="Student Email" required><br><br>
             <input type="button" value="Create Account" onclick="createNewAccount()">
          </div>
          <div id="qm">

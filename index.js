@@ -4,7 +4,7 @@ const { writeFile } = require("fs");
 const path = require("path");
 
 // Checking if the app is in development mode
-const isDeveloper = process.env.NODE_ENV !== "development";
+const isDeveloper = process.env.NODE_ENV !== "production";
 
 // Function to create a new browser window
 function createWindow() {
@@ -16,14 +16,13 @@ function createWindow() {
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
-			preload: path.join(__dirname, "login_preload.js"),
 		},
 		title: "EventHive",
 	});
 	// Opening dev tools if the app is in development mode
-	//   if (isDeveloper) {
-	//     win.openDevTools();
-	//   }
+	if (isDeveloper) {
+		win.webContents.openDevTools();
+	}
 	win.loadFile("login.html");
 	writeFile(path.join(__dirname, "./src/database/jwt.txt"), "", (err) => {});
 }

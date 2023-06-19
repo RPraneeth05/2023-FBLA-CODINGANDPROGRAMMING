@@ -1,18 +1,33 @@
 const path = require("path");
+const fb = require('../../firebaseHelper');
 const fs = require("fs");
 const { table } = require("console");
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
-/**
- * Constants for paths for users.json and events.json
- * Prevents typos and errors as you can just refer to variable name
- * rather than exact path
- */
-const USERS_JSON_PATH = path.join(__dirname, "../database/users.json");
-const EVENTS_JSON_PATH = path.join(__dirname, "../database/events.json");
+let schoolId = localStorage.getItem('schoolId');
+async function changePwd() {
+	const currentPasswordInput = document.getElementById("cP").value;
+	let school = await fb.getSchoolById(schoolId);
+	if (school.adminPass != currentPasswordInput) {
+		errorPopup("Wrong Password", "Enter the correct current password!");
+		return;
+	}
+	const newPasswordInput = document.getElementById("nP").value;
+	const confirmNewPasswordInput = document.getElementById("cnP").value;
 
+	if (!currentPasswordInput || !newPasswordInput || !confirmNewPasswordInput) {
+		errorPopup("Missing Information", "Make sure all fields are entered!");
+		return;
+	}
 
+	if (newPasswordInput !== confirmNewPasswordInput) {
+		errorPopup("Password Mismatch", "The new passwords do not match!");
+		return;
+	}
+
+	await fb.changeAdminPassword(schoolId, newPasswordInput);
+}
 let hrefA = document.getElementById("logoutPage");
 hrefA.href = path.join(__dirname, "../../login.html");
 function readFromJSON(file) {
@@ -60,7 +75,7 @@ function errorPopup(title = "Error", description = "Sample error text") {
 	errorModal.style.display = "block";
 	document.querySelector(".error__title").innerHTML = title;
 	document.querySelector(".error__description").innerHTML = description;
-	errorModal.classList.add("fade ");
+	errorModal.classList.add("fade");
 	setTimeout(function () {
 		errorModal.classList.remove("fade");
 	}, 1300);
@@ -415,80 +430,52 @@ function deleteEvent(name) {
 	// document.querySelector('.events__output').deleteRow(i);
 	// updateAccounts();
 }
-function createNewAccount() {
-	const fname = document.querySelector(".student__fname").value;
-	const lname = document.querySelector(".student__lname").value;
-	const grade = document.querySelector(".student__grade").value;
-	const username = document.querySelector(".student__username").value;
-	const password = document.querySelector(".student__password").value;
-	const alertBox = document.querySelector(".warning__box");
+async function createNewAccount() {
+  const fname = document.querySelector('.student__fname').value;
+  const lname = document.querySelector('.student__lname').value;
+  const grade = document.querySelector('.student__grade').value;
+  const email = document.querySelector('.student__username').value;
+  const password = document.querySelector('.student__password').value;
+  const alertBox = document.querySelector('.warning__box');
 
-	// In JS, an empty string is false. Therefore, not empty string is true.
-	// So, we can use a boolean expression like the following
-	// to make sure all the fields are full
-	// without making the code look messy
-	if (!fname || !lname || !grade || !username || !password) {
-		warningPopup("Warning", "Empty fields present");
-		return;
-	}
-	// Checks if password length is less than 8 characters
-	if (password.length < 8) {
-		warningPopup(
-			"Password",
-			"Password length has to be atleast 8 characters"
-		);
-		return;
-	}
-	// Checks if username already exists
-	const currentUsers = readFromJSON(USERS_JSON_PATH);
-	for (let usr of currentUsers) {
-		if (usr.username == username) {
-			errorPopup(
-				"User already exists!",
-				"Username has to be unique for all students."
-			);
-			return;
-		}
-	}
-	let key = Math.floor(Math.random() * 1000000);
-	function uniqueKey() {
-		for (let usr of currentUsers) {
-			if (usr.key == key) {
-				key = Math.floor(Math.random() * 1000000);
-				uniqueKey();
-			}
-		}
-		return;
-	}
-	uniqueKey();
-	bcrypt.genSalt(10, function (err, salt) {
-		bcrypt.hash(password, salt, function (err, hash) {
-			const hashedPassword = hash;
+  if (!fname || !lname || !grade || !email || !password) {
+    warningPopup('Warning', 'Empty fields present');
+    return;
+  }
 
-			const newStudent = {
-				key: key,
-				student_fname: fname,
-				student_lname: lname,
-				student_grade: grade,
-				username: username,
-				password: hashedPassword,
-				points: 0,
-				admin: false,
-				events: [],
-				emails: [],
-			};
-			currentUsers.push(newStudent);
-			writeToJSON(USERS_JSON_PATH, currentUsers);
-			document.querySelector(".student__fname").value = "";
-			document.querySelector(".student__lname").value = "";
-			document.querySelector(".student__grade").value = "";
-			document.querySelector(".student__username").value = "";
-			document.querySelector(".student__password").value = "";
-			updateAccounts();
-		});
-	});
-	alertPopup("Alert", "Student account created successfully");
+  if (password.length < 8) {
+    warningPopup('Password', 'Password length has to be at least 8 characters');
+    return;
+  }
+
+  // Check if user with the same email already exists
+  const existingUser = await fb.getUserByEmail(schoolId, email);
+  if (existingUser) {
+    errorPopup('User already exists!', 'An account with the same email already exists.');
+    return;
+  }
+
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(password, salt, async function (err, hash) {
+      const hashedPassword = hash;
+
+      // Add the new user to the school
+      const newUser = await fb.addUserToSchool(schoolId, fname, lname, grade, email);
+      if (newUser) {
+        document.querySelector('.student__fname').value = '';
+        document.querySelector('.student__lname').value = '';
+        document.querySelector('.student__grade').value = '';
+        document.querySelector('.student__email').value = '';
+        document.querySelector('.student__password').value = '';
+        updateAccounts();
+        alertPopup('Alert', 'Student account created successfully');
+      } else {
+        errorPopup('Error', 'Failed to create a new student account');
+      }
+    });
+  });
 }
+
 function filterEvents() {
 	let input = document.querySelector(".event__search");
 	let filter = input.value.toUpperCase();
