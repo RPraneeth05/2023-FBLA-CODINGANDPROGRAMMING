@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -182,6 +182,262 @@
       }
    </style>
    <script src="login_preload.js"></script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- <link rel="stylesheet" href="./login.css"> -->
+   <link rel="stylesheet" href="./common.css">
+   <style>
+      .error__box {
+         position: fixed;
+         bottom: 2rem;
+         right: 2rem;
+         background-color: #ff6969;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
+
+         opacity: 0;
+         transition: opacity .5s;
+
+         z-index: 99999;
+      }
+
+      .fade {
+         opacity: 1;
+         background-color: #ff6969;
+      }
+
+      .alert__title,
+      .alert__description,
+      .warning__title,
+      .warning__description,
+      .error__title,
+      .error__description {
+         color: #333;
+      }
+
+
+
+
+
+
+
+
+      :root {
+         --text-color-light: #ccc;
+         --text-color-dark: #666;
+         --bg-color-light: #222;
+         --bg-color-dark: #111;
+         --text-box-col: #333;
+         --accents-col: #85f;
+         /* --gradient: linear-gradient(90deg, #66b 0%, #b9f 100%); */
+         /* --gradient: linear-gradient(90deg, rgba(238,187,136,1) 0%, rgba(221,51,187,1) 100%); */
+      }
+
+      * {
+         color: var(--text-color-light);
+      }
+
+      /* .discolored {
+   color: #666;
+} */
+      /* select:invalid,
+select option[value=""] {
+   color: #999999;
+} */
+
+      select:invalid {
+         color: var(--text-color-dark);
+      }
+
+      ::placeholder {
+         color: var(--text-color-dark);
+      }
+
+      body {
+         background-color: var(--bg-color-dark);
+      }
+
+      .center {
+         background-color: var(--bg-color-light);
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         text-align: center;
+         padding: 1rem;
+         width: 20rem;
+         height: 25rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 1rem;
+
+         /* box-shadow:
+      0 0 25px #fff,
+      -5px 0 10px #f0f,
+      +5px 0 10px #f0f,
+      0 -5px 10px #0ff,
+      0 +5px 10px #0ff; */
+         /* inset 0 0 50px #fff,
+      inset 20px 0 80px #f0f,
+      inset -20px 0 80px #0ff,
+      inset 20px 0 300px #f0f,
+      inset -20px 0 300px #0ff, */
+         /* 0 0 0px #fff, -5px 0 10px #333, 5px 0 10px #333; */
+      }
+
+      /* .v__align {} */
+
+      input[type=text] {
+         outline: none;
+         border: none;
+         background-color: var(--text-box-col);
+         width: 10.5rem;
+         height: 1.5rem;
+         padding: .25rem;
+         border-radius: .25rem;
+      }
+
+      select {
+         /* -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none; */
+
+         outline: none;
+         border: none;
+         background-color: var(--text-box-col);
+         width: 11rem;
+         height: 2rem;
+         /* height: 1rem; */
+         /* padding: .5rem; */
+         border-radius: .25rem;
+      }
+
+      input[type=text]:focus {
+         outline: 1px solid var(--accents-col);
+      }
+
+      select:focus {
+         outline: 1px solid var(--accents-col);
+      }
+
+      .login__button {
+         outline: none;
+         border: none;
+         /* background-color: var(--text-color-dark); */
+         background: var(--accents-col);
+
+         color: white;
+         /* width: 5rem; */
+         height: 2rem;
+         border-radius: .25rem;
+         transition: .25s;
+         width: 100%;
+      }
+
+      .login__button:hover {
+         transform: translate(0, -.25rem);
+         background-color: var(--accents-col);
+      }
+   </style>
+</head>
+
+<body>
+   <div class="error__box" style="display: none;">
+      <h2 class="error__title">Error title</h2>
+      <p class="error__description">Error description</p>
+   </div>
+
+
+
+   <div class="center">
+      <div class="v__align">
+         <h1>Log in</h1><br><br>
+         <select name="" id="" required>
+            <option value="" invalid disabled selected hidden>State</option>
+            <option value="0">Alabama</option>
+            <option value="1">Alaska</option>
+            <option value="2">Arizona</option>
+            <option value="3">Arkansas</option>
+            <option value="4">California</option>
+            <option value="5">Colorado</option>
+            <option value="6">Connecticut</option>
+            <option value="7">Delaware</option>
+            <option value="8">Florida</option>
+            <option value="9">Georgia</option>
+            <option value="10">Hawaii</option>
+            <option value="11">Idaho</option>
+            <option value="12">Illinois</option>
+            <option value="13">Indiana</option>
+            <option value="14">Iowa</option>
+            <option value="15">Kansas</option>
+            <option value="16">Kentucky</option>
+            <option value="17">Louisiana</option>
+            <option value="18">Maine</option>
+            <option value="19">Maryland</option>
+            <option value="20">Massachusetts</option>
+            <option value="21">Michigan</option>
+            <option value="22">Minnesota</option>
+            <option value="23">Mississippi</option>
+            <option value="24">Missouri</option>
+            <option value="25">Montana</option>
+            <option value="26">Nebraska</option>
+            <option value="27">Nevada</option>
+            <option value="28">New Hampshire</option>
+            <option value="29">New Jersey</option>
+            <option value="30">New Mexico</option>
+            <option value="31">New York</option>
+            <option value="32">North Carolina</option>
+            <option value="33">North Dakota</option>
+            <option value="34">Ohio</option>
+            <option value="35">Oklahoma</option>
+            <option value="36">Oregon</option>
+            <option value="37">Pennsylvania</option>
+            <option value="38">Rhode Island</option>
+            <option value="39">South Carolina</option>
+            <option value="40">South Dakota</option>
+            <option value="41">Tennessee</option>
+            <option value="42">Texas</option>
+            <option value="43">Utah</option>
+            <option value="44">Vermont</option>
+            <option value="45">Virginia</option>
+            <option value="46">Washington</option>
+            <option value="47">West Virginia</option>
+            <option value="48">Wisconsin</option>
+            <option value="49">Wyoming</option>
+         </select><br><br>
+         <input placeholder="District" type="text" class="district" required><br><br>
+         <br>
+         <input placeholder="Username" type="text" class="username" required><br><br>
+         <input placeholder="Password" type="text" class="password" required><br><br>
+         <br>
+         <input type="button" value="Log in" class="login__button" onclick="redirect()">
+      </div>
+   </div>
+   <script src="./login_preload.js"></script>
 </body>
 
 </html>
