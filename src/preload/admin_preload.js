@@ -1,11 +1,9 @@
 const path = require("path");
-const fb = require('../../firebaseHelper');
-const fs = require("fs");
-const { table } = require("console");
+const fb = require("../../firebaseHelper");
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
-let schoolId = localStorage.getItem('schoolId');
+let schoolId = localStorage.getItem("schoolId");
 async function changePwd() {
 	const currentPasswordInput = document.getElementById("cP").value;
 	let school = await fb.getSchoolById(schoolId);
@@ -15,8 +13,14 @@ async function changePwd() {
 	}
 	const newPasswordInput = document.getElementById("nP").value;
 	const confirmNewPasswordInput = document.getElementById("cnP").value;
-
-	if (!currentPasswordInput || !newPasswordInput || !confirmNewPasswordInput) {
+	document.getElementById("cP").value = "";
+	document.getElementById("nP").value = "";
+	document.getElementById("cnP").value = "";
+	if (
+		!currentPasswordInput ||
+		!newPasswordInput ||
+		!confirmNewPasswordInput
+	) {
 		errorPopup("Missing Information", "Make sure all fields are entered!");
 		return;
 	}
@@ -28,27 +32,15 @@ async function changePwd() {
 	bcrypt.genSalt(10, function (err, salt) {
 		bcrypt.hash(newPasswordInput, salt, async function (err, hash) {
 			await fb.changeAdminPassword(schoolId, hash);
-			alertPopup("Password Changed", "Successfully changed the password!")
-		})
+			alertPopup(
+				"Password Changed",
+				"Successfully changed the password!"
+			);
+		});
 	});
-	document.getElementById("cP").value = "";
-	document.getElementById("nP").value = "";
-	document.getElementById("cnP").value = "";
-
 }
 let hrefA = document.getElementById("logoutPage");
 hrefA.href = path.join(__dirname, "../../login.html");
-function readFromJSON(file) {
-	return JSON.parse(fs.readFileSync(file));
-}
-
-function writeToJSON(file, data) {
-	fs.writeFileSync(file, JSON.stringify(data, null, 2), {
-		encoding: "utf-8",
-		flag: "w",
-	});
-	console.log(`Wrote ${data} to ${file}`);
-}
 
 function alertPopup(title = "Alert", description = "Sample alert text") {
 	let alertModal = document.querySelector(".alert__box");
@@ -130,98 +122,65 @@ function autoResize() {
 	this.style.height = this.scrollHeight + "px";
 }
 
-function updateEvents() {
-	fetch(EVENTS_JSON_PATH)
-		.then(function (response) {
-			return response.json();
-		})
-		.then(function (events) {
-			let placeholder = document.querySelector(".events__output");
-			let output = "";
-			for (event of events) {
-				output += `
+async function updateEvents() {
+	let events = await fb.loadEvents(schoolId);
+
+	let placeholder = document.querySelector(".events__output");
+	let output = "";
+	for (let event of events) {
+		output += `
                <tr>
-                  <td>${event.event_name}</td>
-                  <td>${event.event_description}</td>
+                  <td>${event.eventName}</td>
+                  <td>${event.eventDesc}</td>
                   <td>${event.prize}</td>
-                  <td>${event.start_date}</td>
-                  <td>${event.end_date}</td>
+                  <td>${event.startDate}</td>
+                  <td>${event.endDate}</td>
+				  <td>${event.code}</td>
                   <td>
                      <!--<div class="button__bar">-->
                         <!--<input type="button" onclick="editEvent()" value="Edit">-->
-                        <input type="button" onclick="deleteEvent('${event.event_name}')" value="Delete">
+                        <input type="button" onclick="deleteEvent('${event.id}')" value="Delete">
                      <!--</div>-->
                   </td>
                </tr>
             `;
-			}
-			placeholder.innerHTML = output;
-		});
+	}
+	placeholder.innerHTML = output;
 }
 
 updateEvents();
 
-function updateAccounts() {
-	fetch(USERS_JSON_PATH)
-		.then(function (res) {
-			return res.json();
-		})
-		.then(function (accounts) {
-			console.log(accounts);
-			let placeholder = document.querySelector(".accounts__output");
-			let output = "";
-			for (account of accounts) {
-				if (account.admin) {
-					output += `
+async function updateAccounts() {
+	let accounts = await fb.loadUsers(schoolId);
+	let placeholder = document.querySelector(".accounts__output");
+	let output = "";
+	for (let account of accounts) {
+		output += `
                <tr>
                   <td>${account.fname}</td>
                   <td>${account.lname}</td>
-                  <td></td>
-                  <td>${account.username}</td>
-                  <td></td>
-                  <!--<td>
-                     <input type="button" onclick="editAccount()" value="Edit">
-                     <input type="button" onclick="deleteAccount()" value="Delete">
-                  </td>-->
-                  <td>ADMIN</td>
-               </tr>
-            `;
-				} else {
-					output += `
-               <tr>
-                  <td>${account.student_fname}</td>
-                  <td>${account.student_lname}</td>
-                  <td>${account.student_grade}</td>
-                  <td>${account.username}</td>
+                  <td>${account.grade}</td>
+                  <td>${account.email}</td>
                   <td>${account.points}</td>
                   <td>
                      <!--<input type="button" onclick="editAccount()" value="Edit">-->
-                     <input type="button" onclick="deleteAccount('${account.username}')" value="Delete">
+                     <input type="button" onclick="deleteAccount('${account.id}')" value="Delete">
                      <a href="#the__top">
                         <input type="button" onclick="generateReport('${account.username}')" value="Generate report">
                      </a>
                   </td>
                </tr>
             `;
-				}
-			}
-			placeholder.innerHTML = output;
-		});
+	}
+	placeholder.innerHTML = output;
 }
 
 function hideWin() {
 	document.querySelector(".report__window").style.display = "none";
 }
 
-function deleteAccount(un) {
-	let accs = readFromJSON(USERS_JSON_PATH);
-	for (let i = 0; i < accs.length; i++) {
-		if (accs[i].username === un) {
-			accs.splice(i, 1);
-			break;
-		}
-	}
-	writeToJSON(USERS_JSON_PATH, accs);
+async function deleteAccount(id) {
+	await fb.deleteUser(schoolId, id);
 	updateAccounts();
 }
 
@@ -311,8 +270,8 @@ function pickWinners() {
 	document.querySelector(
 		".top__winner"
 	).innerHTML = `<strong>${max.student_fname} ${max.student_lname}  (${max.points} points)</strong>`;
-	document.querySelector(".top__prize").innerHTML = "<strong>$100 Visa Gift Card</strong>";
-
+	document.querySelector(".top__prize").innerHTML =
+		"<strong>$100 Visa Gift Card</strong>";
 }
 
 function hideWinners() {
@@ -364,8 +323,7 @@ function generateReport(un) {
 
 updateAccounts();
 
-function createNewEvent() {
-	let currentEvents = readFromJSON(EVENTS_JSON_PATH);
+async function createNewEvent() {
 	let eventName = document.querySelector(".event__name").value;
 	let eventDescription = document.querySelector(".event__description").value;
 	let prize = document.querySelector(".prize").value;
@@ -389,80 +347,76 @@ function createNewEvent() {
 		return;
 	}
 
-	// date formatting
-	startDate = startDate.split("-");
-	endDate = endDate.split("-");
-	startDate = `${startDate[1]}/${startDate[2]}/${startDate[0]}`;
-	endDate = `${endDate[1]}/${endDate[2]}/${endDate[0]}`;
+	let event = await fb.addEventToSchool(
+		schoolId,
+		eventName,
+		eventDescription,
+		startDate,
+		endDate,
+		prize,
+		code
+	);
 
-	let eventTemplate = {
-		event_name: eventName,
-		event_description: eventDescription,
-		prize: prize,
-		start_date: startDate,
-		end_date: endDate,
-		code: code,
-		participants: [],
-	};
-
+	if (event) {
+		alertPopup("Event created!", `Event '${eventName}' created!`);
+	}
 	document.querySelector(".event__name").value = "";
 	document.querySelector(".event__description").value = "";
 	document.querySelector(".prize").value = "";
 	document.querySelector(".start__date").value = "";
 	document.querySelector(".end__date").value = "";
 
-	currentEvents.push(eventTemplate);
-	writeToJSON(EVENTS_JSON_PATH, currentEvents);
+	// currentEvents.push(eventTemplate);
+	// writeToJSON(EVENTS_JSON_PATH, currentEvents);
 
-	alertPopup("Event created!", `Event '${eventName}' created!`);
-	updateEvents();
+	await updateEvents();
+	await updateAccounts();
 }
 
-function editEvent() { }
+async function deleteEvent(id) {
+	await fb.deleteEvent(schoolId, id);
 
-function deleteEvent(name) {
-	// console.log(name)
-	let events = readFromJSON(EVENTS_JSON_PATH);
-	// console.log(events);
-	for (let i = 0; i < events.length; i++) {
-		// console.log(events[i].event_name)
-		if (events[i].event_name === name) {
-			// delete events[i];
-			events.splice(i, 1);
-			break;
-		}
-	}
-	writeToJSON(EVENTS_JSON_PATH, events);
-	updateEvents();
+	await updateEvents();
 	// let i = r.parentNode.parentNode.rowIndex;
 	// document.querySelector('.events__output').deleteRow(i);
 	// updateAccounts();
 }
 
 async function createNewAccount() {
-	const fname = document.querySelector('.student__fname').value;
-	const lname = document.querySelector('.student__lname').value;
-	const grade = document.querySelector('.student__grade').value;
-	const email = document.querySelector('.student__username').value;
-	const password = String(Math.floor(Math.random() * 90_000_000) + 10_000_000);
+	const fname = document.querySelector(".student__fname").value;
+	const lname = document.querySelector(".student__lname").value;
+	const grade = document.querySelector(".student__grade").value;
+	const email = document.querySelector(".student__username").value;
+	const password = String(
+		Math.floor(Math.random() * 90_000_000) + 10_000_000
+	);
 
 	if (!fname || !lname || !grade || !email) {
-		warningPopup('Warning', 'Empty fields present');
+		warningPopup("Warning", "Empty fields present");
 		return;
 	}
 
 	// Check if user with the same email already exists
 	const existingUser = await fb.getUserByEmail(schoolId, email);
 	if (existingUser) {
-		errorPopup('User already exists!', 'An account with the same email already exists.');
+		errorPopup(
+			"User already exists!",
+			"An account with the same email already exists."
+		);
 		return;
 	}
 
 	bcrypt.genSalt(10, function (err, salt) {
 		bcrypt.hash(password, salt, async function (err, hash) {
-
 			// Add the new user to the school
-			const newUser = await fb.addUserToSchool(schoolId, fname, lname, grade, email, hash);
+			const newUser = await fb.addUserToSchool(
+				schoolId,
+				fname,
+				lname,
+				grade,
+				email,
+				hash
+			);
 
 			const mailLoad = {
 				from: "eventhivefbla@gmail.com",
@@ -480,17 +434,19 @@ async function createNewAccount() {
 			});
 
 			if (newUser) {
-				document.querySelector('.student__fname').value = '';
-				document.querySelector('.student__lname').value = '';
-				document.querySelector('.student__grade').value = '';
-				document.querySelector('.student__username').value = '';
+				document.querySelector(".student__fname").value = "";
+				document.querySelector(".student__lname").value = "";
+				document.querySelector(".student__grade").value = "";
+				document.querySelector(".student__username").value = "";
 				// updateAccounts();
-				alertPopup('Alert', 'Student account created successfully');
+				alertPopup("Alert", "Student account created successfully");
 			} else {
-				errorPopup('Error', 'Failed to create a new student account');
+				errorPopup("Error", "Failed to create a new student account");
 			}
 		});
 	});
+	await updateEvents();
+	await updateAccounts();
 }
 
 function filterEvents() {
