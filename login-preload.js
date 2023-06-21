@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
-const { loadSchools } = require("./firebaseHelper");
+const { getUserByEmail, loadSchools } = require("./firebaseHelper");
 
 // Function to read data from a JSON file
 const stateSel = document.getElementById("state");
@@ -44,7 +44,7 @@ function populateSchoolDropdown(state) {
   document.getElementById("userdetails").hidden = false;
 }
 
-function validateUsernameAndPassword() {
+async function validateUsernameAndPassword() {
   const usernameInput = document.querySelector(".username").value;
   const passwordInput = document.querySelector(".password").value;
 
@@ -55,19 +55,32 @@ function validateUsernameAndPassword() {
 
   const selectedSchoolId = schoolSel.value;
   const selectedSchool = schools.find(school => school.ID === selectedSchoolId);
-
+  localStorage.setItem("schoolId", selectedSchool.ID);
   if (!selectedSchool) {
     errorPopup("Invalid School", "Please select a valid school.");
     return;
   }
-  if (usernameInput === selectedSchool.adminEmail && passwordInput === String(selectedSchool.adminPass)) {
-    localStorage.setItem("schoolId", selectedSchool.ID);
-    location.href = path.join(__dirname, "./src/main/admin.html");
+  if (usernameInput === selectedSchool.adminEmail) {
+    if (bcrypt.compareSync(passwordInput, selectedSchool.adminPass)) {
+      location.href = path.join(__dirname, "./src/main/admin.html");
+    }
+    return;
   }
 
   // Implement your Firebase authentication logic here to validate the user
   // ...
 
   // If the user is a student, redirect to the student page
-  // location.href = path.join(__dirname, "./src/main/student.html");
+  const user = await getUserByEmail(selectedSchoolId, usernameInput);
+  if (!user) {
+    errorPopup("Wrong Credentials", "Please enter the correct username and password.");
+    return;
+  }
+  const correctPassword = bcrypt.compareSync(passwordInput, user.password);
+
+  if (!correctPassword) {
+    errorPopup("Wrong Credentials", "Please enter the correct username and password.");
+    return;
+  }
+  location.href = path.join(__dirname, "./src/main/student.html");
 }

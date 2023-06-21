@@ -9,7 +9,7 @@ let schoolId = localStorage.getItem('schoolId');
 async function changePwd() {
 	const currentPasswordInput = document.getElementById("cP").value;
 	let school = await fb.getSchoolById(schoolId);
-	if (school.adminPass != currentPasswordInput) {
+	if (!bcrypt.compareSync(currentPasswordInput, school.adminPass)) {
 		errorPopup("Wrong Password", "Enter the correct current password!");
 		return;
 	}
@@ -25,8 +25,16 @@ async function changePwd() {
 		errorPopup("Password Mismatch", "The new passwords do not match!");
 		return;
 	}
+	bcrypt.genSalt(10, function (err, salt) {
+		bcrypt.hash(newPasswordInput, salt, async function (err, hash) {
+			await fb.changeAdminPassword(schoolId, hash);
+			alertPopup("Password Changed", "Successfully changed the password!")
+		})
+	});
+	document.getElementById("cP").value = "";
+	document.getElementById("nP").value = "";
+	document.getElementById("cnP").value = "";
 
-	await fb.changeAdminPassword(schoolId, newPasswordInput);
 }
 let hrefA = document.getElementById("logoutPage");
 hrefA.href = path.join(__dirname, "../../login.html");
@@ -430,50 +438,59 @@ function deleteEvent(name) {
 	// document.querySelector('.events__output').deleteRow(i);
 	// updateAccounts();
 }
+
 async function createNewAccount() {
-  const fname = document.querySelector('.student__fname').value;
-  const lname = document.querySelector('.student__lname').value;
-  const grade = document.querySelector('.student__grade').value;
-  const email = document.querySelector('.student__username').value;
-  const password = document.querySelector('.student__password').value;
-  const alertBox = document.querySelector('.warning__box');
+	const fname = document.querySelector('.student__fname').value;
+	const lname = document.querySelector('.student__lname').value;
+	const grade = document.querySelector('.student__grade').value;
+	const email = document.querySelector('.student__username').value;
+	const password = String(Math.floor(Math.random() * 90_000_000) + 10_000_000);
 
-  if (!fname || !lname || !grade || !email || !password) {
-    warningPopup('Warning', 'Empty fields present');
-    return;
-  }
+	if (!fname || !lname || !grade || !email) {
+		warningPopup('Warning', 'Empty fields present');
+		return;
+	}
 
-  if (password.length < 8) {
-    warningPopup('Password', 'Password length has to be at least 8 characters');
-    return;
-  }
+	// Check if user with the same email already exists
+	const existingUser = await fb.getUserByEmail(schoolId, email);
+	if (existingUser) {
+		errorPopup('User already exists!', 'An account with the same email already exists.');
+		return;
+	}
 
-  // Check if user with the same email already exists
-  const existingUser = await fb.getUserByEmail(schoolId, email);
-  if (existingUser) {
-    errorPopup('User already exists!', 'An account with the same email already exists.');
-    return;
-  }
+	bcrypt.genSalt(10, function (err, salt) {
+		bcrypt.hash(password, salt, async function (err, hash) {
 
-  bcrypt.genSalt(10, function (err, salt) {
-    bcrypt.hash(password, salt, async function (err, hash) {
-      const hashedPassword = hash;
+			// Add the new user to the school
+			const newUser = await fb.addUserToSchool(schoolId, fname, lname, grade, email, hash);
 
-      // Add the new user to the school
-      const newUser = await fb.addUserToSchool(schoolId, fname, lname, grade, email);
-      if (newUser) {
-        document.querySelector('.student__fname').value = '';
-        document.querySelector('.student__lname').value = '';
-        document.querySelector('.student__grade').value = '';
-        document.querySelector('.student__email').value = '';
-        document.querySelector('.student__password').value = '';
-        updateAccounts();
-        alertPopup('Alert', 'Student account created successfully');
-      } else {
-        errorPopup('Error', 'Failed to create a new student account');
-      }
-    });
-  });
+			const mailLoad = {
+				from: "eventhivefbla@gmail.com",
+				to: email,
+				subject: `EventHive User Credentials For ${email}.`,
+				text: `Username: ${email}\nPassword: ${password}`,
+			};
+
+			fb.transporter.sendMail(mailLoad, function (error, info) {
+				if (error) {
+					console.log(error);
+				} else {
+					//   console.log('Email sent: ' + info.response);
+				}
+			});
+
+			if (newUser) {
+				document.querySelector('.student__fname').value = '';
+				document.querySelector('.student__lname').value = '';
+				document.querySelector('.student__grade').value = '';
+				document.querySelector('.student__username').value = '';
+				// updateAccounts();
+				alertPopup('Alert', 'Student account created successfully');
+			} else {
+				errorPopup('Error', 'Failed to create a new student account');
+			}
+		});
+	});
 }
 
 function filterEvents() {

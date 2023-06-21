@@ -5,7 +5,12 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
+function excludeColumn(data, column) {
+  return data.map(item => {
+    const { [column]: _, ...rest } = item;
+    return rest;
+  });
+}
 function clearPrompt() {
   readline.clearLine(process.stdout, 0);
   readline.cursorTo(process.stdout, 0);
@@ -26,20 +31,11 @@ async function addSchoolPrompt() {
   const adminEmail = await prompt("Enter the admin email: ");
 
   const schoolData = await addSchool(school, state, adminEmail);
-  if (schoolData) {
-    console.log("School added successfully.");
-    console.log("School ID:", schoolData.id);
-    console.log("School:", schoolData.school);
-    console.log("State:", schoolData.state);
-    console.log("Admin Email:", schoolData.adminEmail);
-  } else {
-    console.log("Failed to add school.");
-  }
 }
 
 async function deleteSchoolPrompt() {
   const schoolsData = await loadSchools();
-  console.table(schoolsData);
+  console.table(excludeColumn(schoolsData, "adminPass"));
 
   const index = await prompt("Enter the index of the school to delete: ");
   if (index >= 0 && index < schoolsData.length) {
@@ -68,7 +64,7 @@ async function main() {
         break;
       case "2":
         const schoolsData = await loadSchools();
-        console.table(schoolsData);
+        console.table(excludeColumn(schoolsData, "adminPass"));
         break;
       case "3":
         await deleteSchoolPrompt();

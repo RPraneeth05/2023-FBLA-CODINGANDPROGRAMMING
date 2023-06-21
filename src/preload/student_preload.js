@@ -8,7 +8,29 @@ const salt = bcrypt.genSaltSync(10);
 function readFromJSON(file) {
    return JSON.parse(fs.readFileSync(file));
 }
+let schoolId = localStorage.getItem('schoolId');
+async function changePwd() {
+	const currentPasswordInput = document.getElementById("cP").value;
+	let school = await fb.getSchoolById(schoolId);
+	if (school.adminPass != currentPasswordInput) {
+		errorPopup("Wrong Password", "Enter the correct current password!");
+		return;
+	}
+	const newPasswordInput = document.getElementById("nP").value;
+	const confirmNewPasswordInput = document.getElementById("cnP").value;
 
+	if (!currentPasswordInput || !newPasswordInput || !confirmNewPasswordInput) {
+		errorPopup("Missing Information", "Make sure all fields are entered!");
+		return;
+	}
+
+	if (newPasswordInput !== confirmNewPasswordInput) {
+		errorPopup("Password Mismatch", "The new passwords do not match!");
+		return;
+	}
+
+	await fb.changeAdminPassword(schoolId, newPasswordInput);
+}
 // Function to write data to a JSON file
 function writeToJSON(file, data) {
    fs.writeFileSync(file, JSON.stringify(data, null, 2), {

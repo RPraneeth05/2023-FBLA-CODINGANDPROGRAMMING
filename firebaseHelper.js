@@ -1,5 +1,6 @@
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
+const bcrypt = require("bcryptjs");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -52,48 +53,60 @@ const addSchool = async (school, state, adminEmail) => {
     console.log("Invalid Email!");
     return null;
   }
+  const adminPass = String(Math.floor(Math.random() * 90_000_000) + 10_000_000);
 
-  const adminPass = Math.floor(Math.random() * 90000000) + 10000000;
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(adminPass, salt, async (err, hash) => {
+      if (err) {
+        console.error('Error hashing password:', err);
+        return;
+      }
 
-  try {
-    const docRef = await db.collection("schools").add({
-      school: school,
-      state: state,
-      adminEmail: adminEmail,
-      adminPass: adminPass,
-      dateCreated: new Date(),
-      studentCount: 0,
-    });
+      const hashPass = hash;
 
-    docRef.collection("events");
-    docRef.collection("users");
+      try {
+        const docRef = await db.collection("schools").add({
+          school: school,
+          state: state,
+          adminEmail: adminEmail,
+          adminPass: hashPass,
+          dateCreated: new Date(),
+          studentCount: 0,
+        });
 
-    const mailLoad = {
-      from: "eventhivefbla@gmail.com",
-      to: adminEmail,
-      subject: `EventHive Admin Credentials For ${school}.`,
-      text: `Username: ${adminEmail}\nPassword: ${adminPass}`,
-    };
+        docRef.collection("events");
+        docRef.collection("users");
 
-    transporter.sendMail(mailLoad, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        //   console.log('Email sent: ' + info.response);
+        const mailLoad = {
+          from: "eventhivefbla@gmail.com",
+          to: adminEmail,
+          subject: `EventHive Admin Credentials For ${school}.`,
+          text: `Username: ${adminEmail}\nPassword: ${adminPass}`,
+        };
+
+        transporter.sendMail(mailLoad, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            //   console.log('Email sent: ' + info.response);
+          }
+        });
+
+        return {
+          id: docRef.id,
+          school: school,
+          state: state,
+          adminEmail: adminEmail,
+        };
+      } catch (error) {
+        console.error("Error adding document:", error);
+        return null;
       }
     });
+  });
 
-    return {
-      id: docRef.id,
-      school: school,
-      state: state,
-      adminEmail: adminEmail,
-    };
-  } catch (error) {
-    console.error("Error adding document:", error);
-    return null;
-  }
-};
+
+}
 
 const deleteSchoolById = async (schoolId) => {
   try {
@@ -129,13 +142,14 @@ const addEventToSchool = async (schoolId, eventName, eventDesc, startDate, endDa
   }
 };
 
-const addUserToSchool = async (schoolId, fname, lname, grade, email) => {
+const addUserToSchool = async (schoolId, fname, lname, grade, email, password) => {
   try {
     const userRef = await db.collection("schools").doc(schoolId).collection("users").add({
       fname: fname,
       lname: lname,
       grade: grade,
       email: email,
+      password: password,
       events: [],
     });
 
@@ -253,5 +267,6 @@ module.exports = {
   changeAdminPassword,
   getSchoolById,
   getUserByEmail,
-  loadUsers
+  loadUsers,
+  transporter
 };
