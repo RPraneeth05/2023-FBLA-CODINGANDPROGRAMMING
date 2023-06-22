@@ -1,6 +1,8 @@
+<!--The HTML document starts with the usual document type declaration and opening `<html>` tag.-->
 <!DOCTYPE html>
 <html lang="en">
-
+<!--The `<head>` section contains meta tags for character encoding, compatibility, and viewport settings. 
+   It also includes a title for the admin dashboard and a link to an external CSS file named "admin.css".-->
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +10,25 @@
    <title>Admin Dashboard</title>
    <link rel="stylesheet" href="admin.css">
 </head>
-
+<!--The `<body>` section contains the main content of the admin dashboard.-->
 <body>
-
+   <!--The `<div>` element wraps several sections of the dashboard.-->
+   <!--Inside the `<div>`, there are three box sections: alert, warning, and error boxes. 
+      Each box contains a title and description and is initially hidden with inline CSS.-->
    <div>
+      <!-- Alert Box -->
       <div class="alert__box" style="display: none;">
          <h2 class="alert__title">Alert title</h2>
          <p class="alert__description">Alert description</p>
       </div>
 
+      <!-- Warning Box -->
       <div class="warning__box" style="display: none;">
          <h2 class="warning__title">Warning title</h2>
          <p class="warning__description">Warning description</p>
       </div>
 
+      <!-- Error Box -->
       <div class="error__box" style="display: none;">
          <h2 class="error__title">Error title</h2>
          <p class="error__description">Error description</p>
@@ -29,6 +36,8 @@
    </div>
 
    <div class="report__window">
+      <!-- Report Window -->
+      <!--After the box sections, there is a "report__window" div which includes a form to display and manipulate reports.-->
       <input type="button" value="Go back" onclick="hideWin()" id="the__top"><br><br>
       <h2 class="r__name">Full name</h2><br>
       <table class="rev">
@@ -43,6 +52,8 @@
    </div>
 
    <div class="winners__window">
+      <!-- Winners Window -->
+      <!--Next, there is a "winners__window" div that shows the winners of different grade levels and their prizes.-->
       <input type="button" value="Go back" onclick="hideWinners()"><br><br>
       <span>Ninth grade winner: </span><span class="ninth__winner"></span><br>
       <span>Prize won: </span><span class="ninth__prize"></span><br><br>
@@ -61,6 +72,10 @@
 
    <form action="">
       <div class="left__side">
+         <!-- Left Side -->
+         <!-- The "left__side" div contains a logout link and a "Change Password" section with input fields for 
+              current password, new password, and confirm new password. It also has a button to trigger a password 
+              change action.-->
          <a id="logoutPage" style="margin: .5rem" href="">Logout</a><br>
          <h3>Change Password</h3>
          <input type='password' placeholder="Current Password" id="cP">
@@ -69,8 +84,14 @@
          <button onclick="changePwd()">Change Password</button>
       </div>
       <div class="middle">
+         <!-- Middle Section -->
+         <!-- The "middle" div is the main section of the dashboard. It includes sub-sections for events, accounts, 
+              contact form, and other actions. -->
          <h1>Dashboard</h1><br>
          <div class="events__holder" style="display: none;" id="events__top">
+            <!-- Events Holder -->
+            <!-- Inside the "middle" div, there is an "events__holder" div that holds the events-related functionality, 
+                 including a table of current events, search functionality, and a button to toggle visibility.-->
             <div class="table__holder">
                <input type="button" value="Dashboard" onclick="toggleEvents()"><br><br>
                <h2>Current events</h2><br>
@@ -94,6 +115,9 @@
             </div>
          </div>
          <div class="accounts__holder" style="display: none;" id="accounts__top">
+            <!-- Accounts Holder -->
+            <!-- Similarly, the "accounts__holder" div holds the accounts-related functionality, 
+                 including a table of current accounts, search functionality, and a button to toggle visibility.-->
             <div class="table__holder">
                <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
                <h2>Current accounts</h2><br>
@@ -122,6 +146,8 @@
          <input type="button" value="Prizes" onclick="pickWinners()">
          <br><br>
          <div class="wrapper">
+            <!-- The "wrapper" div contains two child divs: "left" and "right". This structure represents a layout for the contact form and other components.-->
+            <!-- Contact Form -->
             <div class="left">
                <h2>Contact</h2>
                <br>
@@ -142,7 +168,10 @@
          </div>
      </div>
       <div class="right__side">
-
+         <!-- Right Side -->
+         <!-- The "right__side" div contains the "Create" section, allowing the admin to create new events and student accounts. 
+              It includes input fields for event details and a button to create a new event. 
+              It also includes input fields for student account details and a button to create a new account.-->
          <h1>Create</h1><br>
          <h2>New event</h2><br>
          <input class="event__name" type="text" placeholder="Event name" required><br><br>
@@ -176,10 +205,10 @@
             <span id="m">?</span>
          </div>
    </form>
+   <!--Finally, there is an empty `<style>` block and a `<script>` tag that references an external JavaScript file named "admin_preload.js".-->
    <style>
      
    </style>
    <script src="../preload/admin_preload.js"></script>
 </body>
-
 </html>

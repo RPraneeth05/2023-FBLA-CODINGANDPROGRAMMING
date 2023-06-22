@@ -1,6 +1,12 @@
+/* Overall, the stylesheet defines a dark-themed design with specific colors, gradients, 
+   and positioning for different elements of a web page. */
+
+/* Font Imports: The code imports two fonts, 'JetBrains Mono' and 'Fira Code', 
+   from Google Fonts to be used in the web page. */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
+/* Root Variables: CSS variables are defined using the :root selector to set up color values and gradients that can be reused throughout the stylesheet. */
 :root {
    --background-color: #000212;
    --card-color: #181c2a;
@@ -21,7 +27,9 @@
    --hover-effect: 0 0 3rem rgba(100, 100, 200, .7);
 }
 
-
+/* Selector Styling: Several selectors are defined with specific styles. 
+   For example, strong elements have bold font weight and a specific color, a elements have no text decoration and a specific color, 
+   and h1 and h2 elements have specific font sizes and colors. */
 #qm {
    position: fixed;
    bottom: 30px;
@@ -420,6 +428,8 @@ select {
    width: 10rem;
 }
 
+/* Form Styling: Styles for form elements like input fields, buttons, and text areas are defined. 
+   These include border radius, background colors, and color properties. */
 input[type=date] {
    color: #fff;
 }
@@ -444,6 +454,8 @@ input[type=radio] {
    width: auto;
 }
 
+/* Alert Boxes: Styles for different types of alert boxes, including alert, warning, and error, are defined. 
+   These boxes are positioned using fixed positioning and have specific background colors. */
 .alert__box {
    position: fixed;
    bottom: 2rem;
