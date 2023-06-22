@@ -1,14 +1,23 @@
+/* Overall, the provided CSS code defines the visual styles for a chat interface, including the chat container
+    , header, message log, input field, send button, and dark mode toggle. */
+
+/* The universal selector (*) sets margin and padding to 0 for all elements and box-sizing to border-box, 
+    ensuring consistent box models throughout the page.*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* The body element is styled with a dark background color (#251a1a) and a font-family of Arial, Helvetica, sans-serif, 
+    providing a base style for the entire chat interface. */
 body {
     background-color: #251a1a;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* The container class is used to center the chat interface vertically and horizontally within the viewport. 
+    It has a width and height of 100%, and flexbox properties to achieve centering. */
 .container {
     width: 100%;
     height: 100vh;
@@ -17,6 +26,9 @@ body {
     align-items: center;
 }
 
+/* The chat-container class represents the main chat container. It has a width of 90%, a height of 80%, 
+    and is displayed as a flex container with a column direction, stacking the header, chat log, and 
+    chat form vertically. */
 .chat-container {
     width: 90%;
     height: 80%;
@@ -26,6 +38,8 @@ body {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* The chat-header class styles the header section of the chat. It has a background color of #333, 
+white text color (#ffffff), padding, and a centered text alignment. The font-size is set to 24px. */
 .chat-header {
     background-color: #333;
     color: #ffffff;
@@ -34,12 +48,20 @@ body {
     font-size: 24px;
 }
 
+/* The chat-log id represents the scrollable area that displays the chat messages. It has a height of 
+    100% and overflow-y set to auto, allowing vertical scrolling when the content exceeds the height. 
+    Padding is added to provide some spacing. */
 #chat-log {
     height: 100%;
     overflow-y: auto;
     padding: 10px;
 }
 
+/* The chat-message class styles individual chat messages. It has padding, border-radius, margin-bottom, 
+    a maximum width of 75% to prevent overly long messages, and word-wrap to break long words. There are 
+    two specific classes defined: user and eve, which represent messages from the user and the chatbot/event, 
+    respectively. They have different background colors and border colors, and the eve class has white text 
+    color (#fff). */
 .chat-message {
     padding: 10px;
     border-radius: 5px;
@@ -59,6 +81,8 @@ body {
     color: #fff;
 }
 
+/* The chat-form id represents the form section at the bottom of the chat interface. It is a flex container 
+    with a row direction and spans the entire width. It has padding and is positioned at the bottom. */
 #chat-form {
     display: flex;
     flex-direction: row;
@@ -67,6 +91,10 @@ body {
     bottom: 0;
 }
 
+/* The chat-input id styles the input field where the user can enter their messages. It has flex-grow set to 
+    1 to allow it to expand and fill the available space. There is margin-right for spacing, padding, 
+    border-radius, and a border to define the input field's appearance. Outline is set to none to remove the 
+    default focus outline, and the color is set to #333. */
 #chat-input {
     flex-grow: 1;
     margin-right: 10px;
@@ -77,6 +105,9 @@ body {
     color: #333;
 }
 
+/* The send-btn id styles the send button in the chat form. It has padding, border-radius, no border, a background 
+    color of #0077c2, white text color (#fff), and a cursor that changes to a pointer on hover. There is also 
+    a transition effect for the background color on hover. */
 #send-btn {
     padding: 10px 20px;
     border-radius: 5px;
@@ -91,6 +122,11 @@ body {
     background-color: #005faa;
 }
 
+/* The dark-mode-toggle class represents a button or toggle to switch between dark and light modes. It is 
+    positioned at the top right corner of the chat interface. It has a flex container with centered 
+    alignment for the icon and text, a cursor set to a pointer, and a z-index to ensure it appears above 
+    other elements. The span element within the toggle contains an icon (represented by a font-size and 
+    margin-right) for indicating the current mode. */
 .dark-mode-toggle {
     position: absolute;
     top: 20px;
@@ -101,6 +137,8 @@ body {
     z-index: 1;
 }
 
+/* Lastly, there is a hover effect for the dark-mode-toggle class, reducing the opacity to 0.7 on hover, 
+    providing a visual feedback to the user. */
 .dark-mode-toggle span {
     font-size: 24px;
     margin-right: 10px;
