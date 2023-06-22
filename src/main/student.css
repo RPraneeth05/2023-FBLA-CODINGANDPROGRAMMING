@@ -1,3 +1,4 @@
+/* Two fonts are imported from Google Fonts: JetBrains Mono and Fira Code. */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
@@ -9,6 +10,7 @@
    display: block;
 }
 
+/* The universal selector (*) is used to apply certain styles to all elements on the page. */
 * {
    /* font-family: 'JetBrains Mono', monospace; */
    font-family: 'Fira Code', monospace;
@@ -47,6 +49,7 @@ input[type=checkbox] {
    width: auto;
 }
 
+/* Link Styling */
 a {
    text-decoration: none;
    color: #6969ff;
@@ -138,6 +141,10 @@ a:hover {
    padding: .5rem;
 }
 
+/* Layout Styling:
+      The layout of the web page is defined using CSS grid and flexbox.
+      The web page is divided into three sections: left side, middle, and right side.
+      Each section has a background color of #1b1b1b (a dark gray) and padding for spacing. */
 form {
    position: relative;
    width: 100%;
@@ -191,6 +198,7 @@ form {
 
 }
 
+/* Different heading and text styles are defined using h1, h2, label, span, and p selectors. */
 h1 {
    font-size: 2rem;
 }
@@ -254,6 +262,7 @@ tbody {
    background-color: #333;
 }
 
+/* Alternating rows have different background colors to improve readability. */
 tr:nth-child(even) {
    background-color: #3b3b3b;
 }
@@ -269,6 +278,7 @@ td {
    gap: .5rem;
 }
 
+/* Input and select elements have a consistent appearance with rounded corners and specific background colors. */
 input {
    border-radius: .25rem;
    padding: .25rem;
@@ -312,6 +322,9 @@ input[type=radio] {
    width: auto;
 }
 
+/* Three types of alert boxes are defined: alert, warning, and error.
+   These boxes are positioned at the bottom right corner of the page and have different background colors.
+   Initially, the opacity of the boxes is set to 0, and they fade in with a transition effect. */
 .alert__box {
    position: fixed;
    bottom: 2rem;
