@@ -11,6 +11,7 @@ window.onload = () => {
 };
 
 function any(msg, iterable) {
+	console.log(iterable)
     for (var index = 0; index < iterable.length; index++) {
         if (msg.includes(iterable[index])) return true;
     }
