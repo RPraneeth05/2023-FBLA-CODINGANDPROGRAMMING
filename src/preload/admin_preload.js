@@ -166,7 +166,7 @@ async function updateAccounts() {
                      <!--<input type="button" onclick="editAccount()" value="Edit">-->
                      <input type="button" onclick="deleteAccount('${account.id}')" value="Delete">
                      <a href="#the__top">
-                        <input type="button" onclick="generateReport('${account.username}')" value="Generate report">
+                        <input type="button" onclick="generateReport('${account.email}')" value="Generate report">
                      </a>
                   </td>
                </tr>
@@ -279,37 +279,29 @@ function hideWinners() {
 	targetWindow.style.display = "none";
 }
 
-function generateReport(un) {
-	let users = readFromJSON(path.join(__dirname, "../database/users.json"));
-	let targetUser;
-	for (let usr of users) {
-		if (usr.username === un) {
-			targetUser = usr;
-			break;
-		}
-	}
+async function generateReport(email) {
+	let user = await fb.getUserByEmail(schoolId, email);
 	let win = document.querySelector(".report__window");
 	win.style.display = "block";
 	// console.log(win)
-	console.log(targetUser);
+	console.log(user);
 	document.querySelector(
 		".r__name"
-	).innerHTML = `${targetUser.student_fname} ${targetUser.student_lname}`;
+	).innerHTML = `${user.fname} ${user.lname}`;
 	// document.querySelector('.r__events').innerHTML = acc.events
 
 	let output = "";
-	for (accEvent of targetUser.events) {
-		console.log(accEvent);
+	for (let eventId of user.events) {
 		output += `
       <tr>
-         <td>${accEvent}</td>
+         <td>${(await fb.getEventById(eventId)).eventName}</td>
       </tr>
       `;
 	}
 	document.querySelector(".r__events").innerHTML = output;
 
 	document.querySelector(".r__points").innerHTML =
-		targetUser.points + " points";
+		user.points + " points";
 	// console.log(events);
 	// for (let i = 0; i < accs.length; i++) {
 	//    if (accs[i].username === un) {

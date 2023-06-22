@@ -58,15 +58,6 @@ async function changePwd() {
 	document.getElementById("nP").value = "";
 	document.getElementById("cnP").value = "";
 }
-// Function to write data to a JSON file
-function writeToJSON(file, data) {
-	fs.writeFileSync(file, JSON.stringify(data, null, 2), {
-		encoding: "utf-8",
-		flag: "w",
-	});
-	console.log(`Wrote ${data} to ${file}`);
-}
-
 // Function to populate the select options by fetching events.json file and using it to make html options control element with the different event names
 async function updateEvents() {
 	let events = await fb.loadEvents(schoolId);
