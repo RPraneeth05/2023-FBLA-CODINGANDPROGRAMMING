@@ -1,8 +1,7 @@
 /* Overall, the provided CSS code defines the visual styles for a chat interface, including the chat container
     , header, message log, input field, send button, and dark mode toggle. */
 
-/* The universal selector (*) sets margin and padding to 0 for all elements and box-sizing to border-box, 
-    ensuring consistent box models throughout the page.*/
+/* The universal selector (*) is styled */
 * {
     margin: 0;
     padding: 0;
