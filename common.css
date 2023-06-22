@@ -1,6 +1,7 @@
 /* importing the Roboto font for CSS */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* This selector targets all elements in the document. */
 * {
    margin: 0;
    padding: 0;
@@ -10,6 +11,7 @@
    font-family: 'Roboto', sans-serif;
 }
 
+/* Targets the scrollbar in WebKit browsers (such as Chrome and Safari). */
 *::-webkit-scrollbar {
    display: none;
 }

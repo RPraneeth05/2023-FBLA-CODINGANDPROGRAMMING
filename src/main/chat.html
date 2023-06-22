@@ -1,28 +1,43 @@
+<!--The provided HTML code sets up the structure of a web page for an interactive chatbot assistant. -->
 <!DOCTYPE html>
 <html>
 
+<!--The <head> section contains meta-information about the HTML document and includes the title of the page, 
+    which is set to "Interactive Chatbot Assistant." This title is displayed in the browser's title bar or 
+    tab.-->
 <head>
     <title>Interactive Chatbot Assistant</title>
     <link rel="stylesheet" href="chat.css">
 </head>
 
 <body>
+    <!--The <div class="container"> element is a container that wraps the entire chat interface. It provides 
+        a structure for centering the chat interface on the page.-->
     <div class="container">
         <div class="chat-container">
+            <!--The <div class="chat-header"> element displays the title of the chatbot assistant, which is 
+                "Interactive Chatbot Assistant."-->
             <div class="chat-header">
                 Interactive Chatbot Assistant
             </div>
+            <!--The <div id="chat-log"> element is an empty container where the chat messages will be displayed. 
+                This element will have a scrollbar when the content overflows.-->
             <div id="chat-log"></div>
             <div id="chat-form">
+                <!-- The <div id="chat-form"> element represents the form section where the user can input 
+                     their messages. It contains an <input> element for entering text and a <button> element 
+                     to send the message. -->
                 <input type="text" id="chat-input" placeholder="Type your message here...">
                 <button id="send-btn">Send</button>
             </div>
         </div>
     </div>
+    <!-- The <script src="../preload/chat.js"></script> element includes an external JavaScript file named 
+        "chat.js" that contains the logic and functionality for the chatbot assistant. The src attribute 
+        specifies the path to the JavaScript file. -->
     <script src="../preload/chat.js"></script>
     <style>
      
     </style>
 </body>
-
 </html>

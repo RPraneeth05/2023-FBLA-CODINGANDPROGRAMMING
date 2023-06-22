@@ -208,7 +208,10 @@
    <!-- <link rel="stylesheet" href="./login.css"> -->
    <link rel="stylesheet" href="./common.css">
    <style>
+      /* CSS styles for the login form */
+      /* Styles for an error message box */
       .error__box {
+         /* Positioning the box */
          position: fixed;
          bottom: 2rem;
          right: 2rem;
@@ -218,17 +221,20 @@
          padding: 1rem;
          border-radius: .5rem;
 
+         /* Hiding the box by default */
          opacity: 0;
          transition: opacity .5s;
 
          z-index: 99999;
       }
 
+      /* Styles for animating the error box visibility */
       .fade {
          opacity: 1;
          background-color: #ff6969;
       }
 
+      /* Styles for various alert and error messages */
       .alert__title,
       .alert__description,
       .warning__title,
@@ -237,14 +243,7 @@
       .error__description {
          color: #333;
       }
-
-
-
-
-
-
-
-
+      /* CSS variables for colors and styling */
       :root {
          --text-color-light: #ccc;
          --text-color-dark: #666;
@@ -256,6 +255,7 @@
          /* --gradient: linear-gradient(90deg, rgba(238,187,136,1) 0%, rgba(221,51,187,1) 100%); */
       }
 
+      /* Styles applied to all elements */
       * {
          color: var(--text-color-light);
       }
@@ -276,11 +276,14 @@ select option[value=""] {
          color: var(--text-color-dark);
       }
 
+      /* Styles for the body background color */
       body {
          background-color: var(--bg-color-dark);
       }
 
+      /* Styles for centering the login form */
       .center {
+         /* Positioning the center box */
          background-color: var(--bg-color-light);
          position: absolute;
          top: 50%;
@@ -311,9 +314,12 @@ select option[value=""] {
 
       /* .v__align {} */
 
+      /* Styles for input elements */
       input[type=text] {
+         /* Resetting default styles */
          outline: none;
          border: none;
+         /* Styling the text box */
          background-color: var(--text-box-col);
          width: 10.5rem;
          height: 1.5rem;
@@ -321,13 +327,15 @@ select option[value=""] {
          border-radius: .25rem;
       }
 
+      /* Styles for select element */
       select {
          /* -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none; */
-
+         /* Resetting default styles */
          outline: none;
          border: none;
+         /* Styling the select box */
          background-color: var(--text-box-col);
          width: 11rem;
          height: 2rem;
@@ -336,6 +344,7 @@ select option[value=""] {
          border-radius: .25rem;
       }
 
+      /* Styles for input and select elements when focused */
       input[type=text]:focus {
          outline: 1px solid var(--accents-col);
       }
@@ -344,10 +353,13 @@ select option[value=""] {
          outline: 1px solid var(--accents-col);
       }
 
+      /* Styles for the login button */
       .login__button {
+         /* Resetting default styles */
          outline: none;
          border: none;
          /* background-color: var(--text-color-dark); */
+         /* Styling the button */
          background: var(--accents-col);
 
          color: white;
@@ -359,6 +371,7 @@ select option[value=""] {
       }
 
       .login__button:hover {
+         /* Animation on hover */
          transform: translate(0, -.25rem);
          background-color: var(--accents-col);
       }
@@ -366,17 +379,23 @@ select option[value=""] {
 </head>
 
 <body>
+   <!-- Error message box (hidden by default) -->
+   <!-- The error message box can be displayed dynamically using JavaScript. -->
    <div class="error__box" style="display: none;">
       <h2 class="error__title">Error title</h2>
       <p class="error__description">Error description</p>
    </div>
 
 
-
+   <!-- Centered login form -->
    <div class="center">
       <div class="v__align">
+         <!-- The form contains input fields for selecting a state, entering a district, username, and 
+            password. Additionally, there is a login button for submitting the form -->
+         <!-- Login form elements -->
          <h1>Log in</h1><br><br>
          <select name="" id="" required>
+            <!-- Select options for U.S. states -->
             <option value="" invalid disabled selected hidden>State</option>
             <option value="0">Alabama</option>
             <option value="1">Alaska</option>
@@ -429,6 +448,7 @@ select option[value=""] {
             <option value="48">Wisconsin</option>
             <option value="49">Wyoming</option>
          </select><br><br>
+         <!--Login page placeholders-->
          <input placeholder="District" type="text" class="district" required><br><br>
          <br>
          <input placeholder="Username" type="text" class="username" required><br><br>
@@ -437,6 +457,7 @@ select option[value=""] {
          <input type="button" value="Log in" class="login__button" onclick="redirect()">
       </div>
    </div>
+   <!-- JavaScript file for login preload functionality -->
    <script src="./login_preload.js"></script>
 </body>
 

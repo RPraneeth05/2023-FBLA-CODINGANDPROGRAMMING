@@ -2,17 +2,20 @@
 <html lang="en">
 
 <head>
+   <!-- Meta tags -->
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- External CSS file -->
    <link rel="stylesheet" href="student.css">
+   <!-- Title -->
    <title>Document</title>
 </head>
 
 <body>
 
    <div>
-
+      <!-- Alert boxes (hidden by default) -->
       <div class="alert__box" style="display: none;">
          <h2 class="alert__title">Alert title</h2>
          <p class="alert__description">Alert description</p>
@@ -31,24 +34,37 @@
 
    <div class="container">
       <div class='left__side' id="dashboard">
+         <!-- Logout button -->
          <input type="button" id="logoutPage" href="" value="Logout"><br>
+         <!-- User data container -->
          <div id="user_data">
          </div>
+         <!-- Toggle Leaderboard button -->
          <input type="button" id="toggleLeaderboard" href="" value="Toggle Leaderboard">
+         <!-- View popular events button -->
          <input type="button" id="togglePE" class="pos" href="" value="View popular events">
+         <!-- Change Password section -->
          <h3>Change Password</h3>
+         <!-- Current Password input -->
          <input type='password' placeholder="Current Password" id="cP">
+         <!-- New Password input -->
          <input type='password' placeholder="New Password" id="nP">
+         <!-- Confirm New Password input -->
          <input type='password' placeholder="Confirm New Password" id="cnP">
+         <!-- Change Password button -->
          <button onclick="changePwd()">Change Password</button>
       </div>
       <div class="middle">
          <h1>Dashboard</h1><br>
          <div class="events__holder" id="events__top">
             <div class="table__holder">
+               <!-- Current events section -->
                <h2>Current events</h2><br>
+               <!-- Search input for events -->
                <input class="event__search" type="text" placeholder="Search" onkeyup="filterEvents()"><br><br>
                <!-- <input type="button" value="Search"><br><br> -->
+               
+               <!-- Events table -->
                <table>
                   <thead>
                      <tr>
@@ -68,7 +84,9 @@
             </div>
          </div>
          <div class="inbox">
+            <!-- Inbox section -->
             <h2>Inbox</h2>
+            <!-- Inbox table -->
             <table>
                <thead>
                   <tr>
@@ -81,11 +99,15 @@
          </div>
       </div>
       <div class="accounts__holder" style="display: none;" id="accounts__top">
+         <!-- Accounts section -->
          <div class="table__holder">
+            <!-- Dashboard button -->
             <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
             <h2>Current accounts</h2><br>
+            <!-- Search input for accounts by name -->
             <input class="account__search" type="text" placeholder="Search Name"
                onkeyup="filterAccountsByName()"><br><br>
+            <!-- Filter checkboxes for accounts by grade -->
             <div onchange="filterAccountsByGrade">
                <input id="g9" type="checkbox" name="grade" value="9"><label for="g9"> Grade 9 </label><br>
                <input id="g10" type="checkbox" name="grade" value="10"><label for="g10"> Grade 10 </label><br>
@@ -94,6 +116,8 @@
             </div>
 
             <!-- <input type="button" value="Search"><br><br> -->
+
+            <!-- Accounts table -->
             <table>
                <thead>
                   <tr>
@@ -115,8 +139,11 @@
 
 
       <div class="popular" style="display: none;" id="accounts__top">
+         <!-- Popular events section -->
          <div class="table__holder">
+            <!-- Dashboard button -->
             <input type="button" value="Dashboard" onclick="PET()"><br><br>
+            <!-- Popular events table -->
             <table>
                <thead>
                   <tr>
@@ -140,6 +167,7 @@
    </div>
 
    <div id="help">
+      <!-- Help section -->
       <span id="qm">?</span>
    </div>
 
