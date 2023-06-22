@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 :root {
-   --background-color: #000212;
-   --card-color: #181c2a;
+   --background-color: #111;
+   --card-color: #222;
 
-   --accent-color: #1be4ff;
-   --highlight-color: #406dff;
+   --accent-color: #66f;
+   --highlight-color: #66f;
 
-   --text-primary-color: #87d5e9;
-   --text-secondary-color: #699de0;
-   --text-miscellaneous-color: #b4bcd0;
+   --text-primary-color: red;
+   --text-secondary-color: #fff;
+   --text-miscellaneous-color: #fff;
 
    --gradient-primary: rgb(232, 78, 56);
    --gradient-secondary: rgb(186, 44, 184);
@@ -67,7 +67,7 @@ strong {
 }
 
 body {
-   background-color: #000212;
+   background-color: #111;
 }
 
 /* li {
@@ -98,7 +98,7 @@ a:hover {
 }
 
 .info__thing {
-   background: var(--button-gradient);
+   background: red;
    background-clip: text;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
@@ -160,7 +160,7 @@ a:hover {
    z-index: 99999;
    background-color: #1b1b1b;
    padding: 2rem;
-   display: none;
+   /* display: none; */
 }
 
 .stats__container {
@@ -228,8 +228,8 @@ form {
 
 
 .left__side {
-   /* background-color: #080a1b; */
-   background-image: linear-gradient(to top left, #080a1b, #0d0f25);
+   background-color: #1b1b1b;
+   /* background-image: linear-gradient(to top left, #080a1b, #0d0f25); */
    position: absolute;
    padding: 2rem;
    top: 0;
@@ -240,7 +240,7 @@ form {
 }
 
 .middle {
-   background-color: #000212;
+   background-color: #111;
    position: absolute;
    top: 0;
    left: 50%;
@@ -250,8 +250,8 @@ form {
 }
 
 .right__side {
-   background-image: linear-gradient(to top left, #080a1b, #0d0f25);
-   /* background-color: #080a1b; */
+   /* background-image: linear-gradient(to top left, #080a1b, #0d0f25); */
+   background-color: #1b1b1b;
    position: absolute;
    padding: 2rem;
    top: 0;
@@ -301,7 +301,7 @@ p {
 }
 
 ::placeholder {
-   color: #fff;
+   color: #666;
 }
 
 .statistics {
@@ -426,7 +426,8 @@ input[type=date] {
 
 input[type=button] {
    /* background-color: #9a9aff; */
-   background: var(--button-gradient);
+   background: red;
+   /* background: var(--button-gradient); */
    transition: .15s;
    width: auto;
    color: #000;
@@ -512,7 +513,7 @@ input[type=radio] {
    position: fixed;
    top: 0;
    left: 0;
-   display: none;
+   /* display: none; */
 }
 
 .rev {

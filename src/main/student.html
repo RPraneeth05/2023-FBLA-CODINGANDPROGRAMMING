@@ -5,8 +5,250 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="student.css">
+   <!-- <link rel="stylesheet" href="student.css"> -->
+   <link rel="stylesheet" href="../../common.css">
    <title>Document</title>
+   <style>
+      :root {
+         --background-col-d: #111;
+         --background-col-l: #1b1b1b;
+         --text-col-d: #666;
+         --text-col-l: #ccc;
+      }
+
+      * {
+         color: var(--text-col-l);
+      }
+
+      body {
+         background-color: #1b1b1b;
+      }
+
+      .alert__box {
+         position: fixed;
+         bottom: 2rem;
+         left: 2rem;
+         background-color: #43834c;
+         z-index: 2147483647;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
+
+         opacity: 0;
+         transition: opacity .5s;
+      }
+
+      .warning__box {
+         position: fixed;
+         bottom: 2rem;
+         left: 2rem;
+         background-color: #7b5b45;
+         z-index: 2147483647;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
+
+         opacity: 0;
+         transition: opacity .5s;
+      }
+
+      .error__box {
+         position: fixed;
+         bottom: 2rem;
+         left: 2rem;
+         background-color: #7b4045;
+         z-index: 2147483647;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
+
+         opacity: 0;
+         transition: opacity .5s;
+      }
+
+      .alert__title,
+      .alert__description,
+      .warning__title,
+      .warning__description,
+      .error__title,
+      .error__description {
+         color: var(--text-col-l);
+      }
+
+      .fade {
+         opacity: 1;
+      }
+
+      .container {
+         display: grid;
+         grid-template-columns: 1fr 3fr 1.5fr;
+      }
+
+      .left__side {
+         background-color: #1b1b1b;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 20rem;
+      }
+
+      .right__side {
+         background-color: #1b1b1b;
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 30rem;
+      }
+
+      .middle {
+         background-color: #111;
+         position: absolute;
+         top: 0;
+         /* left: 0; */
+         width: calc(100% - 50rem);
+         margin: 0 30rem 0 20rem;
+         height: 150vh;
+      }
+
+      .left__side,
+      .middle,
+      .right__side {
+         padding: 2rem;
+         min-height: 100vh;
+      }
+
+      #logoutPage {
+         padding: .5rem;
+         width: 100%;
+         border-radius: .5rem;
+         background-color: #f66;
+         border: none;
+         outline: none;
+      }
+
+      #user_data h2 {
+         font-size: 2rem;
+         color: #66f;
+      }
+
+      #toggleLeaderboard,
+      #togglePE,
+      .change {
+         padding: .5rem;
+         width: 100%;
+         border-radius: .5rem;
+         background-color: #66f;
+         border: none;
+         outline: none;
+      }
+
+      .top {
+         padding: .5rem;
+         /* width: 100%; */
+         border-radius: .5rem;
+         background-color: #66f;
+         border: none;
+         outline: none;
+      }
+
+      input[type=button],
+      button {
+         padding: .5rem;
+         /* width: 100%; */
+         border-radius: .5rem;
+         background-color: #66f;
+         border: none;
+         outline: none;
+         transition: .15s;
+      }
+
+      input[type=button]:hover,
+      button:hover {
+         transform: translateY(-.25rem);
+      }
+
+      h3 {
+         /* color: red; */
+         font-size: 1.5rem;
+      }
+
+      .middle h1 {
+         font-size: 3rem;
+      }
+
+      .middle h2,
+      .right__side h2 {
+         font-size: 2rem;
+      }
+
+      input[type=password] {
+         width: 100%;
+         height: 2rem;
+         padding: .5rem;
+         border-radius: .5rem;
+         background-color: #333;
+         outline: none;
+         border: none;
+      }
+
+      input[type=text] {
+         /* width: 100%; */
+         height: 2rem;
+         padding: .5rem;
+         border-radius: .5rem;
+         background-color: #333;
+         outline: none;
+         border: none;
+      }
+
+      .event__search {
+         width: 20rem;
+      }
+
+      .table__holder {
+         position: relative;
+         /* padding: 2rem; */
+         background-color: transparent;
+         /* min-height: calc(100vh - 4rem); */
+         min-height: 100%;
+      }
+
+      table {
+         border-collapse: collapse;
+         text-align: center;
+         width: 100%;
+      }
+
+      thead {
+         background-color: #2b2b2b;
+      }
+
+      tbody {
+         background-color: #222;
+      }
+
+      tr:nth-child(even) {
+         background-color: #2b2b2b;
+      }
+
+      th,
+      td {
+         padding: .5rem;
+         width: 16.66667%;
+      }
+
+      .accounts__holder,
+      .popular {
+         z-index: 99999;
+         background-color: #111;
+         padding: 2rem;
+         width: 100vw;
+         height: 100vh;
+      }
+   </style>
 </head>
 
 <body>
@@ -31,16 +273,17 @@
 
    <div class="container">
       <div class='left__side' id="dashboard">
-         <input type="button" id="logoutPage" href="" value="Logout"><br>
+         <input type="button" id="logoutPage" href="" value="Logout"><br><br>
          <div id="user_data">
          </div>
-         <input type="button" id="toggleLeaderboard" href="" value="Toggle Leaderboard">
-         <input type="button" id="togglePE" class="pos" href="" value="View popular events">
-         <h3>Change Password</h3>
-         <input type='password' placeholder="Current Password" id="cP">
-         <input type='password' placeholder="New Password" id="nP">
-         <input type='password' placeholder="Confirm New Password" id="cnP">
-         <button onclick="changePwd()">Change Password</button>
+         <br>
+         <input type="button" id="toggleLeaderboard" href="" value="Toggle Leaderboard"><br><br>
+         <input type="button" id="togglePE" class="pos" href="" value="View popular events"><br><br>
+         <h3>Change Password</h3><br>
+         <input type='password' placeholder="Current Password" id="cP"><br><br>
+         <input type='password' placeholder="New Password" id="nP"><br><br>
+         <input type='password' placeholder="Confirm New Password" id="cnP"><br><br>
+         <button onclick="changePwd()" class="change">Change Password</button>
       </div>
       <div class="middle">
          <h1>Dashboard</h1><br>
@@ -63,12 +306,15 @@
                   <tbody class="events__output"></tbody>
                </table><br>
                <a href="#events__top">
-                  <input type="button" value="Back to top">
+                  <input type="button" value="Back to top" class="top">
                </a>
             </div>
          </div>
+         
+      </div>
+      <div class="right__side">
          <div class="inbox">
-            <h2>Inbox</h2>
+            <h2>Inbox</h2><br>
             <table>
                <thead>
                   <tr>
@@ -80,6 +326,7 @@
             </table><br>
          </div>
       </div>
+
       <div class="accounts__holder" style="display: none;" id="accounts__top">
          <div class="table__holder">
             <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
