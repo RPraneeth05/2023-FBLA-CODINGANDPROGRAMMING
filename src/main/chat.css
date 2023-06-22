@@ -137,13 +137,13 @@ white text color (#ffffff), padding, and a centered text alignment. The font-siz
     z-index: 1;
 }
 
-/* Lastly, there is a hover effect for the dark-mode-toggle class, reducing the opacity to 0.7 on hover, 
-    providing a visual feedback to the user. */
 .dark-mode-toggle span {
     font-size: 24px;
     margin-right: 10px;
 }
 
+/* Lastly, there is a hover effect for the dark-mode-toggle class, reducing the opacity to 0.7 on hover, 
+    providing a visual feedback to the user. */
 .dark-mode-toggle:hover {
     opacity: 0.7;
 }
