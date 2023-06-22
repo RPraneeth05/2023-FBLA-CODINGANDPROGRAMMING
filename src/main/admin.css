@@ -2,11 +2,11 @@
    and positioning for different elements of a web page. */
 
 /* Font Imports: The code imports two fonts, 'JetBrains Mono' and 'Fira Code', 
-   from Google Fonts to be used in the web page. */
+   from Google Fonts. */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-/* Root Variables: CSS variables are defined using the :root selector to set up color values and gradients that can be reused throughout the stylesheet. */
+/* Root Variables */
 :root {
    --background-color: #111;
    --card-color: #222;
@@ -27,9 +27,7 @@
    --hover-effect: 0 0 3rem rgba(100, 100, 200, .7);
 }
 
-/* Selector Styling: Several selectors are defined with specific styles. 
-   For example, strong elements have bold font weight and a specific color, a elements have no text decoration and a specific color, 
-   and h1 and h2 elements have specific font sizes and colors. */
+/* Selector Styling: Several selectors are defined with specific styles. */
 #qm {
    position: fixed;
    bottom: 30px;
