@@ -4,18 +4,18 @@ const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
 let schoolId = localStorage.getItem("schoolId");
-async function changePwd() {
-	const currentPasswordInput = document.getElementById("cP").value;
+async function changePassword() {
+	const currentPasswordInput = document.getElementById("CP").value;
 	let school = await fb.getSchoolById(schoolId);
 	if (!bcrypt.compareSync(currentPasswordInput, school.adminPass)) {
 		errorPopup("Wrong Password", "Enter the correct current password!");
 		return;
 	}
-	const newPasswordInput = document.getElementById("nP").value;
-	const confirmNewPasswordInput = document.getElementById("cnP").value;
-	document.getElementById("cP").value = "";
-	document.getElementById("nP").value = "";
-	document.getElementById("cnP").value = "";
+	const newPasswordInput = document.getElementById("NP").value;
+	const confirmNewPasswordInput = document.getElementById("CNP").value;
+	document.getElementById("CP").value = "";
+	document.getElementById("NP").value = "";
+	document.getElementById("CNP").value = "";
 	if (
 		!currentPasswordInput ||
 		!newPasswordInput ||
@@ -39,8 +39,8 @@ async function changePwd() {
 		});
 	});
 }
-let hrefA = document.getElementById("logoutPage");
-hrefA.href = path.join(__dirname, "../../login.html");
+// let hrefA = document.getElementById("logoutPage");
+// hrefA.href = path.join(__dirname, "../../login.html");
 
 function alertPopup(title = "Alert", description = "Sample alert text") {
 	let alertModal = document.querySelector(".alert__box");
@@ -175,7 +175,7 @@ async function updateAccounts() {
 	placeholder.innerHTML = output;
 }
 
-function hideWin() {
+function hideReport() {
 	document.querySelector(".report__window").style.display = "none";
 }
 
@@ -485,7 +485,7 @@ function filterAccounts() {
 	}
 }
 
-function sendMsg() {
+function sendMessage() {
 	let recipient = document.querySelector(".recipient").value;
 	let subjectText = document.querySelector(".subject").value;
 	let messageText = document.querySelector(".message").value;

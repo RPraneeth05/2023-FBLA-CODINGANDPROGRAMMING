@@ -250,6 +250,7 @@ async function refDashboard() {
 
 	data.innerHTML = `
 		<h2>Hi ${USERDATA.fname}. You have ${USERDATA.points} points.</h2>
+      <br>
 		${USERDATA.email}
 `;
 }
@@ -269,6 +270,7 @@ async function updateAccounts() {
 				   <td>${account.fname}</td>
 				   <td>${account.lname}</td>
 				   <td>${account.grade}</td>
+               <td>${account.username}</td>
 				   <td>${account.points}</td>
 				</tr>
 			 `;
