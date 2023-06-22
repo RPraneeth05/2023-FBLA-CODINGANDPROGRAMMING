@@ -1,197 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin Dashboard</title>
-   <link rel="stylesheet" href="admin.css">
-</head>
-
-<body>
-
-   <div>
-      <div class="alert__box" style="display: none;">
-         <h2 class="alert__title">Alert title</h2>
-         <p class="alert__description">Alert description</p>
-      </div>
-
-      <div class="warning__box" style="display: none;">
-         <h2 class="warning__title">Warning title</h2>
-         <p class="warning__description">Warning description</p>
-      </div>
-
-      <div class="error__box" style="display: none;">
-         <h2 class="error__title">Error title</h2>
-         <p class="error__description">Error description</p>
-      </div>
-   </div>
-
-   <div class="report__window">
-      <input type="button" value="Go back" onclick="hideWin()" id="the__top"><br><br>
-      <h2 class="r__name">Full name</h2><br>
-      <table class="rev">
-         <thead>
-            <tr>
-               <th>Event name</th>
-            </tr>
-         </thead>
-         <tbody class="r__events"></tbody>
-      </table><br>
-      <h2 class="r__points">Points</h2>
-   </div>
-
-   <div class="winners__window">
-      <input type="button" value="Go back" onclick="hideWinners()"><br><br>
-
-      <span>Ninth grade winner: </span><span class="ninth__winner"></span>
-      <br>
-      <span>Prize won: </span><span class="ninth__prize"></span><br><br>
-      
-      <span>Tenth grade winner: </span><span class="tenth__winner"></span><br>
-      <span>Prize won: </span><span class="tenth__prize"></span><br><br>
-
-      <span>Eleventh grade winner: </span><span class="eleventh__winner"></span><br>
-      <span>Prize won: </span><span class="eleventh__prize"></span><br><br>
-
-      <span>Twelfth grade winner: </span><span class="twelfth__winner"></span><br>
-      <span>Prize won: </span><span class="twelfth__prize"></span><br><br>
-
-      <span>Highest points winner: </span><span class="top__winner"></span><br>
-      <span>Prize won: </span><span class="top__prize"></span><br><br>
-   </div>
-
-   <form action="">
-      <div class="left__side">
-         <a id="logoutPage" style="margin: .5rem" href="">Logout</a><br>
-         <h3>Change Password</h3>
-         <input type='password' placeholder="Current Password" id="cP">
-         <input type='password' placeholder="New Password" id="nP">
-         <input type='password' placeholder="Confirm New Password" id="cnP">
-         <button onclick="changePwd()">Change Password</button>
-      </div>
-      <div class="middle">
-         <h1>Dashboard</h1><br>
-         <div class="events__holder" style="display: none;" id="events__top">
-            <div class="table__holder">
-               <input type="button" value="Dashboard" onclick="toggleEvents()"><br><br>
-               <h2>Current events</h2><br>
-               <input class="event__search" type="text" placeholder="Search" onkeyup="filterEvents()"><br><br>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Prize</th>
-                        <th>Start date</th>
-                        <th>End date</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="events__output"></tbody>
-               </table><br>
-               <a href="#events__top">
-                  <input type="button" value="Back to top">
-               </a>
-            </div>
-         </div>
-         <div class="accounts__holder" style="display: none;" id="accounts__top">
-            <div class="table__holder">
-               <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
-               <h2>Current accounts</h2><br>
-               <input class="account__search" type="text" placeholder="Search" onkeyup="filterAccounts()"><br><br>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Fname</th>
-                        <th>Lname</th>
-                        <th>Grade</th>
-                        <th>Username</th>
-                        <th>Points</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="accounts__output"></tbody>
-               </table><br>
-               <a href="#accounts__top">
-                  <input type="button" value="Back to top">
-               </a>
-            </div>
-         </div>
-         <input type="button" value="View events" onclick="toggleEvents()">
-         <input type="button" value="View accounts" onclick="toggleAccounts()">
-         <input type="button" value="Prizes" onclick="pickWinners()">
-         <br><br>
-         <div class="wrapper">
-            <div class="left">
-               <h2>Contact</h2>
-               <br>
-               <input type="text" class="contact__field recipient" placeholder="Recipient">
-
-               <br><br>
-               <input type="text" class="contact__field subject" placeholder="Subject">
-
-               <br><br>
-
-               <textarea name="" id="" rows="1" class="auto__resize message" placeholder="Message"></textarea>
-               <br><br>
-
-               <input type="button" value="Send message" onclick="sendMsg()">
-            </div>
-            <div class="right">
-            </div>
-         </div>
-     </div>
-      <div class="right__side">
-
-         <h1>Create</h1><br>
-         <h2>New event</h2><br>
-         <input class="event__name" type="text" placeholder="Event name" required><br><br>
-         <textarea class="event__description" placeholder="Event description" required name="" id="" cols="20"
-            rows="10"></textarea>
-         <input class="prize" type="number" placeholder="Prize" required min="0" max="1000"><br><br>
-         <input class="code" type="number" placeholder="Enter passcode" required>   
-         <label for="start">Start date</label>
-         <input class="start__date" type="date" placeholder="Start date" required id="start"><br><br>
-         <label for="end">End date</label>
-         <input class="end__date" type="date" placeholder="End date" required id="end"><br><br>
-         <input type="button" value="Create Event" onclick="createNewEvent()"><br><br>
-
-
-         <h2>New Student Account</h2><br>
-         <div class="stu_acc_creation">
-            <div hidden id="accountAlert" class="alert warning"></div>
-            <input class="student__name student__fname" type="text" placeholder="Student First Name" required><br><br>
-            <input class="student__name student__lname" type="text" placeholder="Student Last Name" required><br><br>
-            <select class="student__grade">
-               <option value="" disabled selected>Select grade</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-               <option value="11">11</option>
-               <option value="12">12</option>
-            </select><br><br>
-            <input class="student__username" type="text" placeholder="Student Email" required><br><br>
-            <input type="button" value="Create Account" onclick="createNewAccount()">
-         </div>
-         <div id="qm">
-            <span id="m">?</span>
-         </div>
-      </div>
-   </form>
-   <style>
-     
-   </style>
-   <script src="../preload/admin_preload.js"></script>
-</body>
-
-</html> -->
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -322,6 +128,30 @@
          height: 100vh;
          display: grid;
          grid-template-columns: 1fr 5fr 1fr;
+      }
+
+      #prize-table {
+         border-collapse: collapse;
+         margin: 20px;
+      }
+
+      #prize-table th,
+      #prize-table td {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      #prize-table th {
+         background-color: lightgray;
+      }
+
+      .editable {
+         cursor: pointer;
+         background-color: lightblue;
+      }
+
+      .editable input[type="text"] {
+         width: 100%;
       }
 
       .btn {
@@ -572,157 +402,158 @@
       <p class="error__description">Error description</p>
    </div>
 
-   <form action="">
-      <div class="middle">
-         <h1 class="title">Dashboard</h1>
-         <br>
-         <div class="events__holder" style="display: none;" id="events__top">
-            <div class="table__holder">
-               <input type="button" class="redirects" value="Dashboard" onclick="toggleEvents()">
-               <br><br>
-               <h1 class="subtitle">Current events</h1>
-               <br>
-               <input type="text" class="event__search" placeholder="Search" onkeyup="filterEvents()">
-               <br><br>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Prize</th>
-                        <th>Start date</th>
-                        <th>End date</th>
-                        <th>Code</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="events__output"></tbody>
-               </table>
-               <br>
-               <a href="#events__top">
-                  <input type="button" value="Back to top" class="link__r">
-               </a>
-            </div>
-         </div>
-         <div class="accounts__holder" style="display: none;" id="accounts__top">
-            <div class="table__holder">
-               <input type="button" class="redirects" value="Dashboard" onclick="toggleAccounts()">
-               <br><br>
-               <h1 class="subtitle">Current accounts</h1>
-               <br>
-               <input type="text" class="account__search" placeholder="Search" onkeyup="filterAccounts()">
-               <br><br>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Grade</th>
-                        <th>Username</th>
-                        <th>Points</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="accounts__output"></tbody>
-               </table>
-               <br>
-               <a href="#accounts__top">
-                  <input type="button" value="Back to top" class="link__r">
-               </a>
-            </div>
-         </div>
-         <div class="inline">
-            <input type="button" class="redirects" value="View events" onclick="toggleEvents()">
-            <input type="button" class="redirects" value="View Accounts" onclick="toggleAccounts()">
-            <input type="button" class="redirects" value="Prizes" onclick="pickWinners()">
-         </div>
-         <br><br>
-         <div class="cards">
-            <div class="card">
-               <h1 class="card__title">Total students</h1>
-               <br>
-               <h1 class="card__description">500</h1>
-            </div>
-            <div class="card">
-               <h1 class="card__title">Total events</h1>
-               <br>
-               <h1 class="card__description">2000</h1>
-            </div>
-            <div class="card">
-               <h1 class="card__title">Total students</h1>
-               <br>
-               <h1 class="card__description">1000</h1>
-            </div>
-         </div>
-         <div id="qm">
-            <span id="m">?</span>
+   <div class="middle">
+      <h1 class="title">Dashboard</h1>
+      <br>
+      <div class="events__holder" style="display: none;" id="events__top">
+         <div class="table__holder">
+            <input type="button" class="redirects" value="Dashboard" onclick="toggleEvents()">
+            <br><br>
+            <h1 class="subtitle">Current events</h1>
+            <br>
+            <input type="text" class="event__search" placeholder="Search" onkeyup="filterEvents()">
+            <br><br>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Description</th>
+                     <th>Prize</th>
+                     <th>Start date</th>
+                     <th>End date</th>
+                     <th>Code</th>
+                     <th>Actions</th>
+                  </tr>
+               </thead>
+               <tbody class="events__output"></tbody>
+            </table>
+            <br>
+            <a href="#events__top">
+               <input type="button" value="Back to top" class="link__r">
+            </a>
          </div>
       </div>
-      <div class="left__side">
-         <a href="../../login.html">
-            <input type="button" value="Log out" class="link">
-         </a>
-         <br><br><br>
-         <h1 class="subtitle">Change password</h1>
-         <br>
-         <input type="password" placeholder="Current password" name="" id="CP">
-         <br><br>
-         <input type="password" placeholder="New password" name="" id="NP">
-         <br><br>
-         <input type="password" placeholder="Confirm new password" name="" id="CNP">
-         <br><br>
-         <input type="button" class="btn" value="Change Password" onclick="changePassword()">
-         <br><br><br>
-         <h1 class="subtitle">Send message</h1>
-         <br>
-         <input type="text" class="recipient" placeholder="Recipient">
-         <br><br>
-         <input type="text" class="subject" placeholder="Subject">
-         <br><br>
-         <textarea rows="1" class="message auto__resize" placeholder="Message"></textarea>
-         <br><br>
-         <input type="button" class="btn" value="Send message" onclick="sendMessage()">
+      <div class="accounts__holder" style="display: none;" id="accounts__top">
+         <div class="table__holder">
+            <input type="button" class="redirects" value="Dashboard" onclick="toggleAccounts()">
+            <br><br>
+            <h1 class="subtitle">Current accounts</h1>
+            <br>
+            <input type="text" class="account__search" placeholder="Search" onkeyup="filterAccounts()">
+            <br><br>
+            <table>
+               <thead>
+                  <tr>
+                     <th>First name</th>
+                     <th>Last name</th>
+                     <th>Grade</th>
+                     <th>Username</th>
+                     <th>Points</th>
+                     <th>Actions</th>
+                  </tr>
+               </thead>
+               <tbody class="accounts__output"></tbody>
+            </table>
+            <br>
+            <a href="#accounts__top">
+               <input type="button" value="Back to top" class="link__r">
+            </a>
+         </div>
       </div>
-      <div class="right__side">
-         <h1 class="subtitle">Create</h1>
-         <br><br>
-         <h1 class="heading">New event</h1>
-         <br>
-         <input type="text" class="event__name" placeholder="Event name" required>
-         <br><br>
-         <textarea rows="1" class="event__description auto__resize" placeholder="Event description" required></textarea>
-         <br><br>
-         <input type="number" class="prize" placeholder="Prize" min="0" max="1000" required>
-         <br><br>
-         <input type="number" class="code" placeholder="Code" required>
-         <br><br>
-         <label for="start">Start date</label>
-         <input type="date" id="start" class="start__date" placeholder="Start date" required>
-         <br><br>
-         <label for="end">End date</label>
-         <input type="date" id="end" class="end__date" placeholder="End date" required>
-         <br><br>
-         <input type="button" class="btn" value="Create event" onclick="createNewEvent()">
-         <br><br><br>
-         <h1 class="heading">New account</h1>
-         <br>
-         <input type="text" class="student__name student__fname" placeholder="First name" required>
-         <br><br>
-         <input type="text" class="student__name student__lname" placeholder="Last name" required>
-         <br><br>
-         <select class="student__grade" required>
-            <option value="" invalid selected disabled hidden>Grade</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-         </select>
-         <br><br>
-         <input type="text" class="student__username" placeholder="Student email" required>
-         <br><br>
-         <input type="button" class="btn" value="Create account" onclick="createNewAccount()">
+      <div class="inline">
+         <input type="button" class="redirects" value="View events" onclick="toggleEvents()">
+         <input type="button" class="redirects" value="View Accounts" onclick="toggleAccounts()">
+         <input type="button" class="redirects" value="Prizes" onclick="pickWinners()">
       </div>
-   </form>
+      <br><br>
+      <div class="cards">
+         <div class="card">
+            <h1 class="card__title">Total students</h1>
+            <br>
+            <h1 class="card__description">500</h1>
+         </div>
+         <div class="card">
+            <h1 class="card__title">Total events</h1>
+            <br>
+            <h1 class="card__description">2000</h1>
+         </div>
+         <div class="card">
+            <h1 class="card__title">Total students</h1>
+            <br>
+            <h1 class="card__description">1000</h1>
+         </div>
+      </div>
+      <div id="qm">
+         <span id="m">?</span>
+      </div>
+   </div>
+   <div class="left__side">
+      <a href="../../login.html">
+         <input type="button" value="Log out" class="link">
+      </a>
+      <br><br><br>
+      <h1 class="subtitle">Change password</h1>
+      <br>
+      <input type="password" placeholder="Current password" name="" id="CP">
+      <br><br>
+      <input type="password" placeholder="New password" name="" id="NP">
+      <br><br>
+      <input type="password" placeholder="Confirm new password" name="" id="CNP">
+      <br><br>
+      <input type="button" class="btn" value="Change Password" onclick="changePassword()">
+      <br><br><br>
+      <h1 class="subtitle">Send message</h1>
+      <br>
+      <input type="text" class="recipient" placeholder="Recipient">
+      <br><br>
+      <input type="text" class="subject" placeholder="Subject">
+      <br><br>
+      <textarea rows="1" class="message auto__resize" placeholder="Message"></textarea>
+      <br><br>
+      <input type="button" class="btn" value="Send message" onclick="sendMessage()">
+
+
+   </div>
+   <div class="right__side">
+      <h1 class="subtitle">Create</h1>
+      <br><br>
+      <h1 class="heading">New event</h1>
+      <br>
+      <input type="text" class="event__name" placeholder="Event name" required>
+      <br><br>
+      <textarea rows="1" class="event__description auto__resize" placeholder="Event description" required></textarea>
+      <br><br>
+      <input type="number" class="prize" placeholder="Prize" min="0" max="1000" required>
+      <br><br>
+      <input type="number" class="code" placeholder="Code" required>
+      <br><br>
+      <label for="start">Start date</label>
+      <input type="date" id="start" class="start__date" placeholder="Start date" required>
+      <br><br>
+      <label for="end">End date</label>
+      <input type="date" id="end" class="end__date" placeholder="End date" required>
+      <br><br>
+      <input type="button" class="btn" value="Create event" onclick="createNewEvent()">
+      <br><br><br>
+      <h1 class="heading">New account</h1>
+      <br>
+      <input type="text" class="student__name student__fname" placeholder="First name" required>
+      <br><br>
+      <input type="text" class="student__name student__lname" placeholder="Last name" required>
+      <br><br>
+      <select class="student__grade" required>
+         <option value="" invalid selected disabled hidden>Grade</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">11</option>
+         <option value="12">12</option>
+      </select>
+      <br><br>
+      <input type="text" class="student__username" placeholder="Student email" required>
+      <br><br>
+      <input type="button" class="btn" value="Create account" onclick="createNewAccount()">
+   </div>
+
 
    <div class="report__window" style="display: none;">
       <input type="button" class="redirects" value="Go back" onclick="hideReport()" id="the__top">
@@ -741,33 +572,79 @@
       <h1 class="r__points heading">000</h1>
    </div>
 
-   <div class="winners__window" style="display: none;">
-      <input type="button" class="redirects" value="Go back" onclick="hideWinners()">
-      <br><br>
+   <div class="report__window" style="display:none" id="prize-table">
+      <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top">
+      <table>
+         <tr>
+            <th>Prize</th>
+            <th>Edit Prize</th>
+         </tr>
+         <tr>
+            <td>Random prize</td>
+            <td id="randomPrize" class="editable"></td>
+         </tr>
+         <tr>
+            <td>First place prize</td>
+            <td id="prize1" class="editable"></td>
+         </tr>
+         <tr>
+            <td>Second place prize</td>
+            <td id="prize2" class="editable"></td>
+         </tr>
+         <tr>
+            <td>Third place prize</td>
+            <td id="prize3" class="editable"></td>
+         </tr>
+         <tr>
+            <td>Fourth place prize</td>
+            <td id="prize4" class="editable"></td>
+         </tr>
+      </table>
 
-      <span class="w">Ninth grade winner: </span><span class="ninth__winner"></span>
-      <br>
-      <span class="p">Prize won: </span><span class="ninth__prize"></span>
-      <br><br>
+      <form style="all:initial" id="quarter-form">
+         <h2>Quarter Dates</h2>
+         <label for="first-quarter-start">First Quarter Start:</label>
+         <input type="date" id="first-quarter-start" required>
 
-      <span class="w">Tenth grade winner: </span><span class="tenth__winner"></span>
-      <br>
-      <span class="p">Prize won: </span><span class="tenth__prize"></span>
-      <br><br>
+         <label for="first-quarter-end">First Quarter End:</label>
+         <input type="date" id="first-quarter-end" required>
 
-      <span class="w">Eleventh grade winner: </span><span class="eleventh__winner"></span>
-      <br>
-      <span class="p">Prize won: </span><span class="eleventh__prize"></span>
-      <br><br>
+         <label for="second-quarter-start">Second Quarter Start:</label>
+         <input type="date" id="second-quarter-start" required>
 
-      <span class="w">Twelfth grade winner: </span><span class="twelfth__winner"></span>
-      <br>
-      <span class="p">Prize won: </span><span class="twelfth__winner"></span>
-      <br><br>
+         <label for="second-quarter-end">Second Quarter End:</label>
+         <input type="date" id="second-quarter-end" required>
 
-      <span class="w">Highest points winner: </span><span class="top__winner"></span>
-      <br>
-      <span class="p">Prize won: </span><span class="top__prize"></span>
+         <label for="third-quarter-start">Third Quarter Start:</label>
+         <input type="date" id="third-quarter-start" required>
+
+         <label for="third-quarter-end">Third Quarter End:</label>
+         <input type="date" id="third-quarter-end" required>
+
+         <label for="fourth-quarter-start">Fourth Quarter Start:</label>
+         <input type="date" id="fourth-quarter-start" required>
+
+         <label for="fourth-quarter-end">Fourth Quarter End:</label>
+         <input type="date" id="fourth-quarter-end" required>
+
+         <button type="submit" id="submit-btn">Save Dates</button>
+      </form>
+
+      <h1 id="qEnds"></h1>
+      <div hidden id="prizes">
+
+         <h1>Random Winners from Each Grade</h1>
+         <p id="rand9"></p>
+         <p id="rand10"></p>
+         <p id="rand11"></p>
+         <p id="rand12"></p>
+
+         <h1>Top 4 Winners with Most Points!</h1>
+         <p id="pprize1"></p>
+         <p id="pprize2"></p>
+         <p id="pprize3"></p>
+         <p id="pprize4"></p>
+      </div>
    </div>
 
    <script src="../preload/admin_preload.js"></script>

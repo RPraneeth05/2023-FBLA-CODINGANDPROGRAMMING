@@ -4,18 +4,18 @@ const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
 let schoolId = localStorage.getItem("schoolId");
-async function changePassword() {
-	const currentPasswordInput = document.getElementById("CP").value;
+async function changePwd() {
+	const currentPasswordInput = document.getElementById("cP").value;
 	let school = await fb.getSchoolById(schoolId);
 	if (!bcrypt.compareSync(currentPasswordInput, school.adminPass)) {
 		errorPopup("Wrong Password", "Enter the correct current password!");
 		return;
 	}
-	const newPasswordInput = document.getElementById("NP").value;
-	const confirmNewPasswordInput = document.getElementById("CNP").value;
-	document.getElementById("CP").value = "";
-	document.getElementById("NP").value = "";
-	document.getElementById("CNP").value = "";
+	const newPasswordInput = document.getElementById("nP").value;
+	const confirmNewPasswordInput = document.getElementById("cnP").value;
+	document.getElementById("cP").value = "";
+	document.getElementById("nP").value = "";
+	document.getElementById("cnP").value = "";
 	if (
 		!currentPasswordInput ||
 		!newPasswordInput ||
@@ -39,9 +39,6 @@ async function changePassword() {
 		});
 	});
 }
-// let hrefA = document.getElementById("logoutPage");
-// hrefA.href = path.join(__dirname, "../../login.html");
-
 function alertPopup(title = "Alert", description = "Sample alert text") {
 	let alertModal = document.querySelector(".alert__box");
 	alertModal.style.display = "block";
@@ -133,8 +130,9 @@ async function updateEvents() {
                   <td>${event.eventName}</td>
                   <td>${event.eventDesc}</td>
                   <td>${event.prize}</td>
-                  <td>${event.startDate}</td>
-                  <td>${event.endDate}</td>
+                  <td>${event.startDate.toDate().toLocaleDateString()}</td>
+<td>${event.endDate.toDate().toLocaleDateString()}</td>
+
 				  <td>${event.code}</td>
                   <td>
                      <!--<div class="button__bar">-->
@@ -166,7 +164,7 @@ async function updateAccounts() {
                      <!--<input type="button" onclick="editAccount()" value="Edit">-->
                      <input type="button" onclick="deleteAccount('${account.id}')" value="Delete">
                      <a href="#the__top">
-                        <input type="button" onclick="generateReport('${account.username}')" value="Generate report">
+                        <input type="button" onclick="generateReport('${account.email}')" value="Generate report">
                      </a>
                   </td>
                </tr>
@@ -183,133 +181,220 @@ async function deleteAccount(id) {
 	await fb.deleteUser(schoolId, id);
 	updateAccounts();
 }
+document.addEventListener("DOMContentLoaded", async function () {
+	var editableCells = document.getElementsByClassName("editable");
+	let school = await fb.getSchoolById(schoolId);
+	for (var i = 0; i < editableCells.length; i++) {
+		let id = editableCells[i].id;
+		editableCells[i].innerHTML = school.prizes[id] || "";
+		editableCells[i].addEventListener("click", function () {
+			var currentValue = this.innerHTML;
+			var input = document.createElement("input");
+			input.setAttribute("type", "text");
+			input.value = currentValue;
+			this.innerHTML = "";
+			this.appendChild(input);
+			input.focus();
 
-function pickWinners() {
-	let accs = readFromJSON(USERS_JSON_PATH);
-	let ninthUsers = [];
-	let tenthUsers = [];
-	let eleventhUsers = [];
-	let twelfthUsers = [];
-	for (acc of accs) {
-		if (acc.student_grade === "9") ninthUsers.push(acc);
-		else if (acc.student_grade === "10") tenthUsers.push(acc);
-		else if (acc.student_grade === "11") eleventhUsers.push(acc);
-		else if (acc.student_grade === "12") twelfthUsers.push(acc);
+			input.addEventListener("blur", async function (e) {
+				var newValue = this.value;
+				this.parentNode.innerHTML = newValue;
+
+
+				// Determine the field name and value based on the cell being edited
+				let fieldName = id;
+
+				if (newValue.trim() !== "") {
+
+					// Load the school document to get the original fields information
+					var school = await fb.getSchoolById(schoolId);
+					if (school) {
+						var originalPrizes = school.prizes; // Assuming you want to update other fields as well
+
+						// Check if the 'prizes' field exists in the originalFields object
+						if (!originalPrizes) {
+							originalPrizes = {};
+						}
+
+						// Check if the fieldName exists within the 'prizes' field
+						if (!originalPrizes[fieldName]) {
+							originalPrizes[fieldName] = "";
+						}
+
+						originalPrizes[fieldName] = newValue;
+						console.log(originalPrizes);
+						// Call the updateSchool function to update the fields in the school document
+						await fb.updateSchool(schoolId, { prizes: originalPrizes });
+					} else {
+						console.log("School not found.");
+					}
+				}
+			});
+		});
 	}
-	let winner9 = ninthUsers[Math.floor(Math.random() * ninthUsers.length)];
-	let winner10 = tenthUsers[Math.floor(Math.random() * tenthUsers.length)];
-	let winner11 =
-		eleventhUsers[Math.floor(Math.random() * eleventhUsers.length)];
-	let winner12 =
-		twelfthUsers[Math.floor(Math.random() * twelfthUsers.length)];
+});
 
-	let a = "<strong>Yearlong free tickets to all games!</strong>";
-	let b = "<strong>$15 Chick-fil-A gift card</strong>";
-	let c = "<strong>1 Homework Pass</strong>";
-	let d = "<strong>Football team T-Shirt</strong>";
-	let targetWindow = document.querySelector(".winners__window");
-	targetWindow.style.display = "block";
-	document.querySelector(
-		".ninth__winner"
-	).innerHTML = `<strong>${winner9.student_fname} ${winner9.student_lname} (${winner9.points} points)</strong>`;
-	if (winner9.points >= 10000) {
-		document.querySelector(".ninth__prize").innerHTML = a;
-	} else if (winner9.points >= 7500) {
-		document.querySelector(".ninth__prize").innerHTML = b;
-	} else if (winner9.points >= 5000) {
-		document.querySelector(".ninth__prize").innerHTML = c;
+const form = document.getElementById("quarter-form");
+async function updateQuarters() {
+	let quarters = (await fb.getSchoolById(schoolId)).quarters;
+	if (quarters) {
+		// Set the values for each quarter
+		document.getElementById("first-quarter-start").value = quarters.firstStartDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("first-quarter-end").value = quarters.firstEndDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("second-quarter-start").value = quarters.secondStartDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("second-quarter-end").value = quarters.secondEndDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("third-quarter-start").value = quarters.thirdStartDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("third-quarter-end").value = quarters.thirdEndDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("fourth-quarter-start").value = quarters.fourthStartDate.toDate().toISOString().slice(0, 10);
+		document.getElementById("fourth-quarter-end").value = quarters.fourthEndDate.toDate().toISOString().slice(0, 10);
+
+
+	}
+}
+updateQuarters();
+form.addEventListener("submit", async function (event) {
+	event.preventDefault();
+
+	const firstStartDate = new Date(document.getElementById("first-quarter-start").value);
+	const firstEndDate = new Date(document.getElementById("first-quarter-end").value);
+	const secondStartDate = new Date(document.getElementById("second-quarter-start").value);
+	const secondEndDate = new Date(document.getElementById("second-quarter-end").value);
+	const thirdStartDate = new Date(document.getElementById("third-quarter-start").value);
+	const thirdEndDate = new Date(document.getElementById("third-quarter-end").value);
+	const fourthStartDate = new Date(document.getElementById("fourth-quarter-start").value);
+	const fourthEndDate = new Date(document.getElementById("fourth-quarter-end").value);
+
+
+	// Perform validation
+	let isValid = true;
+	let errorMessage = "";
+
+	if (!firstStartDate || !firstEndDate || !secondStartDate || !secondEndDate ||
+		!thirdStartDate || !thirdEndDate || !fourthStartDate || !fourthEndDate) {
+		isValid = false;
+		errorMessage = "Please provide all start and end dates.";
+	} else if (firstStartDate >= firstEndDate) {
+		isValid = false;
+		errorMessage = "First quarter start date must be before the end date.";
+	} else if (secondStartDate >= secondEndDate) {
+		isValid = false;
+		errorMessage = "Second quarter start date must be before the end date.";
+	} else if (thirdStartDate >= thirdEndDate) {
+		isValid = false;
+		errorMessage = "Third quarter start date must be before the end date.";
+	} else if (fourthStartDate >= fourthEndDate) {
+		isValid = false;
+		errorMessage = "Fourth quarter start date must be before the end date.";
+	} else if (firstEndDate >= secondStartDate ||
+		secondEndDate >= thirdStartDate ||
+		thirdEndDate >= fourthStartDate) {
+		isValid = false;
+		errorMessage = "Invalid quarter dates! Ensure that each quarter ends before the next one starts.";
+	}
+
+	if (!isValid) {
+		// Display validation error message
+		errorPopup("Invalid Dates!", errorMessage);
+		return;
 	} else {
-		document.querySelector(".ninth__prize").innerHTML = d;
-	}
+		// Validation passed, perform further processing or submit the form
+		// ...
 
-	document.querySelector(
-		".tenth__winner"
-	).innerHTML = `<strong>${winner10.student_fname} ${winner10.student_lname} (${winner10.points} points)</strong>`;
-	if (winner10.points >= 10000) {
-		document.querySelector(".tenth__prize").innerHTML = a;
-	} else if (winner10.points >= 7500) {
-		document.querySelector(".tenth__prize").innerHTML = b;
-	} else if (winner10.points >= 5000) {
-		document.querySelector(".tenth__prize").innerHTML = c;
-	} else {
-		document.querySelector(".tenth__prize").innerHTML = d;
+		// For demonstration purposes, display the captured dates in the console
+		await fb.updateSchool(schoolId, {
+			quarters: {
+				firstEndDate,
+				secondEndDate,
+				thirdEndDate,
+				fourthEndDate,
+				firstStartDate,
+				secondStartDate,
+				thirdStartDate,
+				fourthStartDate
+			}
+		});
+		// Reset the form for the next entry
+		form.reset();
+		updateQuarters();
+		pickWinners();
 	}
+});
 
-	document.querySelector(
-		".eleventh__winner"
-	).innerHTML = `<strong>${winner11.student_fname} ${winner11.student_lname} (${winner11.points} points)</strong>`;
-	if (winner11.points >= 10000) {
-		document.querySelector(".eleventh__prize").innerHTML = a;
-	} else if (winner11.points >= 7500) {
-		document.querySelector(".eleventh__prize").innerHTML = b;
-	} else if (winner11.points >= 5000) {
-		document.querySelector(".eleventh__prize").innerHTML = c;
-	} else {
-		document.querySelector(".eleventh__prize").innerHTML = d;
-	}
+async function pickWinners() {
+	let prizeTable = document.getElementById("prize-table");
+	prizeTable.style.display = "block"
 
-	document.querySelector(
-		".twelfth__winner"
-	).innerHTML = `<strong>${winner12.student_fname} ${winner12.student_lname} (${winner12.points} points)</strong>`;
-	if (winner12.points >= 10000) {
-		document.querySelector(".twelfth__prize").innerHTML = a;
-	} else if (winner12.points >= 7500) {
-		document.querySelector(".twelfth__prize").innerHTML = b;
-	} else if (winner12.points >= 5000) {
-		document.querySelector(".twelfth__prize").innerHTML = c;
-	} else {
-		document.querySelector(".twelfth__prize").innerHTML = d;
+	let school = await fb.getSchoolById(schoolId);
+	let prizes = school.prizes;
+	let quarters = school.quarters;
+	let today = new Date().toISOString().slice(0, 10);
+	let winnersDiv = document.getElementById("prizes");
+	winnersDiv.hidden = true;
+	let qEnds = document.getElementById("qEnds");
+	let noEnds = true;
+	for (let [key, val] of Object.entries(quarters)) {
+		if (key.includes("End")) {
+			if (val.toDate().toISOString().slice(0, 10) == today) {
+				// do winner calculation
+
+				noEnds = false;
+				winnersDiv.hidden = false;
+				let users = await fb.loadUsers(schoolId);
+				let sortedUsers = users.sort((a, b) => b.points - a.points);
+				let topFourUsers = sortedUsers.slice(0, 4);
+				let randWinners = {};
+
+				for (let grade = 9; grade <= 12; grade++) {
+					let filteredUsers = users.filter(user => user.grade === grade);
+					let randomIndex = Math.floor(Math.random() * filteredUsers.length);
+					randWinners[grade] = filteredUsers[randomIndex];
+				}
+				document.getElementById("rand9").innerHTML = `From grade 9, ${randWinners[9].fname} ${randWinners[9].lname} won ${prizes["randomPrize"]}`;
+				document.getElementById("rand10").innerHTML = `From grade 10, ${randWinners[10].fname} ${randWinners[10].lname} won ${prizes["randomPrize"]}`;
+				document.getElementById("rand11").innerHTML = `From grade 11, ${randWinners[11].fname} ${randWinners[11].lname} won ${prizes["randomPrize"]}`;
+				document.getElementById("rand12").innerHTML = `From grade 12, ${randWinners[12].fname} ${randWinners[12].lname} won ${prizes["randomPrize"]}`;
+
+				// Display the information of the top four winners in the desired format
+				document.getElementById("pprize1").innerHTML = `First place: ${topFourUsers[0].fname} ${topFourUsers[0].lname} with ${topFourUsers[0].points} points won ${prizes.prize1}`;
+				document.getElementById("pprize2").innerHTML = `Second place: ${topFourUsers[1].fname} ${topFourUsers[1].lname} with ${topFourUsers[1].points} points won ${prizes.prize2}`;
+				document.getElementById("pprize3").innerHTML = `Third place: ${topFourUsers[2].fname} ${topFourUsers[2].lname} with ${topFourUsers[2].points} points won ${prizes.prize3}`;
+				document.getElementById("pprize4").innerHTML = `Fourth place: ${topFourUsers[3].fname} ${topFourUsers[3].lname} with ${topFourUsers[3].points} points won ${prizes.prize4}`;
+
+			}
+		}
 	}
-	/** @type Array */
-	let arr = readFromJSON(USERS_JSON_PATH);
-	let max = arr[1];
-	for (let i of arr.slice(1)) {
-		if (i.points > max.points) max = i;
-	}
-	console.log(max);
-	document.querySelector(
-		".top__winner"
-	).innerHTML = `<strong>${max.student_fname} ${max.student_lname}  (${max.points} points)</strong>`;
-	document.querySelector(".top__prize").innerHTML =
-		"<strong>$100 Visa Gift Card</strong>";
+	qEnds.innerHTML = noEnds ? "Quarter end is not today!" : "";
 }
 
 function hideWinners() {
-	let targetWindow = document.querySelector(".winners__window");
+	let targetWindow = document.querySelector("#prize-table");
 	targetWindow.style.display = "none";
+
 }
 
-function generateReport(un) {
-	let users = readFromJSON(path.join(__dirname, "../database/users.json"));
-	let targetUser;
-	for (let usr of users) {
-		if (usr.username === un) {
-			targetUser = usr;
-			break;
-		}
-	}
+async function generateReport(email) {
+	let user = await fb.getUserByEmail(schoolId, email);
 	let win = document.querySelector(".report__window");
 	win.style.display = "block";
 	// console.log(win)
-	console.log(targetUser);
+	console.log(user);
 	document.querySelector(
 		".r__name"
-	).innerHTML = `${targetUser.student_fname} ${targetUser.student_lname}`;
+	).innerHTML = `${user.fname} ${user.lname}`;
 	// document.querySelector('.r__events').innerHTML = acc.events
 
 	let output = "";
-	for (accEvent of targetUser.events) {
-		console.log(accEvent);
+	for (let eventId of user.events) {
 		output += `
       <tr>
-         <td>${accEvent}</td>
+         <td>${(await fb.getEventById(eventId)).eventName}</td>
       </tr>
       `;
 	}
 	document.querySelector(".r__events").innerHTML = output;
 
 	document.querySelector(".r__points").innerHTML =
-		targetUser.points + " points";
+		user.points + " points";
 	// console.log(events);
 	// for (let i = 0; i < accs.length; i++) {
 	//    if (accs[i].username === un) {
@@ -485,7 +570,7 @@ function filterAccounts() {
 	}
 }
 
-function sendMessage() {
+function sendMsg() {
 	let recipient = document.querySelector(".recipient").value;
 	let subjectText = document.querySelector(".subject").value;
 	let messageText = document.querySelector(".message").value;
