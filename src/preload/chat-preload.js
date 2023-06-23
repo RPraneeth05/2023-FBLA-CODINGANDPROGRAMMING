@@ -1,21 +1,29 @@
-import "synonyms";
 const chatLog = document.querySelector('#chat-log');
 const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
 
-
+let syns;
+(async () => syns = await ((await fetch('../database/synonyms.json')).json() ))()
 sendBtn.addEventListener('click', sendMessage);
 window.onload = () => {
 	response = 'I am Eve, your personal chatbot! Ask me any questions that you have!';
 	appendMessage('Eve', response);
 };
-
-function any(msg, iterable) {
-	console.log(iterable)
-    for (var index = 0; index < iterable.length; index++) {
-        if (msg.includes(iterable[index])) return true;
+function synonyms(word) {
+    const results = [];
+    for (let group of syns) {
+        if (group.includes(word)) {
+            for (let word of group) {
+                if (!results.includes(word)) {
+                    results.push(word);
+                }
+            }
+        }
     }
-    return false;
+    return results;
+}
+function any(msg, iterable) {
+	return iterable.includes(msg);
 }
 
 function sendMessage() {
