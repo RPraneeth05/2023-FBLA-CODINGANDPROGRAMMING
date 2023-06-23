@@ -132,22 +132,21 @@
 
       #prize-table {
          border-collapse: collapse;
-         margin: 20px;
+         /* margin: 20px; */
       }
 
       #prize-table th,
       #prize-table td {
-         border: 1px solid black;
-         padding: 5px;
+         /* border: 1px solid black; */
+         padding: .5rem;
       }
 
-      #prize-table th {
-         background-color: lightgray;
-      }
+      /* #prize-table th {
+      } */
 
       .editable {
          cursor: pointer;
-         background-color: lightblue;
+         /* background-color: lightblue; */
       }
 
       .editable input[type="text"] {
@@ -160,6 +159,21 @@
          width: 100%;
          background-color: #66f;
          transition: .15s;
+      }
+
+      #submit-btn,
+      button {
+         width: auto;
+         background-color: #66f;
+         transition: .15s;
+         padding: .5rem;
+         border-radius: .5rem;
+         transition: .15s;
+      }
+
+      #submit-btn:hover,
+      button:hover {
+         transform: translateY(-.25rem)
       }
 
       .btn:hover {
@@ -243,6 +257,10 @@
          height: 2rem;
          padding: .5rem .75rem;
          border-radius: .5rem;
+      }
+
+      .short {
+         width: 20rem;
       }
 
       textarea {
@@ -573,7 +591,7 @@
    </div>
 
    <div class="report__window" style="display:none" id="prize-table">
-      <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top">
+      <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top"><br><br>
       <table>
          <tr>
             <th>Prize</th>
@@ -599,35 +617,35 @@
             <td>Fourth place prize</td>
             <td id="prize4" class="editable"></td>
          </tr>
-      </table>
+      </table><br>
 
       <form style="all:initial" id="quarter-form">
-         <h2>Quarter Dates</h2>
-         <label for="first-quarter-start">First Quarter Start:</label>
-         <input type="date" id="first-quarter-start" required>
+         <h2>Quarter Dates</h2><br>
+         <label for="first-quarter-start">First Quarter Start:</label><br>
+         <input type="date" id="first-quarter-start" class="short" required><br><br>
 
-         <label for="first-quarter-end">First Quarter End:</label>
-         <input type="date" id="first-quarter-end" required>
+         <label for="first-quarter-end">First Quarter End:</label><br>
+         <input type="date" id="first-quarter-end" class="short" required><br><br>
 
-         <label for="second-quarter-start">Second Quarter Start:</label>
-         <input type="date" id="second-quarter-start" required>
+         <label for="second-quarter-start">Second Quarter Start:</label><br>
+         <input type="date" id="second-quarter-start" class="short" required><br><br>
 
-         <label for="second-quarter-end">Second Quarter End:</label>
-         <input type="date" id="second-quarter-end" required>
+         <label for="second-quarter-end">Second Quarter End:</label><br>
+         <input type="date" id="second-quarter-end" class="short" required><br><br>
 
-         <label for="third-quarter-start">Third Quarter Start:</label>
-         <input type="date" id="third-quarter-start" required>
+         <label for="third-quarter-start">Third Quarter Start:</label><br>
+         <input type="date" id="third-quarter-start" class="short" required><br><br>
 
-         <label for="third-quarter-end">Third Quarter End:</label>
-         <input type="date" id="third-quarter-end" required>
+         <label for="third-quarter-end">Third Quarter End:</label><br>
+         <input type="date" id="third-quarter-end" class="short" required><br><br>
 
-         <label for="fourth-quarter-start">Fourth Quarter Start:</label>
-         <input type="date" id="fourth-quarter-start" required>
+         <label for="fourth-quarter-start">Fourth Quarter Start:</label><br>
+         <input type="date" id="fourth-quarter-start" class="short" required><br><br>
 
-         <label for="fourth-quarter-end">Fourth Quarter End:</label>
-         <input type="date" id="fourth-quarter-end" required>
+         <label for="fourth-quarter-end">Fourth Quarter End:</label><br>
+         <input type="date" id="fourth-quarter-end" class="short" required><br><br>
 
-         <button type="submit" id="submit-btn">Save Dates</button>
+         <button type="submit" id="submit-btn redirects">Save Dates</button>
       </form>
 
       <h1 id="qEnds"></h1>
