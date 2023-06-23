@@ -620,3 +620,17 @@ window.setInterval(() => {
 	// console.log(Date.now())
 	// console.log(new Date())
 }, 86400000);
+
+async function popRecs() {
+   let recsList = await fb.loadUsers(schoolId);
+   let recsSel = document.getElementById('populate__recipients');
+
+   for (let user of recsList) {
+      const selOption = document.createElement("option");
+      selOption.value = user.email;
+      selOption.text = user.fname + user.lname;
+      recsSel.appendChild(selOption);
+   }
+}
+
+popRecs();

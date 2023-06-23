@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--The `<head>` section contains meta tags for character encoding, compatibility, and viewport settings. 
+   It also includes a title for the admin dashboard and a link to an external CSS file named "admin.css".-->
 
 <head>
    <meta charset="UTF-8">
@@ -7,6 +9,7 @@
    <title>Document</title>
    <link rel="stylesheet" href="../../common.css">
    <style>
+      /* CSS variables are defined */
       :root {
          --background-col-d: #111;
          --background-col-l: #1b1b1b;
@@ -14,10 +17,12 @@
          --text-col-l: #ccc;
       }
 
+      /* The universal selector (*) is used to apply certain styles to all elements on the page. */
       * {
          color: var(--text-col-l);
       }
 
+      /* Styling for alert boxes */
       .alert__box {
          position: fixed;
          bottom: 2rem;
@@ -33,6 +38,7 @@
          transition: opacity .5s;
       }
 
+      /* Styling for warning boxes */
       .warning__box {
          position: fixed;
          bottom: 2rem;
@@ -48,6 +54,7 @@
          transition: opacity .5s;
       }
 
+      /* Styling for error boxes */
       .error__box {
          position: fixed;
          bottom: 2rem;
@@ -63,6 +70,7 @@
          transition: opacity .5s;
       }
 
+      /* Styling for titles and descriptions within alert, warning, and error boxes */
       .alert__title,
       .alert__description,
       .warning__title,
@@ -72,10 +80,12 @@
          color: var(--text-col-l);
       }
 
+      /* Styling for the fade class */
       .fade {
          opacity: 1;
       }
 
+      /* Styling for placeholders, invalid selects and date inputs */
       ::placeholder,
       select:invalid,
       input[type=date]:invalid::-webkit-datetime-edit {
@@ -83,45 +93,55 @@
          color: var(--text-col-d);
       }
 
+      /* Styling for the calendar picker indicator within date inputs */
       input[type="date"]::-webkit-calendar-picker-indicator {
          /* color: red; */
          filter: invert(1) brightness(.4);
       }
 
+      /* Styling for inline elements */
       .inline {
          display: flex;
          gap: 1rem;
       }
 
+      /* Styling for the redirects class */
       .redirects {
          width: auto;
-         background-color: #66f;
+         color: black;
+         background-color: #6af;
          transition: .15s;
       }
 
+      /* Hover effect for the redirects class */
       .redirects:hover {
          transform: translateY(-.25rem);
       }
 
+      /* Styling for the body element */
       body {
          background-color: var(--background);
       }
 
+      /* Styling for the title class */
       .title {
          font-size: 3rem;
          color: var(--text-col-l);
       }
 
+      /* Styling for the subtitle class */
       .subtitle {
          font-size: 2rem;
          color: var(--text-col-l);
       }
 
+      /* Styling for the heading class */
       .heading {
          font-size: 1.5rem;
          color: var(--text-col-l);
       }
 
+      /* Styling for form elements */
       form {
          position: relative;
          width: 100vw;
@@ -132,22 +152,21 @@
 
       #prize-table {
          border-collapse: collapse;
-         margin: 20px;
+         /* margin: 20px; */
       }
 
       #prize-table th,
       #prize-table td {
-         border: 1px solid black;
-         padding: 5px;
+         /* border: 1px solid black; */
+         padding: .5rem;
       }
 
-      #prize-table th {
-         background-color: lightgray;
-      }
+      /* #prize-table th {
+      } */
 
       .editable {
          cursor: pointer;
-         background-color: lightblue;
+         /* background-color: lightblue; */
       }
 
       .editable input[type="text"] {
@@ -158,14 +177,32 @@
          outline: none;
          border: none;
          width: 100%;
-         background-color: #66f;
+         color: black;
+         background-color: #6af;
          transition: .15s;
+      }
+
+      #submit-btn,
+      button {
+         width: auto;
+         color: black;
+         background-color: #6af;
+         transition: .15s;
+         padding: .5rem;
+         border-radius: .5rem;
+         transition: .15s;
+      }
+
+      #submit-btn:hover,
+      button:hover {
+         transform: translateY(-.25rem)
       }
 
       .btn:hover {
          transform: translateY(-.25rem);
       }
 
+      /* Styling for links */
       .link {
          outline: none;
          border: none;
@@ -174,14 +211,15 @@
          padding: .5rem;
          height: 2rem;
          border-radius: .5rem;
-
          transition: .15s;
       }
 
+      /* Hover effect for links */
       .link:hover {
          transform: translateY(-.25rem);
       }
 
+      /* Styling for right-aligned links */
       .link__r {
          outline: none;
          border: none;
@@ -190,15 +228,16 @@
          padding: .5rem;
          height: 2rem;
          border-radius: .5rem;
-
          transition: .15s;
          width: auto;
       }
 
+      /* Hover effect for right-aligned links */
       .link__r:hover {
          transform: translateY(-.25rem);
       }
 
+      /* Styling for the left__side class */
       .left__side {
          position: fixed;
          background-color: var(--background-col-l);
@@ -212,7 +251,7 @@
       }
 
       .right__side {
-         position: fixed;
+         position: absolute;
          background-color: var(--background-col-l);
          padding: 2rem;
          top: 0;
@@ -223,6 +262,7 @@
          /* overflow-y: hidden; */
       }
 
+      /* Styling for the middle class */
       .middle {
          position: absolute;
          background-color: var(--background-col-d);
@@ -235,6 +275,7 @@
          padding: 2rem 21rem;
       }
 
+      /* Styling for input elements */
       input {
          outline: none;
          border: none;
@@ -243,6 +284,10 @@
          height: 2rem;
          padding: .5rem .75rem;
          border-radius: .5rem;
+      }
+
+      .short {
+         width: 20rem;
       }
 
       textarea {
@@ -257,7 +302,8 @@
          resize: none;
       }
 
-      select {
+      /* Styling for select elements */
+      /* select {
          outline: none;
          border: none;
          width: 100%;
@@ -265,14 +311,31 @@
          height: 2rem;
          padding: .25rem .5rem;
          border-radius: .5rem;
+      } */
+
+      select {
+         border: none;
+         outline: none;
+         background-color: #2b2b2b;
+         color: var(--text-col-l);
+         width: 100%;
+         height: 2rem;
+         padding: .25rem .5rem;
+         border-radius: .5rem;
       }
 
+      option {
+         color: var(--text-col-l);
+      }
+
+      /* Styling for card elements */
       .cards {
          display: flex;
          gap: 1rem;
          /* justify-content: space-between; */
       }
 
+      /* Styling for individual card elements */
       .card {
          width: 100%;
          background-color: #222;
@@ -280,6 +343,7 @@
          border-radius: 1rem;
       }
 
+      /* Styling for ninth, tenth, eleventh, twelfth winners */
       .ninth__winner,
       .tenth__winner,
       .elenventh__winner,
@@ -288,6 +352,7 @@
          font-size: 2rem;
       }
 
+      /* Styling for ninth, tenth, eleventh, twelfth prizes */
       .ninth__prize,
       .tenth__prize,
       .eleventh__prize,
@@ -297,16 +362,19 @@
          color: var(--text-col-d);
       }
 
+      /* Styling for card description */
       .card__description {
          font-size: 1.5rem;
          color: var(--text-col-d);
       }
 
+      /* Styling for search inputs */
       .account__search,
       .event__search {
          width: 20rem;
       }
 
+      /* Styling for various window containers */
       .accounts__holder,
       .events__holder,
       .report__window,
@@ -318,18 +386,12 @@
          transform: translate(-50%);
          min-height: 100vh;
          background-color: #111;
-
          width: 100%;
          /* min-height: 150vh; */
          padding: 2rem 21rem;
       }
 
-      /* .auto__resize {
-         resize: none;
-         width: 100%;
-         border: none;
-      } */
-
+      /* Styling for table holder */
       .table__holder {
          position: relative;
          /* padding: 2rem; */
@@ -338,30 +400,36 @@
          min-height: 100%;
       }
 
+      /* Styling for tables */
       table {
          border-collapse: collapse;
          text-align: center;
          width: 100%;
       }
 
+      /* Styling for table header */
       thead {
          background-color: #2b2b2b;
       }
 
+      /* Styling for table body */
       tbody {
          background-color: #222;
       }
 
+      /* Styling for alternate rows in table */
       tr:nth-child(even) {
          background-color: #2b2b2b;
       }
 
+      /* Styling for table cells */
       th,
       td {
          padding: .5rem;
          width: 16.66667%;
       }
 
+      /* Styling for the floating action button */
       #qm {
          /* z-index: 999; */
          position: fixed;
@@ -374,11 +442,13 @@
          transition: .2s;
       }
 
+      /* Hover effect for the floating action button */
       #qm:hover {
          width: 4.5rem;
          height: 4.5rem;
       }
 
+      /* Styling for the modal */
       #m {
          position: absolute;
          top: 50%;
@@ -504,7 +574,10 @@
       <br><br><br>
       <h1 class="subtitle">Send message</h1>
       <br>
-      <input type="text" class="recipient" placeholder="Recipient">
+      <!-- <input type="text" class="recipient" placeholder="Recipient"> -->
+      <select name="" id="populate__recipients" required multiple>
+         <option value="" invalid selected disabled hidden>Recipient</option>
+      </select>
       <br><br>
       <input type="text" class="subject" placeholder="Subject">
       <br><br>
@@ -573,7 +646,7 @@
    </div>
 
    <div class="report__window" style="display:none" id="prize-table">
-      <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top">
+      <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top"><br><br>
       <table>
          <tr>
             <th>Prize</th>
@@ -599,35 +672,35 @@
             <td>Fourth place prize</td>
             <td id="prize4" class="editable"></td>
          </tr>
-      </table>
+      </table><br>
 
       <form style="all:initial" id="quarter-form">
-         <h2>Quarter Dates</h2>
-         <label for="first-quarter-start">First Quarter Start:</label>
-         <input type="date" id="first-quarter-start" required>
+         <h2>Quarter Dates</h2><br>
+         <label for="first-quarter-start">First Quarter Start:</label><br>
+         <input type="date" id="first-quarter-start" class="short" required><br><br>
 
-         <label for="first-quarter-end">First Quarter End:</label>
-         <input type="date" id="first-quarter-end" required>
+         <label for="first-quarter-end">First Quarter End:</label><br>
+         <input type="date" id="first-quarter-end" class="short" required><br><br>
 
-         <label for="second-quarter-start">Second Quarter Start:</label>
-         <input type="date" id="second-quarter-start" required>
+         <label for="second-quarter-start">Second Quarter Start:</label><br>
+         <input type="date" id="second-quarter-start" class="short" required><br><br>
 
-         <label for="second-quarter-end">Second Quarter End:</label>
-         <input type="date" id="second-quarter-end" required>
+         <label for="second-quarter-end">Second Quarter End:</label><br>
+         <input type="date" id="second-quarter-end" class="short" required><br><br>
 
-         <label for="third-quarter-start">Third Quarter Start:</label>
-         <input type="date" id="third-quarter-start" required>
+         <label for="third-quarter-start">Third Quarter Start:</label><br>
+         <input type="date" id="third-quarter-start" class="short" required><br><br>
 
-         <label for="third-quarter-end">Third Quarter End:</label>
-         <input type="date" id="third-quarter-end" required>
+         <label for="third-quarter-end">Third Quarter End:</label><br>
+         <input type="date" id="third-quarter-end" class="short" required><br><br>
 
-         <label for="fourth-quarter-start">Fourth Quarter Start:</label>
-         <input type="date" id="fourth-quarter-start" required>
+         <label for="fourth-quarter-start">Fourth Quarter Start:</label><br>
+         <input type="date" id="fourth-quarter-start" class="short" required><br><br>
 
-         <label for="fourth-quarter-end">Fourth Quarter End:</label>
-         <input type="date" id="fourth-quarter-end" required>
+         <label for="fourth-quarter-end">Fourth Quarter End:</label><br>
+         <input type="date" id="fourth-quarter-end" class="short" required><br><br>
 
-         <button type="submit" id="submit-btn">Save Dates</button>
+         <button type="submit" id="submit-btn redirects">Save Dates</button>
       </form>
 
       <h1 id="qEnds"></h1>
