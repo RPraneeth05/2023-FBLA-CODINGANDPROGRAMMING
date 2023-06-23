@@ -2,151 +2,153 @@
 <html lang="en">
 <!--The `<head>` section contains meta tags for character encoding, compatibility, and viewport settings. 
    It also includes a title for the admin dashboard and a link to an external CSS file named "admin.css".-->
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
    <link rel="stylesheet" href="../../common.css">
    <style>
-/* CSS variables are defined */
-:root {
-   --background-col-d: #111;
-   --background-col-l: #1b1b1b;
-   --text-col-d: #666;
-   --text-col-l: #ccc;
-}
+      /* CSS variables are defined */
+      :root {
+         --background-col-d: #111;
+         --background-col-l: #1b1b1b;
+         --text-col-d: #666;
+         --text-col-l: #ccc;
+      }
 
-/* The universal selector (*) is used to apply certain styles to all elements on the page. */
-* {
-   color: var(--text-col-l);
-}
+      /* The universal selector (*) is used to apply certain styles to all elements on the page. */
+      * {
+         color: var(--text-col-l);
+      }
 
-/* Styling for alert boxes */
-.alert__box {
-   position: fixed;
-   bottom: 2rem;
-   left: 2rem;
-   background-color: #43834c;
-   z-index: 2147483647;
-   width: 20rem;
-   height: 10rem;
-   padding: 1rem;
-   border-radius: .5rem;
+      /* Styling for alert boxes */
+      .alert__box {
+         position: fixed;
+         bottom: 2rem;
+         left: 2rem;
+         background-color: #43834c;
+         z-index: 2147483647;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
 
-   opacity: 0;
-   transition: opacity .5s;
-}
+         opacity: 0;
+         transition: opacity .5s;
+      }
 
-/* Styling for warning boxes */
-.warning__box {
-   position: fixed;
-   bottom: 2rem;
-   left: 2rem;
-   background-color: #7b5b45;
-   z-index: 2147483647;
-   width: 20rem;
-   height: 10rem;
-   padding: 1rem;
-   border-radius: .5rem;
+      /* Styling for warning boxes */
+      .warning__box {
+         position: fixed;
+         bottom: 2rem;
+         left: 2rem;
+         background-color: #7b5b45;
+         z-index: 2147483647;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
 
-   opacity: 0;
-   transition: opacity .5s;
-}
+         opacity: 0;
+         transition: opacity .5s;
+      }
 
-/* Styling for error boxes */
-.error__box {
-   position: fixed;
-   bottom: 2rem;
-   left: 2rem;
-   background-color: #7b4045;
-   z-index: 2147483647;
-   width: 20rem;
-   height: 10rem;
-   padding: 1rem;
-   border-radius: .5rem;
+      /* Styling for error boxes */
+      .error__box {
+         position: fixed;
+         bottom: 2rem;
+         left: 2rem;
+         background-color: #7b4045;
+         z-index: 2147483647;
+         width: 20rem;
+         height: 10rem;
+         padding: 1rem;
+         border-radius: .5rem;
 
-   opacity: 0;
-   transition: opacity .5s;
-}
+         opacity: 0;
+         transition: opacity .5s;
+      }
 
-/* Styling for titles and descriptions within alert, warning, and error boxes */
-.alert__title,
-.alert__description,
-.warning__title,
-.warning__description,
-.error__title,
-.error__description {
-   color: var(--text-col-l);
-}
+      /* Styling for titles and descriptions within alert, warning, and error boxes */
+      .alert__title,
+      .alert__description,
+      .warning__title,
+      .warning__description,
+      .error__title,
+      .error__description {
+         color: var(--text-col-l);
+      }
 
-/* Styling for the fade class */
-.fade {
-   opacity: 1;
-}
+      /* Styling for the fade class */
+      .fade {
+         opacity: 1;
+      }
 
-/* Styling for placeholders, invalid selects and date inputs */
-::placeholder,
-select:invalid,
-input[type=date]:invalid::-webkit-datetime-edit {
-   /* color: red; */
-   color: var(--text-col-d);
-}
+      /* Styling for placeholders, invalid selects and date inputs */
+      ::placeholder,
+      select:invalid,
+      input[type=date]:invalid::-webkit-datetime-edit {
+         /* color: red; */
+         color: var(--text-col-d);
+      }
 
-/* Styling for the calendar picker indicator within date inputs */
-input[type="date"]::-webkit-calendar-picker-indicator {
-   /* color: red; */
-   filter: invert(1) brightness(.4);
-}
+      /* Styling for the calendar picker indicator within date inputs */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+         /* color: red; */
+         filter: invert(1) brightness(.4);
+      }
 
-/* Styling for inline elements */
-.inline {
-   display: flex;
-   gap: 1rem;
-}
+      /* Styling for inline elements */
+      .inline {
+         display: flex;
+         gap: 1rem;
+      }
 
-/* Styling for the redirects class */
-.redirects {
-   width: auto;
-   background-color: #66f;
-   transition: .15s;
-}
+      /* Styling for the redirects class */
+      .redirects {
+         width: auto;
+         color: black;
+         background-color: #6af;
+         transition: .15s;
+      }
 
-/* Hover effect for the redirects class */
-.redirects:hover {
-   transform: translateY(-.25rem);
-}
+      /* Hover effect for the redirects class */
+      .redirects:hover {
+         transform: translateY(-.25rem);
+      }
 
-/* Styling for the body element */
-body {
-   background-color: var(--background);
-}
+      /* Styling for the body element */
+      body {
+         background-color: var(--background);
+      }
 
-/* Styling for the title class */
-.title {
-   font-size: 3rem;
-   color: var(--text-col-l);
-}
+      /* Styling for the title class */
+      .title {
+         font-size: 3rem;
+         color: var(--text-col-l);
+      }
 
-/* Styling for the subtitle class */
-.subtitle {
-   font-size: 2rem;
-   color: var(--text-col-l);
-}
+      /* Styling for the subtitle class */
+      .subtitle {
+         font-size: 2rem;
+         color: var(--text-col-l);
+      }
 
-/* Styling for the heading class */
-.heading {
-   font-size: 1.5rem;
-   color: var(--text-col-l);
-}
+      /* Styling for the heading class */
+      .heading {
+         font-size: 1.5rem;
+         color: var(--text-col-l);
+      }
 
-/* Styling for form elements */
-form {
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-   display: grid;
-   grid-template-columns: 1fr 5fr 1fr;
-}
+      /* Styling for form elements */
+      form {
+         position: relative;
+         width: 100vw;
+         height: 100vh;
+         display: grid;
+         grid-template-columns: 1fr 5fr 1fr;
+      }
 
       #prize-table {
          border-collapse: collapse;
@@ -175,14 +177,16 @@ form {
          outline: none;
          border: none;
          width: 100%;
-         background-color: #66f;
+         color: black;
+         background-color: #6af;
          transition: .15s;
       }
 
       #submit-btn,
       button {
          width: auto;
-         background-color: #66f;
+         color: black;
+         background-color: #6af;
          transition: .15s;
          padding: .5rem;
          border-radius: .5rem;
@@ -198,53 +202,53 @@ form {
          transform: translateY(-.25rem);
       }
 
-/* Styling for links */
-.link {
-   outline: none;
-   border: none;
-   background-color: #f66;
-   color: var(--text-col-l);
-   padding: .5rem;
-   height: 2rem;
-   border-radius: .5rem;
-   transition: .15s;
-}
+      /* Styling for links */
+      .link {
+         outline: none;
+         border: none;
+         background-color: #f66;
+         color: var(--text-col-l);
+         padding: .5rem;
+         height: 2rem;
+         border-radius: .5rem;
+         transition: .15s;
+      }
 
-/* Hover effect for links */
-.link:hover {
-   transform: translateY(-.25rem);
-}
+      /* Hover effect for links */
+      .link:hover {
+         transform: translateY(-.25rem);
+      }
 
-/* Styling for right-aligned links */
-.link__r {
-   outline: none;
-   border: none;
-   background-color: #f66;
-   color: var(--text-col-l);
-   padding: .5rem;
-   height: 2rem;
-   border-radius: .5rem;
-   transition: .15s;
-   width: auto;
-}
+      /* Styling for right-aligned links */
+      .link__r {
+         outline: none;
+         border: none;
+         background-color: #f66;
+         color: var(--text-col-l);
+         padding: .5rem;
+         height: 2rem;
+         border-radius: .5rem;
+         transition: .15s;
+         width: auto;
+      }
 
-/* Hover effect for right-aligned links */
-.link__r:hover {
-   transform: translateY(-.25rem);
-}
+      /* Hover effect for right-aligned links */
+      .link__r:hover {
+         transform: translateY(-.25rem);
+      }
 
-/* Styling for the left__side class */
-.left__side {
-   position: fixed;
-   background-color: var(--background-col-l);
-   padding: 2rem;
-   top: 0;
-   left: 0;
-   width: 19rem;
-   min-height: 100vh;
-   z-index: 9999;
-   /* overflow-y: hidden; */
-}
+      /* Styling for the left__side class */
+      .left__side {
+         position: fixed;
+         background-color: var(--background-col-l);
+         padding: 2rem;
+         top: 0;
+         left: 0;
+         width: 19rem;
+         min-height: 100vh;
+         z-index: 9999;
+         /* overflow-y: hidden; */
+      }
 
       .right__side {
          position: absolute;
@@ -258,29 +262,29 @@ form {
          /* overflow-y: hidden; */
       }
 
-/* Styling for the middle class */
-.middle {
-   position: absolute;
-   background-color: var(--background-col-d);
-   /* padding: 2rem; */
-   top: 0;
-   left: 50%;
-   transform: translate(-50%);
-   width: 100%;
-   min-height: 100vh;
-   padding: 2rem 21rem;
-}
+      /* Styling for the middle class */
+      .middle {
+         position: absolute;
+         background-color: var(--background-col-d);
+         /* padding: 2rem; */
+         top: 0;
+         left: 50%;
+         transform: translate(-50%);
+         width: 100%;
+         min-height: 100vh;
+         padding: 2rem 21rem;
+      }
 
-/* Styling for input elements */
-input {
-   outline: none;
-   border: none;
-   width: 100%;
-   background-color: #2b2b2b;
-   height: 2rem;
-   padding: .5rem .75rem;
-   border-radius: .5rem;
-}
+      /* Styling for input elements */
+      input {
+         outline: none;
+         border: none;
+         width: 100%;
+         background-color: #2b2b2b;
+         height: 2rem;
+         padding: .5rem .75rem;
+         border-radius: .5rem;
+      }
 
       .short {
          width: 20rem;
@@ -298,145 +302,159 @@ input {
          resize: none;
       }
 
-/* Styling for select elements */
-select {
-   outline: none;
-   border: none;
-   width: 100%;
-   background-color: #2b2b2b;
-   height: 2rem;
-   padding: .25rem .5rem;
-   border-radius: .5rem;
-}
+      /* Styling for select elements */
+      /* select {
+         outline: none;
+         border: none;
+         width: 100%;
+         background-color: #2b2b2b;
+         height: 2rem;
+         padding: .25rem .5rem;
+         border-radius: .5rem;
+      } */
 
-/* Styling for card elements */
-.cards {
-   display: flex;
-   gap: 1rem;
-   /* justify-content: space-between; */
-}
+      select {
+         border: none;
+         outline: none;
+         background-color: #2b2b2b;
+         color: var(--text-col-l);
+         width: 100%;
+         height: 2rem;
+         padding: .25rem .5rem;
+         border-radius: .5rem;
+      }
 
-/* Styling for individual card elements */
-.card {
-   width: 100%;
-   background-color: #222;
-   padding: 2rem;
-   border-radius: 1rem;
-}
+      option {
+         color: var(--text-col-l);
+      }
 
-/* Styling for ninth, tenth, eleventh, twelfth winners */
-.ninth__winner,
-.tenth__winner,
-.elenventh__winner,
-.twelfth__winner,
-.w {
-   font-size: 2rem;
-}
+      /* Styling for card elements */
+      .cards {
+         display: flex;
+         gap: 1rem;
+         /* justify-content: space-between; */
+      }
 
-/* Styling for ninth, tenth, eleventh, twelfth prizes */
-.ninth__prize,
-.tenth__prize,
-.eleventh__prize,
-.twelfth__prize,
-.p {
-   font-size: 1.5rem;
-   color: var(--text-col-d);
-}
+      /* Styling for individual card elements */
+      .card {
+         width: 100%;
+         background-color: #222;
+         padding: 2rem;
+         border-radius: 1rem;
+      }
 
-/* Styling for card description */
-.card__description {
-   font-size: 1.5rem;
-   color: var(--text-col-d);
-}
+      /* Styling for ninth, tenth, eleventh, twelfth winners */
+      .ninth__winner,
+      .tenth__winner,
+      .elenventh__winner,
+      .twelfth__winner,
+      .w {
+         font-size: 2rem;
+      }
 
-/* Styling for search inputs */
-.account__search,
-.event__search {
-   width: 20rem;
-}
+      /* Styling for ninth, tenth, eleventh, twelfth prizes */
+      .ninth__prize,
+      .tenth__prize,
+      .eleventh__prize,
+      .twelfth__prize,
+      .p {
+         font-size: 1.5rem;
+         color: var(--text-col-d);
+      }
 
-/* Styling for various window containers */
-.accounts__holder,
-.events__holder,
-.report__window,
-.winners__window {
-   z-index: 999;
-   position: absolute;
-   top: 0;
-   left: 50%;
-   transform: translate(-50%);
-   min-height: 100vh;
-   background-color: #111;
-   width: 100%;
-   /* min-height: 150vh; */
-   padding: 2rem 21rem;
-}
+      /* Styling for card description */
+      .card__description {
+         font-size: 1.5rem;
+         color: var(--text-col-d);
+      }
 
-/* Styling for table holder */
-.table__holder {
-   position: relative;
-   /* padding: 2rem; */
-   background-color: transparent;
-   /* min-height: calc(100vh - 4rem); */
-   min-height: 100%;
-}
+      /* Styling for search inputs */
+      .account__search,
+      .event__search {
+         width: 20rem;
+      }
 
-/* Styling for tables */
-table {
-   border-collapse: collapse;
-   text-align: center;
-   width: 100%;
-}
+      /* Styling for various window containers */
+      .accounts__holder,
+      .events__holder,
+      .report__window,
+      .winners__window {
+         z-index: 999;
+         position: absolute;
+         top: 0;
+         left: 50%;
+         transform: translate(-50%);
+         min-height: 100vh;
+         background-color: #111;
+         width: 100%;
+         /* min-height: 150vh; */
+         padding: 2rem 21rem;
+      }
 
-/* Styling for table header */
-thead {
-   background-color: #2b2b2b;
-}
+      /* Styling for table holder */
+      .table__holder {
+         position: relative;
+         /* padding: 2rem; */
+         background-color: transparent;
+         /* min-height: calc(100vh - 4rem); */
+         min-height: 100%;
+      }
 
-/* Styling for table body */
-tbody {
-   background-color: #222;
-}
+      /* Styling for tables */
+      table {
+         border-collapse: collapse;
+         text-align: center;
+         width: 100%;
+      }
 
-/* Styling for alternate rows in table */
-tr:nth-child(even) {
-   background-color: #2b2b2b;
-}
+      /* Styling for table header */
+      thead {
+         background-color: #2b2b2b;
+      }
 
-/* Styling for table cells */
-th,
-td {
-   padding: .5rem;
-   width: 16.66667%;
-}
+      /* Styling for table body */
+      tbody {
+         background-color: #222;
+      }
 
-/* Styling for the floating action button */
-#qm {
-   /* z-index: 999; */
-   position: fixed;
-   bottom: 2rem;
-   right: 21rem;
-   border-radius: 5rem;
-   background-color: #66f6;
-   width: 4rem;
-   height: 4rem;
-   transition: .2s;
-}
+      /* Styling for alternate rows in table */
+      tr:nth-child(even) {
+         background-color: #2b2b2b;
+      }
 
-/* Hover effect for the floating action button */
-#qm:hover {
-   width: 4.5rem;
-   height: 4.5rem;
-}
+      /* Styling for table cells */
+      th,
+      td {
+         padding: .5rem;
+         width: 16.66667%;
+      }
 
-/* Styling for the modal */
-#m {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-}
+      /* Styling for the floating action button */
+      #qm {
+         /* z-index: 999; */
+         position: fixed;
+         bottom: 2rem;
+         right: 21rem;
+         border-radius: 5rem;
+         background-color: #66f6;
+         width: 4rem;
+         height: 4rem;
+         transition: .2s;
+      }
 
+      /* Hover effect for the floating action button */
+      #qm:hover {
+         width: 4.5rem;
+         height: 4.5rem;
+      }
+
+      /* Styling for the modal */
+      #m {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
    </style>
 </head>
 
@@ -556,7 +574,10 @@ td {
       <br><br><br>
       <h1 class="subtitle">Send message</h1>
       <br>
-      <input type="text" class="recipient" placeholder="Recipient">
+      <!-- <input type="text" class="recipient" placeholder="Recipient"> -->
+      <select name="" id="populate__recipients" required multiple>
+         <option value="" invalid selected disabled hidden>Recipient</option>
+      </select>
       <br><br>
       <input type="text" class="subject" placeholder="Subject">
       <br><br>
