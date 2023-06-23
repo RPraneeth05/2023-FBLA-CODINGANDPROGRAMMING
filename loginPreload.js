@@ -30,6 +30,15 @@ function errorPopup(title = "Error", description = "Sample error text") {
 }
 
 
+function toggleVisibility() {
+   var x = document.querySelector('.password');
+   if (x.type === "password") {
+      x.type = "text";
+   } else {
+      x.type = "password";
+   }
+}
+
 function populateStateDropdown() {
    for (let school of schools) {
       const stateOption = document.createElement("option");

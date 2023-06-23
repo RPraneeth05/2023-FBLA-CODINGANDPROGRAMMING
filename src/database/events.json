@@ -5,193 +5,64 @@
     "prize": "500",
     "start_date": "03/02/2023",
     "end_date": "03/03/2023",
-    "code": "000000",
-    "participants": [
-      "JSmith07",
-      "RSingh07",
-      "RKrupka",
-      "GKennedy",
-      "LRobbins",
-      "VWrede",
-      "SBoaz",
-      "CJohnson",
-      "GDavis",
-      "JBender",
-      "MSammer",
-      "GHalls",
-      "JaipurK",
-      "DoeJ"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Soccer Match",
     "event_description": "AHS vs Northview",
     "prize": "500",
     "start_date": "02/17/2023",
     "end_date": "02/18/2023",
-    "code": "000000",
-    "participants": [
-      "NallaniS",
-      "PNipper",
-      "LPruett",
-      "APark",
-      "RKrupka",
-      "CFlores",
-      "VWrede",
-      "KTaylor",
-      "SBird",
-      "RNaccarato",
-      "VHill",
-      "ALowe",
-      "LSapp",
-      "JNickles",
-      "AWard",
-      "IDavis"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Tennis tournament",
     "event_description": "Show support to AHS tennis team!",
     "prize": "300",
     "start_date": "02/03/2023",
     "end_date": "02/04/2023",
-    "code": "000000",
-    "participants": [
-      "ADMIN",
-      "RonaldJ",
-      "PNipper",
-      "ALarose",
-      "LRobbins",
-      "WStricker",
-      "WNicholson",
-      "MGibson",
-      "LSapp",
-      "GHalls"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Baseball Game",
     "event_description": "AHS vs Chattahooche",
     "prize": "300",
     "start_date": "03/07/2023",
     "end_date": "03/07/2023",
-    "code": "000000",
-    "participants": [
-      "RonaldJ",
-      "EOlson",
-      "PSorenson",
-      "KTaylor",
-      "WNicholson",
-      "RBlount",
-      "GDavis",
-      "MJensen",
-      "KMinihane"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "State Swim Meet",
     "event_description": "Swim meet at the state level. Show your support!",
     "prize": "400",
     "start_date": "03/07/2023",
     "end_date": "03/09/2023",
-    "code": "000000",
-    "participants": [
-      "PNipper",
-      "APark",
-      "RKrupka",
-      "CFlores",
-      "LWolf",
-      "VDaniel",
-      "JHilgert",
-      "WStricker",
-      "SBird",
-      "RNaccarato",
-      "CTennies",
-      "CVanalstyne",
-      "JNickles",
-      "GHalls",
-      "AWard"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Chess Tournament",
     "event_description": "Chess club joining Georgia Chess tournament.",
     "prize": "800",
     "start_date": "03/10/2023",
     "end_date": "03/12/2023",
-    "code": "000000",
-    "participants": [
-      "JSmith07",
-      "ALarose",
-      "GCaldwell",
-      "BMcfadden",
-      "CFlores",
-      "WStanback",
-      "AWeston",
-      "VWrede",
-      "PSorenson",
-      "CRadtke",
-      "WNicholson",
-      "CJohnson",
-      "RThedford",
-      "JBender",
-      "MSammer",
-      "KMinihane",
-      "AWard",
-      "JaipurK"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Robotics Meet",
     "event_description": "FIRST Robotics Challenge meet! Robotics club members only.",
     "prize": "700",
     "start_date": "03/17/2023",
     "end_date": "03/19/2023",
-    "code": "000000",
-    "participants": [
-      "RonaldJ",
-      "JSmith07",
-      "GCaldwell",
-      "VDaniel",
-      "LRobbins",
-      "JHilgert",
-      "DMacchiarella",
-      "PSorenson",
-      "KTaylor",
-      "CTennies",
-      "CVanalstyne",
-      "ALowe",
-      "MJensen",
-      "JBender",
-      "JaipurK"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Gardening marathon",
     "event_description": "Join AHS Gardening club in planting in the garden! Open to everyone.",
     "prize": "500",
     "start_date": "03/03/2023",
     "end_date": "03/03/2023",
-    "code": "000000",
-    "participants": [
-      "PNipper",
-      "LPruett",
-      "CGanley",
-      "GCaldwell",
-      "CFlores",
-      "WStanback",
-      "LWolf",
-      "JHilgert",
-      "EOlson",
-      "PSorenson",
-      "CRadtke",
-      "VHill",
-      "GDavis",
-      "ALowe",
-      "MJensen",
-      "MSammer"
-    ]
-  },
+    "code": "000000"
+      },
   {
     "event_name": "Art Fair",
     "event_description": "Art Fair in school.",
@@ -207,9 +78,6 @@
     "prize": "1000",
     "start_date": "03/10/2023",
     "end_date": "03/12/2023",
-    "code": "100000",
-    "participants": [
-      "ABinoy"
-    ]
-  }
+    "code": "000000"
+      }
 ]

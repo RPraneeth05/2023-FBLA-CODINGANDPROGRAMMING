@@ -80,6 +80,7 @@ const addSchool = async (school, state, adminEmail) => {
 					adminEmail: adminEmail,
 					adminPass: hashPass,
 					dateCreated: new Date(),
+					prizes: {},
 					studentCount: 0,
 				});
 
@@ -123,6 +124,15 @@ const deleteSchoolById = async (schoolId) => {
 	}
 };
 
+const updateSchool = async (schoolId, updatedFields) => {
+	try {
+		await db.collection("schools").doc(schoolId).update(updatedFields);
+		return true;
+	} catch (error) {
+		console.error("Error updating school:", error);
+		return false;
+	}
+}
 const addEventToSchool = async (
 	schoolId,
 	eventName,
@@ -162,6 +172,7 @@ const addEventToSchool = async (
 		return null;
 	}
 };
+
 
 const updateEvent = async (schoolId, eventId, updatedFields) => {
 	try {
@@ -236,14 +247,8 @@ const getSchoolById = async (schoolId) => {
 			const schoolData = docRef.data();
 			return {
 				ID: docRef.id,
-				State: schoolData.state,
-				School: schoolData.school,
-				adminEmail: schoolData.adminEmail,
-				adminPass: schoolData.adminPass,
-				"# of Students": schoolData.studentCount,
-				"Date Added": schoolData.dateCreated
-					.toDate()
-					.toLocaleDateString(),
+				...schoolData,	
+				
 			};
 		} else {
 			console.log("School not found");
@@ -467,6 +472,7 @@ module.exports = {
 	loadSchools,
 	addSchool,
 	deleteSchoolById,
+	updateSchool,
 	addEventToSchool,
 	addUserToSchool,
 	changeAdminPassword,
@@ -480,4 +486,5 @@ module.exports = {
 	updateEvent,
 	deleteEvent,
 	transporter,
+	db
 };

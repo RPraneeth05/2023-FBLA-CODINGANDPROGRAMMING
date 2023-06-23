@@ -19,10 +19,11 @@ function createWindow() {
 		},
 		title: "EventHive",
 	});
-	// Opening dev tools if the app is in development mode
+	// Opening dev tools if the app is in dexvelopment mode
 	if (isDeveloper) {
 		win.webContents.openDevTools();
 	}
+	
 	win.loadFile("login.html");
 	writeFile(path.join(__dirname, "./src/database/jwt.txt"), "", (err) => {});
 }
