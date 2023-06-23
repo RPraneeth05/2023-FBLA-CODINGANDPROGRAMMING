@@ -173,15 +173,6 @@ async function updateAccounts() {
 	placeholder.innerHTML = output;
 }
 
-function toggleVisibility() {
-   var x = document.querySelector('.password');
-   if (x.type === "password") {
-      x.type = "text";
-   } else {
-      x.type = "password";
-   }
-}
-
 function hideReport() {
 	document.querySelector(".report__window").style.display = "none";
 }
