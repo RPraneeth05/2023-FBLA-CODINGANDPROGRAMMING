@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
 let schoolId = localStorage.getItem("schoolId");
+
 async function changePwd() {
 	const currentPasswordInput = document.getElementById("CP").value;
 	let school = await fb.getSchoolById(schoolId);
@@ -144,6 +145,7 @@ async function updateEvents() {
             `;
 	}
 	placeholder.innerHTML = output;
+	document.getElementById("totalEvents").innerHTML = events.length;
 }
 
 updateEvents();
@@ -171,6 +173,7 @@ async function updateAccounts() {
             `;
 	}
 	placeholder.innerHTML = output;
+	document.getElementById("totalStudents").innerHTML = accounts.length;
 }
 
 function hideReport() {

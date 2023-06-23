@@ -211,7 +211,9 @@ const addUserToSchool = async (
 				points: 0,
 				events: [],
 			});
-
+		await updateSchool(schoolId, {
+			studentCount: (await db.collection("schools").doc(schoolId).collection("users").count().get()).data().count
+		})
 		return {
 			id: userRef.id,
 			fname: fname,
@@ -407,10 +409,11 @@ const deleteEvent = async (schoolId, eventId) => {
 				.doc(schoolId)
 				.collection("users")
 				.doc(userDoc.id);
-
+			let points = userDoc.data().points - eventData.prize;
+			console.log(eventData.points);
 			batch.update(userRef, {
 				events: admin.firestore.FieldValue.arrayRemove(eventId),
-				points: userDoc.points - eventData.points
+				points: points
 			});
 		});
 

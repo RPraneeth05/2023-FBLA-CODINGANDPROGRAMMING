@@ -22,5 +22,8 @@
       "nodemailer": "^6.9.3",
       "random-name": "^0.1.2",
       "synonyms": "^1.0.1"
+   },
+   "devDependencies": {
+      "electron-packager": "^17.1.1"
    }
 }

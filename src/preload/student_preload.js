@@ -270,7 +270,6 @@ async function updateAccounts() {
 				   <td>${account.fname}</td>
 				   <td>${account.lname}</td>
 				   <td>${account.grade}</td>
-               <td>${account.username}</td>
 				   <td>${account.points}</td>
 				</tr>
 			 `;
@@ -354,14 +353,13 @@ function filterAccountsByGrade(boxes) {
 
 async function evs() {
 	let events = await fb.loadEvents(schoolId);
+	events = events.filter(i => i.participants);
+	events.sort((a, b) => b.participants.length - a.participants.length);
 	let placeholder = document.querySelector(".evs");
 	let output = "";
 	let buttonHTML = "";
 	await updateUserData();
-	let i = 0;
 	for (let event of events) {
-		if (i % 2 == 0) {
-			console.log(USERDATA);
 			if (Date.now() < event.startDate) {
 				buttonHTML = "-";
 			} else if (event.participants.includes(USERDATA.email)) {
@@ -374,8 +372,9 @@ async function evs() {
 					   <td>${event.eventName}</td>
 					   <td>${event.eventDesc}</td>
 					   <td>${event.prize}</td>
-					   <td>${event.startDate}</td>
-					   <td>${event.endDate}</td>
+					   <td>${event.startDate.toDate().toLocaleDateString()}</td>
+					   <td>${event.endDate.toDate().toLocaleDateString()}</td>
+					   <td>${event.participants.length}</td>
 					   <td>
 						  <!--<div class="button__bar">-->
 						  ${buttonHTML}
@@ -383,8 +382,6 @@ async function evs() {
 					   </td>
 					</tr>
 				 `;
-		}
-		i++;
 	}
 	placeholder.innerHTML = output;
 }
