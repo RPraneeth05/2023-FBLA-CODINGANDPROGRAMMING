@@ -24,7 +24,8 @@ function createWindow() {
 		win.webContents.openDevTools();
 	}
 	
-	win.loadFile("login.html");
+	win.loadFile("company.html");
+	// win.loadFile("login.html");
 	writeFile(path.join(__dirname, "./src/database/jwt.txt"), "", (err) => {});
 }
 
