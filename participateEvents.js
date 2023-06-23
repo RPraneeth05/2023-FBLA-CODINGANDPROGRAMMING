@@ -1,6 +1,6 @@
 const fb = require("./firebaseHelper");
 
-const schoolId = "dyEt2si1NjKnYp4IjZu1";
+const schoolId = "6loq9Vs0hZYdzFx2mrTH";
 (async () => {
     let users = await fb.loadUsers(schoolId);
     const snapshot = await fb.db
@@ -38,14 +38,17 @@ const schoolId = "dyEt2si1NjKnYp4IjZu1";
 
         // Update the user with the selected events
         for (let e of eventsToAdd) {
-            e.participants.push(user.email);
+            if (e.participants)
+                e.participants.push(user.email);
+            else
+                e['participants'] = []
             await fb.updateEvent(schoolId, e.id, {
                 participants: e.participants
             });
         }
         let points = 0;
-        eventsToAdd.forEach(i => points += i.prize);
-        await fb.updateUser(schoolId, user.id, { events: eventsToAdd.map(i => i.id), points });
+        eventsToAdd.forEach(i => points += Number(i.prize));
+        await fb.updateUser(schoolId, user.id, { events: eventsToAdd.map(i => i.id), points: points });
     }
 
 })()

@@ -88,7 +88,7 @@ const events =[
   
   for (let e of events) {
     fb.addEventToSchool(
-        "dyEt2si1NjKnYp4IjZu1",
+        "6loq9Vs0hZYdzFx2mrTH",
         e.eventName,
         e.eventDesc,
         new Date(e.startDate),

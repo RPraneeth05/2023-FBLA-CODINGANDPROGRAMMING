@@ -87,8 +87,8 @@ async function updateEvents() {
 				   <td>${event.eventName}</td>
 				   <td>${event.eventDesc}</td>
 				   <td>${event.prize}</td>
-				   <td>${event.startDate}</td>
-				   <td>${event.endDate}</td>
+                  <td>${event.startDate.toDate().toLocaleDateString()}</td>
+<td>${event.endDate.toDate().toLocaleDateString()}</td>
 				   <td>
 					  <!--<div class="button__bar">-->
 					  ${buttonHTML}

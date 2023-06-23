@@ -410,6 +410,7 @@ const deleteEvent = async (schoolId, eventId) => {
 
 			batch.update(userRef, {
 				events: admin.firestore.FieldValue.arrayRemove(eventId),
+				points: userDoc.points - eventData.points
 			});
 		});
 

@@ -20,7 +20,7 @@ function createWindow() {
 		title: "EventHive",
 	});
 	// Opening dev tools if the app is in dexvelopment mode
-	if (isDeveloper) {
+	if (!isDeveloper) {
 		win.webContents.openDevTools();
 	}
 	

@@ -5,17 +5,17 @@ const salt = bcrypt.genSaltSync(10);
 
 let schoolId = localStorage.getItem("schoolId");
 async function changePwd() {
-	const currentPasswordInput = document.getElementById("cP").value;
+	const currentPasswordInput = document.getElementById("CP").value;
 	let school = await fb.getSchoolById(schoolId);
 	if (!bcrypt.compareSync(currentPasswordInput, school.adminPass)) {
 		errorPopup("Wrong Password", "Enter the correct current password!");
 		return;
 	}
-	const newPasswordInput = document.getElementById("nP").value;
-	const confirmNewPasswordInput = document.getElementById("cnP").value;
-	document.getElementById("cP").value = "";
-	document.getElementById("nP").value = "";
-	document.getElementById("cnP").value = "";
+	const newPasswordInput = document.getElementById("NP").value;
+	const confirmNewPasswordInput = document.getElementById("CNP").value;
+	document.getElementById("CP").value = "";
+	document.getElementById("NP").value = "";
+	document.getElementById("CNP").value = "";
 	if (
 		!currentPasswordInput ||
 		!newPasswordInput ||
@@ -332,6 +332,7 @@ async function pickWinners() {
 	winnersDiv.hidden = true;
 	let qEnds = document.getElementById("qEnds");
 	let noEnds = true;
+	if (!quarters || !prizes || Object.keys(prizes).length != 5) return
 	for (let [key, val] of Object.entries(quarters)) {
 		if (key.includes("End")) {
 			if (val.toDate().toISOString().slice(0, 10) == today) {
@@ -387,7 +388,7 @@ async function generateReport(email) {
 	for (let eventId of user.events) {
 		output += `
       <tr>
-         <td>${(await fb.getEventById(eventId)).eventName}</td>
+         <td>${(await fb.getEventById(schoolId, eventId)).eventName}</td>
       </tr>
       `;
 	}
@@ -436,8 +437,8 @@ async function createNewEvent() {
 		schoolId,
 		eventName,
 		eventDescription,
-		startDate,
-		endDate,
+		new Date(startDate),
+		new Date(endDate),
 		prize,
 		code
 	);
@@ -462,6 +463,7 @@ async function deleteEvent(id) {
 	await fb.deleteEvent(schoolId, id);
 
 	await updateEvents();
+	await updateAccounts();
 	// let i = r.parentNode.parentNode.rowIndex;
 	// document.querySelector('.events__output').deleteRow(i);
 	// updateAccounts();

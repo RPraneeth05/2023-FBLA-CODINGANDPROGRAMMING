@@ -16,7 +16,7 @@ function generateRandomGrade() {
 // Function to add a user to the database
 async function addUserToDatabase(user) {
   try {
-    const schoolId = 'dyEt2si1NjKnYp4IjZu1';
+    const schoolId = '6loq9Vs0hZYdzFx2mrTH';
     await fb.db.collection('schools').doc(schoolId).collection('users').add(user);
     console.log(`User ${user.fname} ${user.lname} added to the database`);
   } catch (error) {
@@ -31,7 +31,7 @@ async function generateRandomUsers(numUsers) {
     const lastName = random.last();
     const email = generateEmail(firstName, lastName);
     const grade = generateRandomGrade();
-    const password = 'password'; // Replace with the desired password
+    const password = "$2a$10$FBj77ZyWcQ.QOntzjd4xPOxwm1Cay/R/4b.AEpW2xGhg7nK9PfgZG"; // Replace with the desired password
 
     const user = {
       fname: firstName,
