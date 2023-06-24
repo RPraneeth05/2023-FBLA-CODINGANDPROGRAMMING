@@ -45,6 +45,7 @@ const loadSchools = async () => {
 };
 
 const addSchool = async (school, state, adminEmail) => {
+	// Check if the email is valid.
 	if (
 		!String(adminEmail)
 			.toLowerCase()
@@ -60,12 +61,14 @@ const addSchool = async (school, state, adminEmail) => {
 	);
 
 	bcrypt.genSalt(10, async (err, salt) => {
+		// Generate a salt for the current user
 		if (err) {
 			console.error("Error generating salt:", err);
 			return;
 		}
 
 		bcrypt.hash(adminPass, salt, async (err, hash) => {
+			// If the password hashing fails
 			if (err) {
 				console.error("Error hashing password:", err);
 				return;
@@ -94,7 +97,12 @@ const addSchool = async (school, state, adminEmail) => {
 					text: `Username: ${adminEmail}\nPassword: ${adminPass}`,
 				};
 
+				/**
+				* @param error - info The info for the email sent. null if no
+				* @param info
+				*/
 				transporter.sendMail(mailLoad, function (error, info) {
+					// Send email to the server.
 					if (error) {
 						console.log(error);
 					} else {
@@ -116,6 +124,7 @@ const addSchool = async (school, state, adminEmail) => {
 	});
 };
 
+// Processes. deleteSchool and. updateSchool as they are
 const deleteSchoolById = async (schoolId) => {
 	try {
 		await db.collection("schools").doc(schoolId).delete();
@@ -124,6 +133,7 @@ const deleteSchoolById = async (schoolId) => {
 	}
 };
 
+// Updates a school and all events it contains. This is called after the data has been validated
 const updateSchool = async (schoolId, updatedFields) => {
 	try {
 		await db.collection("schools").doc(schoolId).update(updatedFields);
@@ -277,6 +287,7 @@ const getUserByEmail = async (schoolId, email) => {
 			return null;
 		}
 
+		// Loads the user data and users data for all schools in the database and writes them to the database
 		const userDoc = snapshot.docs[0];
 		const userData = userDoc.data();
 		return {
@@ -378,6 +389,7 @@ const getEventById = async (schoolId, eventId) => {
 	}
 };
 
+// Delete an event and all users associated with it. This is used to clean up after a user has deleted an event
 const deleteEvent = async (schoolId, eventId) => {
 	try {
 		const eventDocRef = db
@@ -449,6 +461,7 @@ const deleteUser = async (schoolId, userId) => {
 			.collection("events")
 			.where("participants", "array-contains", userEmail)
 			.get();
+
 
 		const batch = db.batch();
 

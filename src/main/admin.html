@@ -479,16 +479,22 @@
    </div>
 
    <div class="middle">
+      <!-- Dashboard title -->
       <h1 class="title">Dashboard</h1>
       <br>
+      <!-- Events section -->
       <div class="events__holder" style="display: none;" id="events__top">
          <div class="table__holder">
+            <!-- Button to toggle events section -->
             <input type="button" class="redirects" value="Dashboard" onclick="toggleEvents()">
             <br><br>
+            <!-- Current events subtitle -->
             <h1 class="subtitle">Current events</h1>
             <br>
+            <!-- Search input for events -->
             <input type="text" class="event__search" placeholder="Search" onkeyup="filterEvents()">
             <br><br>
+            <!-- Events table -->
             <table>
                <thead>
                   <tr>
@@ -504,19 +510,25 @@
                <tbody class="events__output"></tbody>
             </table>
             <br>
+            <!-- Back to top button -->
             <a href="#events__top">
                <input type="button" value="Back to top" class="link__r">
             </a>
          </div>
       </div>
+      <!-- Accounts section -->
       <div class="accounts__holder" style="display: none;" id="accounts__top">
          <div class="table__holder">
+            <!-- Button to toggle accounts section -->
             <input type="button" class="redirects" value="Dashboard" onclick="toggleAccounts()">
             <br><br>
+            <!-- Current accounts subtitle -->
             <h1 class="subtitle">Current accounts</h1>
             <br>
+            <!-- Search input for accounts -->
             <input type="text" class="account__search" placeholder="Search" onkeyup="filterAccounts()">
             <br><br>
+            <!-- Accounts table -->
             <table>
                <thead>
                   <tr>
@@ -531,23 +543,31 @@
                <tbody class="accounts__output"></tbody>
             </table>
             <br>
+            <!-- Back to top button -->
             <a href="#accounts__top">
                <input type="button" value="Back to top" class="link__r">
             </a>
          </div>
       </div>
+      <!-- Inline buttons -->
       <div class="inline">
+         <!-- Button to view events -->
          <input type="button" class="redirects" value="View events" onclick="toggleEvents()">
+         <!-- Button to view accounts -->
          <input type="button" class="redirects" value="View Accounts" onclick="toggleAccounts()">
+         <!-- Button to pick winners -->
          <input type="button" class="redirects" value="Prizes" onclick="pickWinners()">
       </div>
       <br><br>
+      <!-- Cards section -->
       <div class="cards">
+         <!-- Total students card -->
          <div class="card">
             <h1 class="card__title">Total students</h1>
             <br>
             <h1 class="card__description" id="totalStudents"></h1>
          </div>
+         <!-- Total events card -->
          <div class="card">
             <h1 class="card__title">Total events</h1>
             <br>
@@ -558,11 +578,14 @@
          <span id="m">?</span>
       </div>
    </div>
+   <!-- Left side section -->
    <div class="left__side">
+      <!-- Log out button -->
       <a href="../../login.html">
          <input type="button" value="Log out" class="link">
       </a>
       <br><br><br>
+      <!-- Change password section -->
       <h1 class="subtitle">Change password</h1>
       <br>
       <input type="password" placeholder="Current password" name="" id="CP">
@@ -573,9 +596,11 @@
       <br><br>
       <input type="button" class="btn" value="Change Password" onclick="changePwd()">
       <br><br><br>
+      <!-- Send message section -->
       <h1 class="subtitle">Send message</h1>
       <br>
       <!-- <input type="text" class="recipient" placeholder="Recipient"> -->
+      <!-- Recipient selection dropdown -->
       <select name="" id="populate__recipients" required multiple>
          <option value="" invalid selected disabled hidden>Recipient</option>
       </select>
@@ -588,9 +613,12 @@
 
 
    </div>
+   <!-- Right side section -->
    <div class="right__side">
+      <!-- Create section -->
       <h1 class="subtitle">Create</h1>
       <br><br>
+      <!-- New event form -->
       <h1 class="heading">New event</h1>
       <br>
       <input type="text" class="event__name" placeholder="Event name" required>
@@ -609,6 +637,7 @@
       <br><br>
       <input type="button" class="btn" value="Create event" onclick="createNewEvent()">
       <br><br><br>
+      <!-- New account form -->
       <h1 class="heading">New account</h1>
       <br>
       <input type="text" class="student__name student__fname" placeholder="First name" required>
@@ -628,6 +657,7 @@
       <input type="button" class="btn" value="Create account" onclick="createNewAccount()">
    </div>
 
+<<<<<<< HEAD
    <div class="report__window" id='parsEvs' style="display: none;">
       <input type="button" class="redirects" value="Go back" onclick="hideParticipants()">
       <br>
@@ -649,6 +679,9 @@
 
       </div>
    </div>
+=======
+   <!-- Report window -->
+>>>>>>> a6a893159d467de85f65e49ed816e8539fcf2971
    <div class="report__window" style="display: none;">
       <input type="button" class="redirects" value="Go back" onclick="hideReport()" id="the__top">
       <br><br>
@@ -666,6 +699,7 @@
       <h1 class="r__points heading">000</h1>
    </div>
 
+   <!-- Prize table -->
    <div class="report__window" style="display:none" id="prize-table">
       <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top"><br><br>
       <table>
@@ -695,6 +729,7 @@
          </tr>
       </table><br>
 
+      <!-- Quarter Dates form -->
       <form style="all:initial" id="quarter-form">
          <h2>Quarter Dates</h2><br>
          <label for="first-quarter-start">First Quarter Start:</label><br>
@@ -726,13 +761,14 @@
 
       <h1 id="qEnds"></h1>
       <div hidden id="prizes">
-
+         <!-- Random Winners -->
          <h1>Random Winners from Each Grade</h1>
          <p id="rand9"></p>
          <p id="rand10"></p>
          <p id="rand11"></p>
          <p id="rand12"></p>
 
+         <!-- Top 4 Winners -->  
          <h1>Top 4 Winners with Most Points!</h1>
          <p id="pprize1"></p>
          <p id="pprize2"></p>
@@ -743,10 +779,15 @@
       </div>
    </div>
 
+<<<<<<< HEAD
    <img src="../../logo.png" alt=""
       style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
+=======
+   <!-- Logo -->
+   <img src="../../logo.png" alt="" style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
+>>>>>>> a6a893159d467de85f65e49ed816e8539fcf2971
 
-
+   <!-- JavaScript -->
    <script src="../preload/admin_preload.js"></script>
 </body>
 
