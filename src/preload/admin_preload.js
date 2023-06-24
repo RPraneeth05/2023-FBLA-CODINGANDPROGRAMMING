@@ -139,6 +139,7 @@ async function updateEvents() {
                      <!--<div class="button__bar">-->
                         <!--<input type="button" onclick="editEvent()" value="Edit">-->
                         <input type="button" onclick="deleteEvent('${event.id}')" value="Delete">
+                        <input type="button" onclick="showParticipants('${event.id}')" value="Show Participants">
                      <!--</div>-->
                   </td>
                </tr>
@@ -149,7 +150,21 @@ async function updateEvents() {
 }
 
 updateEvents();
+async function showParticipants(eventId) {
+   let participants = (await fb.getEventById(schoolId, eventId)).participants;
+   document.querySelector('#parsEvs').style.display = "block";
 
+
+   let table = document.getElementById("pTT");
+   table.innerHTML = `
+         <thead>
+            <tr>
+               <th>Email</th>
+            </tr>
+         </thead>
+   `;
+   participants.forEach((i) => table.innerHTML += `<tr><td>${i}</td></tr>`);
+}
 async function updateAccounts() {
    let accounts = await fb.loadUsers(schoolId);
    let placeholder = document.querySelector(".accounts__output");
@@ -178,6 +193,9 @@ async function updateAccounts() {
 
 function hideReport() {
    document.querySelector(".report__window").style.display = "none";
+}
+function hideParticipants() {
+   document.querySelector("#parsEvs").style.display = "none";
 }
 
 async function deleteAccount(id) {
@@ -375,6 +393,96 @@ function hideWinners() {
    targetWindow.style.display = "none";
 
 }
+function hidePointsSG() {
+	document.getElementById('pointsSG').style.display='none';
+}
+async function pointsSG() {
+   let users = await fb.loadUsers(schoolId);
+
+   // Separate users into grade-specific arrays
+   let grade9Users = [];
+   let grade10Users = [];
+   let grade11Users = [];
+   let grade12Users = [];
+
+   users.forEach(user => {
+      if (user.grade === 9) {
+         grade9Users.push(user);
+      } else if (user.grade === 10) {
+         grade10Users.push(user);
+      } else if (user.grade === 11) {
+         grade11Users.push(user);
+      } else if (user.grade === 12) {
+         grade12Users.push(user);
+      }
+   });
+
+   // Sort users in each grade array based on points (assuming points is a numeric property)
+   grade9Users.sort((a, b) => b.points - a.points);
+   grade10Users.sort((a, b) => b.points - a.points);
+   grade11Users.sort((a, b) => b.points - a.points);
+   grade12Users.sort((a, b) => b.points - a.points);
+
+   // Create the table HTML
+   let tableHTML = `
+      <table>
+         <thead>
+            <tr>
+               <th>Grade 9</th>
+               <th>Grade 10</th>
+               <th>Grade 11</th>
+               <th>Grade 12</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style='vertical-align: top'>${generateUserTable(grade9Users)}</td>
+               <td style='vertical-align: top'>${generateUserTable(grade10Users)}</td>
+               <td style='vertical-align: top'>${generateUserTable(grade11Users)}</td>
+               <td style='vertical-align: top'>${generateUserTable(grade12Users)}</td>
+            </tr>
+         </tbody>
+      </table>
+   `;
+
+   // Set the HTML content of tblPointsSG
+   document.getElementById('tblPointsSG').innerHTML = tableHTML;
+   document.getElementById('pointsSG').style.display = "block";
+} 
+
+// Helper function to generate the HTML table for a grade-specific user array
+// Helper function to generate the HTML table for a grade-specific user array
+// Helper function to generate the HTML table for a grade-specific user array
+function generateUserTable(users) {
+   let tableHTML = `
+      <table style="margin-top: 0;">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Points</th>
+            </tr>
+         </thead>
+         <tbody>
+   `;
+
+   users.forEach(user => {
+      tableHTML += `
+         <tr>
+            <td style="vertical-align: top">${user.fname} ${user.lname}</td>
+            <td style="vertical-align: top">${user.points}</td>
+         </tr>
+      `;
+   });
+
+   tableHTML += `
+         </tbody>
+      </table>
+   `;
+
+   return tableHTML;
+}
+
+
 
 async function generateReport(email) {
    let user = await fb.getUserByEmail(schoolId, email);
