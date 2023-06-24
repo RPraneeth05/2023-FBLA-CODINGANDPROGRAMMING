@@ -7,6 +7,9 @@ const path = require("path");
 const isDeveloper = process.env.NODE_ENV !== "production";
 
 // Function to create a new browser window
+/**
+* Creates a window to run EventHive. This is called by createWindow () and should not be called directly
+*/
 function createWindow() {
 	const win = new BrowserWindow({
 		width: 1920,
@@ -20,6 +23,7 @@ function createWindow() {
 		title: "EventHive",
 	});
 	// Opening dev tools if the app is in dexvelopment mode
+	// Open the web tools if the browser is not a developer.
 	if (!isDeveloper) {
 		win.webContents.openDevTools();
 	}
@@ -34,11 +38,13 @@ app.whenReady().then(() => {
 	createWindow();
 	// Recreating the window if it's activated
 	app.on("activate", () => {
+		// Creates a new window if not already created.
 		if (BrowserWindow.getAllWindows().length === 0) createWindow();
 	});
 });
 
 // Closing the app when all windows are closed
 app.on("window-all-closed", () => {
+	// quit the application if the current platform is not a Mac OS X.
 	if (process.platform !== "darwin") app.quit();
 });

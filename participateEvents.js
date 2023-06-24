@@ -1,3 +1,4 @@
+// Generates the set of rules for a user school. This is used to determine which documents are affected
 const fb = require("./firebaseHelper");
 
 const schoolId = "6loq9Vs0hZYdzFx2mrTH";

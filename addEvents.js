@@ -1,4 +1,7 @@
+// This file is part of firebase - core. The firebase - core is free software : you can redistribute it and / or modify it under the terms of the GNU General Public License as published by the Free Software Foundation either version 3 of the License or ( at your option ) any later version. Further the content of this file is subject to the Mozilla Public License Version 1. 1 ( the " License " ) ; you may not use this file except in compliance with the License. You may obtain a copy of the License at Unless required by applicable law or agreed to in writing software distributed under
+// Import the firebaseHelper module
 const fb = require("./firebaseHelper");
+// default events- Additional events can be added
 const events =[
     {
       "eventName": "Basketball Game",
@@ -86,14 +89,16 @@ const events =[
   ]
 
   
+  // Iterate over each event and add it to the school in Firebase
   for (let e of events) {
+    // Call the addEventToSchool function from the firebaseHelper module
     fb.addEventToSchool(
-        "6loq9Vs0hZYdzFx2mrTH",
-        e.eventName,
-        e.eventDesc,
-        new Date(e.startDate),
-        new Date(e.endDate),
-        e.prize,
-        e.code
-    )
+      "6loq9Vs0hZYdzFx2mrTH", // School ID
+      e.eventName, // Event name
+      e.eventDesc, // Event description
+      new Date(e.startDate), // Convert start date string to Date object
+      new Date(e.endDate), // Convert end date string to Date object
+      e.prize, // Prize amount
+      e.code // Event code
+    );
   }
