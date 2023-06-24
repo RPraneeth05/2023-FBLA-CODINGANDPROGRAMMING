@@ -1,12 +1,8 @@
-// Importing required modules
 const path = require("path");
 const fs = require("fs");
 const fb = require("../../firebaseHelper");
 const bcrypt = require("bcryptjs");
-// Function to read data from a JSON file
-function readFromJSON(file) {
-	return JSON.parse(fs.readFileSync(file));
-}
+
 let schoolId = localStorage.getItem("schoolId");
 let userEmail = localStorage.getItem("email");
 let USERDATA;
