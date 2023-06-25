@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Interactive Chatbot Assistant</title>
-    <link rel="stylesheet" href="chat.css">
-</head>
+    <link rel="stylesheet" href="chat.css" />
+  </head>
 
-<body>
+  <body>
     <!-- The <div class="container"> element is a container that wraps the entire chat interface. -->
     <div class="container">
-        <div class="chat-container">
-            <!-- The <div class="chat-header"> element displays the title of the chatbot assistant, which is 
+      <div class="chat-container">
+        <!-- The <div class="chat-header"> element displays the title of the chatbot assistant, which is 
                 "Interactive Chatbot Assistant."-->
-            <div class="chat-header">
-                Interactive Chatbot Assistant
-            </div>
-            <!-- The <div id="chat-log"> element is an empty container where the chat messages will be displayed. 
+        <div class="chat-header">Interactive Chatbot Assistant</div>
+        <!-- The <div id="chat-log"> element is an empty container where the chat messages will be displayed. 
                 This element will have a scrollbar when the content overflows.-->
-            <div id="chat-log"></div>
-            <div id="chat-form">
-                <!-- The <div id="chat-form"> element represents the form section where the user can input 
+        <div id="chat-log"></div>
+        <div id="chat-form">
+          <!-- The <div id="chat-form"> element represents the form section where the user can input 
                      their messages. -->
-                <input type="text" id="chat-input" placeholder="Type your message here...">
-                <button id="send-btn">Send</button>
-            </div>
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Type your message here..."
+          />
+          <button id="send-btn">Send</button>
         </div>
+      </div>
     </div>
     <!-- The <script> element includes an external JavaScript file that contains the logic and functionality 
         for the chatbot assistant. -->
     <script src="../preload/chat-preload.js"></script>
-    <style>
-     
-    </style>
-</body>
-
+    <style></style>
+  </body>
 </html>

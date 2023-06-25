@@ -1,64 +1,63 @@
 /* Two fonts are imported from Google Fonts: JetBrains Mono and Fira Code. */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 
 #qm {
-   border-radius: 5px;
-   background-color: #6969ff;
-   width: 50px;
-   height: 50px;
-   display: block;
+  border-radius: 5px;
+  background-color: #6969ff;
+  width: 50px;
+  height: 50px;
+  display: block;
 }
 
 /* The universal selector (*) is used to apply certain styles to all elements on the page. */
 * {
-   /* font-family: 'JetBrains Mono', monospace; */
-   font-family: 'Fira Code', monospace;
-   user-select: none;
-   padding: 0;
-   margin: 0;
-   color: #aaa;
-   scrollbar-width: none;
+  /* font-family: 'JetBrains Mono', monospace; */
+  font-family: "Fira Code", monospace;
+  user-select: none;
+  padding: 0;
+  margin: 0;
+  color: #aaa;
+  scrollbar-width: none;
 }
 
 #user_data {
-   position: absolute;
-   top: 3rem;
-   left: 1rem;
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
 }
 
 #logoutPage {
-   position: absolute;
-   top: 1rem;
-   left: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 *::-webkit-scrollbar {
-   display: none;
+  display: none;
 }
 
 body {
-   background-color: #222;
+  background-color: #222;
 }
 
 /* li {
    list-style: none;
 } */
 
-input[type=checkbox] {
-   width: auto;
+input[type="checkbox"] {
+  width: auto;
 }
 
 /* Link Styling */
 a {
-   text-decoration: none;
-   color: #6969ff;
+  text-decoration: none;
+  color: #6969ff;
 }
 
 a:hover {
-   text-decoration: underline;
+  text-decoration: underline;
 }
-
 
 /* header {
    background-color: #000;
@@ -106,39 +105,39 @@ a:hover {
    transition: .3s;
 } */
 #toggleLeaderboard {
-   position: absolute;
-   top: 9rem;
-   left: 1rem;
+  position: absolute;
+  top: 9rem;
+  left: 1rem;
 }
 
 .pos {
-   position: absolute;
-   top: 12rem;
-   left: 1rem;
+  position: absolute;
+  top: 12rem;
+  left: 1rem;
 }
 
 .stats__container {
-   width: 100%;
-   display: grid;
-   /* grid-auto-columns: 100px; */
-   grid-template-columns: 1fr 1fr 1fr;
-   /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-   gap: 1rem;
+  width: 100%;
+  display: grid;
+  /* grid-auto-columns: 100px; */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  gap: 1rem;
 }
 
 .stats__box {
-   /* width: calc(100% - 2rem); */
-   height: auto;
-   background-color: #333;
-   border-radius: .5rem;
-   padding: 1rem;
+  /* width: calc(100% - 2rem); */
+  height: auto;
+  background-color: #333;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .nav__link:hover {
-   background: linear-gradient(to bottom right, #9867f0, #ed4e50);
-   color: #000;
-   border-radius: .5rem;
-   padding: .5rem;
+  background: linear-gradient(to bottom right, #9867f0, #ed4e50);
+  color: #000;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 /* Layout Styling:
@@ -146,228 +145,227 @@ a:hover {
       The web page is divided into three sections: left side, middle, and right side.
       Each section has a background color of #1b1b1b (a dark gray) and padding for spacing. */
 form {
-   position: relative;
-   width: 100%;
-   display: grid;
-   grid-template-columns: 1fr 5fr 1fr;
-   height: 100vh;
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  height: 100vh;
 }
 
 .left__side {
-   background-color: #1b1b1b;
-   position: fixed;
-   padding: 2rem;
-   top: 0;
-   left: 0;
-   width: 12rem;
-   height: 100vh;
+  background-color: #1b1b1b;
+  position: fixed;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  width: 12rem;
+  height: 100vh;
 }
 
 .middle {
-   background-color: #222;
-   position: absolute;
-   top: 0;
-   left: 50%;
-   transform: translateX(-50%);
-   padding: 2rem;
-   width: calc(100% - 36rem);
+  background-color: #222;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2rem;
+  width: calc(100% - 36rem);
 }
 
 .right__side {
-   background-color: #1b1b1b;
-   position: fixed;
-   padding: 2rem;
-   top: 0;
-   right: 0;
-   width: 12rem;
-   height: 100vh;
+  background-color: #1b1b1b;
+  position: fixed;
+  padding: 2rem;
+  top: 0;
+  right: 0;
+  width: 12rem;
+  height: 100vh;
 }
 
 .wrapper {
-   width: 100%;
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .left,
 .right {
-   background-color: #1b1b1b;
-   position: relative;
-   padding: 1rem;
-
+  background-color: #1b1b1b;
+  position: relative;
+  padding: 1rem;
 }
 
 /* Different heading and text styles are defined using h1, h2, label, span, and p selectors. */
 h1 {
-   font-size: 2rem;
+  font-size: 2rem;
 }
 
 h2 {
-   font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 label,
 span,
 p {
-   font-size: 1rem;
+  font-size: 1rem;
 }
 
 ::placeholder {
-   color: #777;
+  color: #777;
 }
 
 .statistics {
-   width: 100%;
-   background-color: transparent;
-   height: auto;
+  width: 100%;
+  background-color: transparent;
+  height: auto;
 }
 
 .events__holder,
 .accounts__holder {
-   position: absolute;
-   width: 100%;
-   top: 0;
-   left: 0;
-   z-index: 1;
-   background-color: #222;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #222;
 }
 
 .popular {
-   position: absolute;
-   width: 100%;
-   top: 0;
-   left: 0;
-   z-index: 1;
-   background-color: #222;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #222;
 }
 
 .table__holder {
-   position: relative;
-   padding: 2rem;
-   min-height: 100vh;
+  position: relative;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
 table {
-   border-collapse: collapse;
-   text-align: center;
-   width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
 }
 
 thead {
-   background-color: #3b3b3b;
+  background-color: #3b3b3b;
 }
 
 tbody {
-   background-color: #333;
+  background-color: #333;
 }
 
 /* Alternating rows have different background colors to improve readability. */
 tr:nth-child(even) {
-   background-color: #3b3b3b;
+  background-color: #3b3b3b;
 }
 
 th,
 td {
-   padding: .5rem;
-   width: 16.66667%;
+  padding: 0.5rem;
+  width: 16.66667%;
 }
 
 .button__bar {
-   display: flex;
-   gap: .5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 /* Input and select elements have a consistent appearance with rounded corners and specific background colors. */
 input {
-   border-radius: .25rem;
-   padding: .25rem;
-   border: none;
-   width: calc(100% - .5rem);
-   background-color: #333;
-   color: #aaa;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  border: none;
+  width: calc(100% - 0.5rem);
+  background-color: #333;
+  color: #aaa;
 }
 
 select {
-   border-radius: .25rem;
-   padding: .25rem;
-   border: none;
-   width: 100%;
-   background-color: #333;
-   color: #777;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  border: none;
+  width: 100%;
+  background-color: #333;
+  color: #777;
 }
 
 .event__search,
 .account__search {
-   width: 10rem;
+  width: 10rem;
 }
 
-input[type=date] {
-   color: #777;
+input[type="date"] {
+  color: #777;
 }
 
-input[type=button] {
-   background-color: #9a9aff;
-   transition: .15s;
-   width: auto;
-   color: #000;
+input[type="button"] {
+  background-color: #9a9aff;
+  transition: 0.15s;
+  width: auto;
+  color: #000;
 }
 
-input[type=button]:hover {
-   cursor: pointer;
-   padding: .5rem;
+input[type="button"]:hover {
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
-input[type=radio] {
-   width: auto;
+input[type="radio"] {
+  width: auto;
 }
 
 /* Three types of alert boxes are defined: alert, warning, and error.
    These boxes are positioned at the bottom right corner of the page and have different background colors.
    Initially, the opacity of the boxes is set to 0, and they fade in with a transition effect. */
 .alert__box {
-   position: fixed;
-   bottom: 2rem;
-   right: 2rem;
-   background-color: #aaa;
-   z-index: 2;
-   width: 20rem;
-   height: 10rem;
-   padding: 1rem;
-   border-radius: .5rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #aaa;
+  z-index: 2;
+  width: 20rem;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 
-   opacity: 0;
-   transition: opacity .5s;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .warning__box {
-   position: fixed;
-   bottom: 2rem;
-   right: 2rem;
-   background-color: #ffb85c;
-   z-index: 2;
-   width: 20rem;
-   height: 10rem;
-   padding: 1rem;
-   border-radius: .5rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #ffb85c;
+  z-index: 2;
+  width: 20rem;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 
-   opacity: 0;
-   transition: opacity .5s;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .error__box {
-   position: fixed;
-   bottom: 2rem;
-   right: 2rem;
-   background-color: #ff6969;
-   z-index: 2;
-   width: 20rem;
-   height: 10rem;
-   padding: 1rem;
-   border-radius: .5rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #ff6969;
+  z-index: 2;
+  width: 20rem;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 
-   opacity: 0;
-   transition: opacity .5s;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .alert__title,
@@ -376,11 +374,11 @@ input[type=radio] {
 .warning__description,
 .error__title,
 .error__description {
-   color: #333;
+  color: #333;
 }
 
 .fade {
-   opacity: 1;
+  opacity: 1;
 }
 
 /* #leaderboard {} */

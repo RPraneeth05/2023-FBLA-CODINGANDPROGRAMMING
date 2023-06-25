@@ -1,85 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-   <!-- Meta tags -->
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- <link rel="stylesheet" href="student.css"> -->
-   <!-- External CSS file -->
-   <link rel="stylesheet" href="../../common.css">
-   <!-- Title -->
-   <title>Document</title>
-   <style>
+  <head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="student.css"> -->
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="../../common.css" />
+    <!-- Title -->
+    <title>Document</title>
+    <style>
       :root {
-         /* Defining color variables for background and text */
-         --background-col-d: #111;
-         --background-col-l: #1b1b1b;
-         --text-col-d: #666;
-         --text-col-l: #ccc;
+        /* Defining color variables for background and text */
+        --background-col-d: #111;
+        --background-col-l: #1b1b1b;
+        --text-col-d: #666;
+        --text-col-l: #ccc;
       }
 
       /* Setting text color for all elements to the light text color variable */
       * {
-         color: var(--text-col-l);
+        color: var(--text-col-l);
       }
 
       /* Setting background color of the body */
       body {
-         background-color: #1b1b1b;
+        background-color: #1b1b1b;
       }
 
       /* Styling for the alert box */
       .alert__box {
-         /* Positioning and dimensions */
-         position: fixed;
-         bottom: 2rem;
-         left: 2rem;
-         /* Background color and z-index */
-         background-color: #43834c;
-         z-index: 2147483647;
-         width: 20rem;
-         height: 10rem;
-         padding: 1rem;
-         border-radius: .5rem;
-         /* Opacity and transition for fade effect */
-         opacity: 0;
-         transition: opacity .5s;
+        /* Positioning and dimensions */
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        /* Background color and z-index */
+        background-color: #43834c;
+        z-index: 2147483647;
+        width: 20rem;
+        height: 10rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        /* Opacity and transition for fade effect */
+        opacity: 0;
+        transition: opacity 0.5s;
       }
 
       /* Styling for the warning box */
       .warning__box {
-         /* Positioning and dimensions */
-         position: fixed;
-         bottom: 2rem;
-         left: 2rem;
-         background-color: #7b5b45;
-         z-index: 2147483647;
-         width: 20rem;
-         height: 10rem;
-         padding: 1rem;
-         border-radius: .5rem;
+        /* Positioning and dimensions */
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        background-color: #7b5b45;
+        z-index: 2147483647;
+        width: 20rem;
+        height: 10rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
 
-         opacity: 0;
-         transition: opacity .5s;
+        opacity: 0;
+        transition: opacity 0.5s;
       }
 
       /* Styling for the error box */
       .error__box {
-         /* Positioning and dimensions */
-         position: fixed;
-         bottom: 2rem;
-         left: 2rem;
-         background-color: #7b4045;
-         z-index: 2147483647;
-         width: 20rem;
-         height: 10rem;
-         padding: 1rem;
-         border-radius: .5rem;
+        /* Positioning and dimensions */
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        background-color: #7b4045;
+        z-index: 2147483647;
+        width: 20rem;
+        height: 10rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
 
-         opacity: 0;
-         transition: opacity .5s;
+        opacity: 0;
+        transition: opacity 0.5s;
       }
 
       /* Styling for the titles and descriptions in the alert, warning, and error boxes */
@@ -89,396 +88,458 @@
       .warning__description,
       .error__title,
       .error__description {
-         color: var(--text-col-l);
+        color: var(--text-col-l);
       }
 
       /* Styling for the fade effect */
       .fade {
-         opacity: 1;
+        opacity: 1;
       }
 
       /* Styling for the container */
       .container {
-         /* Creating a grid with three columns */
-         display: grid;
-         grid-template-columns: 1fr 3fr 1.5fr;
+        /* Creating a grid with three columns */
+        display: grid;
+        grid-template-columns: 1fr 3fr 1.5fr;
       }
 
       /* Styling for the left side of the container */
       .left__side {
-         /* Positioning and dimensions */
-         background-color: #1b1b1b;
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 20rem;
+        /* Positioning and dimensions */
+        background-color: #1b1b1b;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20rem;
       }
 
       /* Styling for the right side of the container */
       .right__side {
-         /* Positioning and dimensions */
-         background-color: #1b1b1b;
-         position: absolute;
-         top: 0;
-         right: 0;
-         width: 30rem;
+        /* Positioning and dimensions */
+        background-color: #1b1b1b;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30rem;
       }
 
       /* Styling for the middle section of the container */
       .middle {
-         /* Positioning and dimensions */
-         background-color: #111;
-         position: absolute;
-         top: 0;
-         /* left: 0; */
-         width: calc(100% - 50rem);
-         margin: 0 30rem 0 20rem;
-         /* height: 100vh; */
+        /* Positioning and dimensions */
+        background-color: #111;
+        position: absolute;
+        top: 0;
+        /* left: 0; */
+        width: calc(100% - 50rem);
+        margin: 0 30rem 0 20rem;
+        /* height: 100vh; */
       }
 
       /* Styling for the left side, middle, and right side sections */
       .left__side,
       .middle,
       .right__side {
-         padding: 2rem;
-         min-height: 100vh;
+        padding: 2rem;
+        min-height: 100vh;
       }
 
       /* Styling for the logout page element */
       #logoutPage {
-         /* Dimensions, border, and background color */
-         padding: .5rem;
-         width: 100%;
-         border-radius: .5rem;
-         background-color: #f66;
-         border: none;
-         outline: none;
+        /* Dimensions, border, and background color */
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: #f66;
+        border: none;
+        outline: none;
       }
 
       /* Styling for the h2 element within #user_data */
       #user_data h2 {
-         /* Font size and text color */
-         font-size: 2rem;
-         color: #66f;
+        /* Font size and text color */
+        font-size: 2rem;
+        color: #66f;
       }
 
       /* Styling for the toggleLeaderboard, togglePE, and change elements */
       #toggleLeaderboard,
       #togglePE,
       .change {
-         /* Dimensions, border, and background color */
-         padding: .5rem;
-         width: 100%;
-         border-radius: .5rem;
-         background-color: #66f;
-         border: none;
-         outline: none;
+        /* Dimensions, border, and background color */
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: #66f;
+        border: none;
+        outline: none;
       }
 
       /* Styling for the top class */
       .top {
-         /* Dimensions, border, and background color */
-         padding: .5rem;
-         border-radius: .5rem;
-         background-color: #66f;
-         border: none;
-         outline: none;
+        /* Dimensions, border, and background color */
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: #66f;
+        border: none;
+        outline: none;
       }
 
       /* Styling for input[type=button] and button elements */
-      input[type=button],
+      input[type="button"],
       button {
-         /* Dimensions, border, and background color */
-         padding: .5rem;
-         /* width: 100%; */
-         border-radius: .5rem;
-         background-color: #66f;
-         border: none;
-         outline: none;
-         transition: .15s;
+        /* Dimensions, border, and background color */
+        padding: 0.5rem;
+        /* width: 100%; */
+        border-radius: 0.5rem;
+        background-color: #66f;
+        border: none;
+        outline: none;
+        transition: 0.15s;
       }
 
       /* Styling for input[type=button]:hover and button:hover */
-      input[type=button]:hover,
+      input[type="button"]:hover,
       button:hover {
-         transform: translateY(-.25rem);
+        transform: translateY(-0.25rem);
       }
 
       /* Styling for h3 elements */
-h3 {
-   /* Font size */
-   font-size: 1.5rem;
-}
+      h3 {
+        /* Font size */
+        font-size: 1.5rem;
+      }
 
       /* Styling for h1 elements within the middle section */
       .middle h1 {
-         /* Font size */
-         font-size: 3rem;
+        /* Font size */
+        font-size: 3rem;
       }
 
       /* Styling for h2 elements within the middle and right__side sections */
       .middle h2,
       .right__side h2 {
-         /* Font size */
-         font-size: 2rem;
+        /* Font size */
+        font-size: 2rem;
       }
 
       /* Styling for input[type=password] elements */
-      input[type=password] {
-         /* Dimensions, border, and background color */
-         width: 100%;
-         height: 2rem;
-         padding: .5rem;
-         border-radius: .5rem;
-         background-color: #333;
-         outline: none;
-         border: none;
+      input[type="password"] {
+        /* Dimensions, border, and background color */
+        width: 100%;
+        height: 2rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: #333;
+        outline: none;
+        border: none;
       }
 
       /* Styling for input[type=text] elements */
-      input[type=text] {
-         /* Dimensions, border, and background color */
-         /* width: 100%; */
-         height: 2rem;
-         padding: .5rem;
-         border-radius: .5rem;
-         background-color: #333;
-         outline: none;
-         border: none;
+      input[type="text"] {
+        /* Dimensions, border, and background color */
+        /* width: 100%; */
+        height: 2rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: #333;
+        outline: none;
+        border: none;
       }
 
       /* Styling for the event__search class */
       .event__search {
-         /* Width */
-         width: 20rem;
+        /* Width */
+        width: 20rem;
       }
 
       /* Styling for the table__holder class */
       .table__holder {
-         /* Positioning and dimensions */
-         position: relative;
-         background-color: transparent;
-         min-height: 100%;
+        /* Positioning and dimensions */
+        position: relative;
+        background-color: transparent;
+        min-height: 100%;
       }
 
       /* Styling for tables */
       table {
-         /* Table layout */
-         border-collapse: collapse;
-         text-align: center;
-         width: 100%;
+        /* Table layout */
+        border-collapse: collapse;
+        text-align: center;
+        width: 100%;
       }
 
       /* Styling for the table header (thead) */
       thead {
-         background-color: #2b2b2b;
+        background-color: #2b2b2b;
       }
 
       /* Styling for the table body (tbody) */
       tbody {
-         background-color: #222;
+        background-color: #222;
       }
 
       /* Styling for even rows in the table */
       tr:nth-child(even) {
-         background-color: #2b2b2b;
+        background-color: #2b2b2b;
       }
 
       /* Styling for table cells (th and td) */
       th,
       td {
-         /* Padding and width */
-         padding: .5rem;
-         width: 16.66667%;
+        /* Padding and width */
+        padding: 0.5rem;
+        width: 16.66667%;
       }
 
       /* Styling for the accounts__holder and popular classes */
       .accounts__holder,
       .popular {
-         /* Positioning and dimensions */
-         z-index: 99999;
-         background-color: #111;
-         position: absolute;
-         top: 0;
-         left: 0;
-         padding: 2rem;
-         width: 100vw;
-         height: 100vh;
+        /* Positioning and dimensions */
+        z-index: 99999;
+        background-color: #111;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        width: 100vw;
+        height: 100vh;
       }
-   </style>
-</head>
+    </style>
+  </head>
 
-<body>
-
-   <div>
+  <body>
+    <div>
       <!-- Alert boxes (hidden by default) -->
-      <div class="alert__box" style="display: none;">
-         <h2 class="alert__title">Alert title</h2>
-         <p class="alert__description">Alert description</p>
+      <div class="alert__box" style="display: none">
+        <h2 class="alert__title">Alert title</h2>
+        <p class="alert__description">Alert description</p>
       </div>
 
-      <div class="warning__box" style="display: none;">
-         <h2 class="warning__title">Warning title</h2>
-         <p class="warning__description">Warning description</p>
+      <div class="warning__box" style="display: none">
+        <h2 class="warning__title">Warning title</h2>
+        <p class="warning__description">Warning description</p>
       </div>
 
-      <div class="error__box" style="display: none;">
-         <h2 class="error__title">Error title</h2>
-         <p class="error__description">Error description</p>
+      <div class="error__box" style="display: none">
+        <h2 class="error__title">Error title</h2>
+        <p class="error__description">Error description</p>
       </div>
-   </div>
+    </div>
 
-   <div class="container">
-      <div class='left__side' id="dashboard">
-         <!-- Logout button -->
-         <input type="button" id="logoutPage" href="" value="Logout"><br><br>
-         <!-- User data container -->
-         <div id="user_data">
-         </div>
-         <br>
-         <!-- Toggle Leaderboard button -->
-         <input type="button" id="toggleLeaderboard" href="" value="Toggle Leaderboard"><br><br>
-         <!-- View popular events button -->
-         <input type="button" id="togglePE" class="pos" href="" value="View popular events"><br><br>
-         <!-- Change Password section -->
-         <h3>Change Password</h3><br>
-         <!-- Current Password input -->
-         <input type='password' placeholder="Current Password" id="cP"><br><br>
-         <!-- New Password input -->
-         <input type='password' placeholder="New Password" id="nP"><br><br>
-         <!-- Confirm New Password input -->
-         <input type='password' placeholder="Confirm New Password" id="cnP"><br><br>
-         <!-- Change Password button -->
-         <button onclick="changePwd()" class="change">Change Password</button>
+    <div class="container">
+      <div class="left__side" id="dashboard">
+        <!-- Logout button -->
+        <input
+          type="button"
+          id="logoutPage"
+          href=""
+          value="Logout"
+        /><br /><br />
+        <!-- User data container -->
+        <div id="user_data"></div>
+        <br />
+        <!-- Toggle Leaderboard button -->
+        <input
+          type="button"
+          id="toggleLeaderboard"
+          href=""
+          value="Toggle Leaderboard"
+        /><br /><br />
+        <!-- View popular events button -->
+        <input
+          type="button"
+          id="togglePE"
+          class="pos"
+          href=""
+          value="View popular events"
+        /><br /><br />
+        <!-- Change Password section -->
+        <h3>Change Password</h3>
+        <br />
+        <!-- Current Password input -->
+        <input
+          type="password"
+          placeholder="Current Password"
+          id="cP"
+        /><br /><br />
+        <!-- New Password input -->
+        <input type="password" placeholder="New Password" id="nP" /><br /><br />
+        <!-- Confirm New Password input -->
+        <input
+          type="password"
+          placeholder="Confirm New Password"
+          id="cnP"
+        /><br /><br />
+        <!-- Change Password button -->
+        <button onclick="changePwd()" class="change">Change Password</button>
       </div>
       <div class="middle">
-         <h1>Dashboard</h1><br>
-         <div class="events__holder" id="events__top">
-            <div class="table__holder">
-               <!-- Current events section -->
-               <h2>Current events</h2><br>
-               <!-- Search input for events -->
-               <input class="event__search" type="text" placeholder="Search" onkeyup="filterEvents()"><br><br>
-               <!-- <input type="button" value="Search"><br><br> -->
+        <h1>Dashboard</h1>
+        <br />
+        <div class="events__holder" id="events__top">
+          <div class="table__holder">
+            <!-- Current events section -->
+            <h2>Current events</h2>
+            <br />
+            <!-- Search input for events -->
+            <input
+              class="event__search"
+              type="text"
+              placeholder="Search"
+              onkeyup="filterEvents()"
+            /><br /><br />
+            <!-- <input type="button" value="Search"><br><br> -->
 
-               <!-- Events table -->
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Prize</th>
-                        <th>Start date</th>
-                        <th>End date</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody class="events__output"></tbody>
-               </table><br>
-               <a href="#events__top">
-                  <input type="button" value="Back to top" class="top">
-               </a>
-            </div>
-         </div>
-         
+            <!-- Events table -->
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Prize</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody class="events__output"></tbody>
+            </table>
+            <br />
+            <a href="#events__top">
+              <input type="button" value="Back to top" class="top" />
+            </a>
+          </div>
+        </div>
       </div>
       <div class="right__side">
-         <div class="inbox">
-            <!-- Inbox section -->
-            <h2>Inbox</h2><br>
-            <!-- Inbox table -->
-            <table>
-               <thead>
-                  <tr>
-                     <th>Subject</th>
-                     <th>Message</th>
-                  </tr>
-               </thead>
-               <tbody class="email__output"></tbody>
-            </table><br>
-         </div>
+        <div class="inbox">
+          <!-- Inbox section -->
+          <h2>Inbox</h2>
+          <br />
+          <!-- Inbox table -->
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody class="email__output"></tbody>
+          </table>
+          <br />
+        </div>
       </div>
 
-      <div class="accounts__holder" style="display: none;" id="accounts__top">
-         <!-- Accounts section -->
-         <div class="table__holder">
-            <!-- Dashboard button -->
-            <input type="button" value="Dashboard" onclick="toggleAccounts()"><br><br>
-            <h2>Current accounts</h2><br>
-            <!-- Search input for accounts by name -->
-            <input class="account__search" type="text" placeholder="Search Name"
-               onkeyup="filterAccountsByName()"><br><br>
-            <!-- Filter checkboxes for accounts by grade -->
-            <div onchange="filterAccountsByGrade">
-               <input id="g9" type="checkbox" name="grade" value="9"><label for="g9"> Grade 9 </label><br>
-               <input id="g10" type="checkbox" name="grade" value="10"><label for="g10"> Grade 10 </label><br>
-               <input id="g11" type="checkbox" name="grade" value="11"><label for="g11"> Grade 11 </label><br>
-               <input id="g12" type="checkbox" name="grade" value="12"><label for="g12"> Grade 12 </label><br><br>
-            </div>
+      <div class="accounts__holder" style="display: none" id="accounts__top">
+        <!-- Accounts section -->
+        <div class="table__holder">
+          <!-- Dashboard button -->
+          <input
+            type="button"
+            value="Dashboard"
+            onclick="toggleAccounts()"
+          /><br /><br />
+          <h2>Current accounts</h2>
+          <br />
+          <!-- Search input for accounts by name -->
+          <input
+            class="account__search"
+            type="text"
+            placeholder="Search Name"
+            onkeyup="filterAccountsByName()"
+          /><br /><br />
+          <!-- Filter checkboxes for accounts by grade -->
+          <div onchange="filterAccountsByGrade">
+            <input id="g9" type="checkbox" name="grade" value="9" /><label
+              for="g9"
+            >
+              Grade 9 </label
+            ><br />
+            <input id="g10" type="checkbox" name="grade" value="10" /><label
+              for="g10"
+            >
+              Grade 10 </label
+            ><br />
+            <input id="g11" type="checkbox" name="grade" value="11" /><label
+              for="g11"
+            >
+              Grade 11 </label
+            ><br />
+            <input id="g12" type="checkbox" name="grade" value="12" /><label
+              for="g12"
+            >
+              Grade 12 </label
+            ><br /><br />
+          </div>
 
-            <!-- <input type="button" value="Search"><br><br> -->
-             <!-- Accounts table -->
-            <table>
-               <thead>
-                  <tr>
-                     <th>First name</th>
-                     <th>Last name</th>
-                     <th>Grade</th>
-                     <th>Points</th>
-                  </tr>
-               </thead>
-               <tbody class="accounts__output"></tbody>
-            </table><br>
-            <a href="#accounts__top">
-               <input type="button" value="Back to top">
-            </a>
-         </div>
+          <!-- <input type="button" value="Search"><br><br> -->
+          <!-- Accounts table -->
+          <table>
+            <thead>
+              <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Grade</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody class="accounts__output"></tbody>
+          </table>
+          <br />
+          <a href="#accounts__top">
+            <input type="button" value="Back to top" />
+          </a>
+        </div>
       </div>
 
-
-
-      <div class="popular" style="display: none;" id="accounts__top">
-         <!-- Popular events section -->
-         <div class="table__holder">
-            <!-- Dashboard button -->
-            <input type="button" value="Dashboard" onclick="PET()"><br><br>
-            <!-- Popular events table -->
-            <table>
-               <thead>
-                  <tr>
-                     <th>Name</th>
-                     <th>Description</th>
-                     <th>Prize</th>
-                     <th>Start date</th>
-                     <th>End date</th>
-                     <th>Number of Participants</th>
-                     <th>Actions</th>
-                     
-                  </tr>
-               </thead>
-               <tbody class="evs"></tbody>
-            </table><br>
-            <a href="#accounts__top">
-               <input type="button" value="Back to top">
-            </a>
-         </div>
+      <div class="popular" style="display: none" id="accounts__top">
+        <!-- Popular events section -->
+        <div class="table__holder">
+          <!-- Dashboard button -->
+          <input type="button" value="Dashboard" onclick="PET()" /><br /><br />
+          <!-- Popular events table -->
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Prize</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Number of Participants</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="evs"></tbody>
+          </table>
+          <br />
+          <a href="#accounts__top">
+            <input type="button" value="Back to top" />
+          </a>
+        </div>
       </div>
+    </div>
 
-
-   </div>
-
-   <div id="help">
+    <div id="help">
       <!-- Help section -->
       <span id="qm">?</span>
-   </div>
+    </div>
 
-   <img src="../../logo.png" alt="" style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
+    <img
+      src="../../logo.png"
+      alt=""
+      style="
+        width: 6rem;
+        height: 6rem;
+        border-radius: 10rem;
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        z-index: 99999;
+      "
+    />
 
-
-   <style>
-    
-   </style>
-   <script src="../preload/student_preload.js"></script>
-</body>
-
+    <style></style>
+    <script src="../preload/student_preload.js"></script>
+  </body>
 </html>

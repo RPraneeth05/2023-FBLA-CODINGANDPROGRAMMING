@@ -3,123 +3,123 @@
 
 /* The universal selector (*) is styled */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #251a1a;
-    font-family: Arial, Helvetica, sans-serif;
+  background-color: #251a1a;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* The container class is used to center the chat interface vertically and horizontally within the viewport. */
 .container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* The chat-container class represents the main chat container. */
 .chat-container {
-    width: 90%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* The chat-header class styles the header section of the chat. */
 .chat-header {
-    background-color: #333;
-    color: #ffffff;
-    padding: 15px;
-    text-align: center;
-    font-size: 24px;
+  background-color: #333;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
 }
 
 /* The chat-log id represents the scrollable area that displays the chat messages. */
 #chat-log {
-    height: 100%;
-    overflow-y: auto;
-    padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 /* The chat-message class styles individual chat messages. */
 .chat-message {
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    max-width: 75%;
-    word-wrap: break-word;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  max-width: 75%;
+  word-wrap: break-word;
 }
 
 .user {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
 }
 
 .eve {
-    background-color: #555;
-    border: 1px solid #777;
-    color: #fff;
+  background-color: #555;
+  border: 1px solid #777;
+  color: #fff;
 }
 
 /* The chat-form id represents the form section at the bottom of the chat interface. */
 #chat-form {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 10px;
-    bottom: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+  bottom: 0;
 }
 
 /* The chat-input id styles the input field where the user can enter their messages. */
 #chat-input {
-    flex-grow: 1;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    color: #333;
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  color: #333;
 }
 
 /* The send-btn id styles the send button in the chat form. */
 #send-btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0077c2;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0077c2;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 #send-btn:hover {
-    background-color: #005faa;
+  background-color: #005faa;
 }
 
 /* The dark-mode-toggle class represents a button or toggle to switch between dark and light modes. */
 .dark-mode-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .dark-mode-toggle span {
-    font-size: 24px;
-    margin-right: 10px;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 /* There is a hover effect for the dark-mode-toggle class */
 .dark-mode-toggle:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
