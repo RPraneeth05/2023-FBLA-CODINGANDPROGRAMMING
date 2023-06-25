@@ -1,6 +1,4 @@
 # Overall, this code assigns random events to each user, calculates their points based on the event prizes, and updates the participants list for each event accordingly. 
-# The updated data is then saved back to the JSON files.
-# It imports the necessary modules, json for JSON file handling and random for generating random values.
 import json
 import random
 
@@ -11,24 +9,32 @@ with open("events.json") as f:
     events = json.load(f)
 
 
-#  It iterates over each user in the users list and performs the following actions:
-#  1. Initializes empty lists for the user's events and points.
-#  2. Randomly selects a subset of events from the events list, with the number of events chosen between 1 and 4 (inclusive).
-#  3. Extends the user's event list with the names of the selected events.
-#  4. Calculates the total points for the user by summing the "prize" values of the selected events.
-#  5. Updates the "participants" field of the selected events to include the current user's username.
+
+# Loop through each user in the list of users
 for user in users:
+    # Initialize empty lists and points for each user
     user["events"] = []
     user["points"] = 0
+    
+    # Randomly select a number of events for the user
     user_events = random.sample(events, random.randint(1, 4))
-
+    
+    # Add the names of the selected events to the user's events list
     user["events"].extend([i['event_name'] for i in user_events])
+    
+    # Calculate the total points for the user based on the prizes of the selected events
     user["points"] = sum([int(i["prize"]) for i in user_events])
+    
+    # Iterate through each event in the selected events
     for event in user_events:
+        # Find the corresponding event in the list of events
         for j in events:
+            # Check if the event names match
             if j['event_name'] == event['event_name']:
+                # Add the user's username to the participants list of the event
                 event['participants'].append(user["username"])
                 break
+
 
 # It writes the updated users and events lists back to their respective JSON files, overwriting the existing contents.
 with open("users.json", "w") as f:

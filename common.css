@@ -1,6 +1,9 @@
 /* importing the Roboto font for CSS */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
+/* The universal selector (*) is used to apply certain styles to all elements on the page. */
+/* Resetting default margin, padding, and user-select behavior */
 * {
    margin: 0;
    padding: 0;
@@ -10,6 +13,7 @@
    font-family: 'Roboto', sans-serif;
 }
 
+/* Hiding the scrollbar for webkit browsers */
 *::-webkit-scrollbar {
    display: none;
 }

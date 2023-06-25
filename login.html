@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="./common.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
    <style>
+      /* CSS styles for the page */
       :root {
          --background: #111;
          --text-col-d: #666;
@@ -20,6 +21,7 @@
       }
 
       .error__box {
+         /* Error message box styles */
          position: fixed;
          bottom: 2rem;
          right: 2rem;
@@ -32,6 +34,7 @@
          transition: opacity .5s;
       }
 
+      /* Input form styles */
       ::placeholder,
       select:invalid {
          color: var(--text-col-d);
@@ -61,6 +64,7 @@
       input[type=text],
       input[type=password],
       input[type=email] {
+         /* Input field styles */
          border: none;
          outline: none;
          background-color: #333;
@@ -72,6 +76,7 @@
       }
 
       input[type=button] {
+         /* Button styles */
          border: none;
          outline: none;
          margin: 0 auto;
@@ -84,10 +89,12 @@
       }
 
       input[type=button]:hover {
+         /* Button hover effect */
          transform: translateY(-.25rem);
       }
 
       select {
+         /* Select field styles */
          border: none;
          outline: none;
          background-color: #333;
@@ -116,16 +123,19 @@
 </head>
 
 <body>
+   <!-- Error message box -->
    <div class="error__box" style="display: none;">
       <h1 class="error__title">Error title</h1>
       <p class="error__description">Error description</p>
    </div>
 
+   <!-- Sign-in form -->
    <form action="">
       <h1>Sign in</h1>
+      <!-- State selection dropdown -->
       <select name="" id="state" required>
          <option value="" invalid selected disabled hidden>State</option>
-
+         <!-- State options -->
          <option value="AL">Alabama</option>
          <option value="AK">Alaska</option>
          <option value="AZ">Arizona</option>
@@ -177,29 +187,35 @@
          <option value="WI">Wisconsin</option>
          <option value="WY">Wyoming</option>
       </select>
+      <!-- School selection dropdown -->
       <select name="" id="school" required hidden>
          <option value="" invalid selected disabled hidden>School</option>
       </select>
       <div class="user__details" hidden>
          <div class="flex__box">
+            <!-- Email input field -->
             <input type="email" class="username" placeholder="Email" required>
             <div class="h__align">
+               <!-- Password input field -->
                <input type="password" class="password" placeholder="Password" required>
                <label>
+                  <!-- Checkbox for password visibility -->
                   <input type="checkbox" name="" id="" class="hide" onclick="toggleVisibility()">
                   <span class="material-symbols-outlined icon">
                      visibility
                   </span>
                </label>
             </div>
+            <!-- Sign-in button -->
             <input type="button" value="Sign in" onclick="redirect()">
          </div>
       </div>
    </form>
 
+   <!-- Logo image -->
    <img src="./logo.png" alt="" style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
-
-
+   
+   <!-- JavaScript file -->
    <script src="loginPreload.js"></script>
 </body>
 

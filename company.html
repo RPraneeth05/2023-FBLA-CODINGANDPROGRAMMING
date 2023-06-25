@@ -7,7 +7,9 @@
    <title>Document</title>
    <link rel="stylesheet" href="./common.css">
    <style>
+      /* CSS styles for the page */
       :root {
+         /* Color variables */
          --bg-d: #000212;
          --bg-l: #111424;
          --text-d: #8f8f8f;
@@ -31,6 +33,7 @@
       }
 
       .wrapper {
+         /* Center the content vertically and horizontally */
          position: absolute;
          top: 50%;
          left: 50%;
@@ -42,6 +45,7 @@
       }
 
       .half {
+         /* Styling for each half of the page */
          background-color: var(--bg-l);
          width: 35rem;
          /* height: 100%; */
@@ -51,12 +55,14 @@
       }
 
       .heading {
+         /* Heading styles */
          font-size: 2.5rem;
          color: var(--text-misc);
       }
 
       input[type=text],
       input[type=email] {
+         /* Input field styles */
          border: none;
          outline: none;
          background-color: #202330;
@@ -67,6 +73,7 @@
       }
 
       select {
+         /* Select field styles */
          border: none;
          outline: none;
          background-color: #202330;
@@ -77,6 +84,7 @@
       }
 
       input[type=button] {
+         /* Button styles */
          border: none;
          outline: none;
          width: 15rem;
@@ -88,6 +96,7 @@
       }
 
       input[type=button]:hover {
+         /* Button hover effect */
          transform: translateY(-.25rem);
       }
    </style>
@@ -96,8 +105,10 @@
 <body>
    <div class="wrapper">
       <div class="half">
+         <!-- Register school section -->
          <h1 class="heading">Register your school</h1><br><br><br>
          <select name="" id="state" required>
+            <!-- State options -->
             <option value="" invalid selected disabled hidden>State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -150,19 +161,23 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
          </select><br><br><br>
+         <!-- Form for school information-->
          <input type="text" placeholder="District"><br><br><br>
          <input type="text" placeholder="School"><br><br><br>
          <input type="email" placeholder="Email"><br><br><br>
          <input type="button" value="Send request">
       </div>
       <div class="half">
+         <!-- Log in section -->
          <h1 class="heading">Log in to EventHive</h1><br><br><br>
          <input type="button" value="Log in to EventHive" onclick="loginPage()">
       </div>
    </div>
 
+   <!-- Logo image -->
    <img src="./logo.png" alt="" style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
 
+   <!-- JavaScript file -->
    <script src="./companyPreload.js"></script>
 </body>
 

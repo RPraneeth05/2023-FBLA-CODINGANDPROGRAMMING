@@ -13,36 +13,44 @@
    <title>Document</title>
    <style>
       :root {
+         /* Defining color variables for background and text */
          --background-col-d: #111;
          --background-col-l: #1b1b1b;
          --text-col-d: #666;
          --text-col-l: #ccc;
       }
 
+      /* Setting text color for all elements to the light text color variable */
       * {
          color: var(--text-col-l);
       }
 
+      /* Setting background color of the body */
       body {
          background-color: #1b1b1b;
       }
 
+      /* Styling for the alert box */
       .alert__box {
+         /* Positioning and dimensions */
          position: fixed;
          bottom: 2rem;
          left: 2rem;
+         /* Background color and z-index */
          background-color: #43834c;
          z-index: 2147483647;
          width: 20rem;
          height: 10rem;
          padding: 1rem;
          border-radius: .5rem;
-
+         /* Opacity and transition for fade effect */
          opacity: 0;
          transition: opacity .5s;
       }
 
+      /* Styling for the warning box */
       .warning__box {
+         /* Positioning and dimensions */
          position: fixed;
          bottom: 2rem;
          left: 2rem;
@@ -57,7 +65,9 @@
          transition: opacity .5s;
       }
 
+      /* Styling for the error box */
       .error__box {
+         /* Positioning and dimensions */
          position: fixed;
          bottom: 2rem;
          left: 2rem;
@@ -72,6 +82,7 @@
          transition: opacity .5s;
       }
 
+      /* Styling for the titles and descriptions in the alert, warning, and error boxes */
       .alert__title,
       .alert__description,
       .warning__title,
@@ -81,16 +92,21 @@
          color: var(--text-col-l);
       }
 
+      /* Styling for the fade effect */
       .fade {
          opacity: 1;
       }
 
+      /* Styling for the container */
       .container {
+         /* Creating a grid with three columns */
          display: grid;
          grid-template-columns: 1fr 3fr 1.5fr;
       }
 
+      /* Styling for the left side of the container */
       .left__side {
+         /* Positioning and dimensions */
          background-color: #1b1b1b;
          position: fixed;
          top: 0;
@@ -98,7 +114,9 @@
          width: 20rem;
       }
 
+      /* Styling for the right side of the container */
       .right__side {
+         /* Positioning and dimensions */
          background-color: #1b1b1b;
          position: absolute;
          top: 0;
@@ -106,7 +124,9 @@
          width: 30rem;
       }
 
+      /* Styling for the middle section of the container */
       .middle {
+         /* Positioning and dimensions */
          background-color: #111;
          position: absolute;
          top: 0;
@@ -116,6 +136,7 @@
          /* height: 100vh; */
       }
 
+      /* Styling for the left side, middle, and right side sections */
       .left__side,
       .middle,
       .right__side {
@@ -123,7 +144,9 @@
          min-height: 100vh;
       }
 
+      /* Styling for the logout page element */
       #logoutPage {
+         /* Dimensions, border, and background color */
          padding: .5rem;
          width: 100%;
          border-radius: .5rem;
@@ -132,14 +155,18 @@
          outline: none;
       }
 
+      /* Styling for the h2 element within #user_data */
       #user_data h2 {
+         /* Font size and text color */
          font-size: 2rem;
          color: #66f;
       }
 
+      /* Styling for the toggleLeaderboard, togglePE, and change elements */
       #toggleLeaderboard,
       #togglePE,
       .change {
+         /* Dimensions, border, and background color */
          padding: .5rem;
          width: 100%;
          border-radius: .5rem;
@@ -148,17 +175,20 @@
          outline: none;
       }
 
+      /* Styling for the top class */
       .top {
+         /* Dimensions, border, and background color */
          padding: .5rem;
-         /* width: 100%; */
          border-radius: .5rem;
          background-color: #66f;
          border: none;
          outline: none;
       }
 
+      /* Styling for input[type=button] and button elements */
       input[type=button],
       button {
+         /* Dimensions, border, and background color */
          padding: .5rem;
          /* width: 100%; */
          border-radius: .5rem;
@@ -168,26 +198,34 @@
          transition: .15s;
       }
 
+      /* Styling for input[type=button]:hover and button:hover */
       input[type=button]:hover,
       button:hover {
          transform: translateY(-.25rem);
       }
 
-      h3 {
-         /* color: red; */
-         font-size: 1.5rem;
-      }
+      /* Styling for h3 elements */
+h3 {
+   /* Font size */
+   font-size: 1.5rem;
+}
 
+      /* Styling for h1 elements within the middle section */
       .middle h1 {
+         /* Font size */
          font-size: 3rem;
       }
 
+      /* Styling for h2 elements within the middle and right__side sections */
       .middle h2,
       .right__side h2 {
+         /* Font size */
          font-size: 2rem;
       }
 
+      /* Styling for input[type=password] elements */
       input[type=password] {
+         /* Dimensions, border, and background color */
          width: 100%;
          height: 2rem;
          padding: .5rem;
@@ -197,7 +235,9 @@
          border: none;
       }
 
+      /* Styling for input[type=text] elements */
       input[type=text] {
+         /* Dimensions, border, and background color */
          /* width: 100%; */
          height: 2rem;
          padding: .5rem;
@@ -207,44 +247,55 @@
          border: none;
       }
 
+      /* Styling for the event__search class */
       .event__search {
+         /* Width */
          width: 20rem;
       }
 
+      /* Styling for the table__holder class */
       .table__holder {
+         /* Positioning and dimensions */
          position: relative;
-         /* padding: 2rem; */
          background-color: transparent;
-         /* min-height: calc(100vh - 4rem); */
          min-height: 100%;
       }
 
+      /* Styling for tables */
       table {
+         /* Table layout */
          border-collapse: collapse;
          text-align: center;
          width: 100%;
       }
 
+      /* Styling for the table header (thead) */
       thead {
          background-color: #2b2b2b;
       }
 
+      /* Styling for the table body (tbody) */
       tbody {
          background-color: #222;
       }
 
+      /* Styling for even rows in the table */
       tr:nth-child(even) {
          background-color: #2b2b2b;
       }
 
+      /* Styling for table cells (th and td) */
       th,
       td {
+         /* Padding and width */
          padding: .5rem;
          width: 16.66667%;
       }
 
+      /* Styling for the accounts__holder and popular classes */
       .accounts__holder,
       .popular {
+         /* Positioning and dimensions */
          z-index: 99999;
          background-color: #111;
          position: absolute;
