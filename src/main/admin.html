@@ -375,6 +375,9 @@
       }
 
       /* Styling for various window containers */
+      #pointsSG {
+         z-index: 1000;
+      }
       .accounts__holder,
       .events__holder,
       .report__window,
@@ -654,7 +657,31 @@
       <input type="button" class="btn" value="Create account" onclick="createNewAccount()">
    </div>
 
+<<<<<<< HEAD
+   <div class="report__window" id='parsEvs' style="display: none;">
+      <input type="button" class="redirects" value="Go back" onclick="hideParticipants()">
+      <br>
+      <table id="pTT">
+
+         <thead>
+            <tr>
+               <th>Email</th>
+            </tr>
+         </thead>
+
+      </table>
+   </div>
+   <div class="report__window" style='display: none;' id="pointsSG">
+      <button type="button" class="redirects" 
+         onclick="hidePointsSG()">Go Back</button>
+
+      <div id="tblPointsSG">
+
+      </div>
+   </div>
+=======
    <!-- Report window -->
+>>>>>>> a6a893159d467de85f65e49ed816e8539fcf2971
    <div class="report__window" style="display: none;">
       <input type="button" class="redirects" value="Go back" onclick="hideReport()" id="the__top">
       <br><br>
@@ -747,11 +774,18 @@
          <p id="pprize2"></p>
          <p id="pprize3"></p>
          <p id="pprize4"></p>
+
+         <button type="button" onclick="pointsSG()">Quarterly Report</button>
       </div>
    </div>
 
+<<<<<<< HEAD
+   <img src="../../logo.png" alt=""
+      style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
+=======
    <!-- Logo -->
    <img src="../../logo.png" alt="" style="width: 6rem; height: 6rem; border-radius: 10rem; position: fixed; bottom: 2rem; left: 2rem; z-index: 99999;">
+>>>>>>> a6a893159d467de85f65e49ed816e8539fcf2971
 
    <!-- JavaScript -->
    <script src="../preload/admin_preload.js"></script>
