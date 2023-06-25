@@ -98,11 +98,24 @@
         /* Button hover effect */
         transform: translateY(-0.25rem);
       }
+
+      .bg {
+         position: fixed;
+         top: 0;
+         left: 0;
+         display: block;
+         width: 100vw;
+         height: 100vh;
+         object-fit: cover;
+         filter: sepia(1) hue-rotate(180deg) opacity(.25);
+      }
     </style>
   </head>
 
   <body>
-    <div class="wrapper">
+   
+   <img src="https://wallpaperaccess.com/full/2555958.jpg" alt="" class="bg">
+   <div class="wrapper">
       <div class="half">
         <!-- Register school section -->
         <h1 class="heading">Register your school</h1>

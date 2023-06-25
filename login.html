@@ -12,14 +12,27 @@
     <style>
       /* CSS styles for the page */
       :root {
-        --background: #111;
+        --background: #000212;
         --text-col-d: #666;
         --text-col-l: #ccc;
       }
 
       body {
         background-color: var(--background);
+        /* background-image: url('https://wallpaperaccess.com/full/2555958.jpg'); */
         color: var(--text-col-l);
+        
+      }
+
+      .bg {
+         position: fixed;
+         top: 0;
+         left: 0;
+         display: block;
+         width: 100vw;
+         height: 100vh;
+         object-fit: cover;
+         filter: sepia(1) hue-rotate(180deg) opacity(.25);
       }
 
       .error__box {
@@ -125,6 +138,7 @@
   </head>
 
   <body>
+   <img src="https://wallpaperaccess.com/full/2555958.jpg" alt="" class="bg">
     <!-- Error message box -->
     <div class="error__box" style="display: none">
       <h1 class="error__title">Error title</h1>
