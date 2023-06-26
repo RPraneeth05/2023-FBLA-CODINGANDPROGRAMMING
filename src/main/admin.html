@@ -1,309 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--The `<head>` section contains meta tags for character encoding, compatibility, and viewport settings. 
+<!--The `<head>` section contains meta tags for character encoding, compatibility, and viewport settings. 
    It also includes a title for the admin dashboard and a link to an external CSS file named "admin.css".-->
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../../common.css" />
-    <style>
-      /* CSS variables are defined */
-      :root {
-        --background-col-d: #111;
-        --background-col-l: #1b1b1b;
-        --text-col-d: #666;
-        --text-col-l: #ccc;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../../common.css" />
+  <style>
+    /* CSS variables are defined */
+    :root {
+      --background-col-d: #111;
+      --background-col-l: #1b1b1b;
+      --text-col-d: #666;
+      --text-col-l: #ccc;
+    }
 
-      /* The universal selector (*) is used to apply certain styles to all elements on the page. */
-      * {
-        color: var(--text-col-l);
-      }
+    /* The universal selector (*) is used to apply certain styles to all elements on the page. */
+    * {
+      color: var(--text-col-l);
+    }
 
-      /* Styling for alert boxes */
-      .alert__box {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        background-color: #43834c;
-        z-index: 2147483647;
-        width: 20rem;
-        height: 10rem;
-        padding: 1rem;
-        border-radius: 0.5rem;
+    /* Styling for alert boxes */
+    .alert__box {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background-color: #43834c;
+      z-index: 2147483647;
+      width: 20rem;
+      height: 10rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
 
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
 
-      /* Styling for warning boxes */
-      .warning__box {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        background-color: #7b5b45;
-        z-index: 2147483647;
-        width: 20rem;
-        height: 10rem;
-        padding: 1rem;
-        border-radius: 0.5rem;
+    /* Styling for warning boxes */
+    .warning__box {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background-color: #7b5b45;
+      z-index: 2147483647;
+      width: 20rem;
+      height: 10rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
 
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
 
-      /* Styling for error boxes */
-      .error__box {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        background-color: #7b4045;
-        z-index: 2147483647;
-        width: 20rem;
-        height: 10rem;
-        padding: 1rem;
-        border-radius: 0.5rem;
+    /* Styling for error boxes */
+    .error__box {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background-color: #7b4045;
+      z-index: 2147483647;
+      width: 20rem;
+      height: 10rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
 
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
 
-      /* Styling for titles and descriptions within alert, warning, and error boxes */
-      .alert__title,
-      .alert__description,
-      .warning__title,
-      .warning__description,
-      .error__title,
-      .error__description {
-        color: var(--text-col-l);
-      }
+    /* Styling for titles and descriptions within alert, warning, and error boxes */
+    .alert__title,
+    .alert__description,
+    .warning__title,
+    .warning__description,
+    .error__title,
+    .error__description {
+      color: var(--text-col-l);
+    }
 
-      /* Styling for the fade class */
-      .fade {
-        opacity: 1;
-      }
+    /* Styling for the fade class */
+    .fade {
+      opacity: 1;
+    }
 
-      /* Styling for placeholders, invalid selects and date inputs */
-      ::placeholder,
-      select:invalid,
-      input[type="date"]:invalid::-webkit-datetime-edit {
-        /* color: red; */
-        color: var(--text-col-d);
-      }
+    /* Styling for placeholders, invalid selects and date inputs */
+    ::placeholder,
+    select:invalid,
+    input[type="date"]:invalid::-webkit-datetime-edit {
+      /* color: red; */
+      color: var(--text-col-d);
+    }
 
-      /* Styling for the calendar picker indicator within date inputs */
-      input[type="date"]::-webkit-calendar-picker-indicator {
-        /* color: red; */
-        filter: invert(1) brightness(0.4);
-      }
+    /* Styling for the calendar picker indicator within date inputs */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      /* color: red; */
+      filter: invert(1) brightness(0.4);
+    }
 
-      /* Styling for inline elements */
-      .inline {
-        display: flex;
-        gap: 1rem;
-      }
+    /* Styling for inline elements */
+    .inline {
+      display: flex;
+      gap: 1rem;
+    }
 
-      /* Styling for the redirects class */
-      .redirects {
-        width: auto;
-        color: black;
-        background-color: #6af;
-        transition: 0.15s;
-      }
+    /* Styling for the redirects class */
+    .redirects {
+      width: auto;
+      color: black;
+      background-color: #6af;
+      transition: 0.15s;
+    }
 
-      /* Hover effect for the redirects class */
-      .redirects:hover {
-        transform: translateY(-0.25rem);
-      }
+    /* Hover effect for the redirects class */
+    .redirects:hover {
+      transform: translateY(-0.25rem);
+    }
 
-      /* Styling for the body element */
-      body {
-        background-color: var(--background);
-      }
+    /* Styling for the body element */
+    body {
+      background-color: var(--background);
+    }
 
-      /* Styling for the title class */
-      .title {
-        font-size: 3rem;
-        color: var(--text-col-l);
-      }
+    /* Styling for the title class */
+    .title {
+      font-size: 3rem;
+      color: var(--text-col-l);
+    }
 
-      /* Styling for the subtitle class */
-      .subtitle {
-        font-size: 2rem;
-        color: var(--text-col-l);
-      }
+    /* Styling for the subtitle class */
+    .subtitle {
+      font-size: 2rem;
+      color: var(--text-col-l);
+    }
 
-      /* Styling for the heading class */
-      .heading {
-        font-size: 1.5rem;
-        color: var(--text-col-l);
-      }
+    /* Styling for the heading class */
+    .heading {
+      font-size: 1.5rem;
+      color: var(--text-col-l);
+    }
 
-      /* Styling for form elements */
-      form {
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-columns: 1fr 5fr 1fr;
-      }
+    /* Styling for form elements */
+    form {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr;
+    }
 
-      #prize-table {
-        border-collapse: collapse;
-        /* margin: 20px; */
-      }
+    #prize-table {
+      border-collapse: collapse;
+      /* margin: 20px; */
+    }
 
-      #prize-table th,
-      #prize-table td {
-        /* border: 1px solid black; */
-        padding: 0.5rem;
-      }
+    #prize-table th,
+    #prize-table td {
+      /* border: 1px solid black; */
+      padding: 0.5rem;
+    }
 
-      /* #prize-table th {
+    /* #prize-table th {
       } */
 
-      .editable {
-        cursor: pointer;
-        /* background-color: lightblue; */
-      }
+    .editable {
+      cursor: pointer;
+      /* background-color: lightblue; */
+    }
 
-      .editable input[type="text"] {
-        width: 100%;
-      }
+    .editable input[type="text"] {
+      width: 100%;
+    }
 
-      .btn {
-        outline: none;
-        border: none;
-        width: 100%;
-        color: black;
-        background-color: #6af;
-        transition: 0.15s;
-      }
+    .btn {
+      outline: none;
+      border: none;
+      width: 100%;
+      color: black;
+      background-color: #6af;
+      transition: 0.15s;
+    }
 
-      #submit-btn,
-      button {
-        width: auto;
-        color: black;
-        background-color: #6af;
-        transition: 0.15s;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        transition: 0.15s;
-      }
+    #submit-btn,
+    button {
+      width: auto;
+      color: black;
+      background-color: #6af;
+      transition: 0.15s;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: 0.15s;
+    }
 
-      #submit-btn:hover,
-      button:hover {
-        transform: translateY(-0.25rem);
-      }
+    #submit-btn:hover,
+    button:hover {
+      transform: translateY(-0.25rem);
+    }
 
-      .btn:hover {
-        transform: translateY(-0.25rem);
-      }
+    .btn:hover {
+      transform: translateY(-0.25rem);
+    }
 
-      /* Styling for links */
-      .link {
-        outline: none;
-        border: none;
-        background-color: #f66;
-        color: var(--text-col-l);
-        padding: 0.5rem;
-        height: 2rem;
-        border-radius: 0.5rem;
-        transition: 0.15s;
-      }
+    /* Styling for links */
+    .link {
+      outline: none;
+      border: none;
+      background-color: #f66;
+      color: var(--text-col-l);
+      padding: 0.5rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      transition: 0.15s;
+    }
 
-      /* Hover effect for links */
-      .link:hover {
-        transform: translateY(-0.25rem);
-      }
+    /* Hover effect for links */
+    .link:hover {
+      transform: translateY(-0.25rem);
+    }
 
-      /* Styling for right-aligned links */
-      .link__r {
-        outline: none;
-        border: none;
-        background-color: #f66;
-        color: var(--text-col-l);
-        padding: 0.5rem;
-        height: 2rem;
-        border-radius: 0.5rem;
-        transition: 0.15s;
-        width: auto;
-      }
+    /* Styling for right-aligned links */
+    .link__r {
+      outline: none;
+      border: none;
+      background-color: #f66;
+      color: var(--text-col-l);
+      padding: 0.5rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      transition: 0.15s;
+      width: auto;
+    }
 
-      /* Hover effect for right-aligned links */
-      .link__r:hover {
-        transform: translateY(-0.25rem);
-      }
+    /* Hover effect for right-aligned links */
+    .link__r:hover {
+      transform: translateY(-0.25rem);
+    }
 
-      /* Styling for the left__side class */
-      .left__side {
-        position: fixed;
-        background-color: var(--background-col-l);
-        padding: 2rem;
-        top: 0;
-        left: 0;
-        width: 19rem;
-        min-height: 100vh;
-        z-index: 9999;
-        /* overflow-y: hidden; */
-      }
+    /* Styling for the left__side class */
+    .left__side {
+      position: fixed;
+      background-color: var(--background-col-l);
+      padding: 2rem;
+      top: 0;
+      left: 0;
+      width: 19rem;
+      min-height: 100vh;
+      z-index: 9999;
+      /* overflow-y: hidden; */
+    }
 
-      .right__side {
-        position: absolute;
-        background-color: var(--background-col-l);
-        padding: 2rem;
-        top: 0;
-        right: 0;
-        width: 19rem;
-        min-height: 100vh;
-        z-index: 9999;
-        /* overflow-y: hidden; */
-      }
+    .right__side {
+      position: absolute;
+      background-color: var(--background-col-l);
+      padding: 2rem;
+      top: 0;
+      right: 0;
+      width: 19rem;
+      min-height: 100vh;
+      z-index: 9999;
+      /* overflow-y: hidden; */
+    }
 
-      /* Styling for the middle class */
-      .middle {
-        position: absolute;
-        background-color: var(--background-col-d);
-        /* padding: 2rem; */
-        top: 0;
-        left: 50%;
-        transform: translate(-50%);
-        width: 100%;
-        min-height: 100vh;
-        padding: 2rem 21rem;
-      }
+    /* Styling for the middle class */
+    .middle {
+      position: absolute;
+      background-color: var(--background-col-d);
+      /* padding: 2rem; */
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+      width: 100%;
+      min-height: 100vh;
+      padding: 2rem 21rem;
+    }
 
-      /* Styling for input elements */
-      input {
-        outline: none;
-        border: none;
-        width: 100%;
-        background-color: #2b2b2b;
-        height: 2rem;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
-      }
+    /* Styling for input elements */
+    input {
+      outline: none;
+      border: none;
+      width: 100%;
+      background-color: #2b2b2b;
+      height: 2rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+    }
 
-      .short {
-        width: 20rem;
-      }
+    .short {
+      width: 20rem;
+    }
 
-      textarea {
-        outline: none;
-        border: none;
-        width: 100%;
-        background-color: #2b2b2b;
-        height: 2rem;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
+    textarea {
+      outline: none;
+      border: none;
+      width: 100%;
+      background-color: #2b2b2b;
+      height: 2rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
 
-        resize: none;
-      }
+      resize: none;
+    }
 
-      /* Styling for select elements */
-      /* select {
+    /* Styling for select elements */
+    /* select {
          outline: none;
          border: none;
          width: 100%;
@@ -313,472 +313,376 @@
          border-radius: .5rem;
       } */
 
-      select {
-        border: none;
-        outline: none;
-        background-color: #2b2b2b;
-        color: var(--text-col-l);
-        width: 100%;
-        height: 2rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.5rem;
-      }
+    select {
+      border: none;
+      outline: none;
+      background-color: #2b2b2b;
+      color: var(--text-col-l);
+      width: 100%;
+      height: 2rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+    }
 
-      option {
-        color: var(--text-col-l);
-      }
+    option {
+      color: var(--text-col-l);
+    }
 
-      /* Styling for card elements */
-      .cards {
-        display: flex;
-        gap: 1rem;
-        /* justify-content: space-between; */
-      }
+    /* Styling for card elements */
+    .cards {
+      display: flex;
+      gap: 1rem;
+      /* justify-content: space-between; */
+    }
 
-      /* Styling for individual card elements */
-      .card {
-        width: 100%;
-        background-color: #222;
-        padding: 2rem;
-        border-radius: 1rem;
-      }
+    /* Styling for individual card elements */
+    .card {
+      width: 100%;
+      background-color: #222;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
 
-      /* Styling for ninth, tenth, eleventh, twelfth winners */
-      .ninth__winner,
-      .tenth__winner,
-      .elenventh__winner,
-      .twelfth__winner,
-      .w {
-        font-size: 2rem;
-      }
+    /* Styling for ninth, tenth, eleventh, twelfth winners */
+    .ninth__winner,
+    .tenth__winner,
+    .elenventh__winner,
+    .twelfth__winner,
+    .w {
+      font-size: 2rem;
+    }
 
-      /* Styling for ninth, tenth, eleventh, twelfth prizes */
-      .ninth__prize,
-      .tenth__prize,
-      .eleventh__prize,
-      .twelfth__prize,
-      .p {
-        font-size: 1.5rem;
-        color: var(--text-col-d);
-      }
+    /* Styling for ninth, tenth, eleventh, twelfth prizes */
+    .ninth__prize,
+    .tenth__prize,
+    .eleventh__prize,
+    .twelfth__prize,
+    .p {
+      font-size: 1.5rem;
+      color: var(--text-col-d);
+    }
 
-      /* Styling for card description */
-      .card__description {
-        font-size: 1.5rem;
-        color: var(--text-col-d);
-      }
+    /* Styling for card description */
+    .card__description {
+      font-size: 1.5rem;
+      color: var(--text-col-d);
+    }
 
-      /* Styling for search inputs */
-      .account__search,
-      .event__search {
-        width: 20rem;
-      }
+    /* Styling for search inputs */
+    .account__search,
+    .event__search {
+      width: 20rem;
+    }
 
-      /* Styling for various window containers */
-      #pointsSG {
-        z-index: 1000;
-      }
-      .accounts__holder,
-      .events__holder,
-      .report__window,
-      .winners__window {
-        z-index: 999;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%);
-        min-height: 100vh;
-        background-color: #111;
-        width: 100%;
-        /* min-height: 150vh; */
-        padding: 2rem 21rem;
-      }
+    /* Styling for various window containers */
+    #pointsSG {
+      z-index: 1000;
+    }
 
-      /* Styling for table holder */
-      .table__holder {
-        position: relative;
-        /* padding: 2rem; */
-        background-color: transparent;
-        /* min-height: calc(100vh - 4rem); */
-        min-height: 100%;
-      }
+    .accounts__holder,
+    .events__holder,
+    .report__window,
+    .winners__window {
+      z-index: 999;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+      min-height: 100vh;
+      background-color: #111;
+      width: 100%;
+      /* min-height: 150vh; */
+      padding: 2rem 21rem;
+    }
 
-      /* Styling for tables */
-      table {
-        border-collapse: collapse;
-        text-align: center;
-        width: 100%;
-      }
+    /* Styling for table holder */
+    .table__holder {
+      position: relative;
+      /* padding: 2rem; */
+      background-color: transparent;
+      /* min-height: calc(100vh - 4rem); */
+      min-height: 100%;
+    }
 
-      /* Styling for table header */
-      thead {
-        background-color: #2b2b2b;
-      }
+    /* Styling for tables */
+    table {
+      border-collapse: collapse;
+      text-align: center;
+      width: 100%;
+    }
 
-      /* Styling for table body */
-      tbody {
-        background-color: #222;
-      }
+    /* Styling for table header */
+    thead {
+      background-color: #2b2b2b;
+    }
 
-      /* Styling for alternate rows in table */
-      tr:nth-child(even) {
-        background-color: #2b2b2b;
-      }
+    /* Styling for table body */
+    tbody {
+      background-color: #222;
+    }
 
-      /* Styling for table cells */
-      th,
-      td {
-        padding: 0.5rem;
-        width: 16.66667%;
-      }
+    /* Styling for alternate rows in table */
+    tr:nth-child(even) {
+      background-color: #2b2b2b;
+    }
 
-      /* Styling for the floating action button */
-      #qm {
-        /* z-index: 999; */
-        position: fixed;
-        bottom: 2rem;
-        right: 21rem;
-        border-radius: 5rem;
-        background-color: #66f6;
-        width: 4rem;
-        height: 4rem;
-        transition: 0.2s;
-      }
+    /* Styling for table cells */
+    th,
+    td {
+      padding: 0.5rem;
+      width: 16.66667%;
+    }
 
-      /* Hover effect for the floating action button */
-      #qm:hover {
-        width: 4.5rem;
-        height: 4.5rem;
-      }
+    /* Styling for the floating action button */
+    #qm {
+      /* z-index: 999; */
+      position: fixed;
+      bottom: 2rem;
+      right: 21rem;
+      border-radius: 5rem;
+      background-color: #66f6;
+      width: 4rem;
+      height: 4rem;
+      transition: 0.2s;
+    }
 
-      /* Styling for the modal */
-      #m {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    </style>
-  </head>
+    /* Hover effect for the floating action button */
+    #qm:hover {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
 
-  <body>
-    <!--The `<div>` element wraps several sections of the dashboard.-->
-    <!--Inside the `<div>`, there are three box sections: alert, warning, and error boxes. 
+    /* Styling for the modal */
+    #m {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <!--The `<div>` element wraps several sections of the dashboard.-->
+  <!--Inside the `<div>`, there are three box sections: alert, warning, and error boxes. 
       Each box contains a title and description and is initially hidden with inline CSS.-->
-    <div class="alert__box" style="display: none">
-      <h1 class="alert__title">Alert title</h1>
-      <p class="alert__description">Alert description</p>
-    </div>
-    <div class="warning__box" style="display: none">
-      <h1 class="warning__title">Warning title</h1>
-      <p class="warning__description">Warning description</p>
-    </div>
-    <div class="error__box" style="display: none">
-      <h1 class="error__title">Error title</h1>
-      <p class="error__description">Error description</p>
-    </div>
+  <div class="alert__box" style="display: none">
+    <h1 class="alert__title">Alert title</h1>
+    <p class="alert__description">Alert description</p>
+  </div>
+  <div class="warning__box" style="display: none">
+    <h1 class="warning__title">Warning title</h1>
+    <p class="warning__description">Warning description</p>
+  </div>
+  <div class="error__box" style="display: none">
+    <h1 class="error__title">Error title</h1>
+    <p class="error__description">Error description</p>
+  </div>
 
-    <div class="middle">
-      <!-- Dashboard title -->
-      <h1 class="title">Dashboard</h1>
-      <br />
-      <!-- Events section -->
-      <div class="events__holder" style="display: none" id="events__top">
-        <div class="table__holder">
-          <!-- Button to toggle events section -->
-          <input
-            type="button"
-            class="redirects"
-            value="Dashboard"
-            onclick="toggleEvents()"
-          />
-          <br /><br />
-          <!-- Current events subtitle -->
-          <h1 class="subtitle">Current events</h1>
-          <br />
-          <!-- Search input for events -->
-          <input
-            type="text"
-            class="event__search"
-            placeholder="Search"
-            onkeyup="filterEvents()"
-          />
-          <br /><br />
-          <!-- Events table -->
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Prize</th>
-                <th>Start date</th>
-                <th>End date</th>
-                <th>Code</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody class="events__output"></tbody>
-          </table>
-          <br />
-          <!-- Back to top button -->
-          <a href="#events__top">
-            <input type="button" value="Back to top" class="link__r" />
-          </a>
-        </div>
-      </div>
-      <!-- Accounts section -->
-      <div class="accounts__holder" style="display: none" id="accounts__top">
-        <div class="table__holder">
-          <!-- Button to toggle accounts section -->
-          <input
-            type="button"
-            class="redirects"
-            value="Dashboard"
-            onclick="toggleAccounts()"
-          />
-          <br /><br />
-          <!-- Current accounts subtitle -->
-          <h1 class="subtitle">Current accounts</h1>
-          <br />
-          <!-- Search input for accounts -->
-          <input
-            type="text"
-            class="account__search"
-            placeholder="Search"
-            onkeyup="filterAccounts()"
-          />
-          <br /><br />
-          <!-- Accounts table -->
-          <table>
-            <thead>
-              <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Grade</th>
-                <th>Username</th>
-                <th>Points</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody class="accounts__output"></tbody>
-          </table>
-          <br />
-          <!-- Back to top button -->
-          <a href="#accounts__top">
-            <input type="button" value="Back to top" class="link__r" />
-          </a>
-        </div>
-      </div>
-      <!-- Inline buttons -->
-      <div class="inline">
-        <!-- Button to view events -->
-        <input
-          type="button"
-          class="redirects"
-          value="View events"
-          onclick="toggleEvents()"
-        />
-        <!-- Button to view accounts -->
-        <input
-          type="button"
-          class="redirects"
-          value="View Accounts"
-          onclick="toggleAccounts()"
-        />
-        <!-- Button to pick winners -->
-        <input
-          type="button"
-          class="redirects"
-          value="Prizes"
-          onclick="pickWinners()"
-        />
-      </div>
-      <br /><br />
-      <!-- Cards section -->
-      <div class="cards">
-        <!-- Total students card -->
-        <div class="card">
-          <h1 class="card__title">Total students</h1>
-          <br />
-          <h1 class="card__description" id="totalStudents"></h1>
-        </div>
-        <!-- Total events card -->
-        <div class="card">
-          <h1 class="card__title">Total events</h1>
-          <br />
-          <h1 class="card__description" id="totalEvents">2000</h1>
-        </div>
-      </div>
-      <div id="qm">
-        <span id="m">?</span>
+  <div class="middle">
+    <!-- Dashboard title -->
+    <h1 class="title">Dashboard</h1>
+    <br />
+    <!-- Events section -->
+    <div class="events__holder" style="display: none" id="events__top">
+      <div class="table__holder">
+        <!-- Button to toggle events section -->
+        <input type="button" class="redirects" value="Dashboard" onclick="toggleEvents()" />
+        <br /><br />
+        <!-- Current events subtitle -->
+        <h1 class="subtitle">Current events</h1>
+        <br />
+        <!-- Search input for events -->
+        <input type="text" class="event__search" placeholder="Search" onkeyup="filterEvents()" />
+        <br /><br />
+        <!-- Events table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Prize</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Code</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="events__output"></tbody>
+        </table>
+        <br />
+        <!-- Back to top button -->
+        <a href="#events__top">
+          <input type="button" value="Back to top" class="link__r" />
+        </a>
       </div>
     </div>
-    <!-- Left side section -->
-    <div class="left__side">
-      <!-- Log out button -->
-      <a href="../../login.html">
-        <input type="button" value="Log out" class="link" />
-      </a>
-      <br /><br /><br />
-      <!-- Change password section -->
-      <h1 class="subtitle">Change password</h1>
-      <br />
-      <input type="password" placeholder="Current password" name="" id="CP" />
-      <br /><br />
-      <input type="password" placeholder="New password" name="" id="NP" />
-      <br /><br />
-      <input
-        type="password"
-        placeholder="Confirm new password"
-        name=""
-        id="CNP"
-      />
-      <br /><br />
-      <input
-        type="button"
-        class="btn"
-        value="Change Password"
-        onclick="changePwd()"
-      />
-      <br /><br /><br />
-      <!-- Send message section -->
-      <h1 class="subtitle">Send message</h1>
-      <br />
-      <!-- <input type="text" class="recipient" placeholder="Recipient"> -->
-      <!-- Recipient selection dropdown -->
-      <select name="" id="populate__recipients" required multiple>
-        <option value="" invalid selected disabled hidden>Recipient</option>
-      </select>
-      <br /><br />
-      <input type="text" class="subject" placeholder="Subject" />
-      <br /><br />
-      <textarea
-        rows="1"
-        class="message auto__resize"
-        placeholder="Message"
-      ></textarea>
-      <br /><br />
-      <input
-        type="button"
-        class="btn"
-        value="Send message"
-        onclick="sendMessage()"
-      />
+    <!-- Accounts section -->
+    <div class="accounts__holder" style="display: none" id="accounts__top">
+      <div class="table__holder">
+        <!-- Button to toggle accounts section -->
+        <input type="button" class="redirects" value="Dashboard" onclick="toggleAccounts()" />
+        <br /><br />
+        <!-- Current accounts subtitle -->
+        <h1 class="subtitle">Current accounts</h1>
+        <br />
+        <!-- Search input for accounts -->
+        <input type="text" class="account__search" placeholder="Search" onkeyup="filterAccounts()" />
+        <br /><br />
+        <!-- Accounts table -->
+        <table>
+          <thead>
+            <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Grade</th>
+              <th>Username</th>
+              <th>Points</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="accounts__output"></tbody>
+        </table>
+        <br />
+        <!-- Back to top button -->
+        <a href="#accounts__top">
+          <input type="button" value="Back to top" class="link__r" />
+        </a>
+      </div>
     </div>
-    <!-- Right side section -->
-    <div class="right__side">
-      <!-- Create section -->
-      <h1 class="subtitle">Create</h1>
-      <br /><br />
-      <!-- New event form -->
-      <h1 class="heading">New event</h1>
-      <br />
-      <input
-        type="text"
-        class="event__name"
-        placeholder="Event name"
-        required
-      />
-      <br /><br />
-      <textarea
-        rows="1"
-        class="event__description auto__resize"
-        placeholder="Event description"
-        required
-      ></textarea>
-      <br /><br />
-      <input
-        type="number"
-        class="prize"
-        placeholder="Prize"
-        min="0"
-        max="1000"
-        required
-      />
-      <br /><br />
-      <input type="number" class="code" placeholder="Code" required />
-      <br /><br />
-      <label for="start">Start date</label>
-      <input
-        type="date"
-        id="start"
-        class="start__date"
-        placeholder="Start date"
-        required
-      />
-      <br /><br />
-      <label for="end">End date</label>
-      <input
-        type="date"
-        id="end"
-        class="end__date"
-        placeholder="End date"
-        required
-      />
-      <br /><br />
-      <input
-        type="button"
-        class="btn"
-        value="Create event"
-        onclick="createNewEvent()"
-      />
-      <br /><br /><br />
-      <!-- New account form -->
-      <h1 class="heading">New account</h1>
-      <br />
-      <input
-        type="text"
-        class="student__name student__fname"
-        placeholder="First name"
-        required
-      />
-      <br /><br />
-      <input
-        type="text"
-        class="student__name student__lname"
-        placeholder="Last name"
-        required
-      />
-      <br /><br />
-      <select class="student__grade" required>
-        <option value="" invalid selected disabled hidden>Grade</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-      </select>
-      <br /><br />
-      <input
-        type="text"
-        class="student__username"
-        placeholder="Student email"
-        required
-      />
-      <br /><br />
-      <input
-        type="button"
-        class="btn"
-        value="Create account"
-        onclick="createNewAccount()"
-      />
+    <!-- Inline buttons -->
+    <div class="inline">
+      <!-- Button to view events -->
+      <input type="button" class="redirects" value="View events" onclick="toggleEvents()" />
+      <!-- Button to view accounts -->
+      <input type="button" class="redirects" value="View Accounts" onclick="toggleAccounts()" />
+      <!-- Button to pick winners -->
+      <input type="button" class="redirects" value="Prizes" onclick="pickWinners()" />
     </div>
+    <br /><br />
+    <!-- Cards section -->
+    <div class="cards">
+      <!-- Total students card -->
+      <div class="card">
+        <h1 class="card__title">Total students</h1>
+        <br />
+        <h1 class="card__description" id="totalStudents"></h1>
+      </div>
+      <!-- Total events card -->
+      <div class="card">
+        <h1 class="card__title">Total events</h1>
+        <br />
+        <h1 class="card__description" id="totalEvents">2000</h1>
+      </div>
+    </div>
+    <div id="qm">
+      <span id="m">?</span>
+    </div>
+  </div>
+  <!-- Left side section -->
+  <div class="left__side">
+    <!-- Log out button -->
+    <a href="../../login.html">
+      <input type="button" value="Log out" class="link" />
+    </a>
+    <br /><br /><br />
+    <!-- Change password section -->
+    <h1 class="subtitle">Change password</h1>
+    <br />
+    <input type="password" placeholder="Current password" name="" id="CP" />
+    <br /><br />
+    <input type="password" placeholder="New password" name="" id="NP" />
+    <br /><br />
+    <input type="password" placeholder="Confirm new password" name="" id="CNP" />
+    <br /><br />
+    <input type="button" class="btn" value="Change Password" onclick="changePwd()" />
+    <br /><br /><br />
+    <!-- Send message section -->
+    <h1 class="subtitle">Send message</h1>
+    <br />
+    <!-- <input type="text" class="recipient" placeholder="Recipient"> -->
+    <!-- Recipient selection dropdown -->
+    <select name="" id="populate__recipients" required multiple>
+      <option value="" invalid selected disabled hidden>Recipient</option>
+    </select>
+    <br /><br />
+    <input type="text" class="subject" placeholder="Subject" />
+    <br /><br />
+    <textarea rows="1" class="message auto__resize" placeholder="Message"></textarea>
+    <br /><br />
+    <input type="button" class="btn" value="Send message" onclick="sendMessage()" />
+  </div>
+  <!-- Right side section -->
+  <div class="right__side">
+    <!-- Create section -->
+    <h1 class="subtitle">Create</h1>
+    <br /><br />
+    <!-- New event form -->
+    <h1 class="heading">New event</h1>
+    <br />
+    <input type="text" class="event__name" placeholder="Event name" required />
+    <br /><br />
+    <textarea rows="1" class="event__description auto__resize" placeholder="Event description" required></textarea>
+    <br /><br />
+    <input type="number" class="prize" placeholder="Prize" min="0" max="1000" required />
+    <br /><br />
+    <input type="number" class="code" placeholder="Code" required />
+    <br /><br />
+    <label for="start">Start date</label>
+    <input type="date" id="start" class="start__date" placeholder="Start date" required />
+    <br /><br />
+    <label for="end">End date</label>
+    <input type="date" id="end" class="end__date" placeholder="End date" required />
+    <br /><br />
+    <input type="button" class="btn" value="Create event" onclick="createNewEvent()" />
+    <br /><br /><br />
+    <!-- New account form -->
+    <h1 class="heading">New account</h1>
+    <br />
+    <input type="text" class="student__name student__fname" placeholder="First name" required />
+    <br /><br />
+    <input type="text" class="student__name student__lname" placeholder="Last name" required />
+    <br /><br />
+    <select class="student__grade" required>
+      <option value="" invalid selected disabled hidden>Grade</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+    <br /><br />
+    <input type="text" class="student__username" placeholder="Student email" required />
+    <br /><br />
+    <input type="button" class="btn" value="Create account" onclick="createNewAccount()" />
+  </div>
+  <div class="report__window" style="display: none">
+    <input type="button" class="redirects" value="Go back" onclick="hideReport()" id="the__top" />
+    <br /><br />
+    <h1 class="r__name subtitle">Placeholder</h1>
+    <br />
+    <table class="rev">
+      <thead>
+        <tr>
+          <th>Event name</th>
+        </tr>
+      </thead>
+      <tbody class="r__events"></tbody>
+    </table>
+    <br />
+    <h1 class="r__points heading">000</h1>
+  </div>
 
-    <<<<<<< HEAD
-    <div class="report__window" id="parsEvs" style="display: none">
-      <input
-        type="button"
-        class="redirects"
-        value="Go back"
-        onclick="hideParticipants()"
-      />
-      <br />
-      <table id="pTT">
-        <thead>
-          <tr>
-            <th>Email</th>
-          </tr>
-        </thead>
-      </table>
+
+  <<<<<<< HEAD <div class="report__window" id="parsEvs" style="display: none">
+    <input type="button" class="redirects" value="Go back" onclick="hideParticipants()" />
+    <br />
+    <table id="pTT">
+      <thead>
+        <tr>
+          <th>Email</th>
+        </tr>
+      </thead>
+    </table>
     </div>
     <div class="report__window" style="display: none" id="pointsSG">
       <button type="button" class="redirects" onclick="hidePointsSG()">
@@ -790,38 +694,9 @@
     =======
     <!-- Report window -->
     >>>>>>> a6a893159d467de85f65e49ed816e8539fcf2971
-    <div class="report__window" style="display: none">
-      <input
-        type="button"
-        class="redirects"
-        value="Go back"
-        onclick="hideReport()"
-        id="the__top"
-      />
-      <br /><br />
-      <h1 class="r__name subtitle">Placeholder</h1>
-      <br />
-      <table class="rev">
-        <thead>
-          <tr>
-            <th>Event name</th>
-          </tr>
-        </thead>
-        <tbody class="r__events"></tbody>
-      </table>
-      <br />
-      <h1 class="r__points heading">000</h1>
-    </div>
-
     <!-- Prize table -->
     <div class="report__window" style="display: none" id="prize-table">
-      <input
-        type="button"
-        class="redirects"
-        value="Go back"
-        onclick="hideWinners()"
-        id="the__top"
-      /><br /><br />
+      <input type="button" class="redirects" value="Go back" onclick="hideWinners()" id="the__top" /><br /><br />
       <table>
         <tr>
           <th>Prize</th>
@@ -855,68 +730,28 @@
         <h2>Quarter Dates</h2>
         <br />
         <label for="first-quarter-start">First Quarter Start:</label><br />
-        <input
-          type="date"
-          id="first-quarter-start"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="first-quarter-start" class="short" required /><br /><br />
 
         <label for="first-quarter-end">First Quarter End:</label><br />
-        <input
-          type="date"
-          id="first-quarter-end"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="first-quarter-end" class="short" required /><br /><br />
 
         <label for="second-quarter-start">Second Quarter Start:</label><br />
-        <input
-          type="date"
-          id="second-quarter-start"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="second-quarter-start" class="short" required /><br /><br />
 
         <label for="second-quarter-end">Second Quarter End:</label><br />
-        <input
-          type="date"
-          id="second-quarter-end"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="second-quarter-end" class="short" required /><br /><br />
 
         <label for="third-quarter-start">Third Quarter Start:</label><br />
-        <input
-          type="date"
-          id="third-quarter-start"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="third-quarter-start" class="short" required /><br /><br />
 
         <label for="third-quarter-end">Third Quarter End:</label><br />
-        <input
-          type="date"
-          id="third-quarter-end"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="third-quarter-end" class="short" required /><br /><br />
 
         <label for="fourth-quarter-start">Fourth Quarter Start:</label><br />
-        <input
-          type="date"
-          id="fourth-quarter-start"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="fourth-quarter-start" class="short" required /><br /><br />
 
         <label for="fourth-quarter-end">Fourth Quarter End:</label><br />
-        <input
-          type="date"
-          id="fourth-quarter-end"
-          class="short"
-          required
-        /><br /><br />
+        <input type="date" id="fourth-quarter-end" class="short" required /><br /><br />
 
         <button type="submit" id="submit-btn redirects">Save Dates</button>
       </form>
@@ -941,11 +776,7 @@
       </div>
     </div>
 
-    <<<<<<< HEAD
-    <img
-      src="../../logo.png"
-      alt=""
-      style="
+    <<<<<<< HEAD <img src="../../logo.png" alt="" style="
         width: 6rem;
         height: 6rem;
         border-radius: 10rem;
@@ -953,14 +784,10 @@
         bottom: 2rem;
         left: 2rem;
         z-index: 99999;
-      "
-    />
+      " />
     =======
     <!-- Logo -->
-    <img
-      src="../../logo.png"
-      alt=""
-      style="
+    <img src="../../logo.png" alt="" style="
         width: 6rem;
         height: 6rem;
         border-radius: 10rem;
@@ -968,11 +795,11 @@
         bottom: 2rem;
         left: 2rem;
         z-index: 99999;
-      "
-    />
+      " />
     >>>>>>> a6a893159d467de85f65e49ed816e8539fcf2971
 
     <!-- JavaScript -->
     <script src="../preload/admin_preload.js"></script>
-  </body>
+</body>
+
 </html>
